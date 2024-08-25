@@ -5,7 +5,12 @@
  * Author : Martynas
  */ 
 
+#define F_CPU 16000000UL // Set the CPU clock frequency 16 MHz
+
 #include <avr/io.h>
+#include <stdio.h>
+
+#include "Drivers/UART/uart_driver.h"
 
 
 int main(void)

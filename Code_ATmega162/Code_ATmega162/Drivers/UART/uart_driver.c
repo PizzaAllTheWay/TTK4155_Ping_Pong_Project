@@ -33,6 +33,8 @@ void uart_init(uint32_t f_osc, unsigned long baud_rate) {
 	// Luckily we just use the regular mode where we use UCSRC register for all data manipulation instead of UBRRH
 	// UBRRH (Used to specify baud rate, clock frequencies and addresses, from what we understand)
 	// UCSR0C |= (1 << URSEL0); 
+	// However This is a newer version of AVR Architecture and we don't need to specify that
+	// UCSRC and UBRRH have separate memory
 	
 	// UCSZ0 and UCSZ1 and UCSZ2 specifies what kind of data we want
 	// We want data in 8-bit format as we are not crazy <3
@@ -59,7 +61,7 @@ void uart_init(uint32_t f_osc, unsigned long baud_rate) {
 	UBRR0H = (UBRR0_value >> 8); // MSB
 }
 
-void uart_send_byte(char msg) {
+void _uart_send_byte(char msg) {
 	// UCSR0A has a status bit that indicates if the UART line is ready to Transmit data
 	// We check if this bit is ready when it UDRE0 is 1
 	// If the bit UDRE0 is 0, then we wait
@@ -73,18 +75,18 @@ void uart_send_byte(char msg) {
 void uart_send_message(char *msg) {
 	// Loop until the null terminator is encountered
 	while (*msg) {  
-		uart_send_byte(*msg);  // Send the current character
+		_uart_send_byte(*msg);  // Send the current character
 		msg++;  // Move to the next character in the string
 	}
 	
 	// Add additional spacing for better readability
 	char extra_message[3] = " \n\0";
-	uart_send_byte(extra_message[0]);
-	uart_send_byte(extra_message[1]);
-	uart_send_byte(extra_message[2]);
+	_uart_send_byte(extra_message[0]);
+	_uart_send_byte(extra_message[1]);
+	_uart_send_byte(extra_message[2]);
 }
 
-char uart_receive_byte(void) {
+char _uart_receive_byte(void) {
 	// UCSR0A has a status bit that indicates if the UART line has received data
 	// We check if this bit is ready when it RXC0 is 1
 	// If the bit RXC0 is 0, then we wait
@@ -100,7 +102,7 @@ void uart_receive_message(char *buffer, uint8_t max_length) {
 	
 	// Loop until the buffer is full or until we receive a newline character
 	while (i < max_length - 1) {
-		received_char = uart_receive_byte();  // Receive a byte
+		received_char = _uart_receive_byte();  // Receive a byte
 		
 		// Check for newline, which will signify the end of the message
 		if (received_char == '\n') {

@@ -7,7 +7,7 @@
  * UART Driver for the project to send basic data back and forth for debugging purposes :) 
  */ 
 
-
+/*
 #ifndef UART_DRIVER_H_
 #define UART_DRIVER_H_
 
@@ -16,4 +16,6 @@
 
 void uart_init(void);
 
-#endif /* UART_DRIVER_H_ */
+#endif
+
+*/

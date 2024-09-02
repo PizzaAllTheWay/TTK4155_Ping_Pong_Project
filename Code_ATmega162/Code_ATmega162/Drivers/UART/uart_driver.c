@@ -7,6 +7,7 @@
  * UART Driver for the project to send basic data back and forth for debugging purposes :) 
  */ 
 
+/*
 #include "uart_driver.h"
 
 static int uart_putchar(char c, FILE *stream) {
@@ -41,3 +42,4 @@ void uart_init(void) {
 	stdout = &uart_output;
 	stdin = &uart_input;
 }
+*/

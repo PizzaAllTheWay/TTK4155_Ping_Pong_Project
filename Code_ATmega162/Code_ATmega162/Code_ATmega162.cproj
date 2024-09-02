@@ -136,10 +136,10 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Drivers\Tests\test1.c">
+    <Compile Include="Drivers\Debugging\debug_led.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Drivers\Tests\test1.h">
+    <Compile Include="Drivers\Debugging\debug_led.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Drivers\UART\uart_driver.c">
@@ -155,7 +155,7 @@
   <ItemGroup>
     <Folder Include="Drivers" />
     <Folder Include="Drivers\UART" />
-    <Folder Include="Drivers\Tests" />
+    <Folder Include="Drivers\Debugging" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

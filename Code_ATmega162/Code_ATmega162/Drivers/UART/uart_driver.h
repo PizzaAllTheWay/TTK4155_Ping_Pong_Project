@@ -16,7 +16,9 @@
 void uart_init(uint32_t f_osc, unsigned long baud_rate);
 
 void uart_send_byte(char msg);
-
 void uart_send_message(char *msg);
+
+char uart_receive_byte(void);
+void uart_receive_message(char *buffer, uint8_t max_length);
 
 #endif

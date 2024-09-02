@@ -76,5 +76,44 @@ void uart_send_message(char *msg) {
 		uart_send_byte(*msg);  // Send the current character
 		msg++;  // Move to the next character in the string
 	}
+	
+	// Add additional spacing for better readability
+	char extra_message[3] = " \n\0";
+	uart_send_byte(extra_message[0]);
+	uart_send_byte(extra_message[1]);
+	uart_send_byte(extra_message[2]);
+}
+
+char uart_receive_byte(void) {
+	// UCSR0A has a status bit that indicates if the UART line has received data
+	// We check if this bit is ready when it RXC0 is 1
+	// If the bit RXC0 is 0, then we wait
+	while (!(UCSR0A & (1 << RXC0)));
+
+	// Get and return received data from the buffer
+	return UDR0;
+}
+
+void uart_receive_message(char *buffer, uint8_t max_length) {
+	char received_char;
+	uint8_t i = 0;
+	
+	// Loop until the buffer is full or until we receive a newline character
+	while (i < max_length - 1) {
+		received_char = uart_receive_byte();  // Receive a byte
+		
+		// Check for newline, which will signify the end of the message
+		if (received_char == '\n') {
+			break;
+		}
+		
+		// Store the received character in the buffer
+		buffer[i] = received_char;
+		i++;
+	}
+	
+	// Null terminate the string
+	// This will ensure that when we read or manipulate data it is easier to handle it
+	buffer[i] = '\0';
 }
 

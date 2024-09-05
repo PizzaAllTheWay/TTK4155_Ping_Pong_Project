@@ -14,6 +14,7 @@
 
 #include "Drivers/Debugging/debug_led.h"
 #include "Drivers/UART/uart_driver.h"
+#include "Drivers/External_SRAM/external_sram.h"
 
 
 

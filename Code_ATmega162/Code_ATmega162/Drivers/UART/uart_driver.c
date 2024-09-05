@@ -12,6 +12,9 @@
 
 void uart_init(uint32_t f_osc, unsigned long baud_rate) {
 	// USART Control and Status Register
+	
+	// For more information on this topic read data sheet for Micro controller ATmega162
+	// Page 186: USART Control and Status Register A – UCSRA
 	UCSR0A = 0x00; // Clear register
 	
 	// UCSRB is responsible for Enable/Disable Transceiving and Receiving of data
@@ -55,6 +58,14 @@ void uart_init(uint32_t f_osc, unsigned long baud_rate) {
 	// UBRR = (f_osc/(16 * baud_rate)) - 1
 	// After calculation we set UBRRL with the 8 least significant bits (LSB)
 	// UBRRH is set with 8 MSB
+	
+	// For more information on this topic read data sheet for Micro controller ATmega162
+	// Page 168: AVR USART vs. AVR UART – Compatibility
+	// Page 169: Internal Clock Generation – The Baud Rate Generator
+	// Page 172: USART Initialization
+	// Page 181: Asynchronous Operational Range
+	// Page 186: USART Register Description
+	// Page 190: USART Baud Rate Registers – UBRRL and UBRRH
 	uint16_t UBRR0_value = (f_osc/(16 * baud_rate)) - 1;
 	
 	UBRR0L = UBRR0_value; // LSB
@@ -69,6 +80,10 @@ void _uart_send_byte(char msg) {
 	
 	// Set message to the register
 	// The register will then send this data
+	
+	// For more information on this topic read data sheet for Micro controller ATmega162
+	// Page 173: Data Transmission – The USART Transmitter
+	// Page 173: Sending Frames with 5 to 8 Data Bit
 	UDR0 = msg;
 }
 
@@ -93,6 +108,11 @@ char _uart_receive_byte(void) {
 	while (!(UCSR0A & (1 << RXC0)));
 
 	// Get and return received data from the buffer
+	
+	// For more information on this topic read data sheet for Micro controller ATmega162
+	// Page 175: Data Reception – The USART Receiver
+	// Page 176: Receiving Frames with 5 to 8 Data Bits
+	// Page 179: Flushing the Receive Buffer
 	return UDR0;
 }
 

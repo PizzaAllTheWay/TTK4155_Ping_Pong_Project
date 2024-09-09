@@ -11,7 +11,12 @@ class SerialCommunicationDriver:
         self.ser.write(message + b'\n')  # Append newline character and send as bytes, \n signifies to microcontroller its end of the message
 
     def read(self):
-        return (self.ser.readline().decode('utf-8').strip()) + "\r"  # Read, decode, strip, and add carriage return
+        data = self.ser.readline().decode('utf-8', errors='ignore').strip()
+        data = str(data) + "\r"  # Add carriage return
+        return data
+
+    def read_raw(self):
+        return str(self.ser.readline()) + "\r"
 
     def close(self):
         self.ser.close()

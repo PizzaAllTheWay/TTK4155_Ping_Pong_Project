@@ -67,7 +67,8 @@ void external_sram_init() {
 	// It prevents the bus from floating, reducing noise and power consumption while maintaining bus stability.
 	// Since all external devices share the same bus and have tri-state (floating) outputs when not selected, enabling the Bus Keeper ensures the bus is not left in a floating state.
 	SFIOR |= (1 << XMBK);  // Enable the Bus Keeper for the external data bus (AD7-0)
-
+	
+	SFIOR |= (1 << XMM2);
 	// The external SRAM is now configured and ready to use.
 }
 
@@ -82,19 +83,20 @@ void external_sram_write(uint16_t start_address, char* data_array, uint16_t arra
 	if (start_address < EXTERNAL_SRAM_ADDRESS_START) {
 		return;
 	}
+	if (start_address > EXTERNAL_SRAM_ADDRESS_END) {
+		return;
+	}
 
+	// If the current address exceeds the SRAM end address, stop writing (i.e over 0x1FFF)
+	if (array_length > (EXTERNAL_SRAM_ADDRESS_END - start_address)) {
+		return;
+	}
+	
 	// Write to the external memory
-	for (uint16_t i = 0; i < array_length; i++) {
-		uint16_t current_address = start_address + i;
-
-		// If the current address exceeds the SRAM end address, stop writing (i.e over 0x1FFF)
-		if (current_address > EXTERNAL_SRAM_ADDRESS_END) {
-			return;
-		}
-
-		// Write the data to the SRAM
-		// Calculate the offset from the SRAM base address
-		sram_data[current_address - EXTERNAL_SRAM_ADDRESS_START] = data_array[i];
+	for (uint16_t current_address = 0; current_address < array_length; current_address++) {
+		sram_data[current_address] = data_array[current_address];
+		
+		_delay_ms(1); // A small delay because the SRAM data buss is EXTREMELY noisy X-X
 	}
 }
 
@@ -109,18 +111,19 @@ void external_sram_read(uint16_t start_address, char* buffer_array, uint16_t buf
 	if (start_address < EXTERNAL_SRAM_ADDRESS_START) {
 		return;
 	}
+	if (start_address > EXTERNAL_SRAM_ADDRESS_END) {
+		return;
+	}
+	
+	// If the current address exceeds the SRAM end address, stop writing (i.e over 0x1FFF)
+	if (buffer_size > (EXTERNAL_SRAM_ADDRESS_END - start_address)) {
+		return;
+	}
 
 	// Read from the external memory
-	for (uint16_t i = 0; i < buffer_size; i++) {
-		uint16_t current_address = start_address + i;
-
-		// If the current address exceeds the SRAM end address, stop reading (i.e over 0x1FFF)
-		if (current_address > EXTERNAL_SRAM_ADDRESS_END) {
-			return;
-		}
-
-		// Read the data from the SRAM
-		// Calculate the offset from the SRAM base address
-		buffer_array[i] = sram_data[current_address - EXTERNAL_SRAM_ADDRESS_START];
+	for (uint16_t current_address = 0; current_address < buffer_size; current_address++) {
+		buffer_array[current_address] = sram_data[current_address];
+		
+		_delay_ms(1); // A small delay because the SRAM data buss is EXTREMELY noisy X-X
 	}
 }

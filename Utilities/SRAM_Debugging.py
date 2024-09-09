@@ -14,17 +14,14 @@ vet til data tilbake (data du ga meg - 1)
 samenlight  TRUE/FALSE på om det var korrekt før og etter
 """
 
-def getch():
-    """Captures keyboard input without pressing enter."""
-    fd = sys.stdin.fileno()
-    old_settings = termios.tcgetattr(fd)
-    try:
-        tty.setraw(sys.stdin.fileno())
-        ch = sys.stdin.read(1)
-    finally:
-        termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
-    return ch
-
+#ikke 100% sikker på om denne er i orden mtp datatyper
+#val er int, recieved er str (me thinks)
+def compare(sent, recieved):
+    val = sent - 1
+    if (val == recieved):
+        return True
+    else:
+        return False
 
 def main():
     """dont care about address right now"""
@@ -37,6 +34,8 @@ def main():
 
     serial_port = '/dev/ttyS4'
     baud_rate = 9600
+    fail = 0
+    reps = 100
 
     try:
         # Initialize the serial communication driver
@@ -44,33 +43,30 @@ def main():
         print(f"Connected to {serial_port} at {baud_rate} baud rate.")
         print("Press ESC to exit.")
         print("Press ENTER to start, and to send data to the SRAM.")
-        
-        while True:
-            key = getch()
-            if key == '\x1b':  # ESC key
-                print("ESC pressed. Exiting...")
-                break
-            elif key == '\r':  # Enter key
-                some_value = random.randint(1, 255)
-                some_value &= 0xFF # Ensure the value is within 8 bits
-                print(f"ENTER pressed. Sending:\t {some_value}")
-                driver.write(some_value)
 
-                time.sleep(0.5)
-                retrieved_value = driver.read()
-
-                if retrieved_value: 
-                    if retrieved_value == (some_value - 1):
-                        print(f"SRAM test completed with no errors")
-                    else:
-                        print(f"Value recieved from SRAM: {retrieved_value} \t(should be {some_value - 1})")
+        for _ in range(reps):
+            some_value = random.randint(1, 255)
+            print(f"\nSending:\t\t\t {some_value}")
+            driver.write(some_value.to_bytes(1, byteorder = 'big'))
+            driver.write('\n')
+            retrieved_value = driver.read()
+            if retrieved_value: 
+                if compare(some_value, retrieved_value):
+                    print(f"SRAM test completed with no errors.\r")
                 else:
-                    print("No data recieved :C")
+                    print(f"Value recieved from SRAM: \t{retrieved_value}\r")
+                    print(f"Value should be: \t\t {some_value - 1}\r")
+                    fail += 1
+            else:
+                print("No bitches?")            
     except Exception as e:
         print(f"Error: {e}")
     finally:
         driver.close()
         print("Serial connection closed.")
+    
+    fail_rate = 100*fail/reps
+    print(f"fail percentage: \t {fail_rate:.2f}")
 
 if __name__ == "__main__":
     main()

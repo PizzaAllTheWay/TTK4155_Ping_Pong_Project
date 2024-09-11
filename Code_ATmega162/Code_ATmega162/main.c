@@ -33,37 +33,16 @@ int main(void)
 	
 	
 	// Variables used in infinite loop
-	char uart_message[6] = "HELLO!";
-	char sram_data_buffer[7];
-	sram_data_buffer[6] = '\0'; // WARNING because of internal RAM being funky, if the last buffer value is not NULL TERMINATED, we will have big issues down the line
-	
-	
+	char uart_message[1] = "I";
+	char sram_data_buffer[2];
+	sram_data_buffer[1] = '\0'; // WARNING because of internal RAM being funky, if the last buffer value is not NULL TERMINATED, we will have big issues down the line
 
     // Infinite loop
     while (1) 
     {
 		//debug_led_blink();
 		
-		// SRAM Shenanigans
-		external_sram_bootleg_write(EXTERNAL_SRAM_ADDRESS_START, uart_message, 6);
-		external_sram_bootleg_read(EXTERNAL_SRAM_ADDRESS_START, sram_data_buffer, 6); // The last 7th bit is just to null everything
-		
-		uart_send_message("Testing: ");
-		uart_send_message(uart_message);
-		uart_send_message(sram_data_buffer);
-		
-		_delay_ms(1);
-		
-		
-		
-		// Test external SRAM
-		/*
-		uart_receive_message(uart_message, 1);
-		external_sram_write(EXTERNAL_SRAM_ADDRESS_START, uart_message, 1); // Write UART sent message to SRAM
-		external_sram_read(EXTERNAL_SRAM_ADDRESS_START, sram_data_buffer, 1); // Read SRAM saved message from UART and save it into SRAM data buffer
-		sram_data_buffer[0] -= 0x01; // Manipulate data before sending it
-		uart_send_message(sram_data_buffer);
-		*/
+				
 		
 		/*
 		// UART Testing
@@ -71,6 +50,14 @@ int main(void)
 		uart_receive_message(uart_message, 20);
 		uart_send_message(message_to_print);
 		*/
+		
+		// SRAM Testing
+		uart_receive_message(uart_message, 1);
+		external_sram_write(EXTERNAL_SRAM_ADDRESS_START, uart_message, 1); // Write UART sent message to SRAM
+		external_sram_read(EXTERNAL_SRAM_ADDRESS_START, sram_data_buffer, 1); // Read SRAM saved message from UART and save it into SRAM data buffer
+		// NOTE: The last 2nd bit in external_sram_read is just to null everything, thats why we don't fill it
+		sram_data_buffer[0] -= 0x01; // Manipulate data before sending it
+		uart_send_message(sram_data_buffer);
     }
 	
 	// Exit

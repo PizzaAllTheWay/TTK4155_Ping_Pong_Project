@@ -87,10 +87,12 @@ char external_data_bus_read(uint16_t address) {
 	PORTE &= ~(1 << PE1); // Release latch
 	
 	// Now we read data from external SRAM
-	PORTA = 0x00; // Clear Port A 
 	DDRA = 0x00; // Set A0-A7 as input PIO
+	PORTA = 0x00; // Clear Port A 
 	PORTD &= ~(1 << PD7); // RD LOW when reading data from external SRAM
-	_delay_us(1); // Delay to get external SRAM to activate
+	//_delay_us(3); // Delay to get external SRAM to activate
+	// NOTE: Since the internal pull Down for port A is fucked, we must compensates by adding a external pull down
+	// This pull down still takes to long time to discharge, so we need to add this delay in order for signals to discharge before each data transferr
 	char data = PORTA; // Read External SRAM data
 	PORTD |= (1 << PD7); // RD HIGH after data read from external SRAM done
 	

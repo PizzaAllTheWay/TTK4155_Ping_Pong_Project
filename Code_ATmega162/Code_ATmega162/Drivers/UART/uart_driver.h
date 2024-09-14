@@ -13,6 +13,8 @@
 #include <avr/io.h> // This includes definitions for MCU-specific registers for UART Communication
 #include <stdio.h>
 
+#include <util/delay.h>
+
 
 
 // NOTE: To make I/O Ports for Microcontroller ATmega162 function as UART, we must initialize it first before we use any of the functionalities

@@ -29,7 +29,7 @@ void uart_init(uint32_t f_osc, unsigned long baud_rate) {
 	// It also sets the mode of operation synchronous/asynchronous
 	// Synchronous are for clock that are synchronized, ours are not
 	// We will be using asynchronous mode
-	UCSR0C = 0x00; // Clear register
+	UCSR0C = 0x86; // Clear register to be default 1000 0110
 	
 	// Select register UCSRC, ensuring we are writing to UCSRC register and not UBRRH register
 	// This is because UCSRC and UBRRH can share same memory address because of memory constraints, thats the short of it
@@ -66,7 +66,9 @@ void uart_init(uint32_t f_osc, unsigned long baud_rate) {
 	// Page 181: Asynchronous Operational Range
 	// Page 186: USART Register Description
 	// Page 190: USART Baud Rate Registers – UBRRL and UBRRH
-	uint16_t UBRR0_value = (f_osc/(16 * baud_rate)) - 1;
+	// IT should be uint16_t UBRR0_value = (f_osc/(16 * baud_rate)) - 1;
+	// However the system is retarded
+	uint16_t UBRR0_value = (f_osc/(128 * baud_rate)) - 1;
 	
 	UBRR0L = UBRR0_value; // LSB
 	UBRR0H = (UBRR0_value >> 8); // MSB
@@ -105,6 +107,8 @@ char _uart_receive_byte(void) {
 	// UCSR0A has a status bit that indicates if the UART line has received data
 	// We check if this bit is ready when it RXC0 is 1
 	// If the bit RXC0 is 0, then we wait
+	//while (!(UCSR0A & (1 << RXC0)));
+	
 	while (!(UCSR0A & (1 << RXC0)));
 
 	// Get and return received data from the buffer
@@ -121,11 +125,11 @@ void uart_receive_message(char *buffer, uint8_t max_length) {
 	uint8_t i = 0;
 	
 	// Loop until the buffer is full or until we receive a newline character
-	while (i < max_length - 1) {
+	while (i < max_length) {
 		received_char = _uart_receive_byte();  // Receive a byte
 		
 		// Check for newline, which will signify the end of the message
-		if (received_char == '\n') {
+		if (received_char == '\n' || received_char == '\t' || received_char == '\0') {
 			break;
 		}
 		

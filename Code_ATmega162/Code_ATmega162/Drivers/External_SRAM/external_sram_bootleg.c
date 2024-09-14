@@ -45,7 +45,7 @@ void external_sram_bootleg_read(uint16_t start_address, char* buffer_array, uint
 	}
 
 	// Read from the external memory
-	for (uint16_t i = 0; i < buffer_size; i++) {
+	for (uint16_t i = 0; i <= buffer_size; i++) {
 		uint16_t adress = start_address + i;
 		buffer_array[i] = external_data_bus_read(adress);
 	}

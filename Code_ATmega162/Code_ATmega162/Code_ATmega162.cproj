@@ -142,22 +142,10 @@
     <Compile Include="Drivers\Debugging\debug_led.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Drivers\External_data_bus\external_data_bus.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Drivers\External_data_bus\external_data_bus.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="Drivers\External_SRAM\external_sram.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Drivers\External_SRAM\external_sram.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Drivers\External_SRAM\external_sram_bootleg.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Drivers\External_SRAM\external_sram_bootleg.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Drivers\UART\uart_driver.c">
@@ -173,7 +161,6 @@
   <ItemGroup>
     <Folder Include="Drivers" />
     <Folder Include="Drivers\External_SRAM" />
-    <Folder Include="Drivers\External_data_bus" />
     <Folder Include="Drivers\UART" />
     <Folder Include="Drivers\Debugging" />
   </ItemGroup>

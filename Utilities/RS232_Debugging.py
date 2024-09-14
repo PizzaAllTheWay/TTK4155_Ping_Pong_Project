@@ -21,7 +21,7 @@ def listen_serial(driver):
         while True:
             message = driver.read()
             if message:
-                print(f"Received: {message}")
+                print(f"Received: {message}\r")
 
     except Exception as e:
         print(f"Unexpected error: {e}")
@@ -29,7 +29,7 @@ def listen_serial(driver):
 def main():
     # Update these variables with your serial port and baud rate.
     serial_port = '/dev/ttyS4'
-    baud_rate = 9600
+    baud_rate = 9600 
 
     special_message = "Coolbeans"
 
@@ -43,6 +43,7 @@ def main():
         listener_thread.start()
 
         print("Press ESC to send 'Hello World :)' and exit.")
+
         print("Press ENTER to send 'Coolbeans' to the serial line.")
         
         while True:

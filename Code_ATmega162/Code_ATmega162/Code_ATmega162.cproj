@@ -136,6 +136,12 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Drivers\ADC\adc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\ADC\adc.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Drivers\Debugging\debug_led.c">
       <SubType>compile</SubType>
     </Compile>
@@ -161,6 +167,7 @@
   <ItemGroup>
     <Folder Include="Drivers" />
     <Folder Include="Drivers\External_SRAM" />
+    <Folder Include="Drivers\ADC" />
     <Folder Include="Drivers\UART" />
     <Folder Include="Drivers\Debugging" />
   </ItemGroup>

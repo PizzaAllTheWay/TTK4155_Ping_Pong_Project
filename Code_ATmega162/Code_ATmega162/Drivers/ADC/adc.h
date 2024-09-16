@@ -17,14 +17,19 @@
 
 
 
+// NOTE: In order for External SRAM, ADC and OLED to function properly this initialization MUST stay here
+// This initialization configures the data and register buss between them
+#include "../External_SRAM/external_sram.h"
+
+
+
 #define ADC_BUSY_PIN PD2      // BUSY pin for ADC (using PD2/INT0 for interrupt handling)
 #define ADC_BASE_ADDR 0x1400  // Base address for ADC in external memory
-#define ADC_CLOCK_PIN PD5     // OC1A (PD5) used as clock output for the ADC
-#define ADC_NUM_CHANNELS  4   // Number of ADC channels
+#define ADC_NUM_CHANNELS 4   // Number of ADC channels
 
 
 
-void init_adc_and_clock(void);
+void adc_init();
 uint8_t get_latest_adc_data(void);
 
 

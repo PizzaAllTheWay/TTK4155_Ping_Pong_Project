@@ -4,6 +4,17 @@ import tty
 import threading
 from SerialCommunicationDriver import SerialCommunicationDriver  # Import the custom SerialCommunicationDriver
 
+def filter_and_convert_to_int(data):
+    # data is a bytes object
+    if data:
+        # Convert data to a list of integers
+        data_list = list(data)
+        # Return the first byte's integer value
+        value = data_list[0]
+        return value
+    else:
+        return 0
+
 def getch():
     """Captures keyboard input without pressing enter."""
     fd = sys.stdin.fileno()
@@ -19,9 +30,10 @@ def listen_serial(driver):
     """Listens to the serial port and prints messages when received."""
     try:
         while True:
-            message = driver.read()
+            message = driver.read_raw()
             if message:
                 print(f"Received: {message}\r")
+                print(f"int: {filter_and_convert_to_int(message)}\r")
 
     except Exception as e:
         print(f"Unexpected error: {e}")

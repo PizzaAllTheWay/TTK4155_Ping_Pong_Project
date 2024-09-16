@@ -24,5 +24,18 @@ class SerialCommunicationDriver:
             #raw_data += "\r"
         return raw_data
 
+    def read_as_int8():
+        data = self.read_raw()
+
+        # data is a bytes object
+        if data:
+            # Convert data to a list of integers
+            data_list = list(data)
+            # Return the first byte's integer value
+            value = data_list[0]
+            return value
+        else:
+            return 0
+
     def close(self):
         self.ser.close()

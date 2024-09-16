@@ -3,7 +3,7 @@ import numpy as np
 import time
 from SerialCommunicationDriver import SerialCommunicationDriver
 
-enum direction {up, down, left, right, neutral}
+# enum direction {up, down, left, right, neutral}
 
 
 def voltage_to_position(v):
@@ -39,14 +39,15 @@ def position_to_direction(x, y, neutral):
 
 #i would prefer a float though
 def filter_and_convert_to_int(data):
-    filtered_data = ord(str(data)[2]) #get the third character
-
-    print(f"Raw data: \t\t\t {data} \nFiltered data: \t\t\t {filtered_data}")
-    
-    if filtered_data:
-        return filtered_data
+    # data is a bytes object
+    if data:
+        # Convert data to a list of integers
+        data_list = list(data)
+        # Return the first byte's integer value
+        value = data_list[0]
+        return value
     else:
-        return 0 
+        return 0
 
 def main():
     baud_rate = 9600
@@ -56,8 +57,8 @@ def main():
 
     #joystick y, joystick x, button, touch
     bytes_to_read = 4
-    raw_data = [0] * bytes_to_read
-    converted_data = [0] * bytes_to_read
+    data_raw = [0] * bytes_to_read
+    data_converted = [0] * bytes_to_read
 
 
     try:
@@ -68,6 +69,7 @@ def main():
         print("Press ENTER to start")
 
         #initialize the plot
+        """
         plt.ion()
         fig, ((ax1, ax2), (ax3, ax4), (ax5, _)) = plt.subplots(3, 2)
         y_data, x_data, btn_data, touch = [], [], [], []
@@ -83,14 +85,20 @@ def main():
         ax3.set_title("Button")
         ax4.set_title("Touch")
         ax5.set_title("Joystick position")
+        """
 
         while(True):
-            #recieve and convert data, one byte at a time
-            #don't know if it works if the input is an int
-            for i in range (bytes_to_read):
-                raw_data[i] = driver.read_raw()
-                converted_data[i] = filter_and_convert_to_int(raw_data[i])
+            # Read 4 bytes of data as there are 4 chanels each with its own message
+            for i in range(bytes_to_read):
+                data_raw[i] = driver.read_raw()
 
+            # Convert all the raw data to readable format from hex to int
+            for i in range(bytes_to_read):
+                data_converted[i] = filter_and_convert_to_int(data_raw[i])
+
+            print(f"Converted Data: {data_converted}")
+
+            """
             #calculate position from data
             y_position = voltage_to_position(converted_data[0])
             x_position = voltage_to_position(converted_data[1])
@@ -125,6 +133,7 @@ def main():
 
             plt.draw()
             plt.pause(0.1)
+            """
                         
     except Exception as e:
         print(f"Error: {e}")

@@ -74,7 +74,7 @@ void uart_init(uint32_t f_osc, unsigned long baud_rate) {
 	UBRR0H = (UBRR0_value >> 8); // MSB
 }
 
-void _uart_send_byte(char msg) {
+void uart_send_byte(char msg) {
 	// UCSR0A has a status bit that indicates if the UART line is ready to Transmit data
 	// We check if this bit is ready when it UDRE0 is 1
 	// If the bit UDRE0 is 0, then we wait
@@ -92,15 +92,15 @@ void _uart_send_byte(char msg) {
 void uart_send_message(char *msg) {
 	// Loop until the null terminator is encountered
 	while (*msg) {  
-		_uart_send_byte(*msg);  // Send the current character
+		uart_send_byte(*msg);  // Send the current character
 		msg++;  // Move to the next character in the string
 	}
 	
 	// Add additional spacing for better readability
 	char extra_message[3] = " \0\n";
-	_uart_send_byte(extra_message[0]);
-	_uart_send_byte(extra_message[1]);
-	_uart_send_byte(extra_message[2]);
+	uart_send_byte(extra_message[0]);
+	uart_send_byte(extra_message[1]);
+	uart_send_byte(extra_message[2]);
 }
 
 char _uart_receive_byte(void) {

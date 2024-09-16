@@ -13,7 +13,6 @@
 
 #include <avr/io.h> // Basic IO pin convention for when configuring MCU to ADC pins
 #include <avr/interrupt.h> // For the interrupt service routine to know when the ADC is done sampling and BUSSY pin is free
-#include <util/delay.h>  // Include for timing functions
 
 
 

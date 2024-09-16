@@ -14,7 +14,7 @@
 
 #include "Drivers/Debugging/debug_led.h"
 #include "Drivers/UART/uart_driver.h"
-#include "Drivers/ADC/adc.h"
+#include "Drivers/Controls/controls.h"
 
 
 
@@ -25,15 +25,15 @@ int main(void)
 	uart_init(F_CPU, BAUD_RATE);
 	
 	// Interface Setup
-	adc_init();
+	controls_init();
 
 	
 	
 	// Variables used in infinite loop
 	char adc_data_buffer[ADC_NUM_CHANNELS];  // ADC buffer to store the data for all channels
-	char uart_message[ADC_NUM_CHANNELS + 1]; // Buffer to format the UART message, +1 for null termination
-	char test[10];
+	char uart_message[2]; // Buffer to format the UART message, +1 for null termination
 	
+
 
     // Infinite loop
     while (1) 
@@ -57,22 +57,24 @@ int main(void)
 		uart_send_message(sram_data_buffer);
 		*/
 		
+		/*
 		// Joystick Testing
 		if (get_all_adc_data((uint8_t*)adc_data_buffer)) {
 			// Prepare the message to send via UART (e.g., as a string or raw bytes)
 			for (uint8_t i = 0; i < ADC_NUM_CHANNELS; i++) {
-				uart_message[i] = adc_data_buffer[i];  // Copy ADC data into the UART message buffer
+				uart_message[0] = adc_data_buffer[i];  // Copy ADC data into the UART message buffer
+				uart_message[ADC_NUM_CHANNELS] = '\0';  // Null-terminate
+				
+				// Since ADC can be NULL 0x00, it can cause issues when sending data through
+				// Thats why we check if null and send 1 instead
+				if (uart_message[0] == 0x00) {
+					uart_message[0] = 0x01;
+				}
+				
+				uart_send_message(uart_message);
 			}
-
-			// Optionally null-terminate the message (if sending as a string)
-			uart_message[1] = '\0';
-			uart_message[ADC_NUM_CHANNELS] = '\0';  // Null-terminate
-
-
-			// Send the data buffer through UART
-			test[0] = uart_message[0];
-			uart_send_message(test);  // Send the message over UART
 		}
+		*/
     }
 	
 	// Exit

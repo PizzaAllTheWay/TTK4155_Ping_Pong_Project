@@ -9,7 +9,7 @@
 
 #include "adc.h"
 
-#include "../UART/uart_driver.h"
+
 
 // Global variables for ADC data
 volatile uint8_t adc_data[ADC_NUM_CHANNELS];  // Array to store data for each channel

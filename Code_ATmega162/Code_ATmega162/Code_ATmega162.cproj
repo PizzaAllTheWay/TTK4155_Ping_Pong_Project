@@ -142,6 +142,12 @@
     <Compile Include="Drivers\ADC\adc.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Drivers\Controls\controls.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\Controls\controls.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Drivers\Debugging\debug_led.c">
       <SubType>compile</SubType>
     </Compile>
@@ -168,6 +174,7 @@
     <Folder Include="Drivers" />
     <Folder Include="Drivers\External_SRAM" />
     <Folder Include="Drivers\ADC" />
+    <Folder Include="Drivers\Controls" />
     <Folder Include="Drivers\UART" />
     <Folder Include="Drivers\Debugging" />
   </ItemGroup>

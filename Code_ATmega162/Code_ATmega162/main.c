@@ -26,12 +26,11 @@ int main(void)
 	
 	// Interface Setup
 	controls_init();
-
 	
 	
 	// Variables used in infinite loop
 	char adc_data_buffer[ADC_NUM_CHANNELS];  // ADC buffer to store the data for all channels
-	char uart_message[2]; // Buffer to format the UART message, +1 for null termination
+	char uart_message[8]; // Buffer to format the UART message, +1 for null termination
 	
 
 
@@ -57,24 +56,25 @@ int main(void)
 		uart_send_message(sram_data_buffer);
 		*/
 		
-		/*
+		
 		// Joystick Testing
-		if (get_all_adc_data((uint8_t*)adc_data_buffer)) {
-			// Prepare the message to send via UART (e.g., as a string or raw bytes)
-			for (uint8_t i = 0; i < ADC_NUM_CHANNELS; i++) {
-				uart_message[0] = adc_data_buffer[i];  // Copy ADC data into the UART message buffer
-				uart_message[ADC_NUM_CHANNELS] = '\0';  // Null-terminate
-				
-				// Since ADC can be NULL 0x00, it can cause issues when sending data through
-				// Thats why we check if null and send 1 instead
-				if (uart_message[0] == 0x00) {
-					uart_message[0] = 0x01;
-				}
-				
-				uart_send_message(uart_message);
+		controls_refresh();
+		uart_message[0] = controls_get_joystick_y();
+		uart_message[1] = controls_get_joystick_x();
+		uart_message[2] = controls_get_pad_left();
+		uart_message[3] = controls_get_pad_right();
+		uart_message[4] = controls_get_joystick_button();
+		uart_message[5] = controls_get_pad_left_button();
+		uart_message[6] = controls_get_pad_right_button();
+		// Since values can be NULL 0x00, it can cause issues when sending data through
+		// Thats why we check if null and send -1 instead
+		for (int8_t i = 0; i < 8; i++) {
+			if (uart_message[i] == 0) {
+				uart_message[i] = (-1);
 			}
 		}
-		*/
+		uart_message[7] = '\0';
+		uart_send_message(uart_message);		
     }
 	
 	// Exit

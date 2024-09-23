@@ -61,6 +61,7 @@ void controls_init() {
 }
 
 
+
 void controls_refresh() {
 	// Check ADC for joystick and pad values
 	// ===================================================================================
@@ -134,26 +135,6 @@ void controls_refresh() {
 }
 
 
-//Function to get joystick pointing direction i.e. up, down, left, right, center as a byte
-JoystickDirection controls_get_joystick_direction() {
-    if (_joystic_x > JOYSTIC_DEADZONE && fabs(_joystic_y) < JOYSTIC_DEADZONE) {
-        return JOYSTIC_RIGHT;
-    } else if (_joystic_x < -JOYSTIC_DEADZONE && fabs(_joystic_y) < JOYSTIC_DEADZONE) {
-        return JOYSTIC_LEFT;
-    } else if (_joystic_y > JOYSTIC_DEADZONE && fabs(_joystic_x) < JOYSTIC_DEADZONE) {
-        return JOYSTIC_UP;
-    } else if (_joystic_y < -JOYSTIC_DEADZONE && fabs(_joystic_x) < JOYSTIC_DEADZONE) {
-        return JOYSTIC_DOWN;
-    } else {
-        return JOYSTIC_CENTER;
-    }
-}
-
-
-// Function to get joystick X value (float)
-float controls_get_joystick_x() {
-	return _joystic_x;
-}
 
 // Function to get joystick Y value (float)
 int8_t controls_get_joystick_y() {
@@ -189,6 +170,8 @@ int8_t controls_get_pad_left_button() {
 int8_t controls_get_pad_right_button() {
 	return _pad_right_button;
 }
+
+
 
 //Function to get joystick pointing direction i.e. up, down, left, right, center as a byte
 JoystickDirection controls_get_joystick_direction() {

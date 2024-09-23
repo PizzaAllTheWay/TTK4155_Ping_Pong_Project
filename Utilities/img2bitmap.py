@@ -9,7 +9,7 @@ current_threshold = 128  # Default threshold value
 current_width = 64  # Default width
 current_height = 64  # Default height
 # source image
-input_image_path = 'Utilities/Bitmap_files/Pinky_stock_art_sprite_pacman_website.webp'  # Replace with your input image path
+input_image_path = 'Utilities/Bitmap_files/Nyan_cat_250px_frame2.png'  # Replace with your input image path
 
 # Function to update and threshold the image
 def update_image(threshold=None, width=None, height=None):
@@ -83,7 +83,7 @@ def save_image(event):
 
 
     # Convert the numpy array back to a PIL Image
-    bw_image = Image.fromarray(bw_image_array.astype(np.uint8))
+    bw_image = Image.fromarray(bw_image_array.astype(np.uint8)).rotate(90, expand=True)
     
     # Save the image to the specified output path
     output_image_path = f'Utilities/Bitmap_files/{timestamp}_sprite_image.bmp'

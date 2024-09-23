@@ -160,7 +160,10 @@
     <Compile Include="Drivers\External_SRAM\external_sram.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Drivers\OLED\font.h">
+    <Compile Include="Drivers\OLED\fonts.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\OLED\fonts.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Drivers\OLED\oled.c">

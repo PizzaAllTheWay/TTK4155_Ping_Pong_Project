@@ -10,11 +10,10 @@
 
 
 
-#include <stdio.h>
-
 #include "Drivers/Debugging/debug_led.h"
 #include "Drivers/UART/uart_driver.h"
 #include "Drivers/Controls/controls.h"
+#include "Drivers/OLED/oled.h"
 
 
 
@@ -25,19 +24,21 @@ int main(void)
 	uart_init(F_CPU, BAUD_RATE);
 	
 	// Interface Setup
-	controls_init();
+	//controls_init();
+	oled_init();
+	
 	
 	
 	// Variables used in infinite loop
-	char adc_data_buffer[ADC_NUM_CHANNELS];  // ADC buffer to store the data for all channels
-	char uart_message[8]; // Buffer to format the UART message, +1 for null termination
-	
+	//char adc_data_buffer[ADC_NUM_CHANNELS];  // ADC buffer to store the data for all channels
+	//char uart_message[8]; // Buffer to format the UART message, +1 for null termination
+
 
 
     // Infinite loop
     while (1) 
     {
-		//debug_led_blink();
+		debug_led_blink();
 		
 		/*
 		// UART Testing
@@ -58,6 +59,7 @@ int main(void)
 		
 		
 		// Joystick Testing
+		/*
 		controls_refresh();
 		uart_message[0] = controls_get_joystick_y();
 		uart_message[1] = controls_get_joystick_x();
@@ -74,7 +76,13 @@ int main(void)
 			}
 		}
 		uart_message[7] = '\0';
-		uart_send_message(uart_message);		
+		uart_send_message(uart_message);
+		*/	
+		
+		// OLED testing
+		oled_clear_page(0);
+		oled_set_letter('!');
+		oled_set_letter(' ');
     }
 	
 	// Exit

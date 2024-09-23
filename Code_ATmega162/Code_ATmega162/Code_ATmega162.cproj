@@ -160,6 +160,21 @@
     <Compile Include="Drivers\External_SRAM\external_sram.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Drivers\Menu\menu.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\Menu\menu.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\Menu\sprite_bongo_cat.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\Menu\sprite_ghost.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\Menu\sprite_nyan_cat.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Drivers\OLED\fonts.c">
       <SubType>compile</SubType>
     </Compile>
@@ -187,6 +202,7 @@
     <Folder Include="Drivers\External_SRAM" />
     <Folder Include="Drivers\ADC" />
     <Folder Include="Drivers\Controls" />
+    <Folder Include="Drivers\Menu" />
     <Folder Include="Drivers\OLED" />
     <Folder Include="Drivers\UART" />
     <Folder Include="Drivers\Debugging" />

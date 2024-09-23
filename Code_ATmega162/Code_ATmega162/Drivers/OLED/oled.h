@@ -29,10 +29,21 @@
 
 
 void oled_set_text(uint8_t* text, uint8_t x, uint8_t y);
+
 void oled_clear_page(uint8_t page_rn);
 void oled_clear_screen();
+
 void oled_set_area_pattern(uint8_t pattern, uint8_t x_start, uint8_t y_start, uint8_t x_stop, uint8_t y_stop);
 void oled_set_nibble(uint8_t* nibble, uint8_t x, uint8_t y);
+void oled_set_sprite(uint8_t* sprite, uint8_t sprite_nibble_width, uint8_t sprite_nibble_height, uint8_t x, uint8_t y);
+
+void oled_move_screen(
+	uint8_t y_start,
+	uint8_t y_stop,
+	uint8_t speed_x,
+	uint8_t speed_y,
+	uint8_t direction_x
+);
 
 void oled_init();
 

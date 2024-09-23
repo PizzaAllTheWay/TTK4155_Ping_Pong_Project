@@ -160,6 +160,15 @@
     <Compile Include="Drivers\External_SRAM\external_sram.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Drivers\OLED\font.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\OLED\oled.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\OLED\oled.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Drivers\UART\uart_driver.c">
       <SubType>compile</SubType>
     </Compile>
@@ -175,6 +184,7 @@
     <Folder Include="Drivers\External_SRAM" />
     <Folder Include="Drivers\ADC" />
     <Folder Include="Drivers\Controls" />
+    <Folder Include="Drivers\OLED" />
     <Folder Include="Drivers\UART" />
     <Folder Include="Drivers\Debugging" />
   </ItemGroup>

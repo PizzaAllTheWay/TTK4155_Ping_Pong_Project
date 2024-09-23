@@ -16,13 +16,13 @@
 char _adc_data_buffer[ADC_NUM_CHANNELS];  // ADC buffer to store the data for all channels
 uint8_t _joystic_x_center = 0;
 uint8_t _joystic_y_center = 0;
-float _joystic_x = 0.0;
-float _joystic_y = 0.0;
-float _pad_left = 0.0;
-float _pad_right = 0.0;
-uint16_t _joystic_button = 0;
-uint16_t _pad_left_button = 0;
-uint16_t _pad_right_button = 0;
+int8_t _joystic_x = 0.0;
+int8_t _joystic_y = 0.0;
+int8_t _pad_left = 0.0;
+int8_t _pad_right = 0.0;
+int8_t _joystic_button = 0;
+int8_t _pad_left_button = 0;
+int8_t _pad_right_button = 0;
 
 
 
@@ -63,37 +63,75 @@ void controls_init() {
 
 void controls_refresh() {
 	// Check ADC for joystick and pad values
-	/*
 	// ===================================================================================
 	if (get_all_adc_data((uint8_t*)_adc_data_buffer)) {
-		MUST NORMALIZE around the new center
-		remember to includef deadzone
-		also this is not perect, like center is 160 not 127
+		// _adc_data_buffer[0] -> Joystic Y
+		// _adc_data_buffer[1] -> Joystic X
+		uint8_t joystic_val_y = _adc_data_buffer[0];
+		uint8_t joystic_val_x = _adc_data_buffer[1];
+		
+		// Get min and max of dead zone
+		uint8_t deadzone_y_min = _joystic_y_center - JOYSTIC_DEADZONE;
+		uint8_t deadzone_y_max = _joystic_y_center + JOYSTIC_DEADZONE;
+		uint8_t deadzone_x_min = _joystic_x_center - JOYSTIC_DEADZONE;
+		uint8_t deadzone_x_max = _joystic_x_center + JOYSTIC_DEADZONE;
 		
 		// Update joystick X and Y values (normalize)
-		if (_adc_data_buffer[1] < (_joystic_x_center - JOYSTIC_DEADZONE) {
-			_joystic_x = (float)(_adc_data_buffer[1] - _joystic_x_center);
+		// Joystick Y
+		if (joystic_val_y < deadzone_y_min) {
+			_joystic_y = ((deadzone_y_min - joystic_val_y)/((float)(deadzone_y_min))) * (-100.0);
 		}
-		_joystic_x = (float)(_adc_data_buffer[1] - _joystic_x_center);  // Subtract center for offset
-		_joystic_y = (float)(_adc_data_buffer[0] - _joystic_y_center);  // Subtract center for offset
+		else if (joystic_val_y > deadzone_y_max) {
+			_joystic_y = ((joystic_val_y - deadzone_y_max)/(255.0 - deadzone_y_max)) * 100.0;
+		}
+		else {
+			_joystic_y = 0;
+		}
+		
+		// Joystick X
+		if (joystic_val_x < deadzone_x_min) {
+			_joystic_x = ((deadzone_x_min - joystic_val_x)/((float)(deadzone_x_min))) * (-100.0);
+		}
+		else if (joystic_val_x > deadzone_x_max) {
+			_joystic_x = ((joystic_val_x - deadzone_x_max)/(255.0 - deadzone_x_max)) * 100.0;
+		}
+		else {
+			_joystic_x = 0;
+		}
 
-		// Update pad values if they are also connected to the ADC (if needed)
-		_pad_left = (float)_adc_data_buffer[2];  // Example if pad left is on channel 2
-		_pad_right = (float)_adc_data_buffer[3]; // Example if pad right is on channel 3
+		// Update pad values
+		_pad_left = (_adc_data_buffer[2]/255.0) * 100.0;
+		_pad_right = (_adc_data_buffer[3]/255.0) * 100.0; 
 	}
 	// ===================================================================================
-	*/
 
 	// Check the joystick button (on PINB1)
-	_joystic_button = !(PINB & (1 << PINB1));  // Active-low, so check if it's pressed
+	// Normaly HIGH
+	if (!(PINB & (1 << PINB1))) {
+		_joystic_button = 1;
+	}
+	else {
+		_joystic_button = 0;
+	}
 
 	// Check the left pad button (on PINB2)
-	_pad_left_button = !(PINB & (1 << PINB2));  // Active-low, so check if it's pressed
+	// Normaly LOW
+	if ((PINB & (1 << PINB2))) {
+		_pad_left_button = 1;
+	}
+	else {
+		_pad_left_button = 0;
+	}
 
 	// Check the right pad button (on PINB3)
-	_pad_right_button = !(PINB & (1 << PINB3));  // Active-low, so check if it's pressed
+	// Normaly LOW
+	if ((PINB & (1 << PINB3))) {
+		_pad_right_button = 1;
+	}
+	else {
+		_pad_right_button = 0;
+	}
 }
-
 
 
 //Function to get joystick pointing direction i.e. up, down, left, right, center as a byte
@@ -118,32 +156,37 @@ float controls_get_joystick_x() {
 }
 
 // Function to get joystick Y value (float)
-float controls_get_joystick_y() {
+int8_t controls_get_joystick_y() {
 	return _joystic_y;
 }
 
+// Function to get joystick X value (float)
+int8_t controls_get_joystick_x() {
+	return _joystic_x;
+}
+
 // Function to get pad left value (float)
-float controls_get_pad_left() {
+int8_t controls_get_pad_left() {
 	return _pad_left;
 }
 
 // Function to get pad right value (float)
-float controls_get_pad_right() {
+int8_t controls_get_pad_right() {
 	return _pad_right;
 }
 
 // Function to get joystick button state (uint16_t)
-uint16_t controls_get_joystick_button() {
+int8_t controls_get_joystick_button() {
 	return _joystic_button;
 }
 
 // Function to get left pad button state (uint16_t)
-uint16_t controls_get_pad_left_button() {
+int8_t controls_get_pad_left_button() {
 	return _pad_left_button;
 }
 
 // Function to get right pad button state (uint16_t)
-uint16_t controls_get_pad_right_button() {
+int8_t controls_get_pad_right_button() {
 	return _pad_right_button;
 }
 

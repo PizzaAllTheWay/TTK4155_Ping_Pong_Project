@@ -28,9 +28,11 @@
 
 
 
-void oled_set_letter(uint8_t letter);
+void oled_set_text(uint8_t* text, uint8_t x, uint8_t y);
 void oled_clear_page(uint8_t page_rn);
-void oled_clear_creen();
+void oled_clear_screen();
+void oled_set_area_pattern(uint8_t pattern, uint8_t x_start, uint8_t y_start, uint8_t x_stop, uint8_t y_stop);
+void oled_set_nibble(uint8_t* nibble, uint8_t x, uint8_t y);
 
 void oled_init();
 

@@ -22,23 +22,17 @@ int main(void)
 	// Debugging Setup
 	debug_led_init();
 	uart_init(F_CPU, BAUD_RATE);
-	
+
 	// Interface Setup
 	//controls_init();
 	oled_init();
 	
 	
-	
-	// Variables used in infinite loop
-	//char adc_data_buffer[ADC_NUM_CHANNELS];  // ADC buffer to store the data for all channels
-	//char uart_message[8]; // Buffer to format the UART message, +1 for null termination
-
-
 
     // Infinite loop
     while (1) 
     {
-		debug_led_blink();
+		//debug_led_blink();
 		
 		/*
 		// UART Testing
@@ -77,12 +71,12 @@ int main(void)
 		}
 		uart_message[7] = '\0';
 		uart_send_message(uart_message);
-		*/	
+		*/
 		
 		// OLED testing
-		oled_clear_page(0);
-		oled_set_letter('!');
-		oled_set_letter(' ');
+		oled_set_text("ABC", 40, 3);
+		oled_set_text("Hello World!", 10, 2);
+		oled_set_area_pattern(0xFF, 60, 5, 100, 7);
     }
 	
 	// Exit

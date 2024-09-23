@@ -158,6 +158,14 @@ void oled_set_sprite(uint8_t* sprite, uint8_t sprite_nibble_width, uint8_t sprit
 
 
 // Animation Functions
+void oled_move_screen_start() {
+	_oled_write_command(0x2F); // Activate scroll
+}
+
+void oled_move_screen_stop() {
+	_oled_write_command(0x2E); // Deactivate scroll
+}
+
 void oled_move_screen(
 	uint8_t y_start,
 	uint8_t y_stop,
@@ -178,7 +186,7 @@ void oled_move_screen(
 	// 1 - RIGHT
 	
 	// Deactivate any previous scroll before setting up a new one
-	_oled_write_command(0x2E); // Deactivate scroll
+	oled_move_screen_stop();
 	
 	// Continuous Vertical and Horizontal Scroll Setup (START) --------------------------------------------------
 	// Choose right or left scroll based on the direction
@@ -234,7 +242,7 @@ void oled_move_screen(
 	// Set Vertical Scroll Area (STOP) --------------------------------------------------
 	
 	// Activate scrolling
-	_oled_write_command(0x2F);
+	oled_move_screen_start();
 }
 
 
@@ -250,6 +258,8 @@ void oled_init() {
 	
 	
 	// Setup OLED to basic mode (START) --------------------------------------------------
+	oled_move_screen_stop();
+	
 	_oled_write_command(0xAE); // Display OFF
 
 	_oled_write_command(0xA1); // Segment remap

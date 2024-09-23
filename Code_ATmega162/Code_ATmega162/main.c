@@ -104,7 +104,7 @@ int main(void)
 		oled_set_sprite(sprite_bongo_cat_inverted_1, 8, 8, 32, 0); // 8x8 nibbles, 1 nibble = 8 
 		*/
 		
-		// Ghost Animation Back ad Forth
+		// Ghost Animation Back ad Forth <3
 		uint8_t y_start = 1;
 		uint8_t y_stop = 7;
 		uint8_t speed_x = 7;

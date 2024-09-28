@@ -23,5 +23,7 @@ enum menu_state {
     GHOST,
     MAX_MENU_STATE = GHOST // Ensure this is always the last value
 };
+menu_state current_menu_state = PING_PONG;
+
 
 #endif /* MENU_H_ */

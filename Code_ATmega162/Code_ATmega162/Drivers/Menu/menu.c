@@ -10,7 +10,7 @@ int menu_loop (){
     // Infinite loop
     while (1)
     {
-        switch (menu_state)
+        switch (current_menu_state)
         {
            case PING_PONG:
                break;

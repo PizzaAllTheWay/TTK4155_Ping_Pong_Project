@@ -9,9 +9,9 @@
 #ifndef MENU_H_
 #define MENU_H_
 
-#include "Drivers/Menu/sprite_ghost.h"
-#include "Drivers/Menu/sprite_nyan_cat.h"
-#include "Drivers/Menu/sprite_bongo_cat.h"
+#include "sprite_ghost.h"
+//#include "Drivers/Menu/sprite_nyan_cat.h"
+//#include "Drivers/Menu/sprite_bongo_cat.h"
 
 
 int menu_loop ();
@@ -23,7 +23,7 @@ enum menu_state {
     GHOST,
     MAX_MENU_STATE = GHOST // Ensure this is always the last value
 };
-menu_state current_menu_state = PING_PONG;
+int current_menu_state = PING_PONG;
 
 
 #endif /* MENU_H_ */

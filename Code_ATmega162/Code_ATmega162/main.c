@@ -16,10 +16,10 @@
 #include "Drivers/OLED/oled.h"
 
 
-
-#include "Drivers/Menu/sprite_ghost.h"
-#include "Drivers/Menu/sprite_nyan_cat.h"
-#include "Drivers/Menu/sprite_bongo_cat.h"
+//
+//#include "Drivers/Menu/sprite_ghost.h"
+//#include "Drivers/Menu/sprite_nyan_cat.h"
+//#include "Drivers/Menu/sprite_bongo_cat.h"
 
 
 
@@ -38,8 +38,8 @@ int main(void)
     // Infinite loop
     while (1) 
     {
-		//debug_led_blink();
-		
+		debug_led_blink();
+		menu_loop();	
 		/*
 		// UART Testing
 		char uart_message[20];
@@ -104,41 +104,41 @@ int main(void)
 		oled_set_sprite(sprite_bongo_cat_inverted_1, 8, 8, 32, 0); // 8x8 nibbles, 1 nibble = 8 
 		*/
 		
-		// Ghost Animation Back ad Forth <3
-		uint8_t y_start = 1;
-		uint8_t y_stop = 7;
-		uint8_t speed_x = 7;
-		uint8_t speed_y = 1;
-		uint8_t direction_x = 0;
-		
-		uint8_t x_start = 32;
-		oled_set_sprite(sprite_ghost, 4, 4, x_start, y_start);
-		
-		for (uint8_t i = 0; i < 100; i++) {
-			// RIGHT
-			direction_x = 1; 
-			oled_move_screen(
-			y_start,
-			y_stop,
-			speed_x,
-			speed_y,
-			direction_x
-			);
-			_delay_ms(100);
-			
-			// LEFT
-			direction_x = 0;
-			oled_move_screen(
-			y_start,
-			y_stop,
-			speed_x,
-			speed_y,
-			direction_x
-			);
-			_delay_ms(100);
-		}
-		oled_clear_screen();
-		
+		//// Ghost Animation Back ad Forth <3
+		//uint8_t y_start = 1;
+		//uint8_t y_stop = 7;
+		//uint8_t speed_x = 7;
+		//uint8_t speed_y = 1;
+		//uint8_t direction_x = 0;
+		//
+		//uint8_t x_start = 32;
+		//oled_set_sprite(sprite_ghost, 4, 4, x_start, y_start);
+		//
+		//for (uint8_t i = 0; i < 100; i++) {
+			//// RIGHT
+			//direction_x = 1; 
+			//oled_move_screen(
+			//y_start,
+			//y_stop,
+			//speed_x,
+			//speed_y,
+			//direction_x
+			//);
+			//_delay_ms(100);
+			//
+			//// LEFT
+			//direction_x = 0;
+			//oled_move_screen(
+			//y_start,
+			//y_stop,
+			//speed_x,
+			//speed_y,
+			//direction_x
+			//);
+			//_delay_ms(100);
+		//}
+		//oled_clear_screen();
+		//
     }
 	
 	// Exit

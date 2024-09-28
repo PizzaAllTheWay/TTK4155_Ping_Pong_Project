@@ -169,6 +169,9 @@
     <Compile Include="Drivers\Menu\sprite_bongo_cat.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Drivers\Menu\sprite_ghost.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Drivers\Menu\sprite_ghost.h">
       <SubType>compile</SubType>
     </Compile>

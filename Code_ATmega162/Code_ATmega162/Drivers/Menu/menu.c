@@ -8,21 +8,22 @@
 
 int menu_loop (){
     // Infinite loop
-    while (1)
-    {
-        switch (current_menu_state)
-        {
-           case PING_PONG:
-               break;
-           case BONGO_CAT:
-               break;
-           case NYAN_CAT:
-               break;
-           case GHOST:
-               break;
-           default:
-               break;
-        
+    while (1){
+        switch (current_menu_state){
+            
+            case PING_PONG:
+				sprite_ghost();
+                break;
+            case BONGO_CAT:
+                break;
+            case NYAN_CAT:
+                break;
+            case GHOST:
+                //sprite_ghost();
+                break;
+            default:
+                break;
+		}   
     }
     
 

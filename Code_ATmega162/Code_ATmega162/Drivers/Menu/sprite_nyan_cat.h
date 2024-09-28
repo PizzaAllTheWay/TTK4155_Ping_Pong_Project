@@ -9,11 +9,11 @@
 #ifndef SPRITE_NYAN_CAT_H_
 #define SPRITE_NYAN_CAT_H_
 
-
-
+#include <util/delay.h>
+#include "../OLED/oled.h"
 #include <avr/pgmspace.h>
 
-
+void nyan_cat();
 
 // Sprite 64x64
 const unsigned char PROGMEM sprite_nyan_cat[8][64] = {

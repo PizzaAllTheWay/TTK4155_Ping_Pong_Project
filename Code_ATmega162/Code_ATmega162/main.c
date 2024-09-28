@@ -14,6 +14,7 @@
 #include "Drivers/UART/uart_driver.h"
 #include "Drivers/Controls/controls.h"
 #include "Drivers/OLED/oled.h"
+#include "Drivers/Menu/menu.h"
 
 
 //
@@ -30,15 +31,15 @@ int main(void)
 	uart_init(F_CPU, BAUD_RATE);
 
 	// Interface Setup
-	//controls_init();
+	controls_init();
 	oled_init();
-	
+
 	
 
     // Infinite loop
     while (1) 
     {
-		debug_led_blink();
+
 		menu_loop();	
 		/*
 		// UART Testing

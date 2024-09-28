@@ -16,14 +16,15 @@
 
 int menu_loop ();
 
-enum menu_state {
+typedef enum {
     PING_PONG, 
     BONGO_CAT, 
     NYAN_CAT, 
     GHOST,
+	MIN_MENU_STATE = PING_PONG,
     MAX_MENU_STATE = GHOST // Ensure this is always the last value
-};
-int current_menu_state = PING_PONG;
+} Menu_State;
+int CURRENT_MENU_STATE;
 
 
 #endif /* MENU_H_ */

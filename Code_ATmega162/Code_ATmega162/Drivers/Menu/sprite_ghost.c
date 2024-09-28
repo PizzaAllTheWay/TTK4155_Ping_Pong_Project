@@ -18,6 +18,7 @@ const uint8_t PROGMEM sprite_ghost_binary[4][32] = {
 
 
 void sprite_ghost(){
+	oled_clear_screen();
 	// Ghost Animation Back and Forth <3
 	uint8_t y_start = 1;
 	uint8_t y_stop = 7;
@@ -51,5 +52,6 @@ void sprite_ghost(){
 		);
 		_delay_ms(100);
 	}
-	oled_clear_screen();
+	//oled_clear_screen();
+	return;
 }

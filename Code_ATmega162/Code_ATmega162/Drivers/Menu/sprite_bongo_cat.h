@@ -13,7 +13,7 @@
 
 #include <avr/pgmspace.h>
 
-
+void bongo_cat();
 
 // Sprite 64x64
 const unsigned char PROGMEM sprite_bongo_cat_inverted_0[8][64] = {

@@ -252,7 +252,7 @@ void oled_init() {
 	// Setup External Data buss (START) --------------------------------------------------
 	// NOTE: In order for External SRAM, ADC and OLED to function properly this initialization MUST stay here
 	// This initialization configures the data and register buss between them
-	external_sram_init();
+	//external_sram_init();
 	// Setup External Data buss (STOP) --------------------------------------------------
 	
 	

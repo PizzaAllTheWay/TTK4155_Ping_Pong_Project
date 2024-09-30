@@ -30,22 +30,22 @@ int main(void)
 	uart_init(F_CPU, BAUD_RATE);
 
 	// Interface Setup
-	//controls_init();
-	oled_init();
+	controls_init();
+	//oled_init();
 	
 	
 
     // Infinite loop
     while (1) 
     {
-		//debug_led_blink();
+		debug_led_blink();
 		
-		/*
+		
 		// UART Testing
 		char uart_message[20];
-		uart_receive_message(uart_message, 20);
-		uart_send_message(message_to_print);
-		*/
+		//uart_receive_message(uart_message, 20);
+		//uart_send_message(message_to_print);
+		
 		
 		/*
 		// SRAM Testing
@@ -59,7 +59,7 @@ int main(void)
 		
 		
 		// Joystick Testing
-		/*
+		
 		controls_refresh();
 		uart_message[0] = controls_get_joystick_y();
 		uart_message[1] = controls_get_joystick_x();
@@ -77,7 +77,7 @@ int main(void)
 		}
 		uart_message[7] = '\0';
 		uart_send_message(uart_message);
-		*/
+		
 		
 		// OLED testing
 		/*
@@ -103,7 +103,7 @@ int main(void)
 		oled_set_sprite(sprite_bongo_cat_inverted_0, 8, 8, 32, 0); // 8x8 nibbles, 1 nibble = 8 pixels
 		oled_set_sprite(sprite_bongo_cat_inverted_1, 8, 8, 32, 0); // 8x8 nibbles, 1 nibble = 8 
 		*/
-		
+		/*
 		// Ghost Animation Back ad Forth <3
 		uint8_t y_start = 1;
 		uint8_t y_stop = 7;
@@ -138,7 +138,7 @@ int main(void)
 			_delay_ms(100);
 		}
 		oled_clear_screen();
-		
+		*/
     }
 	
 	// Exit

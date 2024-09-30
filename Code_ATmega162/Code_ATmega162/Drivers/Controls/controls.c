@@ -66,8 +66,8 @@ void controls_refresh() {
 	// Check ADC for joystick and pad values
 	// ===================================================================================
 	if (get_all_adc_data((uint8_t*)_adc_data_buffer)) {
-		// _adc_data_buffer[0] -> Joystic Y
-		// _adc_data_buffer[1] -> Joystic X
+		 //_adc_data_buffer[0] -> Joystic Y;
+		 //_adc_data_buffer[1] -> Joystic X;
 		uint8_t joystic_val_y = _adc_data_buffer[0];
 		uint8_t joystic_val_x = _adc_data_buffer[1];
 		

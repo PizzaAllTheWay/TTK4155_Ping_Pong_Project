@@ -9,9 +9,11 @@
 #ifndef MENU_H_
 #define MENU_H_
 
+#include "../UART/uart_driver.h"
+#include "../Controls/controls.h"
 #include "sprite_ghost.h"
-//#include "Drivers/Menu/sprite_nyan_cat.h"
-//#include "Drivers/Menu/sprite_bongo_cat.h"
+//#include "sprite_nyan_cat.h"
+//#include "sprite_bongo_cat.h"
 
 
 int menu_loop ();
@@ -21,7 +23,6 @@ typedef enum {
     BONGO_CAT, 
     NYAN_CAT, 
     GHOST,
-	MIN_MENU_STATE = PING_PONG,
     MAX_MENU_STATE = GHOST // Ensure this is always the last value
 } Menu_State;
 int CURRENT_MENU_STATE;

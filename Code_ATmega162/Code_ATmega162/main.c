@@ -40,7 +40,8 @@ int main(void)
     while (1) 
     {
 
-		menu_loop();	
+		//menu_loop();	
+		
 		/*
 		// UART Testing
 		char uart_message[20];
@@ -60,7 +61,7 @@ int main(void)
 		
 		
 		// Joystick Testing
-		/*
+		char uart_message[20];
 		controls_refresh();
 		uart_message[0] = controls_get_joystick_y();
 		uart_message[1] = controls_get_joystick_x();
@@ -78,7 +79,7 @@ int main(void)
 		}
 		uart_message[7] = '\0';
 		uart_send_message(uart_message);
-		*/
+		
 		
 		// OLED testing
 		/*
@@ -89,57 +90,7 @@ int main(void)
 		oled_set_area_pattern(0xFF, 60, 5, 100, 7);
 		*/
 		
-		// Nyan Cat animation <3
-		/*
-		for (int8_t i = 0; i < 100; i+=1) {
-			oled_set_sprite(sprite_nyan_cat, 8, 8, i, 0); // 8x8 nibbles, 1 nibble = 8 pixels
-		}
-		oled_clear_screen();
-		*/
 		
-		// Bongo Cat <3
-		/*
-		oled_set_sprite(sprite_bongo_cat_0, 8, 8, 32, 0); // 8x8 nibbles, 1 nibble = 8 pixels
-		oled_set_sprite(sprite_bongo_cat_1, 8, 8, 32, 0); // 8x8 nibbles, 1 nibble = 8 pixels
-		oled_set_sprite(sprite_bongo_cat_inverted_0, 8, 8, 32, 0); // 8x8 nibbles, 1 nibble = 8 pixels
-		oled_set_sprite(sprite_bongo_cat_inverted_1, 8, 8, 32, 0); // 8x8 nibbles, 1 nibble = 8 
-		*/
-		
-		//// Ghost Animation Back ad Forth <3
-		//uint8_t y_start = 1;
-		//uint8_t y_stop = 7;
-		//uint8_t speed_x = 7;
-		//uint8_t speed_y = 1;
-		//uint8_t direction_x = 0;
-		//
-		//uint8_t x_start = 32;
-		//oled_set_sprite(sprite_ghost, 4, 4, x_start, y_start);
-		//
-		//for (uint8_t i = 0; i < 100; i++) {
-			//// RIGHT
-			//direction_x = 1; 
-			//oled_move_screen(
-			//y_start,
-			//y_stop,
-			//speed_x,
-			//speed_y,
-			//direction_x
-			//);
-			//_delay_ms(100);
-			//
-			//// LEFT
-			//direction_x = 0;
-			//oled_move_screen(
-			//y_start,
-			//y_stop,
-			//speed_x,
-			//speed_y,
-			//direction_x
-			//);
-			//_delay_ms(100);
-		//}
-		//oled_clear_screen();
-		//
     }
 	
 	// Exit

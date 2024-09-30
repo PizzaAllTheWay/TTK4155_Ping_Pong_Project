@@ -16,4 +16,5 @@ void nyan_cat(){
 		oled_set_sprite(sprite_nyan_cat, 8, 8, i, 0); // 8x8 nibbles, 1 nibble = 8 pixels
 	}
 	return;
+	oled_clear_screen();
 }

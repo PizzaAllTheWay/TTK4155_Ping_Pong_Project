@@ -27,5 +27,12 @@ typedef enum {
 } Menu_State;
 int CURRENT_MENU_STATE;
 
+// Define menu item struct
+typedef struct {
+	char charList[20];  // Array of characters (string)
+	void *ptr;                 // Pointer to hold generic data
+} MenuItem;
+
+MenuItem MenuItemList[5];
 
 #endif /* MENU_H_ */

@@ -40,7 +40,7 @@ int main(void)
     while (1) 
     {
 
-		//menu_loop();	
+		menu_loop();	
 		
 		/*
 		// UART Testing
@@ -81,14 +81,6 @@ int main(void)
 		uart_send_message(uart_message);
 		
 		
-		// OLED testing
-		/*
-		uint8_t ABC[] = "ABCDEFG";
-		uint8_t test_text[] = "Hello World!";
-		oled_set_text(ABC, 40, 3);
-		oled_set_text(test_text, 10, 2);
-		oled_set_area_pattern(0xFF, 60, 5, 100, 7);
-		*/
 		
 		
     }

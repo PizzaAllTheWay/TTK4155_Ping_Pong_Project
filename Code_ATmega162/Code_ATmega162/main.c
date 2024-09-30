@@ -34,7 +34,7 @@ int main(void)
 	controls_init();
 	oled_init();
 
-	
+	CURRENT_MENU_STATE = NYAN_CAT;
 
     // Infinite loop
     while (1) 

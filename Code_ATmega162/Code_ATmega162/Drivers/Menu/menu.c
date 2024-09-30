@@ -10,9 +10,9 @@
 
 int menu_loop (){
     // Infinite loop
-	CURRENT_MENU_STATE = NYAN_CAT;
+	//CURRENT_MENU_STATE = NYAN_CAT; // having this here defeats the debugging?
     while (1){
-        _delay_ms(500); // Pause 300 ms
+        //_delay_ms(500); // Pause 300 ms
         switch (CURRENT_MENU_STATE){
             
             case PING_PONG:
@@ -82,6 +82,10 @@ int menu_loop (){
 				_delay_ms(300); //wait 300ms to avoid multiple state changes
 				}
 				//CURRENT_MENU_STATE--;
+			else {
+				// Do nothing
+				_delay_ms(300); //wait 300ms 
+			}
 		}   
     }
     

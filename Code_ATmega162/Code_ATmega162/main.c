@@ -38,7 +38,7 @@ int main(void)
     // Infinite loop
     while (1) 
     {
-		debug_led_blink();
+		//debug_led_blink();
 		
 		
 		// UART Testing

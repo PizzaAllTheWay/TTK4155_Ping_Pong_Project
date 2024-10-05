@@ -12,15 +12,11 @@
 
 
 #include <avr/pgmspace.h>
-#include <util/delay.h>
-#include "../OLED/oled.h"
+
 
 
 // Ghost Sprite 32x32
-const uint8_t PROGMEM sprite_ghost_binary[4][32];
-
-void sprite_ghost();
-
+const uint8_t PROGMEM sprite_ghost[4][32];
 
 
 

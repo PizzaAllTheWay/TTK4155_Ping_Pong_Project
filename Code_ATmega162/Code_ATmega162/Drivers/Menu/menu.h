@@ -9,30 +9,32 @@
 #ifndef MENU_H_
 #define MENU_H_
 
-#include "../UART/uart_driver.h"
-#include "../Controls/controls.h"
+
+
+#include "../OLED/oled.h"
+
+#include "sprite_pingpong.h"
+#include "sprite_bongo_cat.h"
+#include "sprite_nyan_cat.h"
 #include "sprite_ghost.h"
-//#include "sprite_nyan_cat.h"
-//#include "sprite_bongo_cat.h"
+#include "sprite_pokemon.h"
 
 
-int menu_loop ();
 
-typedef enum {
-    PING_PONG, 
-    BONGO_CAT, 
-    NYAN_CAT, 
-    GHOST,
-    MAX_MENU_STATE = GHOST // Ensure this is always the last value
-} Menu_State;
-int CURRENT_MENU_STATE;
+void menu_pingpong();
+void menu_bongocat();
+void menu_nyancat();
+void menu_ghost();
+void menu_pokemon();
 
-// Define menu item struct
-typedef struct {
-	char charList[20];  // Array of characters (string)
-	void *ptr;                 // Pointer to hold generic data
-} MenuItem;
+void menu_pingpont_set(int8_t score);
+void menu_bongocat_set(int8_t state);
+void menu_nyancat_set(int8_t state);
+void menu_ghost_set(int8_t state);
+void menu_pokemon_set(int8_t state);
 
-MenuItem MenuItemList[5];
+void menu_init();
+
+
 
 #endif /* MENU_H_ */

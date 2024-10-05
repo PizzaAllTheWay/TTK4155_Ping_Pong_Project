@@ -87,6 +87,7 @@ int main(void)
 		}
 		uart_message[7] = '\0';
 		uart_send_message(uart_message);
+		*/
 		
 		
 		// Menu Testing --------------------------------------------------

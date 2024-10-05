@@ -6,7 +6,6 @@
  */ 
 
 #define F_CPU 4915200UL //4915200UL // Set the CPU clock frequency 4.9152 MHz
-#define BAUD_RATE 9600
 
 
 
@@ -14,12 +13,25 @@
 #include "Drivers/UART/uart_driver.h"
 #include "Drivers/Controls/controls.h"
 #include "Drivers/OLED/oled.h"
+#include "Drivers/Menu/menu.h"
 
 
 
-#include "Drivers/Menu/sprite_ghost.h"
-#include "Drivers/Menu/sprite_nyan_cat.h"
-#include "Drivers/Menu/sprite_bongo_cat.h"
+// Global Constants
+#define BAUD_RATE 9600
+#define MENU_MAX 4 // 5 menus
+#define POKEMON_MAX 2 // 3 Pokemon
+
+
+
+// Global Variables
+int8_t joystic_y = 0;
+int8_t button_L = 0;
+int8_t button_R = 0;
+
+int8_t menu_nr = 0;
+int8_t bongocat_state = 0;
+int8_t pokemon_state = 0;
 
 
 
@@ -31,16 +43,14 @@ int main(void)
 
 	// Interface Setup
 	controls_init();
-	//oled_init();
-	
-	
+	menu_init();
+
+
 
     // Infinite loop
     while (1) 
-    {
-		debug_led_blink();
-		
-		
+    {		
+		/*
 		// UART Testing
 		char uart_message[20];
 		//uart_receive_message(uart_message, 20);
@@ -57,9 +67,9 @@ int main(void)
 		uart_send_message(sram_data_buffer);
 		*/
 		
-		
 		// Joystick Testing
-		
+		/*
+		char uart_message[20];
 		controls_refresh();
 		uart_message[0] = controls_get_joystick_y();
 		uart_message[1] = controls_get_joystick_x();
@@ -79,66 +89,186 @@ int main(void)
 		uart_send_message(uart_message);
 		
 		
-		// OLED testing
-		/*
-		uint8_t ABC[] = "ABCDEFG";
-		uint8_t test_text[] = "Hello World!";
-		oled_set_text(ABC, 40, 3);
-		oled_set_text(test_text, 10, 2);
-		oled_set_area_pattern(0xFF, 60, 5, 100, 7);
-		*/
-		
-		// Nyan Cat animation <3
-		/*
-		for (int8_t i = 0; i < 100; i+=1) {
-			oled_set_sprite(sprite_nyan_cat, 8, 8, i, 0); // 8x8 nibbles, 1 nibble = 8 pixels
-		}
-		oled_clear_screen();
-		*/
-		
-		// Bongo Cat <3
-		/*
-		oled_set_sprite(sprite_bongo_cat_0, 8, 8, 32, 0); // 8x8 nibbles, 1 nibble = 8 pixels
-		oled_set_sprite(sprite_bongo_cat_1, 8, 8, 32, 0); // 8x8 nibbles, 1 nibble = 8 pixels
-		oled_set_sprite(sprite_bongo_cat_inverted_0, 8, 8, 32, 0); // 8x8 nibbles, 1 nibble = 8 pixels
-		oled_set_sprite(sprite_bongo_cat_inverted_1, 8, 8, 32, 0); // 8x8 nibbles, 1 nibble = 8 
-		*/
-		/*
-		// Ghost Animation Back ad Forth <3
-		uint8_t y_start = 1;
-		uint8_t y_stop = 7;
-		uint8_t speed_x = 7;
-		uint8_t speed_y = 1;
-		uint8_t direction_x = 0;
-		
-		uint8_t x_start = 32;
-		oled_set_sprite(sprite_ghost, 4, 4, x_start, y_start);
-		
-		for (uint8_t i = 0; i < 100; i++) {
-			// RIGHT
-			direction_x = 1; 
-			oled_move_screen(
-			y_start,
-			y_stop,
-			speed_x,
-			speed_y,
-			direction_x
-			);
-			_delay_ms(100);
+		// Menu Testing --------------------------------------------------
+		// Wait for input
+		while (joystic_y == 0) {
+			controls_refresh();
+			joystic_y = controls_get_joystick_y();
 			
-			// LEFT
-			direction_x = 0;
-			oled_move_screen(
-			y_start,
-			y_stop,
-			speed_x,
-			speed_y,
-			direction_x
-			);
-			_delay_ms(100);
+			// Whilst waiting for input check if any of the buttons were pressed
+			button_L = controls_get_pad_left_button();
+			button_R = controls_get_pad_right_button();
+			
+			// Check witch menu we are inn to make the correct decision
+			switch (menu_nr) {
+				case 0:
+					// Ping Pong
+					if (button_R == 1) {
+						menu_pingpont_set(0);
+						
+						// Start the game until you exit the game by pressing the left button
+						while(button_L == 0) {
+							controls_refresh();
+							button_L = controls_get_pad_left_button();
+							
+							// Game (START) --------------------------------------------------
+							
+							// Game (STOP) --------------------------------------------------
+						}
+						
+						menu_pingpong();
+					}
+					break;
+				case 1:
+					// Bongo Cat
+					if (button_R == 1) {
+						// Invert bongo cats state
+						bongocat_state = ((!bongocat_state) & 0x01);
+						menu_bongocat_set(bongocat_state);
+						
+						// Wait until button is released
+						while(button_R == 1) {
+							controls_refresh();
+							button_R = controls_get_pad_right_button();
+						}
+					}
+					break;
+				case 2:
+					// Nyan Cat
+					if (button_R == 1) {
+						// Start Animating Nyan Cat
+						menu_nyancat_set(1);
+						
+						// Wait until button is released
+						while(button_R == 1) {
+							controls_refresh();
+							button_R = controls_get_pad_right_button();
+						}
+						
+						//Stop Animating Nyan Cat
+						menu_nyancat_set(0);
+					}
+					break;
+				case 3:
+					// Ghost
+					if (button_R == 1) {
+						// Animate whilst button is pressed
+						while(button_R == 1) {
+							menu_ghost_set(1);
+							_delay_ms(30);
+							menu_ghost_set(2);
+							_delay_ms(30);
+							
+							controls_refresh();
+							button_R = controls_get_pad_right_button();
+						}
+						
+						//Stop Animating Ghost
+						menu_ghost_set(0);
+					}
+					if (button_L == 1) {
+						// Animate whilst button is pressed
+						while(button_L == 1) {
+							menu_ghost_set(3);
+							_delay_ms(30);
+							menu_ghost_set(4);
+							_delay_ms(30);
+							
+							controls_refresh();
+							button_L = controls_get_pad_left_button();
+						}
+						
+						//Stop Animating Ghost
+						menu_ghost_set(0);
+					}
+					break;
+				case 4:
+					// Pokemon
+					if (button_R == 1) {
+						// Switch Pokemon
+						pokemon_state++;
+						
+						if (pokemon_state > POKEMON_MAX) {
+							pokemon_state = 0;
+						}
+						
+						menu_pokemon_set(pokemon_state);
+						
+						// Wait for button to be released
+						while(button_R == 1) {
+							controls_refresh();
+							button_R = controls_get_pad_right_button();
+						}
+					}
+					if (button_L == 1) {
+						// Switch Pokemon
+						pokemon_state--;
+						
+						if (pokemon_state < 0) {
+							pokemon_state = POKEMON_MAX;
+						}
+						
+						menu_pokemon_set(pokemon_state);
+						
+						// Wait for button to be released
+						while(button_L == 1) {
+							controls_refresh();
+							button_L = controls_get_pad_left_button();
+						}
+					}
+					break;
+				default:
+					break;
+			}
 		}
-		oled_clear_screen();
-		*/
+		
+		// Reset states
+		bongocat_state = 0;
+		pokemon_state = 0;
+		
+		// Switch menus
+		if (joystic_y < 0) {
+			menu_nr++;
+		}
+		else if (joystic_y > 0) {
+			menu_nr--;
+		}
+		
+		// Ensure we are not out of bound with menus
+		if (menu_nr < 0) {
+			menu_nr = MENU_MAX;
+		}
+		else if (menu_nr > MENU_MAX) {
+			menu_nr = 0;
+		}
+		
+		// Draw menu
+		switch (menu_nr) {
+			case 0:
+				menu_pingpong();
+				break;
+			case 1:
+				menu_bongocat();
+				break;
+			case 2:
+				menu_nyancat();
+				break;
+			case 3:
+				menu_ghost();
+				break;
+			case 4:
+				menu_pokemon();
+				break;
+			default:
+				break;
+		}
+		
+		// Wait for input to stop
+		while (joystic_y != 0) {
+			controls_refresh();
+			joystic_y = controls_get_joystick_y();
+		}
+		
     }
 	
 	// Exit

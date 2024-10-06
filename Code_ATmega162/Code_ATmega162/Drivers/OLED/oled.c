@@ -60,6 +60,9 @@ void _oled_set_letter(uint8_t letter, uint8_t x) {
 
 // Text related functions
 void oled_set_text(uint8_t* text, uint8_t x, uint8_t y) {
+	// x (0 - 127)
+	// y (0 - 7)
+	
 	// Set start position of the text
 	_oled_select_page(y); // y
 	_oled_select_column(x); // x
@@ -86,6 +89,8 @@ void oled_clear_page(uint8_t page_rn) {
 }
 
 void oled_clear_screen() {
+	oled_move_screen_stop();
+	
 	for (uint8_t page_nr = 0; page_nr < OLED_MAX_LINES; page_nr++) {
 		oled_clear_page(page_nr);
 	}
@@ -95,6 +100,8 @@ void oled_clear_screen() {
 
 // Pixel related functions
 void oled_set_area_pattern(uint8_t pattern, uint8_t x_start, uint8_t y_start, uint8_t x_stop, uint8_t y_stop) {
+	// x start/stop (0 - 127)
+	// y start/stop (0 - 7)
 	// Ensure x_start, x_stop, y_start, and y_stop are within the valid OLED range
 	if (x_start >= OLED_PIXEL_WIDTH || x_stop >= OLED_PIXEL_WIDTH || y_start >= OLED_MAX_LINES || y_stop >= OLED_MAX_LINES) {
 		return; // Do nothing if out of bounds
@@ -252,7 +259,7 @@ void oled_init() {
 	// Setup External Data buss (START) --------------------------------------------------
 	// NOTE: In order for External SRAM, ADC and OLED to function properly this initialization MUST stay here
 	// This initialization configures the data and register buss between them
-	external_sram_init();
+	//external_sram_init();
 	// Setup External Data buss (STOP) --------------------------------------------------
 	
 	

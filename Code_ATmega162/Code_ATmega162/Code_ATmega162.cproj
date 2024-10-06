@@ -166,13 +166,34 @@
     <Compile Include="Drivers\Menu\menu.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Drivers\Menu\sprite_bongo_cat.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Drivers\Menu\sprite_bongo_cat.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\Menu\sprite_ghost.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Drivers\Menu\sprite_ghost.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Drivers\Menu\sprite_nyan_cat.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Drivers\Menu\sprite_nyan_cat.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\Menu\sprite_pingpong.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\Menu\sprite_pingpong.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\Menu\sprite_pokemon.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\Menu\sprite_pokemon.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Drivers\OLED\fonts.c">

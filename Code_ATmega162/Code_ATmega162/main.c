@@ -14,6 +14,7 @@
 #include "Drivers/Controls/controls.h"
 #include "Drivers/OLED/oled.h"
 #include "Drivers/Menu/menu.h"
+#include "Drivers/SPI/spi_driver.h"
 
 
 
@@ -38,12 +39,13 @@ int8_t pokemon_state = 0;
 int main(void)
 {
 	// Debugging Setup
-	debug_led_init();
+	//debug_led_init();
 	uart_init(F_CPU, BAUD_RATE);
 
 	// Interface Setup
 	controls_init();
 	menu_init();
+	spi_init();
 
 
 
@@ -90,6 +92,7 @@ int main(void)
 		*/
 		
 		
+		/*
 		// Menu Testing --------------------------------------------------
 		// Wait for input
 		while (joystic_y == 0) {
@@ -268,8 +271,11 @@ int main(void)
 		while (joystic_y != 0) {
 			controls_refresh();
 			joystic_y = controls_get_joystick_y();
-		}
+		}*/
 		
+		
+		//Testing for SPI and CAN stuff 
+
     }
 	
 	// Exit

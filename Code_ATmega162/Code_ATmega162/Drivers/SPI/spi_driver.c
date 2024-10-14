@@ -17,10 +17,15 @@
 
 void spi_init(){
 	//set MOSI, SCK and SS as output in DDR
-	DDR_SPI |= (1<<DD_MOSI)|(1<<DD_SCK)|(1<<SLAVE_SELECT);
+	DDRB |= (1<<DDB5)|(1<<DDB7)|(1<<DDB4); //SLAVE_SELECT
 	//enable SPI, set as master
 	//Prescaler: Fosc/16, Enable interrupts
 	SPCR = (1<<SPE)|(1<<MSTR)|(1<<SPR0);
+	//we want SPI mode 0, 0
+	spi_set_mode(0);
+	//set slowest freq possible (range 1-4)
+	spi_set_clock_divider(1);
+	
 }
 
 
@@ -46,7 +51,7 @@ void spi_write(uint8_t data){
 }
 
  //read a single byte
-uint8_t spi_master_read(){
+uint8_t spi_read(){
 	spi_write(0x0);
 	return(SPDR);
 }
@@ -58,7 +63,7 @@ uint8_t spi_transfer(uint8_t data){
 	//Wait for transmission complete
 	while(!(SPSR & (1<<SPIF)));
 
-	//return recieved data
+	//return received data
 	return(SPDR);
 }
 

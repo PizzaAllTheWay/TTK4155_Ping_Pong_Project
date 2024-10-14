@@ -14,7 +14,7 @@
 #include "Drivers/Controls/controls.h"
 #include "Drivers/OLED/oled.h"
 #include "Drivers/Menu/menu.h"
-#include "Drivers/SPI/spi_driver.h"
+#include "Drivers/SPI/mcp2515.h"
 
 
 
@@ -45,13 +45,14 @@ int main(void)
 	// Interface Setup
 	controls_init();
 	menu_init();
-	spi_init();
-
+	mcp2515_init;
+	uart_send_message("InitDone");
 
 
     // Infinite loop
     while (1) 
     {		
+		
 		/*
 		// UART Testing
 		char uart_message[20];
@@ -274,8 +275,68 @@ int main(void)
 		}*/
 		
 		
-		//Testing for SPI and CAN stuff 
+		
+		
+		
+		/*
+		//Testing for SPI
+		
+		char uart_message[20];
+		char *spi_data = spi_read(); // Assuming spi_read() returns a pointer to a char array
 
+		// Use strncpy to copy the data into uart_message
+		strncpy(uart_message, spi_data, sizeof(uart_message) - 1);
+
+		
+		// Since values can be NULL 0x00, it can cause issues when sending data through
+		// Thats why we check if null and send -1 instead
+		for (int8_t i = 0; i < 19; i++) {
+			if (uart_message[i] == 0) {
+				uart_message[i] = (-1);
+			}
+		}
+
+
+
+		// Ensure null termination
+		uart_message[sizeof(uart_message) - 1] = '\0';
+
+		// Now uart_message contains the data read from SPI
+		uart_send_message(uart_message);
+		*/
+		
+		//Testing CAN stuff
+		uart_send_message("........\0");
+		
+		char can_message[8] = "EMPTY\0";
+				
+		mcp2515_write(0x1E,"HelloWor");
+		//uart_send_message("CANwrite\0");
+		mcp2515_request_to_send();
+		//uart_send_message("CAN-sent\0");
+		char *spi_data = mcp2515_read(0x1E); // Assuming spi_read() returns a pointer to a char array
+		//uart_send_message("CAN-read\0");
+		
+		// Use strncpy to copy the data into uart_message
+		strncpy(can_message, spi_data, sizeof(can_message) - 1);
+
+				
+		// Since values can be NULL 0x00, it can cause issues when sending data through
+		// Thats why we check if null and send -1 instead
+		for (int8_t i = 0; i < 19; i++) {
+			if (can_message[i] == 0) {
+				can_message[i] = (-1);
+			}
+		}
+		
+		// Ensure null termination
+		can_message[sizeof(can_message) - 1] = '\0';
+
+		// Now uart_message contains the data read from SPI
+		uart_send_message(can_message);
+		
+		
+		
     }
 	
 	// Exit

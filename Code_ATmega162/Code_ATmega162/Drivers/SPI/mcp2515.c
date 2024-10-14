@@ -13,8 +13,27 @@ uint8_t mcp2515_init(){
 	
 	spi_init();
 	mcp2515_reset();
-	//mcp2515_read(MCP_CANSTAT, &value);
+
+	// Set CAN mode
+
+	//// Enter configuration mode
+    //mcp2515_bit_modify(MCP_CANCTRL, MODE_MASK, MODE_CONFIG);
+    //// Wait for the mode to change
+    //while ((mcp2515_read(MCP_CANSTAT) & MODE_MASK) != MODE_CONFIG);
 	
+	uint8_t wanted_mode = MODE_LOOPBACK;
+    // uint8_t wanted_mode = MODE_NORMAL;
+	
+	// Set mode
+    mcp2515_bit_modify(MCP_CANCTRL, MODE_MASK, wanted_mode);
+    // Wait for the mode to change
+    while ((mcp2515_read(MCP_CANSTAT) & MODE_MASK) != wanted_mode);
+	
+	
+	//mcp2515_read(MCP_CANSTAT, &value);
+	//mcp2515_read(MCP_CANSTAT);
+	
+	//if((value & MODE_MASK) != MODE_CONFIG){
 	//if((value & MODE_MASK) != MODE_CONFIG){
 	//	printf("MCP2515 is NOT in configuration mode after reset!\n");
 	//	return 1;

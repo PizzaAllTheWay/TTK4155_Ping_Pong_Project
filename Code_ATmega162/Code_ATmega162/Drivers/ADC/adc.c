@@ -144,7 +144,7 @@ void adc_init() {
 	// Set PD2 as input to monitor the BUSY signal from the ADC
 	DDRD &= ~(1 << PD2);  // Make PD2 an input (BUSY signal from ADC)
 
-	// Configure the external interrupt INT0 on PD2 to trigger on the falling edge
+	// Configure the external interrupt INT0 on PD2 to trigger on the rising edge
 	MCUCR |= (1 << ISC01);  // Set INT0 to trigger on the rising edge (ISC01 = 1, ISC00 = 1)
 	MCUCR |= (1 << ISC00);
 	GICR |= (1 << INT0);    // Enable external interrupt INT0 (on PD2)

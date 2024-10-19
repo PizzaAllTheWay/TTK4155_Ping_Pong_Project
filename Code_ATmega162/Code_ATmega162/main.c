@@ -14,7 +14,10 @@
 #include "Drivers/Controls/controls.h"
 #include "Drivers/OLED/oled.h"
 #include "Drivers/Menu/menu.h"
-#include "Drivers/SPI/mcp2515.h"
+
+
+
+#include "Drivers/CAN/can_driver.h"
 
 
 
@@ -39,20 +42,22 @@ int8_t pokemon_state = 0;
 int main(void)
 {
 	// Debugging Setup
-	//debug_led_init();
+	debug_led_init();
 	uart_init(F_CPU, BAUD_RATE);
 
 	// Interface Setup
 	controls_init();
 	menu_init();
-	mcp2515_init;
-	uart_send_message("InitDone");
-
+	
+	
+	// Testing ----------
+	can_driver_init(MODE_LOOPBACK);
+	
+	
 
     // Infinite loop
     while (1) 
     {		
-		
 		/*
 		// UART Testing
 		char uart_message[20];
@@ -278,6 +283,12 @@ int main(void)
 		
 		
 		
+		
+		
+		
+		
+		
+		
 		/*
 		//Testing for SPI
 		
@@ -303,7 +314,7 @@ int main(void)
 
 		// Now uart_message contains the data read from SPI
 		uart_send_message(uart_message);
-		*/
+		
 		
 		//Testing CAN stuff
 		uart_send_message("........\0");
@@ -334,8 +345,21 @@ int main(void)
 
 		// Now uart_message contains the data read from SPI
 		uart_send_message(can_message);
+		*/
+		// CAN Testing --------------------------------------------------
+		/*
+		spi_driver_select();
+		spi_driver_write(0xFF);  // Send dummy data or command
+		char received_data = spi_driver_read();  // Read response from MCP2515
+		spi_driver_deselect();
+		*/
+		// Send a single byte 'A' with CAN ID 0x123
+		//can_driver_send_message(0x00, 'A');
+		//_delay_ms(10);
 		
-		
+		uint16_t can_id = 0;
+		char data[8] = "12345678";
+		can_driver_send_message(can_id, data);
 		
     }
 	

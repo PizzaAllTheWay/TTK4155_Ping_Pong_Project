@@ -8,18 +8,13 @@
 #define F_CPU 4915200UL //4915200UL // Set the CPU clock frequency 4.9152 MHz
 
 
-/*
+
 #include "Drivers/Debugging/debug_led.h"
 #include "Drivers/UART/uart_driver.h"
 #include "Drivers/Controls/controls.h"
 #include "Drivers/OLED/oled.h"
 #include "Drivers/Menu/menu.h"
-*/
-
-
-//#include "Drivers/CAN/can_driver.h"
-#include "Drivers/CAN/spi_driver.h"
-#include <util/delay.h>
+#include "Drivers/CAN/can_driver.h"
 
 
 
@@ -45,31 +40,31 @@ int main(void)
 {
 	// Debugging Setup
 	debug_led_init();
-	//uart_init(F_CPU, BAUD_RATE);
+	uart_init(F_CPU, BAUD_RATE);
 
 	// Interface Setup
-	//controls_init();
-	//menu_init();
+	controls_init();
+	menu_init();
 	
 	
 	// Testing ----------
-	//can_driver_init(MODE_LOOPBACK);
-	spi_driver_init();
+	can_driver_init(MODE_LOOPBACK);
+	//can_driver_init(MODE_NORMAL);
 	
 	
 
     // Infinite loop
     while (1) 
     {		
-		/*
 		// UART Testing
-		char uart_message[20];
-		//uart_receive_message(uart_message, 20);
-		//uart_send_message(message_to_print);
-		
-		
 		/*
+		char uart_message[20];
+		uart_receive_message(uart_message, 20);
+		uart_send_message("Hello World!\n\0");
+		*/
+		
 		// SRAM Testing
+		/*
 		uart_receive_message(uart_message, 10);
 		external_sram_write(EXTERNAL_SRAM_ADDRESS_START+1, uart_message, 1); // Write UART sent message to SRAM
 		external_sram_read(EXTERNAL_SRAM_ADDRESS_START+1, sram_data_buffer, 1); // Read SRAM saved message from UART and save it into SRAM data buffer
@@ -100,9 +95,8 @@ int main(void)
 		uart_send_message(uart_message);
 		*/
 		
-		
-		/*
-		// Menu Testing --------------------------------------------------
+		// Menu Testing
+		/* --------------------------------------------------
 		// Wait for input
 		while (joystic_y == 0) {
 			controls_refresh();
@@ -282,89 +276,46 @@ int main(void)
 			joystic_y = controls_get_joystick_y();
 		}*/
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		/*
-		//Testing for SPI
-		
-		char uart_message[20];
-		char *spi_data = spi_read(); // Assuming spi_read() returns a pointer to a char array
+		// CAN Testing
+		can_message_t can_message_send;
+		can_message_t can_message_received;
 
-		// Use strncpy to copy the data into uart_message
-		strncpy(uart_message, spi_data, sizeof(uart_message) - 1);
+		// Set the CAN message ID
+		can_message_send.id = 0x123;
 
+		// Set the message data (8 bytes max)
+		can_message_send.data[0] = 'A'; 
+		can_message_send.data[1] = 'B';
+		can_message_send.data[2] = 'C';
+		can_message_send.data[3] = 'D';
+		can_message_send.data[4] = 'E';
+		can_message_send.data[5] = 'F';
+		can_message_send.data[6] = 'G';
+		can_message_send.data[7] = 'H';
+
+		// Set the length of the message
+		can_message_send.length = 8;
+
+		// Send the CAN message
+		can_driver_send_message(&can_message_send);
+		_delay_ms(10);
 		
-		// Since values can be NULL 0x00, it can cause issues when sending data through
-		// Thats why we check if null and send -1 instead
-		for (int8_t i = 0; i < 19; i++) {
-			if (uart_message[i] == 0) {
-				uart_message[i] = (-1);
-			}
-		}
+		// Read the CAN Message
+		//while (!can_driver_message_available());
+		can_driver_read_message(&can_message_received);
 
-
-
-		// Ensure null termination
-		uart_message[sizeof(uart_message) - 1] = '\0';
-
-		// Now uart_message contains the data read from SPI
-		uart_send_message(uart_message);
-		
-		
-		//Testing CAN stuff
-		uart_send_message("........\0");
-		
-		char can_message[8] = "EMPTY\0";
-				
-		mcp2515_write(0x1E,"HelloWor");
-		//uart_send_message("CANwrite\0");
-		mcp2515_request_to_send();
-		//uart_send_message("CAN-sent\0");
-		char *spi_data = mcp2515_read(0x1E); // Assuming spi_read() returns a pointer to a char array
-		//uart_send_message("CAN-read\0");
-		
-		// Use strncpy to copy the data into uart_message
-		strncpy(can_message, spi_data, sizeof(can_message) - 1);
-
-				
-		// Since values can be NULL 0x00, it can cause issues when sending data through
-		// Thats why we check if null and send -1 instead
-		for (int8_t i = 0; i < 19; i++) {
-			if (can_message[i] == 0) {
-				can_message[i] = (-1);
-			}
+		// Check if a message was received
+		if (can_message_received.length > 0) {
+			char uart_mesage[2];
+			uart_mesage[0] = can_message_received.data[0];
+			uart_mesage[1] = '\0';
+			uart_send_message("A");
+		} 
+		else {
+			debug_led_blink();
 		}
 		
-		// Ensure null termination
-		can_message[sizeof(can_message) - 1] = '\0';
-
-		// Now uart_message contains the data read from SPI
-		uart_send_message(can_message);
-		*/
-		// CAN Testing --------------------------------------------------
-		spi_driver_select();
-		spi_driver_write('B');  // Send dummy data or command
-		char received_data = spi_driver_read();  // Read response from MCP2515
-		spi_driver_deselect();
-		
-		// Send a single byte 'A' with CAN ID 0x123
-		//can_driver_send_message(0x00, 'A');
-		//_delay_ms(10);
-		
-		/*
-		uint16_t can_id = 0;
-		char data[8] = "12345678";
-		can_driver_send_message(can_id, data);
-		*/
-		
+		_delay_ms(10);
     }
 	
 	// Exit

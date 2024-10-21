@@ -61,10 +61,6 @@ uint8_t mcp2515_driver_init(int8_t mode) {
     // Reset MCP2515
     mcp2515_driver_reset();
     
-    // Set up MCP2515 to operate in the desired mode (loopback or normal)
-    //uint8_t wanted_mode = MODE_LOOPBACK;  // Set to loopback mode for testing
-    //uint8_t wanted_mode = MODE_NORMAL;  // Set to normal mode for regular operation
-    
     //mcp2515_driver_bit_modify(MCP_CANCTRL, MODE_MASK, wanted_mode);  // Set the mode
 	mcp2515_driver_write(MCP_CANCTRL, mode);
 

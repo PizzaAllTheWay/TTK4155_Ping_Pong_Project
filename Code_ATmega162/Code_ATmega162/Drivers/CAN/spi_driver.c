@@ -28,7 +28,7 @@ void spi_driver_init() {
 	SPCR &= ~(1 << CPHA);  // Data is sampled on the leading edge (rising edge)
 	
 	// Set SS-pin high
-	PORTB |= (1 << PB4);
+	PORTB |= (1 << SLAVE_SELECT);
 }
 
 

@@ -20,13 +20,23 @@
 
 
 
+// Data format
+typedef struct {
+	uint16_t id;         // CAN ID (11 bits max)
+	char data[8];        // CAN data (8 bytes max)
+	uint8_t length;      // Length of the CAN message (1-8)
+} can_message_t;
+
+
+
 // Functions
 void can_driver_init(uint8_t mode);
 
-uint8_t can_driver_is_message_available();
-void can_driver_read_message(char *buffer);
+uint8_t can_driver_message_available();
+void can_driver_send_message(can_message_t* message);
 
-void can_driver_send_message(uint16_t can_id, char* data);
+void can_driver_read_message(can_message_t* message);
+
 
 
 

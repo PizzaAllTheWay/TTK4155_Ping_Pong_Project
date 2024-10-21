@@ -48,22 +48,23 @@ int main(void)
 	
 	
 	// Testing ----------
-	can_driver_init(MODE_LOOPBACK);
-	//can_driver_init(MODE_NORMAL);
+	//can_driver_init(MODE_LOOPBACK);
+	can_driver_init(MODE_NORMAL);
 	
 	
 
     // Infinite loop
     while (1) 
     {		
-		// UART Testing
+		// UART Testing ----------
 		/*
 		char uart_message[20];
 		uart_receive_message(uart_message, 20);
-		uart_send_message("Hello World!\n\0");
+		uart_send_message("ABCDEFGH");
+		_delay_ms(10);
 		*/
 		
-		// SRAM Testing
+		// SRAM Testing ----------
 		/*
 		uart_receive_message(uart_message, 10);
 		external_sram_write(EXTERNAL_SRAM_ADDRESS_START+1, uart_message, 1); // Write UART sent message to SRAM
@@ -73,7 +74,7 @@ int main(void)
 		uart_send_message(sram_data_buffer);
 		*/
 		
-		// Joystick Testing
+		// Joystick Testing ----------
 		/*
 		char uart_message[20];
 		controls_refresh();
@@ -95,7 +96,7 @@ int main(void)
 		uart_send_message(uart_message);
 		*/
 		
-		// Menu Testing
+		// Menu Testing ----------
 		/* --------------------------------------------------
 		// Wait for input
 		while (joystic_y == 0) {
@@ -276,12 +277,12 @@ int main(void)
 			joystic_y = controls_get_joystick_y();
 		}*/
 		
-		// CAN Testing
+		// CAN Testing ----------
 		can_message_t can_message_send;
 		can_message_t can_message_received;
 
 		// Set the CAN message ID
-		can_message_send.id = 0x123;
+		can_message_send.id = 0x0000;
 
 		// Set the message data (8 bytes max)
 		can_message_send.data[0] = 'A'; 
@@ -298,18 +299,18 @@ int main(void)
 
 		// Send the CAN message
 		can_driver_send_message(&can_message_send);
-		_delay_ms(10);
 		
 		// Read the CAN Message
-		//while (!can_driver_message_available());
 		can_driver_read_message(&can_message_received);
 
 		// Check if a message was received
 		if (can_message_received.length > 0) {
-			char uart_mesage[2];
-			uart_mesage[0] = can_message_received.data[0];
-			uart_mesage[1] = '\0';
-			uart_send_message("A");
+			char uart_mesage[9];
+			for (uint8_t i = 0; i < 8; i++) {
+				uart_mesage[i] = can_message_received.data[i];
+			}
+			uart_mesage[8] = '\0';
+			uart_send_message(uart_mesage);
 		} 
 		else {
 			debug_led_blink();

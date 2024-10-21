@@ -8,16 +8,18 @@
 #define F_CPU 4915200UL //4915200UL // Set the CPU clock frequency 4.9152 MHz
 
 
-
+/*
 #include "Drivers/Debugging/debug_led.h"
 #include "Drivers/UART/uart_driver.h"
 #include "Drivers/Controls/controls.h"
 #include "Drivers/OLED/oled.h"
 #include "Drivers/Menu/menu.h"
+*/
 
 
-
-#include "Drivers/CAN/can_driver.h"
+//#include "Drivers/CAN/can_driver.h"
+#include "Drivers/CAN/spi_driver.h"
+#include <util/delay.h>
 
 
 
@@ -43,15 +45,16 @@ int main(void)
 {
 	// Debugging Setup
 	debug_led_init();
-	uart_init(F_CPU, BAUD_RATE);
+	//uart_init(F_CPU, BAUD_RATE);
 
 	// Interface Setup
-	controls_init();
-	menu_init();
+	//controls_init();
+	//menu_init();
 	
 	
 	// Testing ----------
-	can_driver_init(MODE_LOOPBACK);
+	//can_driver_init(MODE_LOOPBACK);
+	spi_driver_init();
 	
 	
 
@@ -347,19 +350,20 @@ int main(void)
 		uart_send_message(can_message);
 		*/
 		// CAN Testing --------------------------------------------------
-		/*
 		spi_driver_select();
-		spi_driver_write(0xFF);  // Send dummy data or command
+		spi_driver_write('B');  // Send dummy data or command
 		char received_data = spi_driver_read();  // Read response from MCP2515
 		spi_driver_deselect();
-		*/
+		
 		// Send a single byte 'A' with CAN ID 0x123
 		//can_driver_send_message(0x00, 'A');
 		//_delay_ms(10);
 		
+		/*
 		uint16_t can_id = 0;
 		char data[8] = "12345678";
 		can_driver_send_message(can_id, data);
+		*/
 		
     }
 	

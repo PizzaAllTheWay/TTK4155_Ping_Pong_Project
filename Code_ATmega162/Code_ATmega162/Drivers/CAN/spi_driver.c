@@ -17,16 +17,18 @@ void spi_driver_init() {
 	DDRB &= ~(1 << PB6); // MISO as input
 	DDRB |= (1 << PB7);  // SCK as output
 	
-	// Set up SPI rehister
-	SPCR |= (1 << SPE);   // Enable SPI
-	SPCR |= (1 << MSTR);  // Set as Master
-	SPCR |= (1 << SPR0);  // Set clock rate to F_CPU/16
-	
-	// Set SPI Mode
+	// Set up SPI register
+	// Enable SPI
+	// Set as Master
+	// Set clock rate to F_CPU/16
+	SPCR = (1 << SPE)|(1 << MSTR)|(1 << SPR0);
 	// Clear CPOL to 0 (Clock Polarity)
-	SPCR &= ~(1 << CPOL);  // Clock idle state is low (0
+	SPCR &= ~(1 << CPOL);  // Clock idle state is low (0)
 	// Clear CPHA to 0 (Clock Phase)
 	SPCR &= ~(1 << CPHA);  // Data is sampled on the leading edge (rising edge)
+	
+	// Set SS-pin high
+	PORTB |= (1 << PB4);
 }
 
 
@@ -48,6 +50,7 @@ void spi_driver_deselect() {
 void spi_driver_write(char data) {
 	// Start transmission by writing data to SPDR
 	SPDR = data;
+	
 	// Wait for the transmission to complete (SPIF bit set)
 	while (!(SPSR & (1 << SPIF)));
 }

@@ -46,16 +46,14 @@ int main(void)
 	controls_init();
 	menu_init();
 	
-	
-	// Testing ----------
-	//can_driver_init(MODE_LOOPBACK);
+	// CAN Setup
+	//can_driver_init(MODE_LOOPBACK); // For Testing CAN
 	can_driver_init(MODE_NORMAL);
 	
 	
 
     // Infinite loop
-    while (1) 
-    {		
+    while (1) {		
 		// UART Testing ----------
 		/*
 		char uart_message[20];

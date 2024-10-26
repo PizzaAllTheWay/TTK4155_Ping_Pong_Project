@@ -13,6 +13,8 @@
 #include <stdio.h>
 #include <util/delay.h>
 
+
+
 void debug_led_blink(void);
 
 // NOTE: To make I/O Ports for Microcontroller ATmega162 function as blinking LED pin, we must initialize it first before we use any of the functionalities

@@ -161,7 +161,7 @@ uint8_t mcp2515_driver_read_status();
 
 // CNF2 Register Values
 
-#define BTLMODE			0x80
+//#define BTLMODE			0x80
 #define SAMPLE_1X       0x00
 #define SAMPLE_3X       0x40
 

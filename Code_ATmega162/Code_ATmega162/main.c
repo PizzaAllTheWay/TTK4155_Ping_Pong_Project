@@ -5,7 +5,7 @@
  * Author : Martynas
  */ 
 
-#define F_CPU 4915200UL //4915200UL // Set the CPU clock frequency 4.9152 MHz
+#define F_CPU 4915200UL // Set the CPU clock frequency 4.9152 MHz
 
 
 

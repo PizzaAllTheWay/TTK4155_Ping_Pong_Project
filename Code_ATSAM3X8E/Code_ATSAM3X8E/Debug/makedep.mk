@@ -6,6 +6,8 @@ Device_Startup\startup_sam3xa.c
 
 Device_Startup\system_sam3xa.c
 
+Drivers\CAN\can.c
+
 Drivers\Debugging\debug_led.c
 
 Drivers\Time\time.c

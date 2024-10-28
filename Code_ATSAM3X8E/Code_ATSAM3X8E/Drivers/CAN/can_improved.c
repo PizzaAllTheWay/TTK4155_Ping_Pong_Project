@@ -52,7 +52,12 @@ void can_init_improved(CanInit init, uint8_t rxInterrupt) {
     // RX_MAILBOX_0: First mailbox in chain (Receive Mode)
     CAN0->CAN_MB[RX_MAILBOX_0].CAN_MAM = 0; // Accept all messages
     CAN0->CAN_MB[RX_MAILBOX_0].CAN_MID = CAN_MID_MIDE;
-    CAN0->CAN_MB[RX_MAILBOX_0].CAN_MMR = CAN_MMR_MOT_MB_RX_OVERWRITE; //CAN_MMR_MOT_MB_RX;
+    // !NOTE:
+    //CAN0->CAN_MB[RX_MAILBOX_0].CAN_MMR = CAN_MMR_MOT_MB_RX;
+    // It should be CAN_MMR_MOT_MB_RX if you want Multimailbox system (Basically normal Receive Mode)
+    // However We want to get data as fast as possible into 1 mailbox and thus have CAN_MMR_MOT_MB_RX_OVERWRITE
+    // CAN_MMR_MOT_MB_RX_OVERWRITE (Basically Receive and overwrite Data as soon as new Data comes in)
+    CAN0->CAN_MB[RX_MAILBOX_0].CAN_MMR = CAN_MMR_MOT_MB_RX_OVERWRITE; 
     CAN0->CAN_MB[RX_MAILBOX_0].CAN_MCR |= CAN_MCR_MTCR; // Mark as ready to receive
 
     // RX_MAILBOX_1: Second mailbox in chain (Receive with Overwrite Mode)

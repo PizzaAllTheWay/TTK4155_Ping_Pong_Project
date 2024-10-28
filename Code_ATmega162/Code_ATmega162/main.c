@@ -283,14 +283,14 @@ int main(void)
 		can_message_send.id = 0x0000;
 
 		// Set the message data (8 bytes max)
-		can_message_send.data[0] = 'A'; 
+		can_message_send.data[0] = '1'; 
 		can_message_send.data[1] = 'B';
 		can_message_send.data[2] = 'C';
-		can_message_send.data[3] = 'D';
+		can_message_send.data[3] = '2';
 		can_message_send.data[4] = 'E';
-		can_message_send.data[5] = 'F';
-		can_message_send.data[6] = 'G';
-		can_message_send.data[7] = 'H';
+		can_message_send.data[5] = '3';
+		can_message_send.data[6] = '4';
+		can_message_send.data[7] = '5';
 
 		// Set the length of the message
 		can_message_send.length = 8;

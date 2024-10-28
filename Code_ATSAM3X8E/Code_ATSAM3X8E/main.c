@@ -28,6 +28,9 @@
 
 int main(void)
 {
+	// Disable Watchdog Timer ----------
+	WDT->WDT_MR = WDT_MR_WDDIS; // Set WDDIS bit to disable the watchdog timer
+	
     // Initialize SAM system ----------
     SystemInit();
 	
@@ -40,19 +43,17 @@ int main(void)
 	// CAN Baud Rate = F_CPU / (2 * BRP * (PROP + PHASE1 + PHASE2 + 1))
 	//
 	// Solving for BRP:
-	//     BRP = (F_CPU / (2 * CAN Baud Rate * (PROP + PHASE1 + PHASE2 + 1))) - 1
-	//
-	// For F_CPU = 84 MHz, CAN Baud Rate = 1 Mbps, PROP = 6, PHASE1 = 5, PHASE2 = 1:
-	//     BRP = (84000000 / (2 * 1000000 * (6 + 5 + 1 + 1))) - 1
-	//     BRP = (84000000 / (2 * 1000000 * 13)) - 1
-	//     BRP = 2.23, rounded to 2
+	//	TQ = (1 + BRP)/MCK
+	//  TQ: Time Quantum
+	//  MCK: Clock Speed
+	//  BRP: Baud Rate Prescaling
 	CanInit can_config = {
-		.brp = 30,  // Baud rate prescaler for 1 Mbps CAN WTF!!!! Why is 2 WRONG!!!??? 39 is the best, but whyyyyy!!!!????
-		.phase1 = 5,
-		.phase2 = 1,
-		.propag = 6,
+		.brp = 83,  // Baud Rate Prescaling (41)
+		.phase1 = 6,
+		.phase2 = 6,
+		.propag = 3,
 		.sjw = 1,
-		.smp = 1
+		.smp = 0
 	}; // CAN initialization parameters
 
 	can_init(can_config, 0); // Initialize CAN with the configuration, no receive interrupt
@@ -90,8 +91,8 @@ int main(void)
 		*/
 		
 		
-		
 		// Controller Data CAN Test ----------
+		
 		// Define the CAN message structure for receiving
 		CanMsg can_message;
 		
@@ -102,7 +103,11 @@ int main(void)
 			printf("Data Length: %d\n", can_message.length);
 			printf("Data: ");
 			for (uint8_t i = 0; i < can_message.length; i++) {
-				printf("%c ", can_message.byte[0]);  // Print each data byte as a character
+				printf("%c ", can_message.byte[i]);  // Print each data byte as a character
+			}
+			printf("Data Raw: ");
+			for (uint8_t i = 0; i < 8; i++) {
+				printf("%02X ", can_message.byte[i]);  // Print each data byte as a hex
 			}
 			printf("\n");
 

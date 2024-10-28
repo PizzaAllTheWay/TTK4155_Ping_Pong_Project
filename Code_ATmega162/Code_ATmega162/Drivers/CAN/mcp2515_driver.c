@@ -73,25 +73,25 @@ uint8_t mcp2515_driver_init(int8_t mode) {
 	
 	// Bit Timing Configuration: Set CNF1, CNF2, and CNF3 registers
 	// We are setting a 1 Mbps CAN speed with standard timing:
-	//   - BRP = 2
-	//   - PHASE1 = 5
-	//   - PHASE2 = 1
-	//   - PROP = 6
+	//   - BRP = 7
+	//   - PHASE1 = 6
+	//   - PHASE2 = 6
+	//   - PROP = 3
 	//   - SJW = 1
-	//   - SMP = 1
+	//   - SMP = 0
 
 	// CNF1: Configure BRP (Baud Rate Prescaler) and SJW (Sync Jump Width)
-	// for a 1 Mbps CAN speed with FOSC at 16 MHz we must have
+	// for a 500 kbps CAN speed with FOSC at 16 MHz we must have
 	// NOTE: 16MHz is NOT ATmega162 F_osc (witch is around 4 Mhz instead), its the MCP2515 CAN Controller F_osc, thats why its 16 MHz
 	//
 	// TQ = 2 * (BRP + 1) / FOSC
 	//
-	// BRP = 2
+	// BRP = 3
 	// SJW = 1
 	//
-	// CNF1 bit 0-5: BRP = 0x02 (BRP = 2)
+	// CNF1 bit 0-5: BRP = 0x03 (BRP = 3)
 	// CNF1 bit 7-6: SJW = 0x01 (Length = 1 * TQ)
-	uint8_t BRP = 0x02; // BRP = 2
+	uint8_t BRP = 0x07; // BRP = 7
 	uint8_t SJW = 0x01; // SJW = 1
 	uint8_t cnf1_mode = (SJW << 6) | (BRP);
 	mcp2515_driver_write(MCP_CNF1, cnf1_mode);
@@ -106,13 +106,13 @@ uint8_t mcp2515_driver_init(int8_t mode) {
 	// PHASE1 = 5 TQ
 	//
 	// CNF2 bit 7: BTLMODE = 0x01
-	// CNF2 bit 6: SAM = 0x01
+	// CNF2 bit 6: SAM = 0x00 (For noise reduction enter triple mode to sample each data point 3 times to average it out, WE DO NOT USE IT THO, WE DISABLED IT)
 	// CNF2 bits 5-3: PHSEG1 = 0x05
 	// CNF2 bits 2-0: PROPSEG = 0x06
 	uint8_t BTLMODE = 0x01;     // BTLMODE = 1 (enables programmable PHASE2)
-	uint8_t SAM = 0x01;         // Single sample mode = 1
-	uint8_t PHSEG1 = 0x05;      // PHASE1 = 5 TQ
-	uint8_t PROPSEG = 0x06;     // PROPSEG = 6 TQ
+	uint8_t SAM = 0x00;         // Single sample mode = 0
+	uint8_t PHSEG1 = 0x06;      // PHASE1 = 6 TQ
+	uint8_t PROPSEG = 0x03;     // PROPSEG = 3 TQ
 	uint8_t cnf2_mode = (BTLMODE << 7) | (SAM << 6) | (PHSEG1 << 3) | (PROPSEG);
 	mcp2515_driver_write(MCP_CNF2, cnf2_mode);
 
@@ -120,12 +120,16 @@ uint8_t mcp2515_driver_init(int8_t mode) {
 	//
 	// PHASE2 (PHSEG2) = 2 TQs (set as 1 for zero-based indexing)
 	// WAKFIL = 0 (disable wake-up filter)
+	// SOF = 0 (Start-of-Frame signal disabled)
 	//
+	// CNF3 bit 7: SOF = 0x00 (Start-of-Frame disabled, CLKOUT is used for clockout function)
 	// CNF3 bit 6: WAKFIL = 0x00 (Wake-up filter disabled)
-	// CNF3 bits 2-0: PHSEG2 = 0x01 (PHSEG2 = 1)
-	uint8_t WAKFIL = 0x00;      // Disable wake-up filter
-	uint8_t PHSEG2 = 0x01;      // PHASE2 = 1 TQ
-	uint8_t cnf3_mode = (WAKFIL << 6) | (PHSEG2);
+	// CNF3 bits 5-3: Unimplemented (must be set to 0)
+	// CNF3 bits 2-0: PHSEG2 = 0x01 (PHSEG2 = 1 TQ)
+	uint8_t SOF = 0x00;           // Disable Start-of-Frame
+	uint8_t WAKFIL = 0x00;        // Disable wake-up filter
+	uint8_t PHSEG2 = 0x06;        // PHASE2 = 6 TQ
+	uint8_t cnf3_mode = (SOF << 7) | (WAKFIL << 6) | (PHSEG2);
 	mcp2515_driver_write(MCP_CNF3, cnf3_mode);
 
 

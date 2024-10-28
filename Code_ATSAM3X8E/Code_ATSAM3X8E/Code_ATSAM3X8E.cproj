@@ -179,6 +179,12 @@
     <Compile Include="Drivers\CAN\can.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Drivers\CAN\can_improved.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\CAN\can_improved.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Drivers\Debugging\debug_led.c">
       <SubType>compile</SubType>
     </Compile>

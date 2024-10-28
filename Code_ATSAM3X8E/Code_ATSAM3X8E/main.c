@@ -22,7 +22,12 @@
 #include "Drivers/Time/time.h"
 #include "Drivers/Debugging/debug_led.h"
 #include "Drivers/UART/uart_driver.h"
-#include "Drivers/CAN/can.h"
+//#include "Drivers/CAN/can.h"
+#include "Drivers/CAN/can_improved.h"
+
+
+
+#define CAN_ID_SENDER 0
 
 
 
@@ -56,7 +61,8 @@ int main(void)
 		.smp = 0
 	}; // CAN initialization parameters
 
-	can_init(can_config, 0); // Initialize CAN with the configuration, no receive interrupt
+	//can_init(can_config, 0); // Initialize CAN with the configuration, no receive interrupt
+	can_init_improved(can_config, 1); // Initialize CAN with the configuration and enable receive interrupts
 	
 	
 
@@ -92,7 +98,7 @@ int main(void)
 		
 		
 		// Controller Data CAN Test ----------
-		
+		/*
 		// Define the CAN message structure for receiving
 		CanMsg can_message;
 		
@@ -123,6 +129,82 @@ int main(void)
 			debug_led_blink();
 			time_spinFor(msecs(1000));  // Delay for 1 second
 		}
+		*/
 		
+		
+
+        // Check if a message is received in RX mailbox
+		CanMsg received_msg;
+
+		// Check RX_MAILBOX_0 for received messages
+		if (can_rx_improved(&received_msg, RX_MAILBOX_0)) {
+			if (received_msg.id == CAN_ID_SENDER) {
+				printf("RX_MAILBOX_0 ID: %d\n", received_msg.id);
+
+				// Print all 8 bytes of data as an array in HEX format
+				printf("RX_MAILBOX_0 RAW: { ");
+					for (uint8_t i = 0; i < 8; i++) {
+						printf("0x%02X ", received_msg.byte[i]);
+					}
+				printf("}\n");
+
+				// Print all 8 bytes of data as an array in ASCII format
+				printf("RX_MAILBOX_0 ASCII: { ");
+					for (uint8_t i = 0; i < 8; i++) {
+						if (received_msg.byte[i] >= 32 && received_msg.byte[i] <= 126) {
+							// Only print readable ASCII characters
+							printf("%c ", received_msg.byte[i]);
+							} else {
+							// Print a dot for non-readable characters
+							printf(". ");
+						}
+					}
+				printf("}\n");
+
+				// Additional processing or delay
+				time_spinFor(msecs(1000));
+			}
+		}
+
+
+		
+		
+		/*
+        if (can_rx_improved(&received_msg, RX_MAILBOX_0)) {
+	        printf("Received CAN message with ID: %d\n", received_msg.id);
+
+	        // Print all 8 bytes of data as an array
+	        printf("Data RAW: { ");
+		        for (uint8_t i = 0; i < 8; i++) {
+			        printf("0x%02X ", received_msg.byte[i]);  // Print each byte in HEX
+		        }
+	        printf("}\n");
+			
+			// Print all 8 bytes of data as an array
+			printf("Data ASSCI: { ");
+				for (uint8_t i = 0; i < 8; i++) {
+					printf("%c ", received_msg.byte[i]);  // Print each byte in ASSCI
+				}
+			printf("}\n");
+
+	        // Additional processing or delay
+	        time_spinFor(msecs(500));
+        }
+		*/
+
+        // Delay to prevent spamming the output
+		//printf("Help O_O \n");
+		//time_spinFor(msecs(1000));
+		
+		/*
+		// Print out the full buffer in received_msg.byte
+		printf("Full received_msg buffer as an array: { ");
+			for (uint8_t i = 0; i < 8; i++) {
+				printf("%c ", received_msg.byte[i]);
+			}
+		printf("}\n");
+		
+		for (uint8_t i = 0; i < 10; i++) {time_spinFor(msecs(1000));}
+		*/
     }
 }

@@ -131,7 +131,7 @@ void can_driver_send_message(can_message_t* message) {
 	// Set data length of message we want to send ----------
 	uint8_t can_message_length = message->length;
 	mcp2515_driver_write(MCP_TXB0DLC, can_message_length);
-
+	
 	// Write Message to CAN Controller ----------
 	for (uint8_t i = 0; i < can_message_length; i++) {
 		// Since there are multiple registers on CAN Controller for data bytes

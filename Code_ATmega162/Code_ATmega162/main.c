@@ -302,6 +302,7 @@ int main(void)
 		can_driver_read_message(&can_message_received);
 
 		// Check if a message was received
+		/*
 		if (can_message_received.length > 0) {
 			char uart_mesage[9];
 			for (uint8_t i = 0; i < 8; i++) {
@@ -313,8 +314,9 @@ int main(void)
 		else {
 			debug_led_blink();
 		}
+		*/
 		
-		_delay_ms(10);
+		//_delay_ms(10);
     }
 	
 	// Exit

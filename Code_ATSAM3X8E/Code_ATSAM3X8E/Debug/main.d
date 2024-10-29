@@ -106,7 +106,7 @@ main.d main.o: .././main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\types.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\stdio.h \
  .././Drivers/Time/time.h .././Drivers/Debugging/debug_led.h \
- .././Drivers/UART/uart_driver.h .././Drivers/CAN/can_improved.h
+ .././Drivers/UART/uart_driver.h .././Drivers/CAN/can.h
 
 C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include/sam.h:
 
@@ -326,4 +326,4 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 .././Drivers/UART/uart_driver.h:
 
-.././Drivers/CAN/can_improved.h:
+.././Drivers/CAN/can.h:

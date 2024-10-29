@@ -55,10 +55,27 @@ void uart_init(uint32_t f_osc, unsigned long baud_rate) {
 	// We use 2 registers because we have decided to communicate in NORMAL Synchronously mode
 	// These registers need to be configured with appropriate baud rate
 	// This baud rate is then calculated with:
-	// UBRR = (f_osc/(16 * baud_rate)) - 1
+	// UBRR = (f_osc_REAL/(16 * baud_rate)) - 1
+	//
+	// f_osc_REAL = f_osc * prescale
+	// f_osc_REAL is the real frequency in the system after pre-scaling
+	// Read more in the ATmega162 Data sheet on
+	// Page 32 - 42: System Clock and Clock Options
+	// Page 41 - 42:  Clock Prescale Register – CLKPR
+	// Since we have programed fuses our CKDIV8 Fuse becomes "0011"
+	// This means we have set CLKPS3-0 to 0011 witch means  Clock Division Factor of 8
+	// prescale = 1/8
+	// So our f_osc_REAL will be:
+	// f_osc_REAL = f_osc/8
+	//
+	// This means that UBRR will be:
+	// UBRR = (f_osc_REAL/(16 * baud_rate)) - 1
+	// UBRR = (f_osc/8) * (1/(16 * baud_rate)) - 1
+	// UBRR = (f_osc/(128 * baud_rate)) - 1
+	//
 	// After calculation we set UBRRL with the 8 least significant bits (LSB)
 	// UBRRH is set with 8 MSB
-	
+	//
 	// For more information on this topic read data sheet for Micro controller ATmega162
 	// Page 168: AVR USART vs. AVR UART – Compatibility
 	// Page 169: Internal Clock Generation – The Baud Rate Generator
@@ -66,8 +83,6 @@ void uart_init(uint32_t f_osc, unsigned long baud_rate) {
 	// Page 181: Asynchronous Operational Range
 	// Page 186: USART Register Description
 	// Page 190: USART Baud Rate Registers – UBRRL and UBRRH
-	// IT should be uint16_t UBRR0_value = (f_osc/(16 * baud_rate)) - 1;
-	// However the system is retarded
 	uint16_t UBRR0_value = (f_osc/(128 * baud_rate)) - 1;
 	
 	UBRR0L = UBRR0_value; // LSB

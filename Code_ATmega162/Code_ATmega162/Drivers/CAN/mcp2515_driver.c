@@ -55,7 +55,7 @@ uint8_t mcp2515_driver_read(uint8_t address) {
 
 // Initialization Function
 uint8_t mcp2515_driver_init(int8_t mode) {
-    // Initialize SPI ----------
+	// Initialize SPI ----------
     spi_driver_init();
     
     // Reset MCP2515 ----------
@@ -64,6 +64,7 @@ uint8_t mcp2515_driver_init(int8_t mode) {
 	
 	
 	// Set up Bit Timing ----------
+	// 500 kbps Data buss
 	// Bit timing can only be set up in CONFIG mode
 	// Set MCP2515 to Configuration mode
 	mcp2515_driver_write(MCP_CANCTRL, MODE_CONFIG);
@@ -79,18 +80,65 @@ uint8_t mcp2515_driver_init(int8_t mode) {
 	//   - PROP = 3
 	//   - SJW = 1
 	//   - SMP = 0
-
+	//
+	// We chose these values as it adheres to data sheet specifications
+	//		bit-rate MUST be 16 TQ (ie 500 kbps in our case)
+	//		SJW + PROP + PHASE1 + PHASE2 = 16 TQ
+	// TQ: Time Quantum
+	// These TQ are responsible for the Data Rate on the buss and should be alike for all systems on the buss
+	// This way each controller even while having different clock speeds, can communicate with each other synchronously
+	// Other requirements for sending data through MPC2515 CAN Controller include:
+	//		PROP + PHASE1 >= PHASE2
+	//		PROP + PHASE1 >= T_DELAY
+	//		PHASE2 > SJW
+	// T_DELAY: represents the delay time required to account for the propagation delay in signal transmission on the CAN bus. This delay is typically 1-2 Time Quanta (TQ) and is factored in to ensure accurate sampling and synchronization of data across different nodes on the bus
+	// Read more on this topic in MPC2515 CAN Controller data sheet:
+	// Page 39 - 49: 5.0 BIT TIMING
+	
+	
+	
 	// CNF1: Configure BRP (Baud Rate Prescaler) and SJW (Sync Jump Width)
 	// for a 500 kbps CAN speed with FOSC at 16 MHz we must have
 	// NOTE: 16MHz is NOT ATmega162 F_osc (witch is around 4 Mhz instead), its the MCP2515 CAN Controller F_osc, thats why its 16 MHz
 	//
-	// TQ = 2 * (BRP + 1) / FOSC
+	// Way to figure out BRP (Baud Rate Prescaler)
+	//		TQ = 2 * (BRP + 1) / F_OSC_REAL
+	//		F_OSC_REAL = F_OSC * prescaler
+	// Just like with UART in Node 1 with ATmega162 Microcontroller, so does the MCP2515 CAN Controller has a Clock Prescaler
+	// This Clock prescaler is set by manipulating CANCTRL register and setting bits 0-1 (CLKPRE)
+	// We have set them to 11 =>  FCLKOUT = System Clock/8
+	// Read More on Prescaler Clock in MCP2515 CAN Controller data sheet:
+	// Page 55: 8.0 OSCILLATOR
+	// Page 55: 8.2 CLKOUT Pin
+	// Page 60: CANCTRL – CAN CONTROL REGISTER
+	// Either way now that we know our prescale value we set it in to the function for BRP
+	//		F_OSC_REAL = F_OSC * prescaler
+	//		F_OSC_REAL = F_OSC * 8
+	//		TQ = 2 * (BRP + 1) / F_OSC_REAL
+	//		TQ = 2 * (BRP + 1) / (8 * F_OSC)
+	//		TQ = (BRP + 1)/(4 * F_OSC)
+	//		TQ * (4 * F_OSC) = BRP + 1
+	//		BRP = TQ * (4 * F_OSC) - 1
+	// We also have that TQ is time quantum
+	//		TQ = bit-rate/n
+	//			bit-rate: data speed on the CAN buss we want
+	//			n: Number of time quantums we have per data package sent/received
+	//		TQ = 500 kbps/16
+	//		BRP = (500 kbps/16) * (4 * F_OSC) - 1
+	//			F_OSC: Just the external crystal oscillator for the MCP2515 CAN Controller
+	//		BRP = (500 kbps/16) * (4 * 16 MHz) - 1
+	//		BRP = 7
 	//
-	// BRP = 3
+	// BRP = 7
 	// SJW = 1
 	//
-	// CNF1 bit 0-5: BRP = 0x03 (BRP = 3)
+	// CNF1 bit 0-5: BRP = 0x07 (BRP = 7)
 	// CNF1 bit 7-6: SJW = 0x01 (Length = 1 * TQ)
+	//
+	// Read more on this topic in MPC2515 CAN Controller data sheet:
+	// Page 39 - 49: 5.0 BIT TIMING
+	// Page 43:  5.5 Bit Timing Configuration Registers
+	// Page 44:  REGISTER 5-1: CNF1 – CONFIGURATION 1
 	uint8_t BRP = 0x07; // BRP = 7
 	uint8_t SJW = 0x01; // SJW = 1
 	uint8_t cnf1_mode = (SJW << 6) | (BRP);
@@ -99,16 +147,21 @@ uint8_t mcp2515_driver_init(int8_t mode) {
 	// CNF2: Configure PROPSEG, PHASE1, and sample mode (SAM)
 	// Set BTLMODE to enable programmable Phase2 (configured in CNF3)
 	//
-	// SAM = 0 (Single sample mode)
+	// SAM = 0 (Single sample mode) (same as SMP)
 	// BTLMODE = 1 (bit 7) enables programmable PHASE2 in CNF3.
 	//
 	// PROP = 6 TQ
 	// PHASE1 = 5 TQ
 	//
 	// CNF2 bit 7: BTLMODE = 0x01
-	// CNF2 bit 6: SAM = 0x00 (For noise reduction enter triple mode to sample each data point 3 times to average it out, WE DO NOT USE IT THO, WE DISABLED IT)
+	// CNF2 bit 6: SAM = 0x00 (For noise reduction enter triple mode to sample each data point 3 times to average it out, WE DO NOT USE IT, we disabled it because we thought it was unnecessary)
 	// CNF2 bits 5-3: PHSEG1 = 0x05
 	// CNF2 bits 2-0: PROPSEG = 0x06
+	//
+	// Read more on this topic in MPC2515 CAN Controller data sheet:
+	// Page 39 - 49: 5.0 BIT TIMING
+	// Page 43:  5.5 Bit Timing Configuration Registers
+	// Page 44:  REGISTER 5-2: CNF2 – CONFIGURATION 1
 	uint8_t BTLMODE = 0x01;     // BTLMODE = 1 (enables programmable PHASE2)
 	uint8_t SAM = 0x00;         // Single sample mode = 0
 	uint8_t PHSEG1 = 0x06;      // PHASE1 = 6 TQ
@@ -126,6 +179,11 @@ uint8_t mcp2515_driver_init(int8_t mode) {
 	// CNF3 bit 6: WAKFIL = 0x00 (Wake-up filter disabled)
 	// CNF3 bits 5-3: Unimplemented (must be set to 0)
 	// CNF3 bits 2-0: PHSEG2 = 0x01 (PHSEG2 = 1 TQ)
+	//
+	// Read more on this topic in MPC2515 CAN Controller data sheet:
+	// Page 39 - 49: 5.0 BIT TIMING
+	// Page 43:  5.5 Bit Timing Configuration Registers
+	// Page 45:  REGISTER 5-3: CNF3 – CONFIGURATION 1
 	uint8_t SOF = 0x00;           // Disable Start-of-Frame
 	uint8_t WAKFIL = 0x00;        // Disable wake-up filter
 	uint8_t PHSEG2 = 0x06;        // PHASE2 = 6 TQ

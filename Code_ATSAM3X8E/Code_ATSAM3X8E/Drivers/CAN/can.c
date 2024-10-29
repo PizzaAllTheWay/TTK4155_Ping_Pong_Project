@@ -45,7 +45,22 @@ void can_init(CanInit init, uint8_t rxInterrupt) {
     PIOA->PIO_PUER = PIO_PA1A_CANRX0 | PIO_PA0A_CANTX0;
 
     // Enable CAN0 clock
-	// NOTE: This will also prescale MCK (Master Clock) to peripheral clock
+	// NOTE: This will also prescale MCK (Master Clock) for peripheral clock, witch is the clock CAN Controller uses
+	//
+	// MCK is the system clock speed and can be prescaled just like any other microcontroller
+	// In ATSAM3X8E case, the peripherals on the high speed bridge are clocked by MCK
+	// HOWEVER On the low-speed bridge, where CAN controller resides, MCK_REAL can be clocked at MCK divided by 2 or 4, this is to save power.
+	// This division is set by PMC_PCR register as it is the Peripheral Control Register
+	// By setting PMC_PCR we are setting a prescale for MCK_REAL, thus:
+	//		prescale = 1/2
+	// For more information about MCK (Master Clock), read ATSAM3X8E Data Sheet:
+	// Page 39: 9.2 APB/AHB Bridge
+	// Page 519 - 525: 27. Clock Generator
+	// Page 526 - 566: 28. Power Management Controller (PMC)
+	// Page 526: 28.2 Embedded Characteristics
+	// Page 528 - 529: 28.7 Peripheral Clock Controller
+	// Page 538: 28.15 Power Management Controller (PMC) User Interface
+	// Page 566: 28.15.26 PMC Peripheral Control Register
     PMC->PMC_PCR = PMC_PCR_EN | PMC_PCR_CMD | (ID_CAN0 << PMC_PCR_PID_Pos);
     PMC->PMC_PCER1 |= (1 << (ID_CAN0 - 32));
 

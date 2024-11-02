@@ -31,11 +31,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  13 .debug_macro  000124c4  00000000  00000000  000290dd  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_line   00003ae7  00000000  00000000  0003b5a1  2**0
+ 14 .debug_line   00003ae5  00000000  00000000  0003b5a1  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_str    00055766  00000000  00000000  0003f088  2**0
+ 15 .debug_str    00055766  00000000  00000000  0003f086  2**0
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_frame  0000189c  00000000  00000000  000947f0  2**2
+ 16 .debug_frame  0000189c  00000000  00000000  000947ec  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -426,9 +426,8 @@ __STATIC_INLINE void __NVIC_EnableIRQ(IRQn_Type IRQn)
    80332:	f8d3 3210 	ldr.w	r3, [r3, #528]	; 0x210
    80336:	f413 0f00 	tst.w	r3, #8388608	; 0x800000
    8033a:	d01c      	beq.n	80376 <can_rx+0x4e>
-	// EXPERIMENTAL (STOP) --------------------------------------------------
-
-
+        return 0;
+    }
 
     // Retrieve message ID and data length
     m->id = (uint8_t)((CAN0->CAN_MB[mailbox].CAN_MID & CAN_MID_MIDvA_Msk) >> CAN_MID_MIDvA_Pos);

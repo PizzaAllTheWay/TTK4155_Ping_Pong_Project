@@ -2672,14 +2672,14 @@ OUTPUT(Code_ATSAM3X8E.elf elf32-littlearm)
  .debug_macro   0x00011fb7      0x4f1 main.o
  .debug_macro   0x000124a8       0x1c main.o
 
-.debug_line     0x00000000     0x3ae7
+.debug_line     0x00000000     0x3ae5
  .debug_line    0x00000000      0x728 Device_Startup/startup_sam3xa.o
  .debug_line    0x00000728      0x785 Device_Startup/system_sam3xa.o
- .debug_line    0x00000ead      0x8d9 Drivers/CAN/can.o
- .debug_line    0x00001786      0x761 Drivers/Debugging/debug_led.o
- .debug_line    0x00001ee7      0x993 Drivers/Time/time.o
- .debug_line    0x0000287a      0x9b9 Drivers/UART/uart_driver.o
- .debug_line    0x00003233      0x8b4 main.o
+ .debug_line    0x00000ead      0x8d7 Drivers/CAN/can.o
+ .debug_line    0x00001784      0x761 Drivers/Debugging/debug_led.o
+ .debug_line    0x00001ee5      0x993 Drivers/Time/time.o
+ .debug_line    0x00002878      0x9b9 Drivers/UART/uart_driver.o
+ .debug_line    0x00003231      0x8b4 main.o
 
 .debug_str      0x00000000    0x55766
  .debug_str     0x00000000    0x5030b Device_Startup/startup_sam3xa.o

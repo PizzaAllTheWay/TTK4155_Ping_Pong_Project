@@ -184,20 +184,6 @@ uint8_t can_rx(CanMsg* m, uint8_t mailbox) {
     if (!(CAN0->CAN_MB[mailbox].CAN_MSR & CAN_MSR_MRDY)) {
         return 0;
     }
-	
-	
-	
-	// EXPERIMENTAL (START) --------------------------------------------------
-	/*
-	// Check for message loss with MMI flag
-	if (CAN0->CAN_MB[mailbox].CAN_MSR & CAN_MSR_MMI) {
-		// Handle message loss or alert
-		CAN0->CAN_MB[mailbox].CAN_MSR; // Clear MMI flag by reading
-	}
-	*/
-	// EXPERIMENTAL (STOP) --------------------------------------------------
-
-
 
     // Retrieve message ID and data length
     m->id = (uint8_t)((CAN0->CAN_MB[mailbox].CAN_MID & CAN_MID_MIDvA_Msk) >> CAN_MID_MIDvA_Pos);

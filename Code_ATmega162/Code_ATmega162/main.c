@@ -275,7 +275,8 @@ int main(void)
 			joystic_y = controls_get_joystick_y();
 		}*/
 		
-		// CAN Testing ----------
+		// CAN Testing Node 1 ----------
+		/*
 		can_message_t can_message_send;
 		can_message_t can_message_received;
 
@@ -302,7 +303,6 @@ int main(void)
 		can_driver_read_message(&can_message_received);
 
 		// Check if a message was received
-		/*
 		if (can_message_received.length > 0) {
 			char uart_mesage[9];
 			for (uint8_t i = 0; i < 8; i++) {
@@ -316,7 +316,30 @@ int main(void)
 		}
 		*/
 		
-		//_delay_ms(10);
+		// CAN Testing Node 2 ----------
+		can_message_t can_message_send;
+
+		// Set the CAN message ID
+		can_message_send.id = 0x0000;
+
+		// Get Joystick Inputs
+		// Set the message data to joystick inputs (8 bytes max)
+		// Last byte just random as it is not used
+		controls_refresh();
+		can_message_send.data[0] = controls_get_joystick_y(); 
+		can_message_send.data[1] = controls_get_joystick_x();
+		can_message_send.data[2] = controls_get_pad_left();
+		can_message_send.data[3] = controls_get_pad_right();
+		can_message_send.data[4] = controls_get_joystick_button();
+		can_message_send.data[5] = controls_get_pad_left_button();
+		can_message_send.data[6] = controls_get_pad_right_button();
+		can_message_send.data[7] = 'E';
+
+		// Set the length of the message
+		can_message_send.length = 8;
+
+		// Send the CAN message
+		can_driver_send_message(&can_message_send);
     }
 	
 	// Exit

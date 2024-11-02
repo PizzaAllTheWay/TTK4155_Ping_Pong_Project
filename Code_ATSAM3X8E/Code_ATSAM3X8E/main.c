@@ -120,7 +120,7 @@ int main(void)
 		.phase2 = 6,
 		.propag = 3,
 		.sjw = 1,
-		.smp = 0
+		.smp = 1
 	}; // CAN initialization parameters
 	can_init(can_config, 1); // Initialize CAN with the configuration and enable receive interrupts
 	
@@ -164,21 +164,11 @@ int main(void)
 		if (can_rx(&can_message, RX_MAILBOX_0)) {
 			// Check if the received message is from the correct sender ID
 			if (can_message.id == CAN_ID_SENDER) {
-				printf("RX_MAILBOX_0 ID: %d\n", can_message.id);
-
 				// Print all 8 bytes of data as an array in HEX format
-				printf("RX_MAILBOX_0 RAW: { ");
 				for (uint8_t i = 0; i < 8; i++) {
 					printf("0x%02X ", can_message.byte[i]);
 				}
-				printf("}\n");
-
-				// Print all 8 bytes of data as an array in ASCII format
-				printf("RX_MAILBOX_0 ASCII: { ");
-				for (uint8_t i = 0; i < 8; i++) {
-					printf("%c ", can_message.byte[i]);
-				}
-				printf("}\n");
+				printf("\n");
 
 				// 1 second delay so that the print on screen doesen't overflow to fast
 				time_spinFor(msecs(1000));

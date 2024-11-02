@@ -79,7 +79,7 @@ uint8_t mcp2515_driver_init(int8_t mode) {
 	//   - PHASE2 = 6
 	//   - PROP = 3
 	//   - SJW = 1
-	//   - SMP = 0
+	//   - SMP = 1
 	//
 	// We chose these values as it adheres to data sheet specifications
 	//		bit-rate MUST be 16 TQ (ie 500 kbps in our case)
@@ -154,7 +154,7 @@ uint8_t mcp2515_driver_init(int8_t mode) {
 	// PHASE1 = 5 TQ
 	//
 	// CNF2 bit 7: BTLMODE = 0x01
-	// CNF2 bit 6: SAM = 0x00 (For noise reduction enter triple mode to sample each data point 3 times to average it out, WE DO NOT USE IT, we disabled it because we thought it was unnecessary)
+	// CNF2 bit 6: SAM = 0x01 (For noise reduction enter triple mode to sample each data point 3 times to average it out)
 	// CNF2 bits 5-3: PHSEG1 = 0x05
 	// CNF2 bits 2-0: PROPSEG = 0x06
 	//
@@ -163,7 +163,7 @@ uint8_t mcp2515_driver_init(int8_t mode) {
 	// Page 43:  5.5 Bit Timing Configuration Registers
 	// Page 44:  REGISTER 5-2: CNF2 – CONFIGURATION 1
 	uint8_t BTLMODE = 0x01;     // BTLMODE = 1 (enables programmable PHASE2)
-	uint8_t SAM = 0x00;         // Single sample mode = 0
+	uint8_t SAM = 0x01;         // Single sample mode = 1
 	uint8_t PHSEG1 = 0x06;      // PHASE1 = 6 TQ
 	uint8_t PROPSEG = 0x03;     // PROPSEG = 3 TQ
 	uint8_t cnf2_mode = (BTLMODE << 7) | (SAM << 6) | (PHSEG1 << 3) | (PROPSEG);

@@ -85,12 +85,17 @@ uint8_t mcp2515_driver_read_status();
 #define MCP_TXB2CTRL	0x50
 #define MCP_RXB0CTRL	0x60
 #define MCP_RXB1CTRL	0x70
-#define MCP_RXB1SIDH	0x71
 
+#define RXB0CTRL		0x60		// Receive buffer 0 Control
 #define MCP_RXB0SIDH	0x61		// Receive buffer 0 standard identifier high
 #define MCP_RXB0SIDL	0x62		// Receive buffer 0 standard identifier low
 #define MCP_RXB0DLC		0x65		// Receive buffer 0 data length code
 #define MCP_RXB0DM		0x66		// Receive buffer 0 Data Byte m. From 0x66 to 0x6D
+#define MCP_RXB1SIDH	0x71		// Receive buffer 1 standard identifier high
+#define MCP_RXB1SIDL	0x72		// Receive buffer 1 standard identifier low
+#define MCP_RXB1DLC		0x75		// Receive buffer 0 data length code
+#define MCP_RXB1DM		0x76		// Receive buffer 0 Data Byte m. From 0x66 to 0x6D
+#define BFPCTRL			0x0C		// PIN CONTROL AND STATUS
 
 #define MCP_TX_INT		0x1C		// Enable all transmit interrupts
 #define MCP_TX01_INT	0x0C		// Enable TXB0 and TXB1 interrupts
@@ -137,7 +142,7 @@ uint8_t mcp2515_driver_read_status();
 #define MODE_NORMAL     0x00
 #define MODE_SLEEP      0x20
 #define MODE_LOOPBACK   0x40
-#define MODE_LISTENONLY 0x60
+//#define MODE_LISTENONLY 0x60
 #define MODE_CONFIG     0x80
 #define MODE_POWERUP	0xE0
 #define MODE_MASK		0xE0

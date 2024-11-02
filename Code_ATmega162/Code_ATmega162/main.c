@@ -317,6 +317,7 @@ int main(void)
 		*/
 		
 		// CAN Testing Node 2 ----------
+		/*
 		can_message_t can_message_send;
 
 		// Set the CAN message ID
@@ -340,6 +341,62 @@ int main(void)
 
 		// Send the CAN message
 		can_driver_send_message(&can_message_send);
+		*/
+		
+		
+		// Testing
+		uint8_t is_can_available = can_driver_message_available();
+		
+		can_message_t can_message_received;
+		can_driver_read_message(&can_message_received);
+		
+		
+		char test[2] = "\0\0";
+		test[0] = (is_can_available & 0x01) + 0x30;
+		uart_send_message("Can avialable?: ");
+		uart_send_message(test);
+		
+		
+		uart_send_message("Message: ");
+		char uart_mesage[9];
+		for (uint8_t i = 0; i < 8; i++) {
+			uart_mesage[i] = can_message_received.data[i];
+		}
+		uart_mesage[8] = '\0';
+		uart_send_message(uart_mesage);
+		
+		_delay_ms(100);
+		
+		
+		
+		/*
+		if (is_can_available == 1) {
+			debug_led_blink();
+			can_message_t can_message_received;
+			can_driver_read_message(&can_message_received);
+			
+			char test[2] = "\0\0";
+			test[0] = (is_can_available & 0x01) + 0x30;
+			uart_send_message("Can avialable?: ");
+			uart_send_message(test);
+			uart_send_message("Done");
+			
+			_delay_ms(10);
+			
+			if (can_message_received.length > 0) {
+				char uart_mesage[9];
+				for (uint8_t i = 0; i < 8; i++) {
+					uart_mesage[i] = can_message_received.data[i];
+				}
+				uart_mesage[8] = '\0';
+				uart_send_message(uart_mesage);
+				
+				debug_led_blink();
+			}
+		}
+		*/
+		
+		
     }
 	
 	// Exit

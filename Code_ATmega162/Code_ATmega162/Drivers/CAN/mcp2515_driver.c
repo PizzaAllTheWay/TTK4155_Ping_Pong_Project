@@ -190,8 +190,68 @@ uint8_t mcp2515_driver_init(int8_t mode) {
 	uint8_t cnf3_mode = (SOF << 7) | (WAKFIL << 6) | (PHSEG2);
 	mcp2515_driver_write(MCP_CNF3, cnf3_mode);
 
+	
+	
+	// Set up Receive ----------
+	// In order to read and receive data we must configure the RXB0CTRL register
+	//
+	// Bit 6-5: RXM = 0x03 (bit 11) => Turn mask/filters off; receive any message
+	// 
+	// Read more on this topic in MPC2515 CAN Controller data sheet:
+	// Page 24 - 38: 4.0 MESSAGE RECEPTION
+	// Page 27: RXB0CTRL – RECEIVE BUFFER 0 CONTROL
+	uint8_t RXM = 0x03;
+	uint8_t receive_control_mode = (RXM << 5);
+	mcp2515_driver_write(RXB0CTRL, receive_control_mode);
+	
+	
+	
 
+	// Set up Interrupts ----------
+	// In order to know when we receive a message, we must enable interrupts
+	// This is done by setting PIN CONTROL AND STATUS register (BFPCTRL)
+	// We want data from buffer 0 as it is the first one to receive data and will give out interupt first
+	// This means we must set buffer 0 interupt up
+	// This is done by setting B0BFE, B0BFM, and B0BFS bits
+	// 
+	// To configure interupt pin for buffer 0 (INT PIN => RX0BF)
+	// We must set the bits in the register the following way:
+	// bit 4: B0BFS = 0
+	// bit 2: B0BFE = 1
+	// bit 0: B0BFM = 1
+	//
+	// Read more on this topic in MPC2515 CAN Controller data sheet:
+	// Page 24 - 38: 4.0 MESSAGE RECEPTION
+	// Page 23: 4.1.3 RECEIVE FLAGS/INTERRUPTS
+	// Page 24: 4.4.1 DISABLED
+	// Page 24: 4.4.2 CONFIGURED AS BUFFER FULL
+	// Page 25: 4.4.3 CONFIGURED AS DIGITAL OUTPUT
+	// Page 29: BFPCTRL – RXnBF PIN CONTROL AND STATUS
+	uint8_t B0BFS = 0x00; // B0BFS = 0
+	uint8_t B0BFE = 0x01; // B0BFE = 1
+	uint8_t B0BFM = 0x01; // B0BFS = 1
+	uint8_t pin_control_and_status_mode = (B0BFS << 4) | (B0BFE << 2) | (B0BFM);
+	mcp2515_driver_write(BFPCTRL, pin_control_and_status_mode);
+	
+	// Now that we have set up out pin as interrupt pin for buffer 0
+	// We must now connect this pin to the interrupt service routine in the CAN Controller
+	// THis way when we get a message, the buffer 0 interrupt pin (RX0BF) will respond with an interrupt signal
+	// For this we must set up CANINTE register
+	// We must enable interrupt on RX0IE bit
+	//
+	// bit 0: RX0IE = 1
+	//
+	// Read more on this topic in MPC2515 CAN Controller data sheet:
+	// Page 24 - 38: 4.0 MESSAGE RECEPTION
+	// Page 23: 4.1.3 RECEIVE FLAGS/INTERRUPTS
+	// Page 52: CANINTE – INTERRUPT ENABLE
+	uint8_t RX0IE = 0x01; // RX0IE = 1
+	uint8_t interupt_eanble_mask = 0x01;
+	uint8_t interupt_eanble_mode = RX0IE & interupt_eanble_mask;
+	mcp2515_driver_bit_modify(MCP_CANINTE, interupt_eanble_mask, interupt_eanble_mode);
+	
     
+	
     // Set the mode ----------
 	mcp2515_driver_write(MCP_CANCTRL, mode);
 
@@ -221,3 +281,4 @@ uint8_t mcp2515_driver_read_status() {
 
     return status;
 }
+

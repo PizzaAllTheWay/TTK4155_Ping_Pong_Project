@@ -135,14 +135,14 @@ int main(void)
 		*/
 		
 		// CAN Testing ----------
-		/*
+		
 		// Define the CAN message
 		CanMsg can_message;
 		can_message.id = 1; // CAN ID
 		can_message.length = 1; // Message length 
-		can_message.byte[0] = 'A'; // Data bytes to send
-		can_message.byte[1] = 'B';
-		can_message.byte[2] = 'C';
+		can_message.byte[0] = '0'; // Data bytes to send
+		can_message.byte[1] = '2';
+		can_message.byte[2] = '3';
 		can_message.byte[3] = 'D';
 		can_message.byte[4] = 'E';
 		can_message.byte[5] = 'F';
@@ -153,10 +153,12 @@ int main(void)
 		can_tx(can_message);
 		
 		// Delay to avoid flooding the CAN bus
-		time_spinFor(msecs(1000));  
-		*/
+		time_spinFor(msecs(1000));
+		
+		
 		
 		// Controller Data CAN Test ----------
+		/*
 		// Define the CAN message structure for receiving
 		CanMsg can_message;
 
@@ -166,13 +168,23 @@ int main(void)
 			if (can_message.id == CAN_ID_SENDER) {
 				// Print all 8 bytes of data as an array in HEX format
 				for (uint8_t i = 0; i < 8; i++) {
+					// Since values can be NULL 0x00, it can cause issues when sending data through
+					// Thats why we check if null and send -1 instead
+					for (int8_t i = 0; i < 8; i++) {
+						if (can_message.byte[i] == 0) {
+							can_message.byte[i] = (-1);
+						}
+					}
 					printf("0x%02X ", can_message.byte[i]);
 				}
+				printf("0x%02X ", 0x00); // NULL-TERMINATOR
 				printf("\n");
+				
 
 				// 1 second delay so that the print on screen doesen't overflow to fast
 				time_spinFor(msecs(1000));
 			}
 		}
+		*/
     }
 }

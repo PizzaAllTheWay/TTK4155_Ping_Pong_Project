@@ -27,7 +27,7 @@ void spi_driver_init() {
 	// Clear CPHA to 0 (Clock Phase)
 	SPCR &= ~(1 << CPHA);  // Data is sampled on the leading edge (rising edge)
 	
-	// Set SS-pin high
+	// Set SS-pin high to always make SPI in Master Mode
 	PORTB |= (1 << SLAVE_SELECT);
 }
 
@@ -37,11 +37,11 @@ void spi_driver_init() {
 // In our case we only have one Chip we want to communicate with (mcp2515), so in theory we don't need it
 // However for redundancy and future proofing if we wanted to have multiple devices, this would be necessary
 void spi_driver_select() {
-	PORTB &= ~(1 << SLAVE_SELECT);
+	PORTB &= ~(1 << SLAVE_SELECT); // CS LOW
 }
 
 void spi_driver_deselect() {
-	PORTB |= (1 << SLAVE_SELECT);
+	PORTB |= (1 << SLAVE_SELECT); // CS HIGH
 }
 
 

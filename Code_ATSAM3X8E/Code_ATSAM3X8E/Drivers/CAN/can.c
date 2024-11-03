@@ -53,6 +53,7 @@ void can_init(CanInit init, uint8_t rxInterrupt) {
 	// This division is set by PMC_PCR register as it is the Peripheral Control Register
 	// By setting PMC_PCR we are setting a prescale for MCK_REAL, thus:
 	//		prescale = 1/2
+	//
 	// For more information about MCK (Master Clock), read ATSAM3X8E Data Sheet:
 	// Page 39: 9.2 APB/AHB Bridge
 	// Page 519 - 525: 27. Clock Generator
@@ -68,8 +69,16 @@ void can_init(CanInit init, uint8_t rxInterrupt) {
     CAN0->CAN_BR = init.reg;
 
     // Configure TX mailbox (Mailbox 0) for transmission
-    CAN0->CAN_MB[TX_MAILBOX].CAN_MID = CAN_MID_MIDE;
-    CAN0->CAN_MB[TX_MAILBOX].CAN_MMR = CAN_MMR_MOT_MB_TX;
+	// Set Mailbox in transmit mode by setting the MOT bits in CAN_MMR register
+	// Also, set the priority of the TX mailbox (CAN_MMR_PRIOR_Pos) to 0 (highest priority)
+	// This ensures that this mailbox will have the highest chance of winning the arbitration process
+	// (We don't use multiple mailboxes for transmitting so this is overkill, but we just added it :P)
+	//
+	// For more information CAN TX Setup and ID setup, read ATSAM3X8E Data Sheet:
+	// Page 1188: 40.7.2 Mailbox Organization
+	// Page 1188: 40.7.2.1 Message Acceptance Procedure
+	// Page 1231: 40.9.14 CAN Message Mode Register
+    CAN0->CAN_MB[TX_MAILBOX].CAN_MMR = CAN_MMR_MOT_MB_TX | (0 << CAN_MMR_PRIOR_Pos);
 
     // Configure RX mailboxes for chained reception
 	// This is done so that if one has extended CAN data transmission one can still receive the whole message
@@ -159,18 +168,42 @@ void can_tx(CanMsg m) {
 	// Page 1201 - 1207: 40.8.3 CAN Controller Message Handling
 	
     // Wait until TX mailbox is ready
+	//
+	// For information about CAN Buss, read ATSAM3X8E Data Sheet:
+	// Page 1235 - 1237: 40.9.18 CAN Message Status Register
     while (!(CAN0->CAN_MB[TX_MAILBOX].CAN_MSR & CAN_MSR_MRDY)) {}
 
-    // Set message ID and length (max 8 bytes)
-    CAN0->CAN_MB[TX_MAILBOX].CAN_MID = CAN_MID_MIDvA(m.id) | CAN_MID_MIDE;
-    m.length = m.length > 8 ? 8 : m.length;
+    // Set message ID
+	// The CAN_MID is set to activate mailbox to deal with version 2.0 Part B messages (CAN_MID_MIDE = 1)
+	// All this to say that we can handle extended CAN message format
+	// (Even tho we end up not using extended and going for the standard 8 byte CAN Message format with ID of 11 - bits)
+	//
+	// For more information CAN ID setup, read ATSAM3X8E Data Sheet:
+	// Page 1188: 40.7.2 Mailbox Organization
+	// Page 1188: 40.7.2.1 Message Acceptance Procedure
+	// Page 1233: 40.9.16 CAN Message ID Register
+	uint8_t id_masked = m.id & CAN_MID_MIDvA_Msk; // Mask to 11 bits (CAN_MID_MIDvA_Msk = 0x7FF)
+	CAN0->CAN_MB[TX_MAILBOX].CAN_MID = (id_masked << CAN_MID_MIDvA_Pos) | CAN_MID_MIDE;  // Set ID and set MIDE bit
 
     // Load message data into mailbox
+	//
+	// For more information CAN Data Registers, read ATSAM3X8E Data Sheet:
+	// Page 1238: 40.9.19 CAN Message Data Low Register
+	// Page 1239: 40.9.20 CAN Message Data High Register
     CAN0->CAN_MB[TX_MAILBOX].CAN_MDL = m.dword[0];
     CAN0->CAN_MB[TX_MAILBOX].CAN_MDH = m.dword[1];
 
     // Mark mailbox for transmission
-    CAN0->CAN_MB[TX_MAILBOX].CAN_MCR = (m.length << CAN_MCR_MDLC_Pos) | CAN_MCR_MTCR;
+	// We set the MDLC register instead of MRTR bit, because we don't want to send a remote frame
+	// We in fact don't want to deal with remote frames or any interrupts and just want a minimalistic CAN message setup
+	// Also we set CAN_MCR_MDLC_Pos field as the length of the message
+	// Most of the time it should be 8 bytes long, but in case to much we mask the length
+	//
+	// For information about CAN Buss, read ATSAM3X8E Data Sheet:
+	// Page 1235 - 1237: 40.9.18 CAN Message Status Register
+	// Page 1240 - 1241: 40.9.21 CAN Message Control Register
+	uint8_t length_modified = m.length > 8 ? 8 : m.length;  // Limit message length to a maximum of 8 bytes
+    CAN0->CAN_MB[TX_MAILBOX].CAN_MCR = (length_modified << CAN_MCR_MDLC_Pos) | CAN_MCR_MTCR;
 }
 
 // Receive a CAN message from RX mailbox

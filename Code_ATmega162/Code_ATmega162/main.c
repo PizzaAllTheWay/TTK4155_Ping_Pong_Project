@@ -284,14 +284,14 @@ int main(void)
 		can_message_send.id = 0x0000;
 
 		// Set the message data (8 bytes max)
-		can_message_send.data[0] = '1'; 
-		can_message_send.data[1] = '2';
-		can_message_send.data[2] = '3';
-		can_message_send.data[3] = '4';
-		can_message_send.data[4] = '5';
-		can_message_send.data[5] = '6';
-		can_message_send.data[6] = '7';
-		can_message_send.data[7] = '8';
+		can_message_send.data[0] = 'A'; 
+		can_message_send.data[1] = 'B';
+		can_message_send.data[2] = 'C';
+		can_message_send.data[3] = 'D';
+		can_message_send.data[4] = 'E';
+		can_message_send.data[5] = 'F';
+		can_message_send.data[6] = 'G';
+		can_message_send.data[7] = 'H';
 
 		// Set the length of the message
 		can_message_send.length = 8;
@@ -315,6 +315,8 @@ int main(void)
 			debug_led_blink();
 		}
 		*/
+		
+		
 		
 		// CAN Testing Node 2 ----------
 		/*
@@ -345,6 +347,7 @@ int main(void)
 		
 		
 		// Testing
+		
 		uint8_t is_can_available = can_driver_message_available();
 		
 		can_message_t can_message_received;

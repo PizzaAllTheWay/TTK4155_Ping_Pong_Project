@@ -206,7 +206,6 @@ uint8_t mcp2515_driver_init(int8_t mode) {
 	
 	
 	
-
 	// Set up Interrupts ----------
 	// In order to know when we receive a message, we must enable interrupts
 	// This is done by setting PIN CONTROL AND STATUS register (BFPCTRL)
@@ -238,6 +237,8 @@ uint8_t mcp2515_driver_init(int8_t mode) {
 	// THis way when we get a message, the buffer 0 interrupt pin (RX0BF) will respond with an interrupt signal
 	// For this we must set up CANINTE register
 	// We must enable interrupt on RX0IE bit
+	// By enabling RX0IE bit we inadvertently enable INT pin as well as a general global interrupt pin for any interrupt flags raised
+	// So we can chose witch pin RX0BF or INT pin to use later in CAN Controller receive logic for receiving data
 	//
 	// bit 0: RX0IE = 1
 	//
@@ -246,7 +247,7 @@ uint8_t mcp2515_driver_init(int8_t mode) {
 	// Page 23: 4.1.3 RECEIVE FLAGS/INTERRUPTS
 	// Page 52: CANINTE – INTERRUPT ENABLE
 	uint8_t RX0IE = 0x01; // RX0IE = 1
-	uint8_t interupt_eanble_mask = 0x01;
+	uint8_t interupt_eanble_mask = 0x01; // RX0IE is only bit 0, so only need mask for bit 0 ie 0000 0001 => 0x01
 	uint8_t interupt_eanble_mode = RX0IE & interupt_eanble_mask;
 	mcp2515_driver_bit_modify(MCP_CANINTE, interupt_eanble_mask, interupt_eanble_mode);
 	

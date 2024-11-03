@@ -18,9 +18,8 @@ uint8_t _is_message_pending = 0;
 
 void can_driver_init(uint8_t mode) {
 	// Configure the external interrupt INT1 on PD3 to trigger on the falling edge
-	// This is because CAN SPI Mode is set to communicate when:
-	// CPOL (Clock Polarity): 0 (Falling)
-	// CPHA (Clock Phase): 0 (Falling)
+	// This is because CAN Controller INT pin goes HIGH at start of received message and LOW when message is fully received
+	// We would like to read the message once the whole message is stored in the buffer, ie when INT pin on CAN Controller goes LOW again
 	MCUCR |= (1 << ISC11);  // Set INT1 to trigger on the falling edge (ISC11 = 1, ISC10 = 0)
 	MCUCR &= ~(1 << ISC10);
 	GICR |= (1 << INT1);    // Enable external interrupt INT1 (on PD3)
@@ -30,9 +29,6 @@ void can_driver_init(uint8_t mode) {
 	
 	// Initialize CAN Controller
 	mcp2515_driver_init(mode);
-	
-	// Set CAN Controller to have Interrupts when it receives data
-	mcp2515_driver_write(MCP_CANINTE, MCP_RX_INT);
 }
 
 
@@ -79,7 +75,7 @@ void can_driver_read_message(can_message_t* message) {
 			// Read Register of data
 			// There are multiple registers of data in CAN Controller
 			// Read as many as there is data in
-			message->data[i] = mcp2515_driver_read(MCP_RXB1DM + i);  // Read data from RX buffer
+			message->data[i] = mcp2515_driver_read(MCP_RXB0DM + i);  // Read data from RX buffer
 		}
 	} 
 	else {

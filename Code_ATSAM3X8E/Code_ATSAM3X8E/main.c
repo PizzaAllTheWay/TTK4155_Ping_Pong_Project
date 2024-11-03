@@ -139,10 +139,10 @@ int main(void)
 		// Define the CAN message
 		CanMsg can_message;
 		can_message.id = 1; // CAN ID
-		can_message.length = 1; // Message length 
-		can_message.byte[0] = '0'; // Data bytes to send
-		can_message.byte[1] = '2';
-		can_message.byte[2] = '3';
+		can_message.length = 8; // Message length 
+		can_message.byte[0] = 'A'; // Data bytes to send
+		can_message.byte[1] = 'B';
+		can_message.byte[2] = 'C';
 		can_message.byte[3] = 'D';
 		can_message.byte[4] = 'E';
 		can_message.byte[5] = 'F';

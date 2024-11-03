@@ -182,8 +182,7 @@ void can_tx(CanMsg m) {
 	// Page 1188: 40.7.2 Mailbox Organization
 	// Page 1188: 40.7.2.1 Message Acceptance Procedure
 	// Page 1233: 40.9.16 CAN Message ID Register
-	uint8_t id_masked = m.id & CAN_MID_MIDvA_Msk; // Mask to 11 bits (CAN_MID_MIDvA_Msk = 0x7FF)
-	CAN0->CAN_MB[TX_MAILBOX].CAN_MID = (id_masked << CAN_MID_MIDvA_Pos) | CAN_MID_MIDE;  // Set ID and set MIDE bit
+	CAN0->CAN_MB[TX_MAILBOX].CAN_MID = CAN_MID_MIDvA(m.id) | CAN_MID_MIDE; // Set CAN ID and enable extended frame format
 
     // Load message data into mailbox
 	//
@@ -248,7 +247,7 @@ void CAN0_Handler(void) {
 		if (can_rx(&received_msg, RX_MAILBOX_0)) {
 			// Debugging
 			//printf("Interrupt: Message received in RX_MAILBOX_0\n");
-			//can_printmsg_improved(received_msg);
+			//can_printmsg(received_msg);
 		}
 	}
 
@@ -257,7 +256,7 @@ void CAN0_Handler(void) {
 		if (can_rx(&received_msg, RX_MAILBOX_1)) {
 			// Debugging
 			//printf("Interrupt: Message received in RX_MAILBOX_1 (Overwrite Mode)\n");
-			//can_printmsg_improved(received_msg);
+			//can_printmsg(received_msg);
 		}
 	}
 

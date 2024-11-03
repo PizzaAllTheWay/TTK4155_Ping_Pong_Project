@@ -26,7 +26,9 @@
 
 
 
-#define CAN_ID_SENDER 0
+// Global Constant Variables
+#define CAN_ID_NODE1 1
+#define CAN_ID_NODE2 2
 
 
 
@@ -134,11 +136,11 @@ int main(void)
 		time_spinFor(msecs(1000));  // Delay for 1 000 ms
 		*/
 		
-		// CAN Testing ----------
+		// CAN Testing Node 2 (Node 1 <== Node 2) ----------
 		
 		// Define the CAN message
 		CanMsg can_message;
-		can_message.id = 1; // CAN ID
+		can_message.id = CAN_ID_NODE2; // CAN ID
 		can_message.length = 8; // Message length 
 		can_message.byte[0] = 'A'; // Data bytes to send
 		can_message.byte[1] = 'B';
@@ -157,7 +159,7 @@ int main(void)
 		
 		
 		
-		// Controller Data CAN Test ----------
+		// CAN Testing Node 2 (Node 1 ==> Node 2) ----------
 		/*
 		// Define the CAN message structure for receiving
 		CanMsg can_message;
@@ -165,7 +167,9 @@ int main(void)
 		// Check RX_MAILBOX_0 for received messages
 		if (can_rx(&can_message, RX_MAILBOX_0)) {
 			// Check if the received message is from the correct sender ID
-			if (can_message.id == CAN_ID_SENDER) {
+			if (can_message.id == CAN_ID_NODE1) {
+				// Print ID
+				printf("0x%02X ", can_message.id);
 				// Print all 8 bytes of data as an array in HEX format
 				for (uint8_t i = 0; i < 8; i++) {
 					// Since values can be NULL 0x00, it can cause issues when sending data through

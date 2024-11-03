@@ -26,6 +26,9 @@
 
 
 // Global Variables
+#define CAN_ID_NODE1 1
+#define CAN_ID_NODE2 2
+
 int8_t joystic_y = 0;
 int8_t button_L = 0;
 int8_t button_R = 0;
@@ -318,12 +321,12 @@ int main(void)
 		
 		
 		
-		// CAN Testing Node 2 ----------
+		// CAN Testing Node 2 (Node 1 ==> Node 2) ----------
 		/*
 		can_message_t can_message_send;
 
 		// Set the CAN message ID
-		can_message_send.id = 0x0000;
+		can_message_send.id = CAN_ID_NODE1;
 
 		// Get Joystick Inputs
 		// Set the message data to joystick inputs (8 bytes max)
@@ -346,60 +349,30 @@ int main(void)
 		*/
 		
 		
-		// Testing
-		
-		uint8_t is_can_available = can_driver_message_available();
-		
+		// CAN Testing Node 2 (Node 1 <== Node 2) ----------
+		// Try reading from CAN buss
+		// When reading if we got new message the interrupt will trigger, letting us know that we got a new message
 		can_message_t can_message_received;
 		can_driver_read_message(&can_message_received);
 		
-		
-		char test[2] = "\0\0";
-		test[0] = (is_can_available & 0x01) + 0x30;
-		uart_send_message("Can avialable?: ");
-		uart_send_message(test);
-		
-		
-		uart_send_message("Message: ");
-		char uart_mesage[9];
-		for (uint8_t i = 0; i < 8; i++) {
-			uart_mesage[i] = can_message_received.data[i];
-		}
-		uart_mesage[8] = '\0';
-		uart_send_message(uart_mesage);
-		
-		_delay_ms(100);
-		
-		
-		
-		/*
-		if (is_can_available == 1) {
-			debug_led_blink();
-			can_message_t can_message_received;
-			can_driver_read_message(&can_message_received);
-			
-			char test[2] = "\0\0";
-			test[0] = (is_can_available & 0x01) + 0x30;
-			uart_send_message("Can avialable?: ");
-			uart_send_message(test);
-			uart_send_message("Done");
-			
-			_delay_ms(10);
-			
-			if (can_message_received.length > 0) {
-				char uart_mesage[9];
+		// Check the interrupt if it got a new message from CAN buss
+		uint8_t is_can_available = can_driver_message_available();
+		if (is_can_available) {
+			uart_send_message("Message Received");
+			// Now that we know we have a new message pending
+			// Check if the message is something we are interested in (ie from a sender ID we want to get data from)
+			if (can_message_received.id == CAN_ID_NODE2) {
+				// Print out the message
+				uart_send_message("Message: ");
+				char uart_mesage[10];
 				for (uint8_t i = 0; i < 8; i++) {
 					uart_mesage[i] = can_message_received.data[i];
 				}
-				uart_mesage[8] = '\0';
+				uart_mesage[8] = can_message_received.id + 0x30;
+				uart_mesage[9] = '\0';
 				uart_send_message(uart_mesage);
-				
-				debug_led_blink();
 			}
 		}
-		*/
-		
-		
     }
 	
 	// Exit

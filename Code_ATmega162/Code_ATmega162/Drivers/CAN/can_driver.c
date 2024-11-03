@@ -20,6 +20,7 @@ void can_driver_init(uint8_t mode) {
 	// Configure the external interrupt INT1 on PD3 to trigger on the falling edge
 	// This is because CAN Controller INT pin goes HIGH at start of received message and LOW when message is fully received
 	// We would like to read the message once the whole message is stored in the buffer, ie when INT pin on CAN Controller goes LOW again
+	DDRD &= ~(1 << PD3);  // Make PD3 an input (INT signal from MPC2515 CAN Controller)
 	MCUCR |= (1 << ISC11);  // Set INT1 to trigger on the falling edge (ISC11 = 1, ISC10 = 0)
 	MCUCR &= ~(1 << ISC10);
 	GICR |= (1 << INT1);    // Enable external interrupt INT1 (on PD3)
@@ -61,10 +62,10 @@ void can_driver_read_message(can_message_t* message) {
 		// Get Sender ID ----------
 		uint8_t can_id_sender_msb = mcp2515_driver_read(MCP_RXB0SIDH);
 		uint8_t can_id_sender_lsb = mcp2515_driver_read(MCP_RXB0SIDL);
-
-		// Apply Mask for the first 3 bits (0x7FF ie 0x700) to ensure it's 11 bits total for the CAN ID
-		// CAN ID is 11 bits long, so we keep the lower 3 bits of SIDL (SIDL has the lower 3 bits of the ID)
-		message->id = ((can_id_sender_msb << 8) | (can_id_sender_lsb)) & 0x7FF;  // 11-bit CAN ID
+		
+		// Extract 11-bit CAN ID by combining the lower 3 bits from SIDL and the upper 8 bits from SIDH
+		// The ID is formed by shifting the MSB and adding the relevant bits from the LSB
+		message->id = (can_id_sender_lsb >> 5) + (can_id_sender_msb << 3);  // 11-bit CAN ID
 
 		// Get Message Length ----------
 		uint8_t can_message_length = mcp2515_driver_read(MCP_RXB0DLC) & 0x0F;  // Only lower 4 bits are used for length
@@ -87,7 +88,8 @@ void can_driver_read_message(can_message_t* message) {
 	}
 
 	// Clear interrupt flag for RX0 after reading the message
-	mcp2515_driver_bit_modify(MCP_CANINTF, MCP_RX0IF, 0);	
+	mcp2515_driver_bit_modify(MCP_CANINTF, MCP_RX0IF, 0x00);
+	mcp2515_driver_bit_modify(MCP_CANINTF, MCP_RX1IF, 0x00);
 }
 
 
@@ -114,10 +116,10 @@ void can_driver_send_message(can_message_t* message) {
 	}
 
 	// Send to CAN Buss the Message ID/Who should receive the message ID ----------
-	// Since CAN ID is up to 11 digits long, we need to split it into most and least significant bit (msb and lsb)
-	// msb needs masking as only the 3 first most significant bits are in the 11 bit range
-	uint8_t can_id_msb = (message->id >> 8) & 0x07;
-	uint8_t can_id_lsb = (message->id & 0xFF);
+	// Since the CAN ID is 11 bits, split it into MSB and LSB parts
+	// MSB is calculated by dividing by 8, and LSB is the remainder shifted left by 5 to align it
+	uint8_t can_id_msb = message->id / 8;
+	uint8_t can_id_lsb = (message->id % 8) << 5;
 
 	// Send CAN ID of the recipient that is going to receive message
 	// Send this data to the CAN Controller in the specific registers for that job

@@ -46,7 +46,7 @@
     <com_atmel_avrdbg_tool_atmelice>
       <ToolOptions>
         <InterfaceProperties>
-          <JtagDbgClock>200000</JtagDbgClock>
+          <JtagDbgClock>3908000</JtagDbgClock>
         </InterfaceProperties>
         <InterfaceName>JTAG</InterfaceName>
       </ToolOptions>
@@ -55,7 +55,7 @@
       <ToolName>Atmel-ICE</ToolName>
     </com_atmel_avrdbg_tool_atmelice>
     <avrtoolinterface>JTAG</avrtoolinterface>
-    <avrtoolinterfaceclock>200000</avrtoolinterfaceclock>
+    <avrtoolinterfaceclock>3908000</avrtoolinterfaceclock>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -142,6 +142,24 @@
     <Compile Include="Drivers\ADC\adc.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Drivers\CAN\can_driver.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\CAN\can_driver.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\CAN\mcp2515_driver.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\CAN\mcp2515_driver.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\CAN\spi_driver.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\CAN\spi_driver.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Drivers\Controls\controls.c">
       <SubType>compile</SubType>
     </Compile>
@@ -224,6 +242,7 @@
     <Folder Include="Drivers\ADC" />
     <Folder Include="Drivers\Controls" />
     <Folder Include="Drivers\Menu" />
+    <Folder Include="Drivers\CAN" />
     <Folder Include="Drivers\OLED" />
     <Folder Include="Drivers\UART" />
     <Folder Include="Drivers\Debugging" />

@@ -23,6 +23,7 @@
 #include "Drivers/Debugging/debug_led.h"
 #include "Drivers/UART/uart_driver.h"
 #include "Drivers/CAN/can.h"
+#include "Drivers/PWM/pwm_driver.h"
 
 
 
@@ -127,6 +128,11 @@ int main(void)
 	can_init(can_config, 1); // Initialize CAN with the configuration and enable receive interrupts
 	
 	
+	
+	// Initialize Servo ----------
+	pwm_driver_init();
+	
+	
 
 	// Infinite Loop
     while (1) {
@@ -137,16 +143,16 @@ int main(void)
 		*/
 		
 		// CAN Testing Node 2 (Node 1 <== Node 2) ----------
-		
+		/*
 		// Define the CAN message
 		CanMsg can_message;
 		can_message.id = CAN_ID_NODE2; // CAN ID
 		can_message.length = 8; // Message length 
 		can_message.byte[0] = 'A'; // Data bytes to send
-		can_message.byte[1] = 'B';
-		can_message.byte[2] = 'C';
-		can_message.byte[3] = 'D';
-		can_message.byte[4] = 'E';
+		can_message.byte[1] = 'A';
+		can_message.byte[2] = 'A';
+		can_message.byte[3] = 'A';
+		can_message.byte[4] = 'A';
 		can_message.byte[5] = 'F';
 		can_message.byte[6] = 'G';
 		can_message.byte[7] = 'H';
@@ -156,7 +162,7 @@ int main(void)
 		
 		// Delay to avoid flooding the CAN bus
 		time_spinFor(msecs(1000));
-		
+		*/
 		
 		
 		// CAN Testing Node 2 (Node 1 ==> Node 2) ----------
@@ -183,6 +189,7 @@ int main(void)
 				}
 				printf("0x%02X ", 0x00); // NULL-TERMINATOR
 				printf("\n");
+				printf("\r");
 				
 
 				// 1 second delay so that the print on screen doesen't overflow to fast
@@ -190,5 +197,15 @@ int main(void)
 			}
 		}
 		*/
+		
+		
+		
+		// Servo Test ----------
+		printf("Testing123");
+		printf("\n");
+		printf("\r");
+		
+		// 1 second delay so that the print on screen doesen't overflow to fast
+		time_spinFor(msecs(1000));
     }
 }

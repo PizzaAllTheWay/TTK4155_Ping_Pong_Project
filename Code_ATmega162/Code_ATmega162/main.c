@@ -322,7 +322,7 @@ int main(void)
 		
 		
 		// CAN Testing Node 2 (Node 1 ==> Node 2) ----------
-		/*
+	
 		can_message_t can_message_send;
 
 		// Set the CAN message ID
@@ -346,10 +346,11 @@ int main(void)
 
 		// Send the CAN message
 		can_driver_send_message(&can_message_send);
-		*/
+
 		
 		
 		// CAN Testing Node 2 (Node 1 <== Node 2) ----------
+		/*
 		// Try reading from CAN buss
 		// When reading if we got new message the interrupt will trigger, letting us know that we got a new message
 		can_message_t can_message_received;
@@ -358,10 +359,9 @@ int main(void)
 		// Check the interrupt if it got a new message from CAN buss
 		uint8_t is_can_available = can_driver_message_available();
 		if (is_can_available) {
-			uart_send_message("Message Received");
 			// Now that we know we have a new message pending
 			// Check if the message is something we are interested in (ie from a sender ID we want to get data from)
-			if (can_message_received.id == CAN_ID_NODE2) {
+			if ((can_message_received.id == CAN_ID_NODE2) && (can_message_received.length == 8))  {
 				// Print out the message
 				uart_send_message("Message: ");
 				char uart_mesage[10];
@@ -373,6 +373,7 @@ int main(void)
 				uart_send_message(uart_mesage);
 			}
 		}
+		*/
     }
 	
 	// Exit

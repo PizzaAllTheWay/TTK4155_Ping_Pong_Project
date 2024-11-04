@@ -10,6 +10,8 @@ Drivers\CAN\can.c
 
 Drivers\Debugging\debug_led.c
 
+Drivers\PWM\pwm_driver.c
+
 Drivers\Time\time.c
 
 Drivers\UART\uart_driver.c

@@ -127,10 +127,12 @@ int main(void)
 	}; // CAN initialization parameters
 	can_init(can_config, 1); // Initialize CAN with the configuration and enable receive interrupts
 	
-	
-	
 	// Initialize Servo ----------
 	servo_driver_init();
+	
+	// Initialize IR LED ----------
+	adc_driver_init();
+	//adc_init();
 	
 	
 
@@ -200,7 +202,8 @@ int main(void)
 		
 		
 		
-		// Servo Test ----------
+		// Servo And IR LED Test ----------
+		/*
 		// Define the CAN message structure for receiving
 		CanMsg can_message;
 
@@ -222,5 +225,15 @@ int main(void)
 				servo_driver_set_position(controls_joystick_x);
 			}
 		}
+		*/
+		
+		// Test 
+		uint16_t adc_test_data = adc_driver_read();
+		//uint16_t adc_test_data = adc_read();
+		printf("Testing111    ");
+		printf("0x%04X ", adc_test_data);
+		printf("\n");
+		printf("\r");
+		time_spinFor(msecs(1000));
     }
 }

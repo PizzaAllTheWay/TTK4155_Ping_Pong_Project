@@ -37,6 +37,8 @@ SUBDIRS :=  \
 ../Drivers \
 ../Drivers/CAN \
 ../Drivers/Debugging \
+../Drivers/IR_LED \
+../Drivers/ADC \
 ../Drivers/Servo \
 ../Drivers/PWM \
 ../Drivers/Time \
@@ -47,8 +49,10 @@ SUBDIRS :=  \
 C_SRCS +=  \
 ../Device_Startup/startup_sam3xa.c \
 ../Device_Startup/system_sam3xa.c \
+../Drivers/ADC/adc_driver.c \
 ../Drivers/CAN/can.c \
 ../Drivers/Debugging/debug_led.c \
+../Drivers/IR_LED/ir_led_driver.c \
 ../Drivers/PWM/pwm_driver.c \
 ../Drivers/Servo/servo_driver.c \
 ../Drivers/Time/time.c \
@@ -65,8 +69,10 @@ ASM_SRCS +=
 OBJS +=  \
 Device_Startup/startup_sam3xa.o \
 Device_Startup/system_sam3xa.o \
+Drivers/ADC/adc_driver.o \
 Drivers/CAN/can.o \
 Drivers/Debugging/debug_led.o \
+Drivers/IR_LED/ir_led_driver.o \
 Drivers/PWM/pwm_driver.o \
 Drivers/Servo/servo_driver.o \
 Drivers/Time/time.o \
@@ -76,8 +82,10 @@ main.o
 OBJS_AS_ARGS +=  \
 Device_Startup/startup_sam3xa.o \
 Device_Startup/system_sam3xa.o \
+Drivers/ADC/adc_driver.o \
 Drivers/CAN/can.o \
 Drivers/Debugging/debug_led.o \
+Drivers/IR_LED/ir_led_driver.o \
 Drivers/PWM/pwm_driver.o \
 Drivers/Servo/servo_driver.o \
 Drivers/Time/time.o \
@@ -87,8 +95,10 @@ main.o
 C_DEPS +=  \
 Device_Startup/startup_sam3xa.d \
 Device_Startup/system_sam3xa.d \
+Drivers/ADC/adc_driver.d \
 Drivers/CAN/can.d \
 Drivers/Debugging/debug_led.d \
+Drivers/IR_LED/ir_led_driver.d \
 Drivers/PWM/pwm_driver.d \
 Drivers/Servo/servo_driver.d \
 Drivers/Time/time.d \
@@ -98,8 +108,10 @@ main.d
 C_DEPS_AS_ARGS +=  \
 Device_Startup/startup_sam3xa.d \
 Device_Startup/system_sam3xa.d \
+Drivers/ADC/adc_driver.d \
 Drivers/CAN/can.d \
 Drivers/Debugging/debug_led.d \
+Drivers/IR_LED/ir_led_driver.d \
 Drivers/PWM/pwm_driver.d \
 Drivers/Servo/servo_driver.d \
 Drivers/Time/time.d \
@@ -138,6 +150,13 @@ Device_Startup/system_sam3xa.o: ../Device_Startup/system_sam3xa.c
 	@echo Finished building: $<
 	
 
+Drivers/ADC/adc_driver.o: ../Drivers/ADC/adc_driver.c
+	@echo Building file: $<
+	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAM3X8E__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\arm\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include"  -Og -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m3 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 Drivers/CAN/can.o: ../Drivers/CAN/can.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
@@ -146,6 +165,13 @@ Drivers/CAN/can.o: ../Drivers/CAN/can.c
 	
 
 Drivers/Debugging/debug_led.o: ../Drivers/Debugging/debug_led.c
+	@echo Building file: $<
+	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAM3X8E__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\arm\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include"  -Og -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m3 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+Drivers/IR_LED/ir_led_driver.o: ../Drivers/IR_LED/ir_led_driver.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAM3X8E__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\arm\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include"  -Og -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m3 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

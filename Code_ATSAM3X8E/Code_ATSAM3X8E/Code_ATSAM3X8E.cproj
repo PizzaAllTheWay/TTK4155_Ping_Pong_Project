@@ -173,6 +173,12 @@
     <Compile Include="Device_Startup\system_sam3xa.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Drivers\ADC\adc_driver.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\ADC\adc_driver.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Drivers\CAN\can.c">
       <SubType>compile</SubType>
     </Compile>
@@ -183,6 +189,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Drivers\Debugging\debug_led.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\IR_LED\ir_led_driver.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\IR_LED\ir_led_driver.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Drivers\PWM\pwm_driver.c">
@@ -218,6 +230,8 @@
     <Folder Include="Drivers" />
     <Folder Include="Drivers\CAN" />
     <Folder Include="Drivers\Debugging" />
+    <Folder Include="Drivers\IR_LED" />
+    <Folder Include="Drivers\ADC" />
     <Folder Include="Drivers\Servo" />
     <Folder Include="Drivers\PWM" />
     <Folder Include="Drivers\Time" />

@@ -36,10 +36,9 @@ void adc_driver_init() {
 	}
 	
 	// PIO Setup
-	// Before using pins for ADC purposes we must configure PIO registers properly
-	// We must specify the multiplexer mode for the pins to be in ADC mode
-	// Since we are specifying the operation mode for multiplexer to be in ADC, we must also disable PIO registers
+	// Before using pins for ADC purposes we must configure PIO registers 
 	// After disabling PIO registers we double check that and wait until PIO registers are disabled
+	// We must specify pin as Input
 	// Note that not all pins support ADC Controller mode
 	// We will be using PA16, witch connects to AD7 (ADC Controller Channel 7)
 	// NOTE: Pin PA16 is Analogue PIN 0 on Arduino DUE (A0)
@@ -53,8 +52,8 @@ void adc_driver_init() {
 	// Page 634: 31.7.2 PIO Controller PIO Disable Register
 	// Page 635: 31.7.3 PIO Controller PIO Status Register
 	// Page 656: 31.7.24 PIO Peripheral AB Select Register
-	PIOA->PIO_ABSR |= PIO_ABSR_P16; // Multiplex to peripheral function B for PIN2 (A7)
-	PIOA->PIO_PDR |= PIO_PDR_P16; // Disable PIO from controlling PIN2 (A7)
+	PIOA->PIO_PDR = PIO_PDR_P16;  // Disable PIO control for PA16 (A0)
+	PIOA->PIO_ODR = PIO_ODR_P16;  // Ensure the pin is set as input (A0)
 	
 	while ((PIOA->PIO_PSR & PIO_PSR_P16) != 0) {
 		// Wait until PIO control is fully disabled for P23 and P23
@@ -86,6 +85,13 @@ void adc_driver_init() {
 		// Also wait until bo Write Protect Violation Source emerge
 		// (ie No Write Protect Violation has occurred)
 	}
+	
+	// Reset ADC to ensure it is in the known state
+	//
+	// For more information about ADC RESET register, read ATSAM3X8E Data Sheet:
+	// Page 1317 - 1354: 43. Analog-to-Digital Converter (ADC)
+	// Page 1332: 43.7.1 ADC Control Register
+	ADC->ADC_CR = ADC_CR_SWRST;  // Reset ADC
 	
 	// Set ADC Mode
 	// We want the most basic of ADC functionality
@@ -155,6 +161,7 @@ void adc_driver_init() {
 				| ADC_MR_TRACKTIM(15)             // Tracking time: 16 ADC clock cycles (TRACKTIM = 15)
 				| ADC_MR_TRANSFER(3);             // Transfer time: 9 ADC clock cycles (TRANSFER = 3)
 	
+	
 	// Enable ADC channels
 	// We will be using just 1 ADC channel
 	// We will be using ADC channel 7 (AD7) as this is ADC Peripheral Cahnnel that PIN PA16 is conected to
@@ -167,7 +174,7 @@ void adc_driver_init() {
 	// ADC Setup (STOP) --------------------------------------------------
 	
 	
-
+	
 	// ADC Clock Setup (START) --------------------------------------------------
 	// Before enabling the PWM Clock we must give permission to write to PMC registers
 	// For this we configure the PMC write protect register
@@ -256,23 +263,53 @@ void adc_driver_init() {
 	
 	// Configure Timer
 	// We want to configure trigger in Waveform Mode for TIOA0 output
+	// We need to select waveform mode that automatically triggers on a trigger alert
 	// This is very important as it is stated in the ADC_MR register that other modes will fail triggering ADC
 	// We also select the clock to be prescaled. We want it as fast as possible so we chose the smallest prescale value witch is 2
 	// 
 	// Bit 0 - 2: TCCLKS = 0 (Clock selected: internal MCK/2 clock signal (from PMC))
+	// Bit 13 - 14: WAVSEL = 2 ( UP mode with automatic trigger on RC Compare)
 	// Bit 15: WAVE = 1 (Capture mode is disabled (Waveform mode is enabled))
+	// Bit 16 - 17: ACPA = 1 (Set)
+	// Bit 18 - 19: ACPC = 1 (Clear)
 	// 
 	// For more information about Timers, read ATSAM3X8E Data Sheet:
+	// Page 877: 36.6.14.5 Speed Measurement
 	// Page 879: 36.7 Timer Counter (TC) User Interface
 	// Page 883 - 886: 36.7.3 TC Channel Mode Register: Waveform Mode
 	TC0->TC_CHANNEL[0].TC_CMR =   TC_CMR_WAVE                 // Waveform mode for TIOA trigger
-								| TC_CMR_TCCLKS_TIMER_CLOCK1; // MCK/2 as clock source
+								| TC_CMR_TCCLKS_TIMER_CLOCK1  // MCK/2 as clock source
+								| TC_CMR_WAVSEL_UP_RC         // UP mode with automatic trigger on RC compare
+								| TC_CMR_ACPA_SET             // RA compare effect on TIOA: Set
+								| TC_CMR_ACPC_CLEAR;          // RC compare effect on TIOA: Clear
 	
-	// Set the Timer Counter RC register to define the period (frequency) of the TIOA0 trigger signal for the ADC.
-	// RC = (TC Clock) / (Desired Trigger Frequency).
-	// With TC Clock = 42 MHz (MCK/2), setting RC = 42000 gives a 1 kHz trigger frequency.
-	// Example calculation: For a 2 kHz trigger, RC = 42 MHz / 2 kHz = 21000.
-	TC0->TC_CHANNEL[0].TC_RC = 1000; // Set for 1 kHz trigger frequency
+	// Set RA Value
+	// Set RA to define the duty cycle. For example, RA = 33,600 for 60% duty cycle
+	// Calculate RA for Desired Duty Cycle
+	// Desired Duty Cycle (%): 60%
+	//
+	// RA Calculation Formula:
+	// RA = RC * (1 - Duty Cycle (%) / 100)
+	// RA = 84,000 * (1 - 60 / 100) = 84,000 * 0.4 = 33,600
+	//
+	// For more information about TC_RC, read ATSAM3X8E Data Sheet:
+	// Page 889: 36.7.6 TC Register A
+	TC0->TC_CHANNEL[0].TC_RA = 33600;   // RA value for 60% duty cycle
+	
+	// Set RC value
+	// Adjust RC to set the frequency. For example, RC = 84000 gives 500 Hz frequency
+	// Calculate RC for Desired Frequency
+	// Timer Clock Frequency (f_TC): MCK / 2 = 84 MHz / 2 = 42 MHz
+	//
+	// Desired Waveform Frequency (f_desired): 500 Hz
+	//
+	// RC Calculation Formula:
+	// RC = f_TC / f_desired
+	// RC = 42,000,000 Hz / 500 Hz = 84,000
+	//
+	// For more information about TC_RC, read ATSAM3X8E Data Sheet:
+	// Page 891: 36.7.8 TC Register C
+	TC0->TC_CHANNEL[0].TC_RC = 84000;   // RC value for desired frequency (500 Hz)
 
 	// Start the Timer Counter for triggering
 	TC0->TC_CHANNEL[0].TC_CCR = TC_CCR_CLKEN | TC_CCR_SWTRG;
@@ -283,44 +320,15 @@ void adc_driver_init() {
 	// Enable ADC (START) --------------------------------------------------
 	// Begin ADC conversion (will wait for the first trigger from TIOA0)
 	ADC->ADC_CR = ADC_CR_START;
-	// Enable ADC (STOP) --------------------------------------------------
+	// Enable ADC (STOP) --------------------------------------------------	
 }
 
 
 
 uint16_t adc_driver_read() {
-	// Wait until conversion is complete
-	while (!(ADC->ADC_ISR & ADC_ISR_EOC7)) {
-		// Testing
-		printf("INT: ");
-		printf("0x%08X ", ADC->ADC_ISR);
-		printf("    |    MASK: ");
-		printf("0x%08X ", ADC_ISR_EOC7);
-		printf("\n");
-		printf("\r");
-	}
-	printf("I AM FREEE!!!");
-	return ADC->ADC_CDR[7]; // Read conversion result from Channel 0
-}
+	// Wait until conversion is complete on channel 7
+	while (!(ADC->ADC_ISR & ADC_ISR_EOC7));
 
-
-
-void adc_init() {
-	// set ADC mode:    12-bit resolution, free run mode, no clock prescaler
-	ADC->ADC_MR = ADC_MR_FREERUN;
-
-	// enable AD0 peripheral
-	ADC->ADC_CHER = ADC_CHER_CH0;
-
-	// enable clock for ADC:    DIV = 0 (clk = MCK), CMD = 0 (read), PID = 37 (ADC)
-	PMC->PMC_PCR = PMC_PCR_EN | PMC_PCR_DIV_PERIPH_DIV_MCK | (ID_ADC << PMC_PCR_PID_Pos);
-	PMC->PMC_PCER1 |= 1 << (ID_ADC - 32);
-
-	// begin conversion
-	ADC->ADC_CR = ADC_CR_START;
-}
-
-
-uint16_t adc_read() {
-	return ADC->ADC_CDR[0];
+	// Read conversion result from Channel 7
+	return ADC->ADC_CDR[7];
 }

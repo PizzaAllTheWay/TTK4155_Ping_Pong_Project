@@ -23,7 +23,7 @@
 #include "Drivers/Debugging/debug_led.h"
 #include "Drivers/UART/uart_driver.h"
 #include "Drivers/CAN/can.h"
-#include "Drivers/PWM/pwm_driver.h"
+#include "Drivers/Servo/servo_driver.h"
 
 
 
@@ -130,7 +130,7 @@ int main(void)
 	
 	
 	// Initialize Servo ----------
-	pwm_driver_init();
+	servo_driver_init();
 	
 	
 
@@ -201,11 +201,26 @@ int main(void)
 		
 		
 		// Servo Test ----------
-		printf("Testing123");
-		printf("\n");
-		printf("\r");
-		
-		// 1 second delay so that the print on screen doesen't overflow to fast
-		time_spinFor(msecs(1000));
+		// Define the CAN message structure for receiving
+		CanMsg can_message;
+
+		// Check RX_MAILBOX_0 for received messages
+		if (can_rx(&can_message, RX_MAILBOX_0)) {
+			// Check if the received message is from the correct sender ID
+			if (can_message.id == CAN_ID_NODE1) {
+				// Typecast all the messages into the correct format
+				int8_t controls_joystick_y = (int8_t)can_message.byte[0];
+				int8_t controls_joystick_x = (int8_t)can_message.byte[1];
+				int8_t controls_pad_left = (int8_t)can_message.byte[2];
+				int8_t controls_pad_right = (int8_t)can_message.byte[3];
+				int8_t controls_joystick_button = (int8_t)can_message.byte[4];
+				int8_t controls_pad_left_button = (int8_t)can_message.byte[5];
+				int8_t controls_pad_right_button = (int8_t)can_message.byte[6];
+				char test_data = (char)can_message.byte[7];
+				
+				// Control Servo
+				servo_driver_set_position(controls_joystick_x);
+			}
+		}
     }
 }

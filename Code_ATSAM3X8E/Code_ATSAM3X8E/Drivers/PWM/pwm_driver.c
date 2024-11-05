@@ -11,36 +11,58 @@
 
 
 
-#define MCK         84E6
+// Internal macros used inside this file disable
+void _pwm_driver_disable() {
+	// Disable PWM before configuring PWM registers
+	// disable all 8 channels for PWM
+	// Check and wait until all channels are disabled
+	//
+	// For more information about PWM registers, read ATSAM3X8E Data Sheet:
+	// Page 970 - 1052: 38. Pulse Width Modulation (PWM)
+	// Page 976 - 1002: 38.6 Functional Description
+	// Page 1008: 38.7.3 PWM Disable Register
+	// Page 1009: 38.7.4 PWM Status Register
+	PWM->PWM_DIS =   PWM_DIS_CHID0
+				   | PWM_DIS_CHID1
+				   | PWM_DIS_CHID2
+				   | PWM_DIS_CHID3
+				   | PWM_DIS_CHID4
+			       | PWM_DIS_CHID5
+				   | PWM_DIS_CHID6
+				   | PWM_DIS_CHID7;
+	
+	while (PWM->PWM_SR & ( PWM_SR_CHID0
+						 | PWM_SR_CHID1
+						 | PWM_SR_CHID2
+						 | PWM_SR_CHID3
+						 | PWM_SR_CHID4
+						 | PWM_SR_CHID5
+						 | PWM_SR_CHID6
+						 | PWM_SR_CHID7)) {
+		// Poll until CHID0-7 in PWM_SR are all 0 (indicating all channels are disabled)
+	}
+}
 
-#define PERIOD_A    20E-3
-#define DIVA        84
-#define CLK_A       1E6
-#define CPRDA       (int) (PERIOD_A * MCK / DIVA)
-
-#define DIVB        84
-#define CLK_B       1E6
-
-
-#define CHANNEL_PIN44 6
-#define CHANNEL_PIN45 5
-
-#define PERIOD              20E-3
-#define MIN_DUTY_CYCLE      1.0E-3 / PERIOD
-#define MAX_DUTY_CYCLE      2.0E-3 / PERIOD
-#define X_MIN               -100
-#define X_MAX               100
-
-#define GAIN                (MAX_DUTY_CYCLE - MIN_DUTY_CYCLE) / (X_MIN - X_MAX)
-#define OFFSET              MAX_DUTY_CYCLE - X_MIN * GAIN
+void _pwm_driver_enable() {
+	// Enable PWM
+	// Now that setup is done we can enable PWM signal again
+	// We will enable only PWM channel 6 and 7, as that is the the only channel we are using
+	// Because Pin PC23 and PC24 are connected to PWML6 and PWML7 (PWM Controller Channel 6 and 7)
+	//
+	// For more information about PWM_CPRDx and PWM_CDTYx, read ATSAM3X8E Data Sheet:
+	// Page 977 - 992: 38.6.2 PWM Channel
+	// Page 1007: 38.7.2 PWM Enable Register
+	PWM->PWM_ENA =   PWM_ENA_CHID6
+				   | PWM_ENA_CHID7;
+}
 
 
 
-
-
-
+// Setting up PWM for:
+// PC23 (Pin PWM 6)
+// PC24 (Pin PWM 7)
 void pwm_driver_init() {
-	/*
+	// PIO Setup (START) --------------------------------------------------
 	// Before Doing anything with PIO pins, we must enable write permissions to the registers
 	// This will allow us to configure our PIO pins in special modes any way we like
 	// Like for example setting PIO pins up for PWM mode
@@ -54,8 +76,8 @@ void pwm_driver_init() {
 	// Page 616: 30.9.17 SSC Write Protect Mode Register
 	// Page 617: 30.9.18 SSC Write Protect Status Register 
 	uint8_t WPEN = 0;
-	SSC->SSC_WPMR = (SSC_WRITE_PROTECT_KEY << 8)  // Set WPKEY
-					| WPEN;                // Set WPEN to disable pin write protect
+	SSC->SSC_WPMR = (_SSC_WRITE_PROTECT_KEY << 8) // Set WPKEY
+					| WPEN;                       // Set WPEN to disable pin write protect
 	
 	while (SSC->SSC_WPSR != 0) {
 		// Poll until Write Protect Violation Status bit is 0
@@ -68,8 +90,13 @@ void pwm_driver_init() {
 	// We must specify the multiplexer mode for the pins to be in PWM mode
 	// Since we are specifying the operation mode for multiplexer to be in PWM, we must also disable PIO registers
 	// After disabling PIO registers we double check that and wait until PIO registers are disabled
+	// Note that not all pins support PWM Controller mode
+	// We will be using PC23, witch connects to PWML6 (PWM Controller channel 6)
+	// We will be using PC24, witch connects to PWML7 (PWM Controller channel 7, ie last channel as there are 8 total (PWL0-7))
+	// NOTE: PC23 and PC24 is PWML meaning LOW. It is naturally at LOW state unless pulse is sent
 	//
 	// For more information about PWM and PIO registers, read ATSAM3X8E Data Sheet:
+	// Page 43: 9.3.3 PIO Controller C Multiplexing
 	// Page 618 - 675: 31. Parallel Input/Output Controller (PIO)
 	// Page 622: 31.5.2 I/O Line or Peripheral Function Selection
 	// Page 622: 31.5.3 Peripheral A or B Selection
@@ -78,18 +105,22 @@ void pwm_driver_init() {
 	// Page 635: 31.7.3 PIO Controller PIO Status Register
 	// Page 656: 31.7.24 PIO Peripheral AB Select Register
 	// Page 970 - 1052: 38. Pulse Width Modulation (PWM)
-	PIOC->PIO_ABSR |= PIO_ABSR_P23; // Multiplex to peripheral function B for PIN32 (PWM7)
-	PIOC->PIO_PDR |= PIO_PDR_P23; // Disable PIO from controlling PIN32 (PWM7)
+	PIOC->PIO_ABSR |= PIO_ABSR_P23; // Multiplex to peripheral function B for PIN23 (PWM7)
+	PIOC->PIO_ABSR |= PIO_ABSR_P24; // Multiplex to peripheral function B for PIN24 (PWM7)
+	PIOC->PIO_PDR |= PIO_PDR_P23; // Disable PIO from controlling PIN23 (PWM7)
+	PIOC->PIO_PDR |= PIO_PDR_P24; // Disable PIO from controlling PIN24 (PWM7)
 	
-	while (PIOC->PIO_PSR & PIO_PSR_P23) {
-		// Wait until PIO control is fully disabled for P23
+	while ((PIOC->PIO_PSR & (PIO_PSR_P23 | PIO_PSR_P24)) != 0) {
+		// Wait until PIO control is fully disabled for P23 and P23
 		// Loop until PC23 in PIO_PSR is 0, meaning:
 		// PIO is inactive
 		// BUT the peripheral is active (ie PWM peripheral for us)
 	}
+	// PIO Setup (STOP) --------------------------------------------------
 	
 	
 	
+	// PWM Setup (START) --------------------------------------------------
 	// Before doing anything with PWM we must ensure WPSWSx and WPHWSx registers are cleared
 	// This is to ensure we are able to write and read from PWM Registers
 	// We write to WPCMD and WPRGx fields to disable write protections for PWM registers
@@ -112,7 +143,7 @@ void pwm_driver_init() {
 	// Page 1001 - 1002: 38.6.5.7 Write Protect Registers
 	// Page 1037 - 1038: 38.7.31 PWM Write Protect Control Register
 	// Page 1039: 38.7.31 PWM Write Protect Status Register
-	PWM->PWM_WPCR = (PWM_WRITE_PROTECT_KEY << 8)  // Set WPKEY
+	PWM->PWM_WPCR = (_PWM_WRITE_PROTECT_KEY << 8) // Set WPKEY
 					| PWM_WPCR_WPCMD(0)           // Set WPCMD to disable SW write protect
 					| PWM_WPCR_WPRG0              // Enable for group 1
 					| PWM_WPCR_WPRG1              // Enable for group 1
@@ -126,37 +157,12 @@ void pwm_driver_init() {
 		// WPSR bits 0-5 (WPSWSx) and bits 8-13 (WPHWSx) should all be 0
 	}
 	
-	// Disable PWM before configuring PWM registers
-	// disable all 8 channels for PWM
-	// Check and wait until all channels are disabled
-	//
-	// For more information about PWM registers, read ATSAM3X8E Data Sheet:
-	// Page 970 - 1052: 38. Pulse Width Modulation (PWM)
-	// Page 976 - 1002: 38.6 Functional Description
-	// Page 1008: 38.7.3 PWM Disable Register
-	// Page 1009: 38.7.4 PWM Status Register
-	PWM->PWM_DIS =  PWM_DIS_CHID0 
-				  | PWM_DIS_CHID1 
-				  | PWM_DIS_CHID2 
-				  | PWM_DIS_CHID3 
-				  |	PWM_DIS_CHID4 
-				  | PWM_DIS_CHID5 
-				  | PWM_DIS_CHID6 
-				  | PWM_DIS_CHID7;
-	
-	while (PWM->PWM_SR & ( PWM_SR_CHID0
-						 | PWM_SR_CHID1 
-						 | PWM_SR_CHID2 
-						 | PWM_SR_CHID3 
-						 | PWM_SR_CHID4 
-						 | PWM_SR_CHID5 
-						 | PWM_SR_CHID6 
-						 | PWM_SR_CHID7)) {
-		// Poll until CHID0-7 in PWM_SR are all 0 (indicating all channels are disabled)
-	}
+	_pwm_driver_disable();
+	// PWM Setup (STOP) --------------------------------------------------
 	
 	
 	
+	// PWM Clock Setup (START) --------------------------------------------------
 	// Before enabling the PWM Clock we must give permission to write to PMC registers
 	// For this we configure the PMC write protect register
 	// After that we check and wait that we have actually disabled write protections for PMC registers
@@ -168,7 +174,7 @@ void pwm_driver_init() {
 	// Page 526 - 566: 28. Power Management Controller (PMC)
 	// Page 561: 28.15.21  PMC Write Protect Mode Register
 	// Page 562: 28.15.22  PMC Write Protect Status Register
-	PMC->PMC_WPMR = (PMC_WRITE_PROTECT_KEY << 8)  // Set WPKEY
+	PMC->PMC_WPMR = (_PMC_WRITE_PROTECT_KEY << 8) // Set WPKEY
 					| WPEN;						  // Set WPEN to disable pin write protect
 					
 	while (PMC->PMC_WPSR != 0) {
@@ -228,14 +234,15 @@ void pwm_driver_init() {
 	//
 	// For more information about PWM_CLK, read ATSAM3X8E Data Sheet:
 	// Page 1006: 38.7.1 PWM Clock Register
-	PWM->PWM_CLK = PWM_CLK_PREA(0) | PWM_CLK_DIVA(PWM_CLK_DIVA_FACTOR);
+	PWM->PWM_CLK = PWM_CLK_PREA(0) | PWM_CLK_DIVA(_PWM_CLK_DIVA_FACTOR);
 	  
 	// We need to also configure 3 things for the clock setup:
 	//		1. Activate clock CPRE field in PWM_CMRx register for PWM
 	//		2. Waveform polarity CPOL field in PWM_CMRx register for PWM
 	//		3. Waveform alignment CALG field in PWM_CMRx register for PWM
 	// We have 8 PWM channels and so PWM_CMRx where x=[0-7]
-	// We will be using the first one, ie PWM_CMR[0]
+	// We will be using PWM_CH_NUM[6], because Pin PC23 is connects to PWML6 (PWM Controller channel 6)
+	// We will be using PWM_CH_NUM[7], because Pin PC24 is connected to PWML7 (PWM Controller Channel 7)
 	//
 	// We want a standard PWM, which means:
 	//		bit 0 - 3: CPRE = 0x0B (0b1011: Use PWM Clock A for frequency)
@@ -247,12 +254,18 @@ void pwm_driver_init() {
 	// Page 977 - 992: 38.6.2 PWM Channel
 	// Page 978 - 979: 38.6.2.2Comparator
 	// Page 1044: 38.7.37 PWM Channel Mode Register
-	uint8_t CPRE = 0x0B; // 0x0B => 0b1011 (Use PWM Clock A)
-	uint8_t CALG = 0x00;
-	uint8_t CPOL = 0x00;
-	PWM->PWM_CH_NUM[0].PWM_CMR = (CPRE & 0x0F)  // Set bits 0-3 for CPRE (PWM Clock A)
-								 | (CALG << 8)  // Set bit 8 for CALG (left-aligned)
-								 | (CPOL << 9); // Set bit 9 for CPOL (start low)
+	uint8_t CPRE6 = 0x0B; // 0x0B => 0b1011 (Use PWM Clock A)
+	uint8_t CPRE7 = 0x0B; // 0x0B => 0b1011 (Use PWM Clock A)
+	uint8_t CALG6 = 0x00;
+	uint8_t CALG7 = 0x00;
+	uint8_t CPOL6 = 0x00;
+	uint8_t CPOL7 = 0x00;
+	PWM->PWM_CH_NUM[_PWM_CHANNEL6].PWM_CMR = (CPRE6 & 0x0F)  // Set bits 0-3 for CPRE (PWM Clock A)
+											 | (CALG6 << 8)  // Set bit 8 for CALG (left-aligned)
+											 | (CPOL6 << 9); // Set bit 9 for CPOL (start low)
+	PWM->PWM_CH_NUM[_PWM_CHANNEL7].PWM_CMR = (CPRE7 & 0x0F)  // Set bits 0-3 for CPRE (PWM Clock A)
+											 | (CALG7 << 8)  // Set bit 8 for CALG (left-aligned)
+											 | (CPOL7 << 9); // Set bit 9 for CPOL (start low)
 	
 	// In Addition we need to configure 2 things for the clock:
 	//		1. Waveform period CPRD field in PWM_CPRDx register for PWM
@@ -261,6 +274,8 @@ void pwm_driver_init() {
 	// We will be using PWM for Servo
 	// Servo Requires 20 ms waveform period (50 kHz)
 	// Servo also works only in ranges of 0.9 - 2.1 ms duty cycle
+	// We will be using PWM_CH_NUM[6], because Pin PC23 is connects to PWML6 (PWM Controller channel 6)
+	// We will be using PWM_CH_NUM[7], because Pin PC24 is connected to PWML7 (PWM Controller Channel 7)
 	//
 	// Waveform Period:
 	// Since we have configured PWM_CMRx PWM to have left aligned wave form
@@ -308,42 +323,67 @@ void pwm_driver_init() {
 	// Page 996: 38.6.5.1 Initialization
 	// Page 1046: 38.7.38 PWM Channel Duty Cycle Register
 	// Page 1046: 38.7.38 PWM Channel Duty Cycle Register
-	uint32_t CPRD0 = 20000;
-	uint32_t CDTY0 = 300;
-	CPRD0 &= 0x0FFF; // Apply mask as only bit 0 - 23 are valid
-	CDTY0 &= 0x0FFF; // Apply mask as only bit 0 - 23 are valid
-	PWM->PWM_CH_NUM[0].PWM_CPRD = PWM_CPRD_CPRD(CPRD0);
-	PWM->PWM_CH_NUM[0].PWM_CDTY = PWM_CPRD_CPRD(CDTY0);
+	uint32_t CPRD6 = 20000;
+	uint32_t CPRD7 = 20000;
+	uint32_t CDTY6 = 0;
+	uint32_t CDTY7 = 0;
+	CPRD6 &= 0xFFFFFF; // Apply mask as only bit 0 - 23 are valid
+	CPRD7 &= 0xFFFFFF; // Apply mask as only bit 0 - 23 are valid
+	CDTY6 &= 0xFFFFFF; // Apply mask as only bit 0 - 23 are valid
+	CDTY7 &= 0xFFFFFF; // Apply mask as only bit 0 - 23 are valid
+	PWM->PWM_CH_NUM[_PWM_CHANNEL6].PWM_CPRD = PWM_CPRD_CPRD(CPRD6);
+	PWM->PWM_CH_NUM[_PWM_CHANNEL7].PWM_CPRD = PWM_CPRD_CPRD(CPRD7);
+	PWM->PWM_CH_NUM[_PWM_CHANNEL6].PWM_CDTY = PWM_CPRD_CPRD(CDTY6);
+	PWM->PWM_CH_NUM[_PWM_CHANNEL7].PWM_CDTY = PWM_CPRD_CPRD(CDTY7);
+	// PWM Clock Setup (STOP) --------------------------------------------------
 	
-	// Enable PWM
-	// Now that setup is done we can enable PWM signal again
-	// We will enable only PWM channel 0
+	
+	
+	// PWM Enable (START) --------------------------------------------------
+	_pwm_driver_enable();
+	// PWM Enable (STOP) --------------------------------------------------
+}
+
+
+
+// Handy functions to manipulate PWM registers without a hazel
+void pwm_driver_set_period(uint8_t pwm_channel, uint32_t period) {
+	// Arguments:
+	//		pwm_channel (Input: 0 - 7)		     [Unit: NONE]
+	//		period      (Input: 0 - 16,777,215)  [Unit: micro seconds (us)]
 	//
-	// For more information about PWM_CPRDx and PWM_CDTYx, read ATSAM3X8E Data Sheet:
-	// Page 977 - 992: 38.6.2 PWM Channel
-	// Page 1007: 38.7.2 PWM Enable Register
-	PWM->PWM_ENA = PWM_ENA_CHID0;
-	*/
-	
-	
-	
-	
-	// Enable Peripheral function B for PIN45 (e.g., PWMH5)
-	PIOC->PIO_ABSR |= PIO_PC19B_PWMH5;
-	PIOC->PIO_PDR |= PIO_PC19B_PWMH5; // Disable PIO for PWM control
-	
-	// Enable PWM clock with a divisor of 84 to get a 1 MHz clock
-	PMC->PMC_PCR = PMC_PCR_EN | PMC_PCR_DIV_PERIPH_DIV_MCK | (ID_PWM << PMC_PCR_PID_Pos);
-	PMC->PMC_PCER1 |= 1 << (ID_PWM - 32);
-	PWM->PWM_CLK = PWM_CLK_PREA(0) | PWM_CLK_DIVA(84);
+	// Explanation:
+	// You will find all what this code does in pwm_driver_init();
+	// Basically because of how we set up our PWM Clocks and PWM Mode
+	// We don't have to do a lot of math as a lot of things just cancel out
+	// This means that we can directly manipulate registers without first recalculating and reconverting the values
+	if ((pwm_channel == _PWM_CHANNEL6) || (pwm_channel == _PWM_CHANNEL7)) {
+		_pwm_driver_disable();
+		
+		uint32_t CPRDx = period;
+		PWM->PWM_CH_NUM[pwm_channel].PWM_CPRD = PWM_CPRD_CPRD(CPRDx);
+		
+		_pwm_driver_enable();
+	}
+}
 
-	// Set PWM channel for 20 ms period (1 MHz / 50 Hz)
-	PWM->PWM_CH_NUM[5].PWM_CMR = PWM_CMR_CPRE_CLKA; // Use clock A
-	PWM->PWM_CH_NUM[5].PWM_CPRD = PWM_CPRD_CPRD(20000); // Period of 20 ms
-	PWM->PWM_CH_NUM[5].PWM_CDTY = PWM_CDTY_CDTY(1500); // Initial duty cycle 1.5 ms
-
-	// Enable PWM channel 5
-	PWM->PWM_ENA = PWM_ENA_CHID5;
-	
+void pwm_driver_set_duty_cycle(uint8_t pwm_channel, uint32_t duty_cycle) {
+	// Arguments:
+	//		pwm_channel (Input: 0 - 7)		[Unit: NONE]
+	//		duty_cycle  (Input: 0 - CDTYx)  [Unit: micro seconds (us)]
+	//
+	// Explanation:
+	// You will find all what this code does in pwm_driver_init();
+	// Basically because of how we set up our PWM Clocks and PWM Mode
+	// We don't have to do a lot of math as a lot of things just cancel out
+	// This means that we can directly manipulate registers without first recalculating and reconverting the values
+	if ((pwm_channel == _PWM_CHANNEL6) || (pwm_channel == _PWM_CHANNEL7)) {
+		_pwm_driver_disable();
+		
+		uint32_t CDTYx = duty_cycle;
+		PWM->PWM_CH_NUM[pwm_channel].PWM_CDTY = PWM_CDTY_CDTY(CDTYx);
+		
+		_pwm_driver_enable();
+	}
 }
 

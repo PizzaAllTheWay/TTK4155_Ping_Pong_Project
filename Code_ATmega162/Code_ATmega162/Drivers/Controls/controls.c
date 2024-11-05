@@ -186,16 +186,4 @@ JoystickDirection controls_get_joystick_direction() {
     } else {
         return JOYSTIC_CENTER;
     }
-
-
-	//if (_joystic_y > JOYSTIC_DEADZONE) {
-		//return JOYSTIC_UP;
-	//} else if (_joystic_y < -JOYSTIC_DEADZONE) {
-		//return JOYSTIC_DOWN;
-	//} else {
-		//return JOYSTIC_CENTER;
-	//}
-	
-	
-
 }

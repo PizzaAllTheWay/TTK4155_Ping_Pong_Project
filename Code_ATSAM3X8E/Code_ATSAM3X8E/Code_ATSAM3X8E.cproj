@@ -191,6 +191,12 @@
     <Compile Include="Drivers\PWM\pwm_driver.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Drivers\Servo\servo_driver.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\Servo\servo_driver.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Drivers\Time\time.c">
       <SubType>compile</SubType>
     </Compile>
@@ -212,6 +218,7 @@
     <Folder Include="Drivers" />
     <Folder Include="Drivers\CAN" />
     <Folder Include="Drivers\Debugging" />
+    <Folder Include="Drivers\Servo" />
     <Folder Include="Drivers\PWM" />
     <Folder Include="Drivers\Time" />
     <Folder Include="Drivers\UART" />

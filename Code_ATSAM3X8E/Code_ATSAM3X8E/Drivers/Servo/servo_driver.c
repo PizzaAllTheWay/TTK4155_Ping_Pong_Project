@@ -30,6 +30,9 @@ void servo_driver_set_position(int8_t position) {
 	if (position < _SERVO_POSITION_MIN) position = _SERVO_POSITION_MIN;
 	if (position > _SERVO_POSITION_MAX) position = _SERVO_POSITION_MAX;
 	
+	// If value in dead zone set Servo to middle
+	if ((_SERVO_POSITION_DEADZONE_MIN < position) && (position < _SERVO_POSITION_MAX)) position = 0;
+	
 	// Map position from percent % to pulses in micro seconds us
 	uint32_t duty_cycle = _SERVO_PULSE_MIN + ((position - _SERVO_POSITION_MIN) * (_SERVO_PULSE_MAX - _SERVO_PULSE_MIN))/(_SERVO_POSITION_MAX - _SERVO_POSITION_MIN);
 	

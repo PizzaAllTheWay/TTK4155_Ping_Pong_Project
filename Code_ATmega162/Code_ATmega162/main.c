@@ -322,7 +322,7 @@ int main(void)
 		
 		
 		// CAN Testing Node 2 (Node 1 ==> Node 2) ----------
-	
+		/*
 		can_message_t can_message_send;
 
 		// Set the CAN message ID
@@ -346,7 +346,8 @@ int main(void)
 
 		// Send the CAN message
 		can_driver_send_message(&can_message_send);
-
+		*/
+		
 		
 		
 		// CAN Testing Node 2 (Node 1 <== Node 2) ----------
@@ -374,6 +375,57 @@ int main(void)
 			}
 		}
 		*/
+		
+		// Servo And IR LED Test ----------
+		// Try reading from CAN buss
+		// When reading if we got new message the interrupt will trigger, letting us know that we got a new message
+		can_message_t can_message_rx;
+		can_driver_read_message(&can_message_rx);
+		
+		// Check the interrupt if it got a new message from CAN buss
+		uint8_t is_can_available = can_driver_message_available();
+		if (is_can_available) {
+			// Now that we know we have a new message pending
+			// Check if the message is something we are interested in (ie from a sender ID we want to get data from)
+			if ((can_message_rx.id == CAN_ID_NODE2) && (can_message_rx.length == 8))  {
+				// Recast the message type to the propper form
+				uint8_t score = (uint8_t)can_message_rx.data[0];
+				uint8_t test_data1 = (uint8_t)can_message_rx.data[1];
+				uint8_t test_data2 = (uint8_t)can_message_rx.data[2];
+				uint8_t test_data3 = (uint8_t)can_message_rx.data[3];
+				uint8_t test_data4 = (uint8_t)can_message_rx.data[4];
+				uint8_t test_data5 = (uint8_t)can_message_rx.data[5];
+				uint8_t test_data6 = (uint8_t)can_message_rx.data[6];
+				uint8_t test_data7 = (uint8_t)can_message_rx.data[7];
+
+				menu_pingpont_set(score);
+			}
+		}
+		
+		can_message_t can_message_tx;
+
+		// Set the CAN message ID
+		can_message_tx.id = CAN_ID_NODE1;
+
+		// Get Joystick Inputs
+		// Set the message data to joystick inputs (8 bytes max)
+		// Last byte just random as it is not used
+		controls_refresh();
+		can_message_tx.data[0] = controls_get_joystick_y();
+		can_message_tx.data[1] = controls_get_joystick_x();
+		can_message_tx.data[2] = controls_get_pad_left();
+		can_message_tx.data[3] = controls_get_pad_right();
+		can_message_tx.data[4] = controls_get_joystick_button();
+		can_message_tx.data[5] = controls_get_pad_left_button();
+		can_message_tx.data[6] = controls_get_pad_right_button();
+		can_message_tx.data[7] = 'E';
+
+		// Set the length of the message
+		can_message_tx.length = 8;
+
+		// Send the CAN message
+		can_driver_send_message(&can_message_tx);
+		_delay_us(1);
     }
 	
 	// Exit

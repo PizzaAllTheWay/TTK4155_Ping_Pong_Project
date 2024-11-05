@@ -108,7 +108,9 @@ main.d main.o: .././main.c \
  .././Drivers/Time/time.h .././Drivers/Debugging/debug_led.h \
  .././Drivers/UART/uart_driver.h .././Drivers/CAN/can.h \
  .././Drivers/Servo/servo_driver.h .././Drivers/Servo/../PWM/pwm_driver.h \
- C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include/sam3xa.h
+ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include/sam3xa.h \
+ .././Drivers/IR_LED/ir_led_driver.h \
+ .././Drivers/IR_LED/../ADC/adc_driver.h
 
 C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include/sam.h:
 
@@ -335,3 +337,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 .././Drivers/Servo/../PWM/pwm_driver.h:
 
 C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include/sam3xa.h:
+
+.././Drivers/IR_LED/ir_led_driver.h:
+
+.././Drivers/IR_LED/../ADC/adc_driver.h:

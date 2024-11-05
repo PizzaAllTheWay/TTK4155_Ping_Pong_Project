@@ -11,6 +11,25 @@
 
 
 
+// Libraries
+#include <stdint.h>
+#include "../ADC/adc_driver.h"
+#include "../Time/time.h"
+
+
+
+// Local Variables used in this code
+#define _IR_LED_SAMPLE_INTERVAL_MS 5000 // Sampling interval in milliseconds
+#define _IR_LED_SAMPLE_NUM 16 // Number of samples each time we read status of IR LED
+#define _IR_LED_THRESHOLD 100 // Threshold value to compare against
+
+
+
+// Functions
+void ir_led_driver_init();
+
+uint8_t ir_led_driver_get_status();
+
 
 
 #endif /* IR_LED_DRIVER_H_ */

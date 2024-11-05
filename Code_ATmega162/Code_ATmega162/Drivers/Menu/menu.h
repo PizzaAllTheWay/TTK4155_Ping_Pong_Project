@@ -27,7 +27,7 @@ void menu_nyancat();
 void menu_ghost();
 void menu_pokemon();
 
-void menu_pingpont_set(int8_t score);
+void menu_pingpont_set(uint8_t score);
 void menu_bongocat_set(int8_t state);
 void menu_nyancat_set(int8_t state);
 void menu_ghost_set(int8_t state);

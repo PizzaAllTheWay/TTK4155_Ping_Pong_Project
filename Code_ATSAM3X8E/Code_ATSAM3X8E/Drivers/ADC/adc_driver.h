@@ -31,9 +31,4 @@ uint16_t adc_driver_read();
 
 
 
-void adc_init();
-uint16_t adc_read();
-
-
-
 #endif /* ADC_DRIVER_H_ */

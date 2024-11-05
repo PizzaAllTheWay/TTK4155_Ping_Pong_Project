@@ -24,12 +24,18 @@
 #include "Drivers/UART/uart_driver.h"
 #include "Drivers/CAN/can.h"
 #include "Drivers/Servo/servo_driver.h"
+#include "Drivers/IR_LED/ir_led_driver.h"
 
 
 
 // Global Constant Variables
 #define CAN_ID_NODE1 1
 #define CAN_ID_NODE2 2
+
+
+
+// Global Variables
+uint8_t score = 0;
 
 
 
@@ -131,8 +137,7 @@ int main(void)
 	servo_driver_init();
 	
 	// Initialize IR LED ----------
-	adc_driver_init();
-	//adc_init();
+	ir_led_driver_init();
 	
 	
 
@@ -203,37 +208,55 @@ int main(void)
 		
 		
 		// Servo And IR LED Test ----------
-		/*
 		// Define the CAN message structure for receiving
-		CanMsg can_message;
+		CanMsg can_message_rx;
 
 		// Check RX_MAILBOX_0 for received messages
-		if (can_rx(&can_message, RX_MAILBOX_0)) {
+		if (can_rx(&can_message_rx, RX_MAILBOX_0)) {			
 			// Check if the received message is from the correct sender ID
-			if (can_message.id == CAN_ID_NODE1) {
+			if (can_message_rx.id == CAN_ID_NODE1) {
 				// Typecast all the messages into the correct format
-				int8_t controls_joystick_y = (int8_t)can_message.byte[0];
-				int8_t controls_joystick_x = (int8_t)can_message.byte[1];
-				int8_t controls_pad_left = (int8_t)can_message.byte[2];
-				int8_t controls_pad_right = (int8_t)can_message.byte[3];
-				int8_t controls_joystick_button = (int8_t)can_message.byte[4];
-				int8_t controls_pad_left_button = (int8_t)can_message.byte[5];
-				int8_t controls_pad_right_button = (int8_t)can_message.byte[6];
-				char test_data = (char)can_message.byte[7];
+				int8_t controls_joystick_y = (int8_t)can_message_rx.byte[0];
+				int8_t controls_joystick_x = (int8_t)can_message_rx.byte[1];
+				int8_t controls_pad_left = (int8_t)can_message_rx.byte[2];
+				int8_t controls_pad_right = (int8_t)can_message_rx.byte[3];
+				int8_t controls_joystick_button = (int8_t)can_message_rx.byte[4];
+				int8_t controls_pad_left_button = (int8_t)can_message_rx.byte[5];
+				int8_t controls_pad_right_button = (int8_t)can_message_rx.byte[6];
+				char test_data = (char)can_message_rx.byte[7];
 				
 				// Control Servo
 				servo_driver_set_position(controls_joystick_x);
 			}
 		}
-		*/
-		
-		// Test 
-		uint16_t adc_test_data = adc_driver_read();
-		//uint16_t adc_test_data = adc_read();
-		printf("Testing111    ");
-		printf("0x%04X ", adc_test_data);
-		printf("\n");
-		printf("\r");
-		time_spinFor(msecs(1000));
+
+		if (ir_led_driver_get_status() != 0) {
+			// Increment score by 1
+			score += 1;
+			
+			printf("Hellooo!");
+			printf("0x%02X ", score);
+			printf("\n");
+			printf("\r");
+			
+			// Define the CAN message
+			CanMsg can_message_tx;
+			can_message_tx.id = CAN_ID_NODE2; // CAN ID
+			can_message_tx.length = 8; // Message length
+			can_message_tx.byte[0] = score; // Data bytes to send
+			can_message_tx.byte[1] = score;
+			can_message_tx.byte[2] = score;
+			can_message_tx.byte[3] = score;
+			can_message_tx.byte[4] = score;
+			can_message_tx.byte[5] = score;
+			can_message_tx.byte[6] = score;
+			can_message_tx.byte[7] = score;
+			
+			// Send the message on the CAN bus
+			can_tx(can_message_tx);
+			
+			// Delay to avoid flooding the CAN bus
+			time_spinFor(msecs(1000));
+		}
     }
 }

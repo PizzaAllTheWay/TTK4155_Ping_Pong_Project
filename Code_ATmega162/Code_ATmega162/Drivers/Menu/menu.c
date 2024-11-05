@@ -59,7 +59,7 @@ void menu_pokemon() {
 
 
 
-void menu_pingpont_set(int8_t score) {
+void menu_pingpont_set(uint8_t score) {
 	oled_clear_screen();
 	oled_set_area_pattern(0xFF, 0, 0, 127, 0);
 	oled_set_text(" Ping Pong ", 20, 0);

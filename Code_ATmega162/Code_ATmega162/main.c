@@ -9,8 +9,10 @@
 
 
 
+// Custom Libraries
 #include "Drivers/Debugging/debug_led.h"
 #include "Drivers/UART/uart_driver.h"
+#include "Drivers/Time/time.h"
 #include "Drivers/Controls/controls.h"
 #include "Drivers/OLED/oled.h"
 #include "Drivers/Menu/menu.h"
@@ -28,6 +30,7 @@
 // Global Variables
 #define CAN_ID_NODE1 1
 #define CAN_ID_NODE2 2
+#define CAN_SEND_INTERVAL_MS 100 // 100 [ms]
 
 int8_t joystic_y = 0;
 int8_t button_L = 0;
@@ -44,6 +47,10 @@ int main(void)
 	// Debugging Setup
 	debug_led_init();
 	uart_init(F_CPU, BAUD_RATE);
+	
+	// Timer Setup
+	time_init();
+	uint32_t can_start_time = time_get_milliseconds();  // Record the starting time for CAN (As we want to have delay on CAN buss sending without slowing down other tasks)
 
 	// Interface Setup
 	controls_init();
@@ -376,7 +383,7 @@ int main(void)
 		}
 		*/
 		
-		// Servo And IR LED Test ----------
+		// Servo and IR LED Test ----------
 		// Try reading from CAN buss
 		// When reading if we got new message the interrupt will trigger, letting us know that we got a new message
 		can_message_t can_message_rx;
@@ -386,9 +393,9 @@ int main(void)
 		uint8_t is_can_available = can_driver_message_available();
 		if (is_can_available) {
 			// Now that we know we have a new message pending
-			// Check if the message is something we are interested in (ie from a sender ID we want to get data from)
+			// Check if the message is something we are interested in (ie from a sender ID we want to get data from and is not corrupted)
 			if ((can_message_rx.id == CAN_ID_NODE2) && (can_message_rx.length == 8))  {
-				// Recast the message type to the propper form
+				// Recast the message type to the proper form
 				uint8_t score = (uint8_t)can_message_rx.data[0];
 				uint8_t test_data1 = (uint8_t)can_message_rx.data[1];
 				uint8_t test_data2 = (uint8_t)can_message_rx.data[2];
@@ -402,30 +409,36 @@ int main(void)
 			}
 		}
 		
-		can_message_t can_message_tx;
+		// Send Controls inputs to NODE2, every time the CAN timer runs out
+		if ((time_get_milliseconds() - can_start_time) >= CAN_SEND_INTERVAL_MS) {
+			// Reset the CAN start time for the next delay
+			can_start_time = time_get_milliseconds();
+			
+			// Declare CAN message type to format our message in
+			can_message_t can_message_tx;
 
-		// Set the CAN message ID
-		can_message_tx.id = CAN_ID_NODE1;
+			// Set the CAN message ID
+			can_message_tx.id = CAN_ID_NODE1;
 
-		// Get Joystick Inputs
-		// Set the message data to joystick inputs (8 bytes max)
-		// Last byte just random as it is not used
-		controls_refresh();
-		can_message_tx.data[0] = controls_get_joystick_y();
-		can_message_tx.data[1] = controls_get_joystick_x();
-		can_message_tx.data[2] = controls_get_pad_left();
-		can_message_tx.data[3] = controls_get_pad_right();
-		can_message_tx.data[4] = controls_get_joystick_button();
-		can_message_tx.data[5] = controls_get_pad_left_button();
-		can_message_tx.data[6] = controls_get_pad_right_button();
-		can_message_tx.data[7] = 'E';
+			// Get Joystick Inputs
+			// Set the message data to joystick inputs (8 bytes max)
+			// Last byte just random as it is not used
+			controls_refresh();
+			can_message_tx.data[0] = controls_get_joystick_y();
+			can_message_tx.data[1] = controls_get_joystick_x();
+			can_message_tx.data[2] = controls_get_pad_left();
+			can_message_tx.data[3] = controls_get_pad_right();
+			can_message_tx.data[4] = controls_get_joystick_button();
+			can_message_tx.data[5] = controls_get_pad_left_button();
+			can_message_tx.data[6] = controls_get_pad_right_button();
+			can_message_tx.data[7] = 'E';
 
-		// Set the length of the message
-		can_message_tx.length = 8;
+			// Set the length of the message
+			can_message_tx.length = 8;
 
-		// Send the CAN message
-		can_driver_send_message(&can_message_tx);
-		_delay_us(1);
+			// Send the CAN message
+			can_driver_send_message(&can_message_tx);
+		}
     }
 	
 	// Exit

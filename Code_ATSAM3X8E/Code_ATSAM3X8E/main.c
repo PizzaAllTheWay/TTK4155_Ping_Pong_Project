@@ -31,6 +31,7 @@
 // Global Constant Variables
 #define CAN_ID_NODE1 1
 #define CAN_ID_NODE2 2
+#define CAN_SEND_INTERVAL_MS 1000 // 1000 [ms]
 
 
 
@@ -50,6 +51,10 @@ int main(void)
 	// Initialize Debugging ----------
 	debug_led_init();
 	uart_init(84000000, 9600); // Initialize UART with CPU frequency (84 MHz) and desired baud rate (9600)
+	
+	// Variables to keep track of the CAN sending timings, as to not overwhelm the CAN buss and let us do other tasks at the same time
+	uint64_t can_start_time = 0;
+	uint64_t can_send_interval_ticks = msecs(CAN_SEND_INTERVAL_MS);
 	
 	// Initialize CAN ----------
 	// 500 kbps CAN Buss
@@ -207,7 +212,7 @@ int main(void)
 		
 		
 		
-		// Servo And IR LED Test ----------
+		// Servo and IR LED Test ----------
 		// Define the CAN message structure for receiving
 		CanMsg can_message_rx;
 
@@ -229,15 +234,16 @@ int main(void)
 				servo_driver_set_position(controls_joystick_x);
 			}
 		}
-
-		if (ir_led_driver_get_status() != 0) {
-			// Increment score by 1
-			score += 1;
+		
+		// Check if enough time has passed since the last CAN message was sent
+		if ((time_now() - can_start_time) >= can_send_interval_ticks) {
+			// Reset the CAN start time for the next delay
+			can_start_time = time_now();
 			
-			printf("Hellooo!");
-			printf("0x%02X ", score);
-			printf("\n");
-			printf("\r");
+			// Increment score by 1 if the ball was detected
+			if (ir_led_driver_get_status() != 0) {
+				score += 1;
+			}
 			
 			// Define the CAN message
 			CanMsg can_message_tx;
@@ -254,9 +260,6 @@ int main(void)
 			
 			// Send the message on the CAN bus
 			can_tx(can_message_tx);
-			
-			// Delay to avoid flooding the CAN bus
-			time_spinFor(msecs(1000));
 		}
     }
 }

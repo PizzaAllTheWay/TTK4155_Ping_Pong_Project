@@ -226,6 +226,12 @@
     <Compile Include="Drivers\OLED\oled.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Drivers\Time\time.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\Time\time.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Drivers\UART\uart_driver.c">
       <SubType>compile</SubType>
     </Compile>
@@ -243,6 +249,7 @@
     <Folder Include="Drivers\Controls" />
     <Folder Include="Drivers\Menu" />
     <Folder Include="Drivers\CAN" />
+    <Folder Include="Drivers\Time" />
     <Folder Include="Drivers\OLED" />
     <Folder Include="Drivers\UART" />
     <Folder Include="Drivers\Debugging" />

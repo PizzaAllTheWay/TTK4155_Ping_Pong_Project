@@ -284,32 +284,32 @@ void adc_driver_init() {
 								| TC_CMR_ACPC_CLEAR;          // RC compare effect on TIOA: Clear
 	
 	// Set RA Value
-	// Set RA to define the duty cycle. For example, RA = 33,600 for 60% duty cycle
+	// Set RA to define the duty cycle. For example, RA = 336 for 60% duty cycle
 	// Calculate RA for Desired Duty Cycle
 	// Desired Duty Cycle (%): 60%
 	//
 	// RA Calculation Formula:
 	// RA = RC * (1 - Duty Cycle (%) / 100)
-	// RA = 84,000 * (1 - 60 / 100) = 84,000 * 0.4 = 33,600
+	// RA = 840 * (1 - 60 / 100) = 84,000 * 0.4 = 336
 	//
 	// For more information about TC_RC, read ATSAM3X8E Data Sheet:
 	// Page 889: 36.7.6 TC Register A
-	TC0->TC_CHANNEL[0].TC_RA = 33600;   // RA value for 60% duty cycle
+	TC0->TC_CHANNEL[0].TC_RA = 336;   // RA value for 60% duty cycle
 	
 	// Set RC value
-	// Adjust RC to set the frequency. For example, RC = 84000 gives 500 Hz frequency
+	// Adjust RC to set the frequency. For example, RC = 84000 gives 50 kHz frequency
 	// Calculate RC for Desired Frequency
 	// Timer Clock Frequency (f_TC): MCK / 2 = 84 MHz / 2 = 42 MHz
 	//
-	// Desired Waveform Frequency (f_desired): 500 Hz
+	// Desired Waveform Frequency (f_desired): 50 kHz
 	//
 	// RC Calculation Formula:
 	// RC = f_TC / f_desired
-	// RC = 42,000,000 Hz / 500 Hz = 84,000
+	// RC = 42,000,000 Hz / 50,000 Hz = 840
 	//
 	// For more information about TC_RC, read ATSAM3X8E Data Sheet:
 	// Page 891: 36.7.8 TC Register C
-	TC0->TC_CHANNEL[0].TC_RC = 84000;   // RC value for desired frequency (500 Hz)
+	TC0->TC_CHANNEL[0].TC_RC = 840;   // RC value for desired frequency (50 kHz)
 
 	// Start the Timer Counter for triggering
 	TC0->TC_CHANNEL[0].TC_CCR = TC_CCR_CLKEN | TC_CCR_SWTRG;

@@ -288,7 +288,7 @@ void SystemInit( void )
 	// Page 617: 30.9.18 SSC Write Protect Status Register
 	uint8_t WPEN = 0;
 	SSC->SSC_WPMR = (_SSC_WRITE_PROTECT_KEY << 8) // Set WPKEY
-   80274:	4a28      	ldr	r2, [pc, #160]	; (80318 <adc_driver_init+0xa4>)
+   80274:	4a29      	ldr	r2, [pc, #164]	; (8031c <adc_driver_init+0xa8>)
    80276:	f04f 2340 	mov.w	r3, #1073758208	; 0x40004000
    8027a:	f8c3 20e4 	str.w	r2, [r3, #228]	; 0xe4
 	| WPEN;                       // Set WPEN to disable pin write protect
@@ -304,14 +304,14 @@ void SystemInit( void )
 	// Page 635: 31.7.3 PIO Controller PIO Status Register
 	// Page 656: 31.7.24 PIO Peripheral AB Select Register
 	PIOA->PIO_PDR = PIO_PDR_P16;  // Disable PIO control for PA16 (A0)
-   8028a:	4b24      	ldr	r3, [pc, #144]	; (8031c <adc_driver_init+0xa8>)
+   8028a:	4b25      	ldr	r3, [pc, #148]	; (80320 <adc_driver_init+0xac>)
    8028c:	f44f 3280 	mov.w	r2, #65536	; 0x10000
    80290:	605a      	str	r2, [r3, #4]
 	PIOA->PIO_ODR = PIO_ODR_P16;  // Ensure the pin is set as input (A0)
    80292:	615a      	str	r2, [r3, #20]
 	
 	while ((PIOA->PIO_PSR & PIO_PSR_P16) != 0) {
-   80294:	4b21      	ldr	r3, [pc, #132]	; (8031c <adc_driver_init+0xa8>)
+   80294:	4b22      	ldr	r3, [pc, #136]	; (80320 <adc_driver_init+0xac>)
    80296:	689b      	ldr	r3, [r3, #8]
    80298:	f413 3f80 	tst.w	r3, #65536	; 0x10000
    8029c:	d1fa      	bne.n	80294 <adc_driver_init+0x20>
@@ -321,13 +321,13 @@ void SystemInit( void )
 	// Page 1353: 43.7.20 ADC Write Protect Mode Register
 	// Page 1354: 43.7.21 ADC Write Protect Status Register
 	ADC->ADC_WPMR = (_ADC_WRITE_PROTECT_KEY << 8) // Set WPKEY
-   8029e:	4a20      	ldr	r2, [pc, #128]	; (80320 <adc_driver_init+0xac>)
-   802a0:	4b20      	ldr	r3, [pc, #128]	; (80324 <adc_driver_init+0xb0>)
+   8029e:	4a21      	ldr	r2, [pc, #132]	; (80324 <adc_driver_init+0xb0>)
+   802a0:	4b21      	ldr	r3, [pc, #132]	; (80328 <adc_driver_init+0xb4>)
    802a2:	f8c3 20e4 	str.w	r2, [r3, #228]	; 0xe4
 					| WPEN;                       // Set WPEN to disable pin write protect
 	
 	while (ADC->ADC_WPSR != 0) {
-   802a6:	4b1f      	ldr	r3, [pc, #124]	; (80324 <adc_driver_init+0xb0>)
+   802a6:	4b20      	ldr	r3, [pc, #128]	; (80328 <adc_driver_init+0xb4>)
    802a8:	f8d3 30e8 	ldr.w	r3, [r3, #232]	; 0xe8
    802ac:	2b00      	cmp	r3, #0
    802ae:	d1fa      	bne.n	802a6 <adc_driver_init+0x32>
@@ -337,7 +337,7 @@ void SystemInit( void )
 	// Page 1317 - 1354: 43. Analog-to-Digital Converter (ADC)
 	// Page 1332: 43.7.1 ADC Control Register
 	ADC->ADC_CR = ADC_CR_SWRST;  // Reset ADC
-   802b0:	4b1c      	ldr	r3, [pc, #112]	; (80324 <adc_driver_init+0xb0>)
+   802b0:	4b1d      	ldr	r3, [pc, #116]	; (80328 <adc_driver_init+0xb4>)
    802b2:	2201      	movs	r2, #1
    802b4:	601a      	str	r2, [r3, #0]
 	// Page 1322: 43.6.3 Conversion Resolution
@@ -346,7 +346,7 @@ void SystemInit( void )
 	// Page 1333 - 1335: 43.7.2 ADC Mode Register
 	uint8_t ADC_MR_LOWRES_BITS_12 = (0 << 4); // Bit 4: LOWRES = 0 (12-bit resolution)
 	ADC->ADC_MR = ADC_MR_TRGEN_EN                 // Enable hardware triggers (TRGEN = 1)
-   802b6:	4a1c      	ldr	r2, [pc, #112]	; (80328 <adc_driver_init+0xb4>)
+   802b6:	4a1d      	ldr	r2, [pc, #116]	; (8032c <adc_driver_init+0xb8>)
    802b8:	605a      	str	r2, [r3, #4]
 	// Pin PA16 is Analogue PIN 0 on Arduino DUE (A0)
 	//  
@@ -362,14 +362,14 @@ void SystemInit( void )
 	// Page 561: 28.15.21  PMC Write Protect Mode Register
 	// Page 562: 28.15.22  PMC Write Protect Status Register
 	PMC->PMC_WPMR = (_PMC_WRITE_PROTECT_KEY << 8) // Set WPKEY
-   802be:	4a1b      	ldr	r2, [pc, #108]	; (8032c <adc_driver_init+0xb8>)
+   802be:	4a1c      	ldr	r2, [pc, #112]	; (80330 <adc_driver_init+0xbc>)
    802c0:	f503 3301 	add.w	r3, r3, #132096	; 0x20400
    802c4:	f503 7300 	add.w	r3, r3, #512	; 0x200
    802c8:	f8c3 20e4 	str.w	r2, [r3, #228]	; 0xe4
 					| WPEN;						  // Set WPEN to disable pin write protect
 	
 	while (PMC->PMC_WPSR != 0) {
-   802cc:	4b18      	ldr	r3, [pc, #96]	; (80330 <adc_driver_init+0xbc>)
+   802cc:	4b19      	ldr	r3, [pc, #100]	; (80334 <adc_driver_init+0xc0>)
    802ce:	f8d3 30e8 	ldr.w	r3, [r3, #232]	; 0xe8
    802d2:	2b00      	cmp	r3, #0
    802d4:	d1fa      	bne.n	802cc <adc_driver_init+0x58>
@@ -379,8 +379,8 @@ void SystemInit( void )
 	// Page 563: 28.15.23  PMC Peripheral Clock Enable Register 1
 	// Page 566: 28.15.26 PMC Peripheral Control Register
 	PMC->PMC_PCR = PMC_PCR_EN | PMC_PCR_DIV_PERIPH_DIV_MCK | (ID_ADC << PMC_PCR_PID_Pos);
-   802d6:	4a16      	ldr	r2, [pc, #88]	; (80330 <adc_driver_init+0xbc>)
-   802d8:	4b16      	ldr	r3, [pc, #88]	; (80334 <adc_driver_init+0xc0>)
+   802d6:	4a17      	ldr	r2, [pc, #92]	; (80334 <adc_driver_init+0xc0>)
+   802d8:	4b17      	ldr	r3, [pc, #92]	; (80338 <adc_driver_init+0xc4>)
    802da:	f8c2 310c 	str.w	r3, [r2, #268]	; 0x10c
 	PMC->PMC_PCER1 |= 1 << (ID_ADC - 32);
    802de:	f8d2 3100 	ldr.w	r3, [r2, #256]	; 0x100
@@ -392,8 +392,8 @@ void SystemInit( void )
 	// For more information about Timer Write Protection, read ATSAM3X8E Data Sheet:
 	// Page 5908: 36.7.20 TC Write Protection Mode Register
 	TC0->TC_WPMR = (_TC0_WRITE_PROTECT_KEY << 8) // Set WPKEY
-   802ea:	4b13      	ldr	r3, [pc, #76]	; (80338 <adc_driver_init+0xc4>)
-   802ec:	4913      	ldr	r1, [pc, #76]	; (8033c <adc_driver_init+0xc8>)
+   802ea:	4b14      	ldr	r3, [pc, #80]	; (8033c <adc_driver_init+0xc8>)
+   802ec:	4914      	ldr	r1, [pc, #80]	; (80340 <adc_driver_init+0xcc>)
    802ee:	f8c3 10e4 	str.w	r1, [r3, #228]	; 0xe4
 	// Page 538: 28.15 Power Management Controller (PMC) User Interface
 	// Page 542: 8.15.4  PMC Peripheral Clock Enable Register 0
@@ -413,47 +413,47 @@ void SystemInit( void )
    802fa:	f44f 221c 	mov.w	r2, #638976	; 0x9c000
    802fe:	605a      	str	r2, [r3, #4]
 	// RA = RC * (1 - Duty Cycle (%) / 100)
-	// RA = 84,000 * (1 - 60 / 100) = 84,000 * 0.4 = 33,600
+	// RA = 840 * (1 - 60 / 100) = 84,000 * 0.4 = 336
 	//
 	// For more information about TC_RC, read ATSAM3X8E Data Sheet:
 	// Page 889: 36.7.6 TC Register A
-	TC0->TC_CHANNEL[0].TC_RA = 33600;   // RA value for 60% duty cycle
-   80300:	f248 3240 	movw	r2, #33600	; 0x8340
+	TC0->TC_CHANNEL[0].TC_RA = 336;   // RA value for 60% duty cycle
+   80300:	f44f 72a8 	mov.w	r2, #336	; 0x150
    80304:	615a      	str	r2, [r3, #20]
 	// RC = f_TC / f_desired
-	// RC = 42,000,000 Hz / 500 Hz = 84,000
+	// RC = 42,000,000 Hz / 50,000 Hz = 840
 	//
 	// For more information about TC_RC, read ATSAM3X8E Data Sheet:
 	// Page 891: 36.7.8 TC Register C
-	TC0->TC_CHANNEL[0].TC_RC = 84000;   // RC value for desired frequency (500 Hz)
-   80306:	4a0e      	ldr	r2, [pc, #56]	; (80340 <adc_driver_init+0xcc>)
-   80308:	61da      	str	r2, [r3, #28]
+	TC0->TC_CHANNEL[0].TC_RC = 840;   // RC value for desired frequency (50 kHz)
+   80306:	f44f 7252 	mov.w	r2, #840	; 0x348
+   8030a:	61da      	str	r2, [r3, #28]
 
 	// Start the Timer Counter for triggering
 	TC0->TC_CHANNEL[0].TC_CCR = TC_CCR_CLKEN | TC_CCR_SWTRG;
-   8030a:	2205      	movs	r2, #5
-   8030c:	601a      	str	r2, [r3, #0]
+   8030c:	2205      	movs	r2, #5
+   8030e:	601a      	str	r2, [r3, #0]
 	
 	
 	
 	// Enable ADC (START) --------------------------------------------------
 	// Begin ADC conversion (will wait for the first trigger from TIOA0)
 	ADC->ADC_CR = ADC_CR_START;
-   8030e:	2202      	movs	r2, #2
-   80310:	f503 2380 	add.w	r3, r3, #262144	; 0x40000
-   80314:	601a      	str	r2, [r3, #0]
-   80316:	4770      	bx	lr
-   80318:	53534300 	.word	0x53534300
-   8031c:	400e0e00 	.word	0x400e0e00
-   80320:	41444300 	.word	0x41444300
-   80324:	400c0000 	.word	0x400c0000
-   80328:	3f042903 	.word	0x3f042903
-   8032c:	504d4300 	.word	0x504d4300
-   80330:	400e0600 	.word	0x400e0600
-   80334:	10000025 	.word	0x10000025
-   80338:	40080000 	.word	0x40080000
-   8033c:	54494d00 	.word	0x54494d00
-   80340:	00014820 	.word	0x00014820
+   80310:	2202      	movs	r2, #2
+   80312:	f503 2380 	add.w	r3, r3, #262144	; 0x40000
+   80316:	601a      	str	r2, [r3, #0]
+   80318:	4770      	bx	lr
+   8031a:	bf00      	nop
+   8031c:	53534300 	.word	0x53534300
+   80320:	400e0e00 	.word	0x400e0e00
+   80324:	41444300 	.word	0x41444300
+   80328:	400c0000 	.word	0x400c0000
+   8032c:	3f042903 	.word	0x3f042903
+   80330:	504d4300 	.word	0x504d4300
+   80334:	400e0600 	.word	0x400e0600
+   80338:	10000025 	.word	0x10000025
+   8033c:	40080000 	.word	0x40080000
+   80340:	54494d00 	.word	0x54494d00
 
 00080344 <adc_driver_read>:
 
@@ -907,13 +907,13 @@ uint8_t ir_led_driver_get_status() {
 	for (uint16_t i = 0; i < _IR_LED_SAMPLE_NUM; i++) {
    8057e:	3401      	adds	r4, #1
    80580:	b2a4      	uxth	r4, r4
-   80582:	2c0f      	cmp	r4, #15
+   80582:	2c3f      	cmp	r4, #63	; 0x3f
    80584:	d9f8      	bls.n	80578 <ir_led_driver_get_status+0x8>
 	}
 	
 	// Apply a simple moving average filter
 	uint16_t average = sum / _IR_LED_SAMPLE_NUM;
-   80586:	f3c5 150f 	ubfx	r5, r5, #4, #16
+   80586:	f3c5 158f 	ubfx	r5, r5, #6, #16
 
 	// Compare the average to the threshold
 	if (average < _IR_LED_THRESHOLD) {

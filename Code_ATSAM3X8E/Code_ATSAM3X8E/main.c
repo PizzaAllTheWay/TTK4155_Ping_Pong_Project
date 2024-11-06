@@ -129,7 +129,7 @@ int main(void)
 	// Page 1192 - 1197: 40.7.4 CAN 2.0 Standard Features
 	// Page 1192 - 1194: 40.7.4.1 CAN Bit Timing Configuration
 	CanInit can_config = {
-		.brp = 83,  // Baud Rate Prescaling (41)
+		.brp = 83,  // Baud Rate Prescaling (83)
 		.phase1 = 6,
 		.phase2 = 6,
 		.propag = 3,

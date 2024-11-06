@@ -40,7 +40,7 @@ void adc_driver_init() {
 	// After disabling PIO registers we double check that and wait until PIO registers are disabled
 	// We must specify pin as Input
 	// Note that not all pins support ADC Controller mode
-	// We will be using PA16, witch connects to AD7 (ADC Controller Channel 7)
+	// We will be using PA16, witch connects to AD7 (ADC Controller Channel 7) (A0)
 	// NOTE: Pin PA16 is Analogue PIN 0 on Arduino DUE (A0)
 	//
 	// For more information about PWM and PIO registers, read ATSAM3X8E Data Sheet:

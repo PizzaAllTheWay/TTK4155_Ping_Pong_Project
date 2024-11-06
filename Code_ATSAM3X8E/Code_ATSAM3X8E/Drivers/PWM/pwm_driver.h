@@ -21,13 +21,13 @@
 #define _PWM_WRITE_PROTECT_KEY 0x50574D
 #define _PMC_WRITE_PROTECT_KEY 0x504D43
 #define _PWM_CLK_DIVA_FACTOR 84
-#define _PWM_CHANNEL6 6
-#define _PWM_CHANNEL7 7
+#define _PWM_CHANNEL_MOTOR 0
+#define _PWM_CHANNEL_SERVO 1
 
 
 // Global important values used in PWM Driver code
-#define PWM_DRIVER_PIN7 6 // Yes I know its confusing, but they decided PWM Controller Channel 7 will be PC24 witch is PWM PIN 6 On Arduino DUE
-#define PWM_DRIVER_PIN6 7 // Yes I know its confusing, but they decided PWM Controller Channel 6 will be PC23 witch is PWM PIN 7 On Arduino DUE
+#define PWM_DRIVER_MOTOR 0 // Motor Control is connected to PWM Controller Channel 0 as a Normally HIGH output
+#define PWM_DRIVER_SERVO 1 // Servo Control is connected to PWM Controller Channel 1 as a Normally HIGH output
 
 
 

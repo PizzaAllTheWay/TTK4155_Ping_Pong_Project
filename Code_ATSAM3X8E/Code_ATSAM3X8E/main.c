@@ -38,6 +38,15 @@
 // Global Variables
 uint8_t score = 0;
 
+int8_t controls_joystick_y = 0;
+int8_t controls_joystick_x = 0;
+int8_t controls_pad_left = 0;
+int8_t controls_pad_right = 0;
+int8_t controls_joystick_button = 0;
+int8_t controls_pad_left_button = 0;
+int8_t controls_pad_right_button = 0;
+char test_data = 0x00;
+
 
 
 int main(void)
@@ -52,7 +61,10 @@ int main(void)
 	debug_led_init();
 	uart_init(84000000, 9600); // Initialize UART with CPU frequency (84 MHz) and desired baud rate (9600)
 	
-	// Variables to keep track of the CAN sending timings, as to not overwhelm the CAN buss and let us do other tasks at the same time
+	// Setup Timers ----------
+	// Variables to keep track of timers
+	// The CAN sending timings, as to not overwhelm the CAN buss and let us do other tasks at the same time
+	// The Controls timings, as there is no point in sending data every microsecond
 	uint64_t can_start_time = 0;
 	uint64_t can_send_interval_ticks = msecs(CAN_SEND_INTERVAL_MS);
 	
@@ -221,19 +233,19 @@ int main(void)
 			// Check if the received message is from the correct sender ID
 			if (can_message_rx.id == CAN_ID_NODE1) {
 				// Typecast all the messages into the correct format
-				int8_t controls_joystick_y = (int8_t)can_message_rx.byte[0];
-				int8_t controls_joystick_x = (int8_t)can_message_rx.byte[1];
-				int8_t controls_pad_left = (int8_t)can_message_rx.byte[2];
-				int8_t controls_pad_right = (int8_t)can_message_rx.byte[3];
-				int8_t controls_joystick_button = (int8_t)can_message_rx.byte[4];
-				int8_t controls_pad_left_button = (int8_t)can_message_rx.byte[5];
-				int8_t controls_pad_right_button = (int8_t)can_message_rx.byte[6];
-				char test_data = (char)can_message_rx.byte[7];
-				
-				// Control Servo
-				servo_driver_set_position(controls_joystick_x);
+				controls_joystick_y = (int8_t)can_message_rx.byte[0];
+				controls_joystick_x = (int8_t)can_message_rx.byte[1];
+				controls_pad_left = (int8_t)can_message_rx.byte[2];
+				controls_pad_right = (int8_t)can_message_rx.byte[3];
+				controls_joystick_button = (int8_t)can_message_rx.byte[4];
+				controls_pad_left_button = (int8_t)can_message_rx.byte[5];
+				controls_pad_right_button = (int8_t)can_message_rx.byte[6];
+				test_data = (char)can_message_rx.byte[7];
 			}
 		}
+		
+		// Control Servo with Joystick X position
+		servo_driver_set_position(controls_joystick_x);
 		
 		// Check if enough time has passed since the last CAN message was sent
 		if ((time_now() - can_start_time) >= can_send_interval_ticks) {

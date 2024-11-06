@@ -22,16 +22,17 @@
 
 // Global Constants
 #define BAUD_RATE 9600
+
 #define MENU_MAX 4 // 5 menus
 #define POKEMON_MAX 2 // 3 Pokemon
 
-
-
-// Global Variables
 #define CAN_ID_NODE1 1
 #define CAN_ID_NODE2 2
 #define CAN_SEND_INTERVAL_MS 100 // 100 [ms]
 
+
+
+// Global Variables
 int8_t joystic_y = 0;
 int8_t button_L = 0;
 int8_t button_R = 0;

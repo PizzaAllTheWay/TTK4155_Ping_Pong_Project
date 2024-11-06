@@ -46,21 +46,24 @@ void _pwm_driver_disable() {
 void _pwm_driver_enable() {
 	// Enable PWM
 	// Now that setup is done we can enable PWM signal again
-	// We will enable only PWM channel 6 and 7, as that is the the only channel we are using
-	// Because Pin PC23 and PC24 are connected to PWML6 and PWML7 (PWM Controller Channel 6 and 7)
+	// We will enable only PWM channel 0 and 1, as that is the the only channel we are using
+	// Because Pin PB12 and PB13 are connected to PWMH0 and PWMH1 (PWM Controller Channel 0 and 1)
 	//
 	// For more information about PWM_CPRDx and PWM_CDTYx, read ATSAM3X8E Data Sheet:
 	// Page 977 - 992: 38.6.2 PWM Channel
 	// Page 1007: 38.7.2 PWM Enable Register
-	PWM->PWM_ENA =   PWM_ENA_CHID6
-				   | PWM_ENA_CHID7;
+	PWM->PWM_ENA =   PWM_ENA_CHID0
+				   | PWM_ENA_CHID1;
 }
 
 
 
-// Setting up PWM for:
-// PC23 (Pin PWM 6)
-// PC24 (Pin PWM 7)
+// Setting up PWM for Motor Shield:
+// DB12 (D20/SDA) (PWMH0) (Motor Control)
+// PB13 (D21/SCL) (PWMH1) (Servo Control)
+//
+// For more information on Servo and Motor Controllers:
+// Read: "TTK4155_Motor_Shield"
 void pwm_driver_init() {
 	// PIO Setup (START) --------------------------------------------------
 	// Before Doing anything with PIO pins, we must enable write permissions to the registers
@@ -91,9 +94,12 @@ void pwm_driver_init() {
 	// Since we are specifying the operation mode for multiplexer to be in PWM, we must also disable PIO registers
 	// After disabling PIO registers we double check that and wait until PIO registers are disabled
 	// Note that not all pins support PWM Controller mode
-	// We will be using PC23, witch connects to PWML6 (PWM Controller channel 6)
-	// We will be using PC24, witch connects to PWML7 (PWM Controller channel 7, ie last channel as there are 8 total (PWL0-7))
-	// NOTE: PC23 and PC24 is PWML meaning LOW. It is naturally at LOW state unless pulse is sent
+	// We have a shield connected to our Controller that has already predefined pins for our use cases
+	// Servo PWM (Servo Control) and Enable PWM (Motor Control)
+	// This means we have to choose specific pins for our operation:
+	// We will be using PB12, witch connects to PWMH0 (PWM Controller channel 0) (Motor Control)
+	// We will be using PB13, witch connects to PWMH1 (PWM Controller channel 1) (Servo Control)
+	// NOTE: PB12 and PB13 is PWMH meaning HIGH. It is naturally at HIGH state unless pulse is sent
 	//
 	// For more information about PWM and PIO registers, read ATSAM3X8E Data Sheet:
 	// Page 43: 9.3.3 PIO Controller C Multiplexing
@@ -105,14 +111,14 @@ void pwm_driver_init() {
 	// Page 635: 31.7.3 PIO Controller PIO Status Register
 	// Page 656: 31.7.24 PIO Peripheral AB Select Register
 	// Page 970 - 1052: 38. Pulse Width Modulation (PWM)
-	PIOC->PIO_ABSR |= PIO_ABSR_P23; // Multiplex to peripheral function B for PIN23 (PWM7)
-	PIOC->PIO_ABSR |= PIO_ABSR_P24; // Multiplex to peripheral function B for PIN24 (PWM7)
-	PIOC->PIO_PDR |= PIO_PDR_P23; // Disable PIO from controlling PIN23 (PWM7)
-	PIOC->PIO_PDR |= PIO_PDR_P24; // Disable PIO from controlling PIN24 (PWM7)
+	PIOB->PIO_ABSR |= PIO_ABSR_P12; // Multiplex to peripheral function B for PIN12 (D20/SDA)
+	PIOB->PIO_ABSR |= PIO_ABSR_P13; // Multiplex to peripheral function B for PIN13 (D21/SCL)
+	PIOB->PIO_PDR |= PIO_PDR_P12; // Disable PIO from controlling PIN12 (D20/SDA)
+	PIOB->PIO_PDR |= PIO_PDR_P13; // Disable PIO from controlling PIN13 (21/SCL)
 	
-	while ((PIOC->PIO_PSR & (PIO_PSR_P23 | PIO_PSR_P24)) != 0) {
-		// Wait until PIO control is fully disabled for P23 and P23
-		// Loop until PC23 in PIO_PSR is 0, meaning:
+	while ((PIOB->PIO_PSR & (PIO_PSR_P12 | PIO_PSR_P13)) != 0) {
+		// Wait until PIO control is fully disabled for P12 and P13
+		// Loop until PB12 and PB13 in PIO_PSR is 0, meaning:
 		// PIO is inactive
 		// BUT the peripheral is active (ie PWM peripheral for us)
 	}
@@ -241,8 +247,8 @@ void pwm_driver_init() {
 	//		2. Waveform polarity CPOL field in PWM_CMRx register for PWM
 	//		3. Waveform alignment CALG field in PWM_CMRx register for PWM
 	// We have 8 PWM channels and so PWM_CMRx where x=[0-7]
-	// We will be using PWM_CH_NUM[6], because Pin PC23 is connects to PWML6 (PWM Controller channel 6)
-	// We will be using PWM_CH_NUM[7], because Pin PC24 is connected to PWML7 (PWM Controller Channel 7)
+	// We will be using PWM_CH_NUM[0], because Pin PB12 is connects to PWMH0 (PWM Controller channel 0) (Motor Control)
+	// We will be using PWM_CH_NUM[1], because Pin PB12 is connects to PWMH1 (PWM Controller Channel 1) (Servo Control)
 	//
 	// We want a standard PWM, which means:
 	//		bit 0 - 3: CPRE = 0x0B (0b1011: Use PWM Clock A for frequency)
@@ -260,12 +266,12 @@ void pwm_driver_init() {
 	uint8_t CALG7 = 0x00;
 	uint8_t CPOL6 = 0x00;
 	uint8_t CPOL7 = 0x00;
-	PWM->PWM_CH_NUM[_PWM_CHANNEL6].PWM_CMR = (CPRE6 & 0x0F)  // Set bits 0-3 for CPRE (PWM Clock A)
-											 | (CALG6 << 8)  // Set bit 8 for CALG (left-aligned)
-											 | (CPOL6 << 9); // Set bit 9 for CPOL (start low)
-	PWM->PWM_CH_NUM[_PWM_CHANNEL7].PWM_CMR = (CPRE7 & 0x0F)  // Set bits 0-3 for CPRE (PWM Clock A)
-											 | (CALG7 << 8)  // Set bit 8 for CALG (left-aligned)
-											 | (CPOL7 << 9); // Set bit 9 for CPOL (start low)
+	PWM->PWM_CH_NUM[_PWM_CHANNEL_MOTOR].PWM_CMR = (CPRE6 & 0x0F)  // Set bits 0-3 for CPRE (PWM Clock A)
+												  | (CALG6 << 8)  // Set bit 8 for CALG (left-aligned)
+												  | (CPOL6 << 9); // Set bit 9 for CPOL (start low)
+	PWM->PWM_CH_NUM[_PWM_CHANNEL_SERVO].PWM_CMR = (CPRE7 & 0x0F)  // Set bits 0-3 for CPRE (PWM Clock A)
+												  | (CALG7 << 8)  // Set bit 8 for CALG (left-aligned)
+												  | (CPOL7 << 9); // Set bit 9 for CPOL (start low)
 	
 	// In Addition we need to configure 2 things for the clock:
 	//		1. Waveform period CPRD field in PWM_CPRDx register for PWM
@@ -274,8 +280,8 @@ void pwm_driver_init() {
 	// We will be using PWM for Servo
 	// Servo Requires 20 ms waveform period (50 kHz)
 	// Servo also works only in ranges of 0.9 - 2.1 ms duty cycle
-	// We will be using PWM_CH_NUM[6], because Pin PC23 is connects to PWML6 (PWM Controller channel 6)
-	// We will be using PWM_CH_NUM[7], because Pin PC24 is connected to PWML7 (PWM Controller Channel 7)
+	// We will be using PWM_CH_NUM[0], because Pin PB12 is connects to PWMH0 (PWM Controller channel 0) (Motor Control)
+	// We will be using PWM_CH_NUM[1], because Pin PB12 is connects to PWMH1 (PWM Controller Channel 1) (Servo Control)
 	//
 	// Waveform Period:
 	// Since we have configured PWM_CMRx PWM to have left aligned wave form
@@ -331,10 +337,10 @@ void pwm_driver_init() {
 	CPRD7 &= 0xFFFFFF; // Apply mask as only bit 0 - 23 are valid
 	CDTY6 &= 0xFFFFFF; // Apply mask as only bit 0 - 23 are valid
 	CDTY7 &= 0xFFFFFF; // Apply mask as only bit 0 - 23 are valid
-	PWM->PWM_CH_NUM[_PWM_CHANNEL6].PWM_CPRD = PWM_CPRD_CPRD(CPRD6);
-	PWM->PWM_CH_NUM[_PWM_CHANNEL7].PWM_CPRD = PWM_CPRD_CPRD(CPRD7);
-	PWM->PWM_CH_NUM[_PWM_CHANNEL6].PWM_CDTY = PWM_CPRD_CPRD(CDTY6);
-	PWM->PWM_CH_NUM[_PWM_CHANNEL7].PWM_CDTY = PWM_CPRD_CPRD(CDTY7);
+	PWM->PWM_CH_NUM[_PWM_CHANNEL_MOTOR].PWM_CPRD = PWM_CPRD_CPRD(CPRD6);
+	PWM->PWM_CH_NUM[_PWM_CHANNEL_SERVO].PWM_CPRD = PWM_CPRD_CPRD(CPRD7);
+	PWM->PWM_CH_NUM[_PWM_CHANNEL_MOTOR].PWM_CDTY = PWM_CPRD_CPRD(CDTY6);
+	PWM->PWM_CH_NUM[_PWM_CHANNEL_SERVO].PWM_CDTY = PWM_CPRD_CPRD(CDTY7);
 	// PWM Clock Setup (STOP) --------------------------------------------------
 	
 	
@@ -357,7 +363,7 @@ void pwm_driver_set_period(uint8_t pwm_channel, uint32_t period) {
 	// Basically because of how we set up our PWM Clocks and PWM Mode
 	// We don't have to do a lot of math as a lot of things just cancel out
 	// This means that we can directly manipulate registers without first recalculating and reconverting the values
-	if ((pwm_channel == _PWM_CHANNEL6) || (pwm_channel == _PWM_CHANNEL7)) {
+	if ((pwm_channel == _PWM_CHANNEL_MOTOR) || (pwm_channel == _PWM_CHANNEL_SERVO)) {
 		_pwm_driver_disable();
 		
 		uint32_t CPRDx = period;
@@ -377,7 +383,7 @@ void pwm_driver_set_duty_cycle(uint8_t pwm_channel, uint32_t duty_cycle) {
 	// Basically because of how we set up our PWM Clocks and PWM Mode
 	// We don't have to do a lot of math as a lot of things just cancel out
 	// This means that we can directly manipulate registers without first recalculating and reconverting the values
-	if ((pwm_channel == _PWM_CHANNEL6) || (pwm_channel == _PWM_CHANNEL7)) {
+	if ((pwm_channel == _PWM_CHANNEL_MOTOR) || (pwm_channel == _PWM_CHANNEL_SERVO)) {
 		_pwm_driver_disable();
 		
 		uint32_t CDTYx = duty_cycle;

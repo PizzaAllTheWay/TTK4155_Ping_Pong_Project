@@ -36,6 +36,12 @@ void servo_driver_set_position(int8_t position) {
 	// Map position from percent % to pulses in micro seconds us
 	uint32_t duty_cycle = _SERVO_PULSE_MIN + ((position - _SERVO_POSITION_MIN) * (_SERVO_PULSE_MAX - _SERVO_PULSE_MIN))/(_SERVO_POSITION_MAX - _SERVO_POSITION_MIN);
 	
+	// Now since PWM Signal from Servo pin on Motor Shield is Normally HIGH this is a problem
+	// Because the Servo itself takes in signals that are Normally LOW
+	// To correct for this we invert the signal by subtracting duty-cycle itself from max duty-cycle
+	// max duty-cycle = 20 000 us
+	duty_cycle = 20000 - duty_cycle;
+	
 	// Generate Servo Signal
-	pwm_driver_set_duty_cycle(PWM_DRIVER_PIN7, duty_cycle);
+	pwm_driver_set_duty_cycle(PWM_DRIVER_SERVO, duty_cycle);
 }

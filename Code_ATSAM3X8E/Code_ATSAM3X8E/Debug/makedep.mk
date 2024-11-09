@@ -18,6 +18,8 @@ Drivers\PWM\pwm_driver.c
 
 Drivers\Servo\servo_driver.c
 
+Drivers\Solenoid\solenoid_driver.c
+
 Drivers\Time\time.c
 
 Drivers\UART\uart_driver.c

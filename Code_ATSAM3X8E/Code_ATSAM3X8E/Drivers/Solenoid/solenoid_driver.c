@@ -1,27 +1,17 @@
 /*
- * debug_led.c
+ * solenoid_driver.c
  *
- * Created: 26/10/2024 17:37:05
+ * Created: 09/11/2024 20:56:22
  *  Author: Martynas
- */
+ */ 
 
 
 
-#include "debug_led.h"
+#include "solenoid_driver.h"
 
 
-
-void debug_led_blink(void) {
-	// Set pin 49 HIGH
-	PIOC->PIO_SODR |= PIO_PC14;
-	time_spinFor(msecs(100));  // Delay for 100 ms
-
-	// Set pin 49 LOW
-	PIOC->PIO_CODR |= PIO_PC14;
-	time_spinFor(msecs(200));  // Delay for 200 ms
-}
-
-void debug_led_init(void) {
+// PIO_PC18 => PIN45 (Solenoid Pin)
+void solenoid_driver_init() {
 	// Enable the PMC for PIO Controller C (Peripheral ID 13 for PIOC on SAM3X8E)
 	// The Power Management Controller (PMC) manages power for all peripheral blocks,
 	// allowing us to selectively enable/disable them for power efficiency.
@@ -35,12 +25,19 @@ void debug_led_init(void) {
 	PMC->PMC_PCER0 |= PMC_PCER0_PID13; // Enable power to PIO Port C via PMC
 	
 	// Enable the PIO controller for PORT C
-	// PIO_PC14 => PIN49
-	PIOC->PIO_PER |= PIO_PC14;  // Enable PIO control
-	PIOC->PIO_OER |= PIO_PC14;  // Set PIO to Output Enabled Mode
-	
-	// Blink for a few times to showcase that the debugging LED works
-	for (uint8_t i = 0; i < 5; i++) {
-		debug_led_blink();
-	}
+	// PIO_PC18 => PIN45 (Solenoid Pin)
+	PIOC->PIO_PER |= PIO_PC18;  // Enable PIO control
+	PIOC->PIO_OER |= PIO_PC18;  // Set PIO to Output Enabled Mode
+}
+
+
+
+void solenoid_driver_on() {
+	// Set pin 45 HIGH
+	PIOC->PIO_SODR |= PIO_PC18;
+}
+
+void solenoid_driver_off() {
+	// Set pin 45 LOW
+	PIOC->PIO_CODR |= PIO_PC18;
 }

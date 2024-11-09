@@ -25,13 +25,15 @@
 #include "Drivers/CAN/can.h"
 #include "Drivers/Servo/servo_driver.h"
 #include "Drivers/IR_LED/ir_led_driver.h"
+#include "Drivers/Solenoid/solenoid_driver.h"
 
 
 
 // Global Constant Variables
 #define CAN_ID_NODE1 1
 #define CAN_ID_NODE2 2
-#define CAN_SEND_INTERVAL_MS 1000 // 1000 [ms]
+#define CAN_SEND_INTERVAL_MS 1000 // 10000 [ms]
+#define BALL_INTERVAL_MS 5000 // 5000 [ms]
 
 
 
@@ -49,8 +51,7 @@ char test_data = 0x00;
 
 
 
-int main(void)
-{
+int main(void) {
 	// Disable Watchdog Timer ----------
 	WDT->WDT_MR = WDT_MR_WDDIS; // Set WDDIS bit to disable the watchdog timer
 	
@@ -63,8 +64,16 @@ int main(void)
 	
 	// Setup Timers ----------
 	// Variables to keep track of timers
+	// BALL:
+	// The ping pong ball bounces, This can give false scores
+	// To mitigate this we have a small timer that starts counting after first score
+	// Once the timer runs out only then can ping pong again have another score if the ping pong is still there
+	// 
+	// CAN:
 	// The CAN sending timings, as to not overwhelm the CAN buss and let us do other tasks at the same time
 	// The Controls timings, as there is no point in sending data every microsecond
+	uint64_t ball_start_time = 0;
+	uint64_t ball_interval_ticks = msecs(BALL_INTERVAL_MS);
 	uint64_t can_start_time = 0;
 	uint64_t can_send_interval_ticks = msecs(CAN_SEND_INTERVAL_MS);
 	
@@ -123,16 +132,16 @@ int main(void)
 	//		MCK_REAL = MCK * prescale
 	//		MCK_REAL = MCK/2
 	//		BRP = TQ * MCK_REAL - 1
-	//		BRP = (TQ * MCK)/2 - 1
+	//		BRP = ((TQ * MCK)/2) - 1
 	// We also have that TQ is time quantum
-	//		TQ = bit-rate/n
+	//		TQ = 1/bit-rate
 	//			bit-rate: data speed on the CAN buss we want
 	//			n: Number of time quantums we have per data package sent/received
-	//		TQ = 500 kbps/16
-	//		BRP = (TQ * MCK)/2 - 1
-	//		BRP = ((500 kbps/16) * MCK)/2 - 1
+	//		TQ = 1/500 kbps
+	//		BRP = ((TQ * MCK)/2) - 1
+	//		BRP = (((1/500 kbps) * MCK)/2) - 1
 	//			MCK (Master Clock): Just the external crystal oscillator for the ATSAM3X8E Microcontroller
-	//		BRP = ((500 kbps/16) * 84 MHz)/2 - 1
+	//		BRP = (((1/500 kbps) * 84 MHz)/2) - 1
 	//		BRP = 83
 	//
 	// For more information about CAN Buss, read ATSAM3X8E Data Sheet:
@@ -141,7 +150,7 @@ int main(void)
 	// Page 1192 - 1197: 40.7.4 CAN 2.0 Standard Features
 	// Page 1192 - 1194: 40.7.4.1 CAN Bit Timing Configuration
 	CanInit can_config = {
-		.brp = 83,  // Baud Rate Prescaling (83)
+		.brp = 84,  // Baud Rate Prescaling (83)
 		.phase1 = 6,
 		.phase2 = 6,
 		.propag = 3,
@@ -156,15 +165,20 @@ int main(void)
 	// Initialize IR LED ----------
 	ir_led_driver_init();
 	
+	// Initialize Solenoid ----------
+	solenoid_driver_init();
 	
-
+	
+	
 	// Infinite Loop
     while (1) {
 		// UART Testing ----------
 		/*
-		printf("Hello World!\n");
+		printf("Hello World!\n\r");
 		time_spinFor(msecs(1000));  // Delay for 1 000 ms
 		*/
+		
+		
 		
 		// CAN Testing Node 2 (Node 1 <== Node 2) ----------
 		/*
@@ -227,35 +241,55 @@ int main(void)
 		// Servo and IR LED Test ----------
 		// Define the CAN message structure for receiving
 		CanMsg can_message_rx;
-
-		// Check RX_MAILBOX_0 for received messages
-		if (can_rx(&can_message_rx, RX_MAILBOX_0)) {			
-			// Check if the received message is from the correct sender ID
-			if (can_message_rx.id == CAN_ID_NODE1) {
-				// Typecast all the messages into the correct format
-				controls_joystick_y = (int8_t)can_message_rx.byte[0];
-				controls_joystick_x = (int8_t)can_message_rx.byte[1];
-				controls_pad_left = (int8_t)can_message_rx.byte[2];
-				controls_pad_right = (int8_t)can_message_rx.byte[3];
-				controls_joystick_button = (int8_t)can_message_rx.byte[4];
-				controls_pad_left_button = (int8_t)can_message_rx.byte[5];
-				controls_pad_right_button = (int8_t)can_message_rx.byte[6];
-				test_data = (char)can_message_rx.byte[7];
-			}
+		
+		// Check RX_MAILBOX_0 for received messages until you get a message
+		while (!can_rx(&can_message_rx, RX_MAILBOX_0)) {};
+				
+		// Check if the received message is from the correct sender ID
+		if (can_message_rx.id == CAN_ID_NODE1) {
+			// Typecast all the messages into the correct format
+			controls_joystick_y = (int8_t)can_message_rx.byte[0];
+			controls_joystick_x = (int8_t)can_message_rx.byte[1];
+			controls_pad_left = (int8_t)can_message_rx.byte[2];
+			controls_pad_right = (int8_t)can_message_rx.byte[3];
+			controls_joystick_button = (int8_t)can_message_rx.byte[4];
+			controls_pad_left_button = (int8_t)can_message_rx.byte[5];
+			controls_pad_right_button = (int8_t)can_message_rx.byte[6];
+			test_data = (char)can_message_rx.byte[7];
+				
+			// Print all values
+			//printf("Joystick Y: %d\n\r", controls_joystick_y);
+			//printf("Joystick X: %d\n\r", controls_joystick_x);
+			//printf("Pad Left: %d\n\r", controls_pad_left);
+			//printf("Pad Right: %d\n\r", controls_pad_right);
+			//printf("Joystick Button: %d\n\r", controls_joystick_button);
+			//printf("Pad Left Button: %d\n\r", controls_pad_left_button);
+			//printf("Pad Right Button: %d\n\r", controls_pad_right_button);
+			//printf("Test Data: %c\n\r", test_data);
+				
+			// Control Servo with Joystick X position
+			servo_driver_set_position(controls_joystick_x);
+					
+			// Control Solenoid
+			if (controls_joystick_button == 0) solenoid_driver_off();
+			if (controls_joystick_button == 1) solenoid_driver_on();
 		}
 		
-		// Control Servo with Joystick X position
-		servo_driver_set_position(controls_joystick_x);
+		// Increment score by 1 if the ball was detected AND if cool down period has passed
+		if (ir_led_driver_get_status() != 0) {		
+			if ((time_now() - ball_start_time) >= ball_interval_ticks) {
+				score += 1;
+				printf("Score: %d\n\r", score);
+
+				// Reset the timer to start cool down
+				ball_start_time = time_now();
+			}
+		}
 		
 		// Check if enough time has passed since the last CAN message was sent
 		if ((time_now() - can_start_time) >= can_send_interval_ticks) {
 			// Reset the CAN start time for the next delay
 			can_start_time = time_now();
-			
-			// Increment score by 1 if the ball was detected
-			if (ir_led_driver_get_status() != 0) {
-				score += 1;
-			}
 			
 			// Define the CAN message
 			CanMsg can_message_tx;
@@ -273,5 +307,6 @@ int main(void)
 			// Send the message on the CAN bus
 			can_tx(can_message_tx);
 		}
+		
     }
 }

@@ -36,10 +36,10 @@ uint8_t ir_led_driver_get_status() {
 
 	// Compare the average to the threshold
 	if (average < _IR_LED_THRESHOLD) {
-		last_status = 1;
+		last_status = 1; // Blocked
 	}
 	else {
-		last_status = 0;
+		last_status = 0; // NOT Blocked
 	}
 	
 	return last_status;

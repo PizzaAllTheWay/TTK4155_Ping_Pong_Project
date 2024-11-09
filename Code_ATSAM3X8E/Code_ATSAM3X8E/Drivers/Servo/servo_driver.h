@@ -11,12 +11,14 @@
 #define SERVO_DRIVER_H_
 
 
-
+#include <stdio.h>
+#include "../Time/time.h"
 #include "../PWM/pwm_driver.h"
 
 
 
 // Internal variables for the servo function
+#define _SERVO_UPDATE_INTERVAL msecs(50)  // WARNING: CAN NOT BE UNDER >20 ms!!! Update servo only after this period of time (Convert from microseconds to ticks)
 #define _SERVO_POSITION_MIN (-100)
 #define _SERVO_POSITION_MAX 100
 #define _SERVO_POSITION_DEADZONE_MIN (-10)

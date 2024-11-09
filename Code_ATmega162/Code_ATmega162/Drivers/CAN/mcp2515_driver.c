@@ -120,13 +120,13 @@ uint8_t mcp2515_driver_init(int8_t mode) {
 	//		TQ * (4 * F_OSC) = BRP + 1
 	//		BRP = TQ * (4 * F_OSC) - 1
 	// We also have that TQ is time quantum
-	//		TQ = bit-rate/n
+	//		TQ = 1/(n * bit-rate)
 	//			bit-rate: data speed on the CAN buss we want
 	//			n: Number of time quantums we have per data package sent/received
-	//		TQ = 500 kbps/16
-	//		BRP = (500 kbps/16) * (4 * F_OSC) - 1
+	//		TQ = 1/(16 * 500 kbps)
+	//		BRP = (1/(16 * 500 kbps)) * (4 * F_OSC) - 1
 	//			F_OSC: Just the external crystal oscillator for the MCP2515 CAN Controller
-	//		BRP = (500 kbps/16) * (4 * 16 MHz) - 1
+	//		BRP = (1/(16 * 500 kbps)) * (4 * 16 MHz) - 1
 	//		BRP = 7
 	//
 	// BRP = 7

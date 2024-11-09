@@ -39,6 +39,7 @@ SUBDIRS :=  \
 ../Drivers/Debugging \
 ../Drivers/IR_LED \
 ../Drivers/ADC \
+../Drivers/Solenoid \
 ../Drivers/Servo \
 ../Drivers/PWM \
 ../Drivers/Time \
@@ -55,6 +56,7 @@ C_SRCS +=  \
 ../Drivers/IR_LED/ir_led_driver.c \
 ../Drivers/PWM/pwm_driver.c \
 ../Drivers/Servo/servo_driver.c \
+../Drivers/Solenoid/solenoid_driver.c \
 ../Drivers/Time/time.c \
 ../Drivers/UART/uart_driver.c \
 ../main.c
@@ -75,6 +77,7 @@ Drivers/Debugging/debug_led.o \
 Drivers/IR_LED/ir_led_driver.o \
 Drivers/PWM/pwm_driver.o \
 Drivers/Servo/servo_driver.o \
+Drivers/Solenoid/solenoid_driver.o \
 Drivers/Time/time.o \
 Drivers/UART/uart_driver.o \
 main.o
@@ -88,6 +91,7 @@ Drivers/Debugging/debug_led.o \
 Drivers/IR_LED/ir_led_driver.o \
 Drivers/PWM/pwm_driver.o \
 Drivers/Servo/servo_driver.o \
+Drivers/Solenoid/solenoid_driver.o \
 Drivers/Time/time.o \
 Drivers/UART/uart_driver.o \
 main.o
@@ -101,6 +105,7 @@ Drivers/Debugging/debug_led.d \
 Drivers/IR_LED/ir_led_driver.d \
 Drivers/PWM/pwm_driver.d \
 Drivers/Servo/servo_driver.d \
+Drivers/Solenoid/solenoid_driver.d \
 Drivers/Time/time.d \
 Drivers/UART/uart_driver.d \
 main.d
@@ -114,6 +119,7 @@ Drivers/Debugging/debug_led.d \
 Drivers/IR_LED/ir_led_driver.d \
 Drivers/PWM/pwm_driver.d \
 Drivers/Servo/servo_driver.d \
+Drivers/Solenoid/solenoid_driver.d \
 Drivers/Time/time.d \
 Drivers/UART/uart_driver.d \
 main.d
@@ -186,6 +192,13 @@ Drivers/PWM/pwm_driver.o: ../Drivers/PWM/pwm_driver.c
 	
 
 Drivers/Servo/servo_driver.o: ../Drivers/Servo/servo_driver.c
+	@echo Building file: $<
+	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAM3X8E__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\arm\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include"  -Og -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m3 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+Drivers/Solenoid/solenoid_driver.o: ../Drivers/Solenoid/solenoid_driver.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAM3X8E__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\arm\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include"  -Og -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m3 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

@@ -10,7 +10,8 @@
 #include "adc_driver.h"
 
 
-
+// Setting up ADC for IR LED:
+// PA16 (A0) (IR LED ADC)
 void adc_driver_init() {
 	// PIO Setup (START) --------------------------------------------------
 	// Before Doing anything with PIO pins, we must enable write permissions to the registers

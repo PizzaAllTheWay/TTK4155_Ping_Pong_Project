@@ -12,7 +12,7 @@
 // Custom Libraries
 #include "Drivers/Debugging/debug_led.h"
 #include "Drivers/UART/uart_driver.h"
-#include "Drivers/Time/time.h"
+//#include "Drivers/Time/time.h"
 #include "Drivers/Controls/controls.h"
 #include "Drivers/OLED/oled.h"
 #include "Drivers/Menu/menu.h"
@@ -33,6 +33,8 @@
 
 
 // Global Variables
+uint8_t score = 0;
+
 int8_t joystic_y = 0;
 int8_t button_L = 0;
 int8_t button_R = 0;
@@ -48,10 +50,6 @@ int main(void)
 	// Debugging Setup
 	debug_led_init();
 	uart_init(F_CPU, BAUD_RATE);
-	
-	// Timer Setup
-	time_init();
-	uint32_t can_start_time = time_get_milliseconds();  // Record the starting time for CAN (As we want to have delay on CAN buss sending without slowing down other tasks)
 
 	// Interface Setup
 	controls_init();
@@ -385,36 +383,8 @@ int main(void)
 		*/
 		
 		// Servo and IR LED Test ----------
-		// Try reading from CAN buss
-		// When reading if we got new message the interrupt will trigger, letting us know that we got a new message
-		can_message_t can_message_rx;
-		can_driver_read_message(&can_message_rx);
-		
-		// Check the interrupt if it got a new message from CAN buss
-		uint8_t is_can_available = can_driver_message_available();
-		if (is_can_available) {
-			// Now that we know we have a new message pending
-			// Check if the message is something we are interested in (ie from a sender ID we want to get data from and is not corrupted)
-			if ((can_message_rx.id == CAN_ID_NODE2) && (can_message_rx.length == 8))  {
-				// Recast the message type to the proper form
-				uint8_t score = (uint8_t)can_message_rx.data[0];
-				uint8_t test_data1 = (uint8_t)can_message_rx.data[1];
-				uint8_t test_data2 = (uint8_t)can_message_rx.data[2];
-				uint8_t test_data3 = (uint8_t)can_message_rx.data[3];
-				uint8_t test_data4 = (uint8_t)can_message_rx.data[4];
-				uint8_t test_data5 = (uint8_t)can_message_rx.data[5];
-				uint8_t test_data6 = (uint8_t)can_message_rx.data[6];
-				uint8_t test_data7 = (uint8_t)can_message_rx.data[7];
-
-				menu_pingpont_set(score);
-			}
-		}
-		
-		// Send Controls inputs to NODE2, every time the CAN timer runs out
-		if ((time_get_milliseconds() - can_start_time) >= CAN_SEND_INTERVAL_MS) {
-			// Reset the CAN start time for the next delay
-			can_start_time = time_get_milliseconds();
-			
+		// While no new messages are pending, send controller data
+		while (!can_driver_message_available()) {
 			// Declare CAN message type to format our message in
 			can_message_t can_message_tx;
 
@@ -440,6 +410,34 @@ int main(void)
 			// Send the CAN message
 			can_driver_send_message(&can_message_tx);
 		}
+		
+		// Once we get a pending message we read the message
+		can_message_t can_message_rx;
+		can_driver_read_message(&can_message_rx);
+
+		// Check if the message is something we are interested in (ie from a sender ID we want to get data from and is not corrupted)
+		if ((can_message_rx.id == CAN_ID_NODE2) && (can_message_rx.length == 8))  {
+			// Recast the message type to the proper form
+			uint8_t can_score = (uint8_t)can_message_rx.data[0];
+			uint8_t test_data1 = (uint8_t)can_message_rx.data[1];
+			uint8_t test_data2 = (uint8_t)can_message_rx.data[2];
+			uint8_t test_data3 = (uint8_t)can_message_rx.data[3];
+			uint8_t test_data4 = (uint8_t)can_message_rx.data[4];
+			uint8_t test_data5 = (uint8_t)can_message_rx.data[5];
+			uint8_t test_data6 = (uint8_t)can_message_rx.data[6];
+			uint8_t test_data7 = (uint8_t)can_message_rx.data[7];
+			
+			// Check if the score we got from CAN buss is different from the score we stored
+			// This is so that we don't update screen unesesarry
+			if (score != can_score) {
+				// Update score to the new CAN score
+				score = can_score;
+				
+				// Update the screen with the new score
+				menu_pingpont_set(score);
+			}
+		}
+		
     }
 	
 	// Exit

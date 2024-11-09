@@ -15,12 +15,12 @@
 void can_printmsg(CanMsg m) {
     printf("CanMsg(id:%d, length:%d, data:{", m.id, m.length);
     if (m.length) {
-        printf("%d", m.byte[0]);
+        printf("0x%02X", m.byte[0]);
     }
     for (uint8_t i = 1; i < m.length; i++) {
-        printf(", %d", m.byte[i]);
+        printf(", 0x%02X", m.byte[i]);
     }
-    printf("})\n");
+    printf("})\n\r");
 }
 
 
@@ -34,9 +34,6 @@ void can_init(CanInit init, uint8_t rxInterrupt) {
 	
     // Disable CAN to configure
     CAN0->CAN_MR &= ~CAN_MR_CANEN;
-
-    // Clear status register
-    __attribute__((unused)) uint32_t ul_status = CAN0->CAN_SR;
 
     // Configure GPIO for CAN
     PIOA->PIO_IDR = PIO_PA8A_URXD | PIO_PA9A_UTXD;
@@ -171,7 +168,7 @@ void can_tx(CanMsg m) {
 	//
 	// For information about CAN Buss, read ATSAM3X8E Data Sheet:
 	// Page 1235 - 1237: 40.9.18 CAN Message Status Register
-    while (!(CAN0->CAN_MB[TX_MAILBOX].CAN_MSR & CAN_MSR_MRDY)) {}
+    while (!(CAN0->CAN_MB[TX_MAILBOX].CAN_MSR & CAN_MSR_MRDY)) {};
 
     // Set message ID
 	// The CAN_MID is set to activate mailbox to deal with version 2.0 Part B messages (CAN_MID_MIDE = 1)
@@ -246,7 +243,7 @@ void CAN0_Handler(void) {
 	if (can_sr & (1 << RX_MAILBOX_0)) {
 		if (can_rx(&received_msg, RX_MAILBOX_0)) {
 			// Debugging
-			//printf("Interrupt: Message received in RX_MAILBOX_0\n");
+			//printf("Interrupt: Message received in RX_MAILBOX_0\n\r");
 			//can_printmsg(received_msg);
 		}
 	}
@@ -255,7 +252,7 @@ void CAN0_Handler(void) {
 	if (can_sr & (1 << RX_MAILBOX_1)) {
 		if (can_rx(&received_msg, RX_MAILBOX_1)) {
 			// Debugging
-			//printf("Interrupt: Message received in RX_MAILBOX_1 (Overwrite Mode)\n");
+			//printf("Interrupt: Message received in RX_MAILBOX_1 (Overwrite Mode)\n\r");
 			//can_printmsg(received_msg);
 		}
 	}

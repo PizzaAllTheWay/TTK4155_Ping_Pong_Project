@@ -1,4 +1,6 @@
-main.d main.o: .././main.c \
+Drivers/Solenoid/solenoid_driver.d Drivers/Solenoid/solenoid_driver.o: \
+ ../Drivers/Solenoid/solenoid_driver.c \
+ ../Drivers/Solenoid/solenoid_driver.h \
  C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include/sam.h \
  C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include/sam3x8e.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stdint.h \
@@ -80,38 +82,9 @@ main.d main.o: .././main.c \
  C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include/instance/wdt.h \
  C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include/instance/rtc.h \
  C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include/instance/gpbr.h \
- C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include/pio/sam3x8e.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\stdio.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\newlib.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\config.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\ieeefp.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\cdefs.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stddef.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stdarg.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\reent.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_types.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\_types.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\lock.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\types.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\endian.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\_endian.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\select.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_sigset.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_timeval.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\timespec.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_timespec.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_pthreadtypes.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\types.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\stdio.h \
- .././Drivers/Time/time.h .././Drivers/Debugging/debug_led.h \
- .././Drivers/UART/uart_driver.h .././Drivers/CAN/can.h \
- .././Drivers/Servo/servo_driver.h .././Drivers/Servo/../PWM/pwm_driver.h \
- C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include/sam3xa.h \
- .././Drivers/IR_LED/ir_led_driver.h \
- .././Drivers/IR_LED/../ADC/adc_driver.h \
- .././Drivers/Solenoid/solenoid_driver.h
+ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include/pio/sam3x8e.h
+
+../Drivers/Solenoid/solenoid_driver.h:
 
 C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include/sam.h:
 
@@ -276,71 +249,3 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include/i
 C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include/instance/gpbr.h:
 
 C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include/pio/sam3x8e.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\stdio.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\newlib.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\config.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\ieeefp.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\cdefs.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stddef.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stdarg.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\reent.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_types.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\_types.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\lock.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\types.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\endian.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\_endian.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\select.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_sigset.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_timeval.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\timespec.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_timespec.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_pthreadtypes.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\types.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\stdio.h:
-
-.././Drivers/Time/time.h:
-
-.././Drivers/Debugging/debug_led.h:
-
-.././Drivers/UART/uart_driver.h:
-
-.././Drivers/CAN/can.h:
-
-.././Drivers/Servo/servo_driver.h:
-
-.././Drivers/Servo/../PWM/pwm_driver.h:
-
-C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include/sam3xa.h:
-
-.././Drivers/IR_LED/ir_led_driver.h:
-
-.././Drivers/IR_LED/../ADC/adc_driver.h:
-
-.././Drivers/Solenoid/solenoid_driver.h:

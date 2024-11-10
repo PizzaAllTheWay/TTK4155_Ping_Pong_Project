@@ -191,6 +191,12 @@
     <Compile Include="Drivers\Debugging\debug_led.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Drivers\Encoder\encoder_driver.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\Encoder\encoder_driver.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Drivers\IR_LED\ir_led_driver.c">
       <SubType>compile</SubType>
     </Compile>
@@ -238,6 +244,7 @@
     <Folder Include="Drivers\Debugging" />
     <Folder Include="Drivers\IR_LED" />
     <Folder Include="Drivers\ADC" />
+    <Folder Include="Drivers\Encoder" />
     <Folder Include="Drivers\Solenoid" />
     <Folder Include="Drivers\Servo" />
     <Folder Include="Drivers\PWM" />

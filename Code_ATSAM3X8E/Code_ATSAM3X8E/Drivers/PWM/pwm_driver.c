@@ -11,6 +11,16 @@
 
 
 
+// Internal important values used in PWM Driver code
+#define _SSC_WRITE_PROTECT_KEY 0x535343
+#define _PWM_WRITE_PROTECT_KEY 0x50574D
+#define _PMC_WRITE_PROTECT_KEY 0x504D43
+#define _PWM_CLK_DIVA_FACTOR 84
+#define _PWM_CHANNEL_MOTOR 0
+#define _PWM_CHANNEL_SERVO 1
+
+
+
 // Internal macros used inside this file disable
 void _pwm_driver_disable() {
 	// Disable PWM before configuring PWM registers

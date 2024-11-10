@@ -26,6 +26,7 @@
 #include "Drivers/Servo/servo_driver.h"
 #include "Drivers/IR_LED/ir_led_driver.h"
 #include "Drivers/Solenoid/solenoid_driver.h"
+#include "Drivers/Encoder/encoder_driver.h"
 
 
 
@@ -168,6 +169,9 @@ int main(void) {
 	// Initialize Solenoid ----------
 	solenoid_driver_init();
 	
+	// Initialize Encoder ----------
+	encoder_driver_init();
+	
 	
 	
 	// Infinite Loop
@@ -239,6 +243,7 @@ int main(void) {
 		
 		
 		// Servo and IR LED Test ----------
+		/*
 		// Define the CAN message structure for receiving
 		CanMsg can_message_rx;
 		
@@ -269,10 +274,6 @@ int main(void) {
 				
 			// Control Servo with Joystick X position
 			servo_driver_set_position(controls_joystick_x);
-					
-			// Control Solenoid
-			if (controls_joystick_button == 0) solenoid_driver_off();
-			if (controls_joystick_button == 1) solenoid_driver_on();
 		}
 		
 		// Increment score by 1 if the ball was detected AND if cool down period has passed
@@ -307,6 +308,81 @@ int main(void) {
 			// Send the message on the CAN bus
 			can_tx(can_message_tx);
 		}
+		*/
 		
+		
+		
+		// Encoder, Solenoid, Motor and PID Controller Test ----------
+		// Define the CAN message structure for receiving
+		CanMsg can_message_rx;
+		
+		// Check RX_MAILBOX_0 for received messages until you get a message
+		while (!can_rx(&can_message_rx, RX_MAILBOX_0)) {};
+		
+		// Check if the received message is from the correct sender ID
+		if (can_message_rx.id == CAN_ID_NODE1) {
+			// Typecast all the messages into the correct format
+			controls_joystick_y = (int8_t)can_message_rx.byte[0];
+			controls_joystick_x = (int8_t)can_message_rx.byte[1];
+			controls_pad_left = (int8_t)can_message_rx.byte[2];
+			controls_pad_right = (int8_t)can_message_rx.byte[3];
+			controls_joystick_button = (int8_t)can_message_rx.byte[4];
+			controls_pad_left_button = (int8_t)can_message_rx.byte[5];
+			controls_pad_right_button = (int8_t)can_message_rx.byte[6];
+			test_data = (char)can_message_rx.byte[7];
+			
+			// Print all values
+			//printf("Joystick Y: %d\n\r", controls_joystick_y);
+			//printf("Joystick X: %d\n\r", controls_joystick_x);
+			//printf("Pad Left: %d\n\r", controls_pad_left);
+			//printf("Pad Right: %d\n\r", controls_pad_right);
+			//printf("Joystick Button: %d\n\r", controls_joystick_button);
+			//printf("Pad Left Button: %d\n\r", controls_pad_left_button);
+			//printf("Pad Right Button: %d\n\r", controls_pad_right_button);
+			//printf("Test Data: %c\n\r", test_data);
+			
+			// Control Servo with Joystick X position
+			servo_driver_set_position(controls_joystick_x);
+			
+			// Control Solenoid
+			if (controls_joystick_button == 0) solenoid_driver_off();
+			if (controls_joystick_button == 1) solenoid_driver_on();
+			
+			// Get Ping-Pong Racket position
+			int8_t racket_position = encoder_driver_get_position();
+		}
+		
+		// Increment score by 1 if the ball was detected AND if cool down period has passed
+		if (ir_led_driver_get_status() != 0) {
+			if ((time_now() - ball_start_time) >= ball_interval_ticks) {
+				score += 1;
+				printf("Score: %d\n\r", score);
+
+				// Reset the timer to start cool down
+				ball_start_time = time_now();
+			}
+		}
+		
+		// Check if enough time has passed since the last CAN message was sent
+		if ((time_now() - can_start_time) >= can_send_interval_ticks) {
+			// Reset the CAN start time for the next delay
+			can_start_time = time_now();
+			
+			// Define the CAN message
+			CanMsg can_message_tx;
+			can_message_tx.id = CAN_ID_NODE2; // CAN ID
+			can_message_tx.length = 8; // Message length
+			can_message_tx.byte[0] = score; // Data bytes to send
+			can_message_tx.byte[1] = score;
+			can_message_tx.byte[2] = score;
+			can_message_tx.byte[3] = score;
+			can_message_tx.byte[4] = score;
+			can_message_tx.byte[5] = score;
+			can_message_tx.byte[6] = score;
+			can_message_tx.byte[7] = score;
+			
+			// Send the message on the CAN bus
+			can_tx(can_message_tx);
+		}
     }
 }

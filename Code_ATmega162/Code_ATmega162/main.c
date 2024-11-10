@@ -383,6 +383,7 @@ int main(void)
 		*/
 		
 		// Servo and IR LED Test ----------
+		/*
 		// While no new messages are pending, send controller data
 		while (!can_driver_message_available()) {
 			// Declare CAN message type to format our message in
@@ -428,7 +429,66 @@ int main(void)
 			uint8_t test_data7 = (uint8_t)can_message_rx.data[7];
 			
 			// Check if the score we got from CAN buss is different from the score we stored
-			// This is so that we don't update screen unesesarry
+			// This is so that we don't update screen unnecessary
+			if (score != can_score) {
+				// Update score to the new CAN score
+				score = can_score;
+				
+				// Update the screen with the new score
+				menu_pingpont_set(score);
+			}
+		}
+		*/
+		
+		
+		
+		// Encoder, Solenoid, Motor and PID Controller Test ----------
+		// While no new messages are pending, send controller data
+		while (!can_driver_message_available()) {
+			// Declare CAN message type to format our message in
+			can_message_t can_message_tx;
+
+			// Set the CAN message ID
+			can_message_tx.id = CAN_ID_NODE1;
+
+			// Get Joystick Inputs
+			// Set the message data to joystick inputs (8 bytes max)
+			// Last byte just random as it is not used
+			controls_refresh();
+			can_message_tx.data[0] = controls_get_joystick_y();
+			can_message_tx.data[1] = controls_get_joystick_x();
+			can_message_tx.data[2] = controls_get_pad_left();
+			can_message_tx.data[3] = controls_get_pad_right();
+			can_message_tx.data[4] = controls_get_joystick_button();
+			can_message_tx.data[5] = controls_get_pad_left_button();
+			can_message_tx.data[6] = controls_get_pad_right_button();
+			can_message_tx.data[7] = 'E';
+
+			// Set the length of the message
+			can_message_tx.length = 8;
+
+			// Send the CAN message
+			can_driver_send_message(&can_message_tx);
+		}
+		
+		// Once we get a pending message we read the message
+		can_message_t can_message_rx;
+		can_driver_read_message(&can_message_rx);
+
+		// Check if the message is something we are interested in (ie from a sender ID we want to get data from and is not corrupted)
+		if ((can_message_rx.id == CAN_ID_NODE2) && (can_message_rx.length == 8))  {
+			// Recast the message type to the proper form
+			uint8_t can_score = (uint8_t)can_message_rx.data[0];
+			uint8_t test_data1 = (uint8_t)can_message_rx.data[1];
+			uint8_t test_data2 = (uint8_t)can_message_rx.data[2];
+			uint8_t test_data3 = (uint8_t)can_message_rx.data[3];
+			uint8_t test_data4 = (uint8_t)can_message_rx.data[4];
+			uint8_t test_data5 = (uint8_t)can_message_rx.data[5];
+			uint8_t test_data6 = (uint8_t)can_message_rx.data[6];
+			uint8_t test_data7 = (uint8_t)can_message_rx.data[7];
+			
+			// Check if the score we got from CAN buss is different from the score we stored
+			// This is so that we don't update screen unnecessary
 			if (score != can_score) {
 				// Update score to the new CAN score
 				score = can_score;

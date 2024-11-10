@@ -12,6 +12,8 @@ Drivers\CAN\can.c
 
 Drivers\Debugging\debug_led.c
 
+Drivers\Encoder\encoder_driver.c
+
 Drivers\IR_LED\ir_led_driver.c
 
 Drivers\PWM\pwm_driver.c

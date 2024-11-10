@@ -11,6 +11,12 @@
 
 
 
+// Internal important values used in Encoder Driver code
+#define _SSC_WRITE_PROTECT_KEY 0x535343
+#define _PMC_WRITE_PROTECT_KEY 0x504D43
+
+
+
 void debug_led_blink(void) {
 	// Set pin 49 HIGH
 	PIOC->PIO_SODR |= PIO_PC14;
@@ -22,6 +28,48 @@ void debug_led_blink(void) {
 }
 
 void debug_led_init(void) {
+	// Before Doing anything with PIO pins, we must enable write permissions to the registers
+	// This will allow us to configure our PIO pins in special modes any way we like
+	// Like for example setting PIO pins up for PWM mode
+	// After disabling write locking we wait and check that the permissions are set as we want
+	//
+	// WPEN = 0 (Disables the Write Protect if WPKEY corresponds to 0x535343 (“SSC” in ASCII))
+	// SSC_WRITE_PROTECT_KEY = 0x535343 (Idiot security to ensure the person who is writing to PWM signals has read the data sheet and understands the consequences of fucking up PWM registers, withouth this key no further PWM action can be made)
+	//
+	// For more information about write protection registers, read ATSAM3X8E Data Sheet:
+	// Page 574 - 674: 30. Synchronous Serial Controller (SSC)
+	// Page 616: 30.9.17 SSC Write Protect Mode Register
+	// Page 617: 30.9.18 SSC Write Protect Status Register
+	uint8_t WPEN = 0;
+	SSC->SSC_WPMR = (_SSC_WRITE_PROTECT_KEY << 8) // Set WPKEY
+	| WPEN;                       // Set WPEN to disable pin write protect
+	
+	while (SSC->SSC_WPSR != 0) {
+		// Poll until Write Protect Violation Status bit is 0
+		// Also wait until bo Write Protect Violation Source emerge
+		// (ie No Write Protect Violation has occurred)
+	}
+	
+	// Before enabling the PWM Clock we must give permission to write to PMC registers
+	// For this we configure the PMC write protect register
+	// After that we check and wait that we have actually disabled write protections for PMC registers
+	//
+	// WPEN = 0 (Disables the Write Protect if WPKEY corresponds to 0x504D43 (“SSC” in ASCII))
+	// PMC_WRITE_PROTECT_KEY = 0x504D43 (Idiot security to ensure the person who is writing to PWM signals has read the data sheet and understands the consequences of fucking up PWM registers, withouth this key no further PWM action can be made)
+	//
+	// For more information about PMC Write Protection, read ATSAM3X8E Data Sheet:
+	// Page 526 - 566: 28. Power Management Controller (PMC)
+	// Page 561: 28.15.21  PMC Write Protect Mode Register
+	// Page 562: 28.15.22  PMC Write Protect Status Register
+	PMC->PMC_WPMR = (_PMC_WRITE_PROTECT_KEY << 8) // Set WPKEY
+	| WPEN;						  // Set WPEN to disable pin write protect
+	
+	while (PMC->PMC_WPSR != 0) {
+		// Poll until Write Protect Violation Status bit is 0
+		// Also wait until field Write Protect Violation Source don't emerge longer
+		// (ie No Write Protect Violation has occurred)
+	}
+	
 	// Enable the PMC for PIO Controller C (Peripheral ID 13 for PIOC on SAM3X8E)
 	// The Power Management Controller (PMC) manages power for all peripheral blocks,
 	// allowing us to selectively enable/disable them for power efficiency.

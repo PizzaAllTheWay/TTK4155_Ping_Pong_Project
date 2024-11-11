@@ -14,6 +14,8 @@
 // Local variables
 #define _MOTOR_DIRECTION_PIN PIO_PC23
 #define _MOTOR_UPDATE_INTERVAL msecs(50) // WARNING: CAN NOT BE UNDER >20 ms!!! Update Motor Driver only after this period of time (Convert from milliseconds to ticks)
+#define _MOTOR_SPEED_DEADZONE_MIN (-1)
+#define _MOTOR_SPEED_DEADZONE_MAX 1
 #define _MOTOR_SPEED_MIN (-100)
 #define _MOTOR_SPEED_MAX 100
 #define _MOTOR_PULSE_MIN 0
@@ -76,6 +78,9 @@ void motor_driver_set_speed(int8_t speed) {
 	// Ensure speed is within the valid range
 	if (speed < _MOTOR_SPEED_MIN) speed = _MOTOR_SPEED_MIN;
 	if (speed > _MOTOR_SPEED_MAX) speed = _MOTOR_SPEED_MAX;
+	
+	// If value in dead zone set Servo to middle
+	if ((_MOTOR_SPEED_DEADZONE_MIN < speed) && (speed < _MOTOR_SPEED_DEADZONE_MAX)) speed = 0;
 	
 	// Map speed from percent % to pulses in micro seconds us
 	uint32_t duty_cycle = _MOTOR_PULSE_MIN + (abs(speed) * (_MOTOR_PULSE_MAX - _MOTOR_PULSE_MIN))/(_MOTOR_SPEED_MAX - _MOTOR_SPEED_MIN);

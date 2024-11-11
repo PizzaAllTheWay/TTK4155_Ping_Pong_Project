@@ -4191,7 +4191,7 @@ OUTPUT(Code_ATSAM3X8E.elf elf32-littlearm)
  .debug_ranges  0x00000220       0x90 Drivers/UART/uart_driver.o
  .debug_ranges  0x000002b0       0x28 main.o
 
-.debug_macro    0x00000000    0x14c6d
+.debug_macro    0x00000000    0x14c79
  .debug_macro   0x00000000      0x371 Device_Startup/startup_sam3xa.o
  .debug_macro   0x00000371      0x8b0 Device_Startup/startup_sam3xa.o
  .debug_macro   0x00000c21       0x22 Device_Startup/startup_sam3xa.o
@@ -4308,33 +4308,33 @@ OUTPUT(Code_ATSAM3X8E.elf elf32-littlearm)
  .debug_macro   0x00011aeb      0x392 Drivers/IR_LED/ir_led_driver.o
  .debug_macro   0x00011e7d       0x26 Drivers/IR_LED/ir_led_driver.o
  .debug_macro   0x00011ea3       0x10 Drivers/IR_LED/ir_led_driver.o
- .debug_macro   0x00011eb3      0x543 Drivers/Motor/motor_driver.o
- .debug_macro   0x000123f6       0x16 Drivers/Motor/motor_driver.o
- .debug_macro   0x0001240c       0x35 Drivers/Motor/motor_driver.o
- .debug_macro   0x00012441       0x16 Drivers/Motor/motor_driver.o
- .debug_macro   0x00012457       0x29 Drivers/Motor/motor_driver.o
- .debug_macro   0x00012480       0x10 Drivers/Motor/motor_driver.o
- .debug_macro   0x00012490      0x4e1 Drivers/PID/pid_controller.o
- .debug_macro   0x00012971      0x3a4 Drivers/PWM/pwm_driver.o
- .debug_macro   0x00012d15      0x4e0 Drivers/Servo/servo_driver.o
- .debug_macro   0x000131f5       0x52 Drivers/Servo/servo_driver.o
- .debug_macro   0x00013247       0x8d Drivers/Servo/servo_driver.o
- .debug_macro   0x000132d4       0x57 Drivers/Servo/servo_driver.o
- .debug_macro   0x0001332b      0x353 Drivers/Servo/servo_driver.o
- .debug_macro   0x0001367e       0x16 Drivers/Servo/servo_driver.o
- .debug_macro   0x00013694       0xbd Drivers/Servo/servo_driver.o
- .debug_macro   0x00013751       0x2e Drivers/Servo/servo_driver.o
- .debug_macro   0x0001377f      0x37b Drivers/Solenoid/solenoid_driver.o
- .debug_macro   0x00013afa      0x4fc Drivers/Time/time.o
- .debug_macro   0x00013ff6      0x503 Drivers/UART/uart_driver.o
- .debug_macro   0x000144f9       0x16 Drivers/UART/uart_driver.o
- .debug_macro   0x0001450f       0x10 Drivers/UART/uart_driver.o
- .debug_macro   0x0001451f       0x10 Drivers/UART/uart_driver.o
- .debug_macro   0x0001452f       0x35 Drivers/UART/uart_driver.o
- .debug_macro   0x00014564      0x122 Drivers/UART/uart_driver.o
- .debug_macro   0x00014686      0x5a9 main.o
- .debug_macro   0x00014c2f       0x1c main.o
- .debug_macro   0x00014c4b       0x22 main.o
+ .debug_macro   0x00011eb3      0x54f Drivers/Motor/motor_driver.o
+ .debug_macro   0x00012402       0x16 Drivers/Motor/motor_driver.o
+ .debug_macro   0x00012418       0x35 Drivers/Motor/motor_driver.o
+ .debug_macro   0x0001244d       0x16 Drivers/Motor/motor_driver.o
+ .debug_macro   0x00012463       0x29 Drivers/Motor/motor_driver.o
+ .debug_macro   0x0001248c       0x10 Drivers/Motor/motor_driver.o
+ .debug_macro   0x0001249c      0x4e1 Drivers/PID/pid_controller.o
+ .debug_macro   0x0001297d      0x3a4 Drivers/PWM/pwm_driver.o
+ .debug_macro   0x00012d21      0x4e0 Drivers/Servo/servo_driver.o
+ .debug_macro   0x00013201       0x52 Drivers/Servo/servo_driver.o
+ .debug_macro   0x00013253       0x8d Drivers/Servo/servo_driver.o
+ .debug_macro   0x000132e0       0x57 Drivers/Servo/servo_driver.o
+ .debug_macro   0x00013337      0x353 Drivers/Servo/servo_driver.o
+ .debug_macro   0x0001368a       0x16 Drivers/Servo/servo_driver.o
+ .debug_macro   0x000136a0       0xbd Drivers/Servo/servo_driver.o
+ .debug_macro   0x0001375d       0x2e Drivers/Servo/servo_driver.o
+ .debug_macro   0x0001378b      0x37b Drivers/Solenoid/solenoid_driver.o
+ .debug_macro   0x00013b06      0x4fc Drivers/Time/time.o
+ .debug_macro   0x00014002      0x503 Drivers/UART/uart_driver.o
+ .debug_macro   0x00014505       0x16 Drivers/UART/uart_driver.o
+ .debug_macro   0x0001451b       0x10 Drivers/UART/uart_driver.o
+ .debug_macro   0x0001452b       0x10 Drivers/UART/uart_driver.o
+ .debug_macro   0x0001453b       0x35 Drivers/UART/uart_driver.o
+ .debug_macro   0x00014570      0x122 Drivers/UART/uart_driver.o
+ .debug_macro   0x00014692      0x5a9 main.o
+ .debug_macro   0x00014c3b       0x1c main.o
+ .debug_macro   0x00014c57       0x22 main.o
 
 .debug_line     0x00000000     0x7c49
  .debug_line    0x00000000      0x728 Device_Startup/startup_sam3xa.o
@@ -4353,7 +4353,7 @@ OUTPUT(Code_ATSAM3X8E.elf elf32-littlearm)
  .debug_line    0x00006804      0x9b9 Drivers/UART/uart_driver.o
  .debug_line    0x000071bd      0xa8c main.o
 
-.debug_str      0x00000000    0x564b9
+.debug_str      0x00000000    0x564f4
  .debug_str     0x00000000    0x5030b Device_Startup/startup_sam3xa.o
                               0x504cd (size before relaxing)
  .debug_str     0x0005030b      0x2c7 Device_Startup/system_sam3xa.o
@@ -4368,21 +4368,21 @@ OUTPUT(Code_ATSAM3X8E.elf elf32-littlearm)
                               0x5078e (size before relaxing)
  .debug_str     0x0005512a       0xad Drivers/IR_LED/ir_led_driver.o
                               0x50218 (size before relaxing)
- .debug_str     0x000551d7      0x266 Drivers/Motor/motor_driver.o
-                              0x5471d (size before relaxing)
- .debug_str     0x0005543d       0xfc Drivers/PID/pid_controller.o
+ .debug_str     0x000551d7      0x2a1 Drivers/Motor/motor_driver.o
+                              0x54758 (size before relaxing)
+ .debug_str     0x00055478       0xfc Drivers/PID/pid_controller.o
                               0x541c2 (size before relaxing)
- .debug_str     0x00055539      0x2f5 Drivers/PWM/pwm_driver.o
+ .debug_str     0x00055574      0x2f5 Drivers/PWM/pwm_driver.o
                               0x506d1 (size before relaxing)
- .debug_str     0x0005582e      0x149 Drivers/Servo/servo_driver.o
+ .debug_str     0x00055869      0x149 Drivers/Servo/servo_driver.o
                               0x5436a (size before relaxing)
- .debug_str     0x00055977       0x76 Drivers/Solenoid/solenoid_driver.o
+ .debug_str     0x000559b2       0x76 Drivers/Solenoid/solenoid_driver.o
                               0x502ef (size before relaxing)
- .debug_str     0x000559ed       0xef Drivers/Time/time.o
+ .debug_str     0x00055a28       0xef Drivers/Time/time.o
                               0x546d2 (size before relaxing)
- .debug_str     0x00055adc      0x7c8 Drivers/UART/uart_driver.o
+ .debug_str     0x00055b17      0x7c8 Drivers/UART/uart_driver.o
                               0x54e84 (size before relaxing)
- .debug_str     0x000562a4      0x215 main.o
+ .debug_str     0x000562df      0x215 main.o
                               0x548f5 (size before relaxing)
 
 .debug_frame    0x00000000     0x1a70

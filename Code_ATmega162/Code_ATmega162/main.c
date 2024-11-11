@@ -36,7 +36,7 @@
 #define CAN_ID_NODE2 2 // Motor Box Node
 
 #define MENU_MAX 4 // 5 menus
-#define POKEMON_MAX (10 - 1) // 10 Pokemon (start index 0)
+#define POKEMON_MAX (11 - 1) // 11 Pokemon (start index 0, so subtract by 1)
 
 
 

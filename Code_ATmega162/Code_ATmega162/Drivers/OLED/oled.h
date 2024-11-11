@@ -30,6 +30,7 @@
 
 void oled_set_text(uint8_t* text, uint8_t x, uint8_t y);
 
+void oled_clear_nible(uint8_t x, uint8_t y);
 void oled_clear_page(uint8_t page_rn);
 void oled_clear_screen();
 

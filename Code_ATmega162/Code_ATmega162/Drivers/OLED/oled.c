@@ -77,6 +77,11 @@ void oled_set_text(uint8_t* text, uint8_t x, uint8_t y) {
 
 
 // Cleaning related functions
+void oled_clear_nible(uint8_t x, uint8_t y) {
+	uint8_t* nibble[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+	oled_set_nibble(nibble, x, y);
+}
+
 void oled_clear_page(uint8_t page_rn) {
 	if (page_rn < OLED_MAX_LINES) {
 		_oled_select_page(page_rn); // y

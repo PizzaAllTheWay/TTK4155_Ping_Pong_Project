@@ -13,15 +13,14 @@
 
 // Libraries for time to work
 #include <avr/io.h>
+#include <util/atomic.h>
 #include <avr/interrupt.h>
 
 
 
-// Functions
-void time_init();
-
-uint32_t time_get_milliseconds();
-uint32_t time_get_seconds();
+ISR(TIMER1_COMPA_vect);
+void time_init(unsigned long f_osc);
+unsigned long time_millis(void);
 
 
 

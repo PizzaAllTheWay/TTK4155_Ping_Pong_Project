@@ -37,7 +37,7 @@
 #define PID_UPDATE_INTERVAL      msecs(50)   // 50   [ms] TIPS: Should be the same as _MOTOR_UPDATE_INTERVAL
 #define BALL_INTERVAL            msecs(5000) // 5000 [ms]
 #define CAN_SEND_INTERVAL        msecs(1000) // 1000 [ms]
-#define HEARTS_START_AMOUNT      1           // (Value MUST BE: 1 - 9) How many chances we have at the game before its GAME OVER X-X
+#define HEARTS_START_AMOUNT      5           // (Value MUST BE: 1 - 9) How many chances we have at the game before its GAME OVER X-X
 #define HEARTS_RESET_KEY	     'R'		 // KEY value to reset heart
 
 

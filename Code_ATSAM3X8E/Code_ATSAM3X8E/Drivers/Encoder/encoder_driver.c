@@ -40,7 +40,7 @@ void PIOC_Handler(void) {
 		if (encoder_a_state == 1 &&  encoder_b_state == 0) {
 			encoder_steps++;
 		}
-		else if (encoder_a_state == 0 &&  encoder_b_state == 1) {
+		else if (encoder_a_state == 1 &&  encoder_b_state == 1) {
 			encoder_steps--;
 		}
 
@@ -53,18 +53,8 @@ void PIOC_Handler(void) {
 void PIOA_Handler(void) {
 	// Check if interrupt is from Encoder Channel B
 	if ((PIOA->PIO_ISR & _ENCODER_B_PIN) == _ENCODER_B_PIN) {
-		// Read the states of encoder channels A and B
-		uint8_t encoder_a_state = (PIOC->PIO_PDSR & _ENCODER_A_PIN) ? 1 : 0; // Read current state of Channel A
-		uint8_t encoder_b_state = (PIOA->PIO_PDSR & _ENCODER_B_PIN) ? 1 : 0; // Read current state of Channel B
-
-		// Compare the states of A and B
-		// If neither condition is met, it will ignore
-		if (encoder_a_state == 1 &&  encoder_b_state == 0) {
-			encoder_steps++;
-		}
-		else if (encoder_a_state == 0 &&  encoder_b_state == 1) {
-			encoder_steps--;
-		}
+		// We don't really use this one :P
+		// Just here in case of future :)
 
 		// Clear pending interrupt
 		NVIC_ClearPendingIRQ(PIOA_IRQn);

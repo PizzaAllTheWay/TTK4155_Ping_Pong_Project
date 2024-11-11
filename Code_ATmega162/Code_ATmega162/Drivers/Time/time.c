@@ -11,77 +11,50 @@
 
 
 
-// Variables used locally in the file
-volatile uint32_t milliseconds = 0;
-volatile uint32_t seconds = 0;
+//NOTE: A unsigned long holds values from 0 to 4,294,967,295 (2^32 - 1). It will roll over to 0 after reaching its maximum value.
+volatile unsigned long timer2_ticks = 0;  // Global variable for milliseconds
 
 
 
-void time_init() {
-    // Set up Timer 1 for 1 ms intervals using CTC mode
-    TCCR1B |= (1 << WGM12);    // Configure Timer 1 in Clear Timer on Compare Match (CTC) mode
-
-    /*
-     * Calculate OCR1A for a 1 ms timer interval
-     * 
-     * System clock frequency (F_CPU) = 4 MHz
-     * Prescaler = 8
-     * 
-     * Timer frequency after prescaling = F_CPU / Prescaler
-     *                                 = 4,000,000 Hz / 8
-     *                                 = 500,000 Hz
-     *
-     * Now, we need to achieve a 1 ms interval for the timer, so:
-     * 1 ms interval = 0.001 seconds
-     *
-     * Number of ticks required for 1 ms interval = Timer frequency * Desired interval
-     *                                            = 500,000 Hz * 0.001 s
-     *                                            = 500 ticks
-     * 
-     * In CTC mode, the timer counts from 0 up to OCR1A, and the interrupt is triggered when the counter reaches OCR1A.
-     * Thus, to get exactly 500 ticks (for 1 ms), we set:
-     *
-     * OCR1A = 500 - 1 = 499
-     *
-     * We subtract 1 because the counter starts at 0, so it counts 500 values (0 to 499).
-     */
-    OCR1A = 499;               // Set OCR1A to 499 for 1 ms interval with 4 MHz clock and 8 prescaler
-
-    TCCR1B |= (1 << CS11);     // Set prescaler to 8 (by setting CS11 bit in TCCR1B)
-    
-    TIMSK |= (1 << OCIE1A);    // Enable Timer 1 Compare Match A interrupt (triggers interrupt every 1 ms)
-    
-    sei();                     // Enable global interrupts to allow Timer 1 interrupts to occur
-}
-
-
-
-
-// Timer 1 ISR (called every 1 ms)
-ISR(TIMER1_COMPA_vect) {
-	milliseconds++;            // Increment milliseconds counter
+void time_init(unsigned long f_cpu) {
+	// Calculate compare match value for 1 ms
+	// Used later in the Oscilator calculations
+	// We have prescaled with 8
+	// 
+	// For more information on Extended Timers, read ATmega162 Datasheet:
+	// Page 106 - 127: 16-bit Timer/Counter (Timer/Counter1 and Timer/Counter3)
+	// Page 128 - 137: 16-bit Timer/Counter Register Description
+	unsigned long ctc_match_overflow = ((f_cpu / 1000) / 8);
 	
-	if (milliseconds % 1000 == 0) {
-		seconds++;             // Increment seconds counter every 1000 ms
+	// Set Timer3 to CTC mode
+	TCCR3A = (1 << WGM31);   // Configure Timer3 in CTC mode (Clear Timer on Compare Match)
+	TCCR3B = (1 << CS31);    // Set prescaler to 8 (CS32 = 0, CS31 = 1, CS30 = 0)
+
+	// Set compare match value
+	OCR3AH = (ctc_match_overflow >> 8) & 0xFF;
+	OCR3AL = ctc_match_overflow & 0xFF;
+
+	// Enable Timer3 compare match interrupt
+	ETIMSK |= (1 << OCIE3A);
+
+	sei();  // Enable global interrupts
+}
+
+// Timer3 Compare Match ISR
+ISR(TIMER3_COMPA_vect) {
+	timer2_ticks++;
+}
+
+// Function to get the current milliseconds
+unsigned long time_millis(void) {
+	unsigned long millis_return;
+
+	// Atomic block to prevent interrupt issues
+	ATOMIC_BLOCK(ATOMIC_FORCEON) {
+		// Convert ticks to milliseconds
+		// NOTE: Calibration Number for Timer3 (ie number 7) was found experimentally :P
+		millis_return = timer2_ticks * 7;
 	}
-}
 
-
-
-// Function to get the elapsed time in milliseconds
-uint32_t time_get_milliseconds() {
-	uint32_t ms;
-	cli();                     // Disable interrupts to get a consistent value
-	ms = milliseconds;
-	sei();                     // Re-enable interrupts
-	return ms;
-}
-
-// Function to get the elapsed time in seconds
-uint32_t time_get_seconds() {
-	uint32_t sec;
-	cli();                     // Disable interrupts to get a consistent value
-	sec = seconds;
-	sei();                     // Re-enable interrupts
-	return sec;
+	return millis_return;
 }

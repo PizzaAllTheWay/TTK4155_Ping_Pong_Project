@@ -33,6 +33,8 @@ uint8_t ir_led_driver_get_status() {
 	
 	// Apply a simple moving average filter
 	uint16_t average = sum / _IR_LED_SAMPLE_NUM;
+	
+	printf("Average: %u\n\r", average);
 
 	// Compare the average to the threshold
 	if (average < _IR_LED_THRESHOLD) {

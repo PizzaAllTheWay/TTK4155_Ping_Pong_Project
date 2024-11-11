@@ -40,6 +40,8 @@ SUBDIRS :=  \
 ../Drivers/IR_LED \
 ../Drivers/ADC \
 ../Drivers/Encoder \
+../Drivers/Motor \
+../Drivers/PID \
 ../Drivers/Solenoid \
 ../Drivers/Servo \
 ../Drivers/PWM \
@@ -56,6 +58,8 @@ C_SRCS +=  \
 ../Drivers/Debugging/debug_led.c \
 ../Drivers/Encoder/encoder_driver.c \
 ../Drivers/IR_LED/ir_led_driver.c \
+../Drivers/Motor/motor_driver.c \
+../Drivers/PID/pid_controller.c \
 ../Drivers/PWM/pwm_driver.c \
 ../Drivers/Servo/servo_driver.c \
 ../Drivers/Solenoid/solenoid_driver.c \
@@ -78,6 +82,8 @@ Drivers/CAN/can.o \
 Drivers/Debugging/debug_led.o \
 Drivers/Encoder/encoder_driver.o \
 Drivers/IR_LED/ir_led_driver.o \
+Drivers/Motor/motor_driver.o \
+Drivers/PID/pid_controller.o \
 Drivers/PWM/pwm_driver.o \
 Drivers/Servo/servo_driver.o \
 Drivers/Solenoid/solenoid_driver.o \
@@ -93,6 +99,8 @@ Drivers/CAN/can.o \
 Drivers/Debugging/debug_led.o \
 Drivers/Encoder/encoder_driver.o \
 Drivers/IR_LED/ir_led_driver.o \
+Drivers/Motor/motor_driver.o \
+Drivers/PID/pid_controller.o \
 Drivers/PWM/pwm_driver.o \
 Drivers/Servo/servo_driver.o \
 Drivers/Solenoid/solenoid_driver.o \
@@ -108,6 +116,8 @@ Drivers/CAN/can.d \
 Drivers/Debugging/debug_led.d \
 Drivers/Encoder/encoder_driver.d \
 Drivers/IR_LED/ir_led_driver.d \
+Drivers/Motor/motor_driver.d \
+Drivers/PID/pid_controller.d \
 Drivers/PWM/pwm_driver.d \
 Drivers/Servo/servo_driver.d \
 Drivers/Solenoid/solenoid_driver.d \
@@ -123,6 +133,8 @@ Drivers/CAN/can.d \
 Drivers/Debugging/debug_led.d \
 Drivers/Encoder/encoder_driver.d \
 Drivers/IR_LED/ir_led_driver.d \
+Drivers/Motor/motor_driver.d \
+Drivers/PID/pid_controller.d \
 Drivers/PWM/pwm_driver.d \
 Drivers/Servo/servo_driver.d \
 Drivers/Solenoid/solenoid_driver.d \
@@ -191,6 +203,20 @@ Drivers/Encoder/encoder_driver.o: ../Drivers/Encoder/encoder_driver.c
 	
 
 Drivers/IR_LED/ir_led_driver.o: ../Drivers/IR_LED/ir_led_driver.c
+	@echo Building file: $<
+	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAM3X8E__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\arm\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include"  -Og -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m3 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+Drivers/Motor/motor_driver.o: ../Drivers/Motor/motor_driver.c
+	@echo Building file: $<
+	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAM3X8E__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\arm\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include"  -Og -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m3 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+Drivers/PID/pid_controller.o: ../Drivers/PID/pid_controller.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAM3X8E__ -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\arm\CMSIS\5.4.0\CMSIS\Core\Include" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include"  -Og -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m3 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

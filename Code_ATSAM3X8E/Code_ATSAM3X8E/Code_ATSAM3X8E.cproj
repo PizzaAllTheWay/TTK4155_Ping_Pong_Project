@@ -203,6 +203,18 @@
     <Compile Include="Drivers\IR_LED\ir_led_driver.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Drivers\Motor\motor_driver.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\Motor\motor_driver.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\PID\pid_controller.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\PID\pid_controller.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Drivers\PWM\pwm_driver.c">
       <SubType>compile</SubType>
     </Compile>
@@ -245,6 +257,8 @@
     <Folder Include="Drivers\IR_LED" />
     <Folder Include="Drivers\ADC" />
     <Folder Include="Drivers\Encoder" />
+    <Folder Include="Drivers\Motor" />
+    <Folder Include="Drivers\PID" />
     <Folder Include="Drivers\Solenoid" />
     <Folder Include="Drivers\Servo" />
     <Folder Include="Drivers\PWM" />

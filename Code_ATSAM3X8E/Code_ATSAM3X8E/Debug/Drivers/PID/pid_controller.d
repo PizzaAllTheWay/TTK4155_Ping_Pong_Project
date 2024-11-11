@@ -1,4 +1,5 @@
-main.d main.o: .././main.c \
+Drivers/PID/pid_controller.d Drivers/PID/pid_controller.o: \
+ ../Drivers/PID/pid_controller.c ../Drivers/PID/pid_controller.h \
  C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include/sam.h \
  C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include/sam3x8e.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stdint.h \
@@ -104,20 +105,9 @@ main.d main.o: .././main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_timespec.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_pthreadtypes.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\types.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\stdio.h \
- .././Drivers/Time/time.h .././Drivers/Debugging/debug_led.h \
- .././Drivers/UART/uart_driver.h .././Drivers/CAN/can.h \
- .././Drivers/Servo/servo_driver.h .././Drivers/Servo/../PWM/pwm_driver.h \
- C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include/sam3xa.h \
- .././Drivers/IR_LED/ir_led_driver.h \
- .././Drivers/IR_LED/../ADC/adc_driver.h \
- .././Drivers/Solenoid/solenoid_driver.h \
- .././Drivers/Motor/motor_driver.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\stdlib.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\stdlib.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\alloca.h \
- .././Drivers/Motor/../PWM/pwm_driver.h \
- .././Drivers/Encoder/encoder_driver.h .././Drivers/PID/pid_controller.h
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\stdio.h
+
+../Drivers/PID/pid_controller.h:
 
 C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include/sam.h:
 
@@ -330,37 +320,3 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\types.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\stdio.h:
-
-.././Drivers/Time/time.h:
-
-.././Drivers/Debugging/debug_led.h:
-
-.././Drivers/UART/uart_driver.h:
-
-.././Drivers/CAN/can.h:
-
-.././Drivers/Servo/servo_driver.h:
-
-.././Drivers/Servo/../PWM/pwm_driver.h:
-
-C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAM3X_DFP\1.0.50\include/sam3xa.h:
-
-.././Drivers/IR_LED/ir_led_driver.h:
-
-.././Drivers/IR_LED/../ADC/adc_driver.h:
-
-.././Drivers/Solenoid/solenoid_driver.h:
-
-.././Drivers/Motor/motor_driver.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\stdlib.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\stdlib.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\alloca.h:
-
-.././Drivers/Motor/../PWM/pwm_driver.h:
-
-.././Drivers/Encoder/encoder_driver.h:
-
-.././Drivers/PID/pid_controller.h:

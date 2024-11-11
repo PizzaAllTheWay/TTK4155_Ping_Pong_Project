@@ -12,7 +12,7 @@
 
 
 // Local variables
-uint64_t last_update_time = 0;  // Store the last update timestamp
+uint64_t last_update_time_servo = 0;  // Store the last update timestamp
 
 
 
@@ -28,22 +28,22 @@ void servo_driver_set_position(int8_t position) {
 	//		position (Input: (-100) - 100) [Unit: Percent (%)]
 	//
 	// Explanation:
-	// You can have values -100 to 100 %, witch will then translate to 900 to 2100 us (where 0 & is 1500 us)
+	// You can have values -100 to 100 %, witch will then translate to 900 to 2100 us (where 0 is 1500 us)
 	// These us are our duty-rate for PWM to drive the servo that we just put right in
 	
 	// Because servo can be updated to fast, and it takes 20 ms for servo to activate
 	// Before we do anything, we must ensure proper amount of time from previous servo time	
-	if ((time_now() - last_update_time) < _SERVO_UPDATE_INTERVAL) {
+	if ((time_now() - last_update_time_servo) < _SERVO_UPDATE_INTERVAL) {
 		return;  // Exit if the interval hasn't passed yet
 	}
-	last_update_time = time_now(); // Update timer
+	last_update_time_servo = time_now(); // Update timer
 	
 	// Ensure position is within the valid range
 	if (position < _SERVO_POSITION_MIN) position = _SERVO_POSITION_MIN;
 	if (position > _SERVO_POSITION_MAX) position = _SERVO_POSITION_MAX;
 	
 	// If value in dead zone set Servo to middle
-	if ((_SERVO_POSITION_DEADZONE_MIN < position) && (position < _SERVO_POSITION_MAX)) position = 0;
+	if ((_SERVO_POSITION_DEADZONE_MIN < position) && (position < _SERVO_POSITION_DEADZONE_MAX)) position = 0;
 	
 	// Map position from percent % to pulses in micro seconds us
 	uint32_t duty_cycle = _SERVO_PULSE_MIN + ((position - _SERVO_POSITION_MIN) * (_SERVO_PULSE_MAX - _SERVO_PULSE_MIN))/(_SERVO_POSITION_MAX - _SERVO_POSITION_MIN);

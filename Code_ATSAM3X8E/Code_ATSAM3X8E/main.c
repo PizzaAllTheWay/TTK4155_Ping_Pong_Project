@@ -26,7 +26,9 @@
 #include "Drivers/Servo/servo_driver.h"
 #include "Drivers/IR_LED/ir_led_driver.h"
 #include "Drivers/Solenoid/solenoid_driver.h"
+#include "Drivers/Motor/motor_driver.h"
 #include "Drivers/Encoder/encoder_driver.h"
+#include "Drivers/PID/pid_controller.h"
 
 
 
@@ -35,6 +37,7 @@
 #define CAN_ID_NODE2 2
 #define CAN_SEND_INTERVAL_MS 1000 // 10000 [ms]
 #define BALL_INTERVAL_MS 5000 // 5000 [ms]
+#define PID_UPDATE_INTERVAL msecs(50) // TIPS: Should be the same as _MOTOR_UPDATE_INTERVAL
 
 
 
@@ -49,6 +52,9 @@ int8_t controls_joystick_button = 0;
 int8_t controls_pad_left_button = 0;
 int8_t controls_pad_right_button = 0;
 char test_data = 0x00;
+
+int8_t racket_speed = 0;
+uint64_t last_update_time_pid = 0;  // Store the last update timestamp
 
 
 
@@ -169,8 +175,14 @@ int main(void) {
 	// Initialize Solenoid ----------
 	solenoid_driver_init();
 	
-	// Initialize Encoder ----------
-	encoder_driver_init();
+	// Initialize Motor Control ----------
+	int8_t kp = 10; // Proportional gain: reacts to current error (Recomended: 10)
+	int8_t ki = 0; // Integral gain: reacts to accumulated error (Recomended: 0)
+	int8_t kd = 0; // Derivative gain: reacts to error rate change (Recomended: 0)
+	pid_controller_init(kp, ki, kd); // Initialize PID with gain values
+	
+	motor_driver_init(); // Motor Driver MUST ALWAYS be before Encoder Init!!! (Because Motor Driver resets the 0 point for the system by going to the edge of the box before encoder starts setting 0 point. Ensuring 0 point always stays on the left side of the box for optimal control)
+	encoder_driver_init(); // ENcoder MUST come AFTER Motor Driver Init!!! (Because Motor Driver resets the 0 point for the system by going to the edge of the box before encoder starts setting 0 point. Ensuring 0 point always stays on the left side of the box for optimal control)
 	
 	
 	
@@ -345,11 +357,26 @@ int main(void) {
 			servo_driver_set_position(controls_joystick_x);
 			
 			// Control Solenoid
-			if (controls_joystick_button == 0) solenoid_driver_off();
-			if (controls_joystick_button == 1) solenoid_driver_on();
+			if (controls_pad_right_button == 0) solenoid_driver_off();
+			if (controls_pad_right_button == 1) solenoid_driver_on();
+		}
+		
+		// Position Control ----------
+		// Calculate the optimal speed to get to our wanted position
+		// Because PID takes time to calculate, updating it to many times has no physical benefits, therefore use time for something more productive until PID has a reason to be recalculated
+		// Only update speed once PID timer has run out
+		if ((time_now() - last_update_time_pid) > PID_UPDATE_INTERVAL) {
+			// Get wanted position
+			int8_t racket_position_desired = controls_pad_right;
 			
 			// Get Ping-Pong Racket position
 			int8_t racket_position = encoder_driver_get_position();
+			
+			last_update_time_pid = time_now(); // Update timer
+			racket_speed = pid_controller_get_u(racket_position_desired, racket_position);
+			
+			// Control Motor
+			motor_driver_set_speed(racket_speed);
 		}
 		
 		// Increment score by 1 if the ball was detected AND if cool down period has passed

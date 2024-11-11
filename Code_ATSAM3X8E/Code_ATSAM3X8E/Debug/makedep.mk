@@ -16,6 +16,10 @@ Drivers\Encoder\encoder_driver.c
 
 Drivers\IR_LED\ir_led_driver.c
 
+Drivers\Motor\motor_driver.c
+
+Drivers\PID\pid_controller.c
+
 Drivers\PWM\pwm_driver.c
 
 Drivers\Servo\servo_driver.c

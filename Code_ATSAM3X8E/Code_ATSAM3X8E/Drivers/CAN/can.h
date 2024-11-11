@@ -20,6 +20,12 @@
 
 
 
+// ID we expect Data from
+#define CAN_ID_NODE1 1
+#define CAN_ID_NODE2 2
+
+
+
 // Define mailboxes for transmission and reception
 #define TX_MAILBOX 0
 #define RX_MAILBOX_0 1
@@ -73,18 +79,18 @@ struct CanMsg {
     };
 };
 
+
+
 // Send a CAN message on the bus.
 // Blocks if the bus does not receive the message (typically because one of the
 // receiving nodes has not cleared a buffer).
 void can_tx(CanMsg m);
 
-// Receive a CAN message from a specified mailbox.
-// Does not block. Returns 0 if there is no message, 1 otherwise.
-// `mailbox` argument specifies the mailbox number to read from (e.g., 0 or 1).
-uint8_t can_rx(CanMsg* m, uint8_t mailbox);
-
 // Print a CAN message (using `printf`).
 void can_printmsg(CanMsg m);
+
+// Function to use to get latest data from CAN buss
+CanMsg can_get_latest_message();
 
 
 

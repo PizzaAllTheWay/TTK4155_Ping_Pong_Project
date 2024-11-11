@@ -5,6 +5,8 @@
  *  Author: Martynas
  */ 
 
+
+
 #include "menu.h"
 
 
@@ -14,6 +16,11 @@ void menu_pingpong() {
 	oled_set_area_pattern(0xFF, 0, 0, 127, 0);
 	oled_set_text(" Ping Pong ", 20, 0);
 	oled_set_sprite(sprite_pingpong, 6, 6, 32, 1);
+}
+
+void menu_game_over() {
+	oled_clear_screen();
+	oled_set_sprite(sprite_game_over, 8, 8, 32, 0);
 }
 
 void menu_bongocat() {
@@ -64,12 +71,12 @@ void menu_pingpont_set(uint8_t score) {
 	oled_set_area_pattern(0xFF, 0, 0, 127, 0);
 	oled_set_text(" Ping Pong ", 20, 0);
 	
-	oled_set_text("Score: ", 0, 1);
+	oled_set_text("Hearts: ", 0, 1);
 	
 	// Need a 0x30 offset as that is where the letters start
 	uint8_t text_score[2] = {0, 0};
 	text_score[0] = score + 0x30;
-	oled_set_text(&text_score, 60, 1);
+	oled_set_text(&text_score, 61, 1);
 }
 
 void menu_bongocat_set(int8_t state) {

@@ -112,7 +112,7 @@ void uart_send_message(char *msg) {
 	}
 	
 	// Add additional spacing for better readability
-	char extra_message[3] = " \0\n";
+	char extra_message[3] = "\0\n\r";
 	uart_send_byte(extra_message[0]);
 	uart_send_byte(extra_message[1]);
 	uart_send_byte(extra_message[2]);

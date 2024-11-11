@@ -11,6 +11,11 @@
 
 
 
+// Buffer that all the receive data will be saved to
+CanMsg can_rx_message_buffer;
+
+
+
 // Utility function to print CAN message details
 void can_printmsg(CanMsg m) {
     printf("CanMsg(id:%d, length:%d, data:{", m.id, m.length);
@@ -202,7 +207,9 @@ void can_tx(CanMsg m) {
     CAN0->CAN_MB[TX_MAILBOX].CAN_MCR = (length_modified << CAN_MCR_MDLC_Pos) | CAN_MCR_MTCR;
 }
 
-// Receive a CAN message from RX mailbox
+// Receive a CAN message from a specified mailbox.
+// Does not block. Returns 0 if there is no message, 1 otherwise.
+// `mailbox` argument specifies the mailbox number to read from (e.g., 0 or 1).
 uint8_t can_rx(CanMsg* m, uint8_t mailbox) {
 	// For information about CAN Buss, read ATSAM3X8E Data Sheet:
 	// Page 1185 - 1241: 40. Controller Area Network (CAN)
@@ -241,14 +248,35 @@ void CAN0_Handler(void) {
 
 	// Check if RX_MAILBOX_0 received a message
 	if (can_sr & (1 << RX_MAILBOX_0)) {
+		// Get message from RX_MAILBOX_0, check that its successfully read
 		if (can_rx(&received_msg, RX_MAILBOX_0)) {
-			// Debugging
-			//printf("Interrupt: Message received in RX_MAILBOX_0\n\r");
-			//can_printmsg(received_msg);
+			// Save message to the buffer we can read from
+			can_rx_message_buffer.id = received_msg.id;
+				
+			can_rx_message_buffer.length = received_msg.length;
+				
+			can_rx_message_buffer.byte[0] = received_msg.byte[0];
+			can_rx_message_buffer.byte[1] = received_msg.byte[1];
+			can_rx_message_buffer.byte[2] = received_msg.byte[2];
+			can_rx_message_buffer.byte[3] = received_msg.byte[3];
+			can_rx_message_buffer.byte[4] = received_msg.byte[4];
+			can_rx_message_buffer.byte[5] = received_msg.byte[5];
+			can_rx_message_buffer.byte[6] = received_msg.byte[6];
+			can_rx_message_buffer.byte[7] = received_msg.byte[7];
+				
+			// Print all values
+			//printf("%d", (int8_t)(can_rx_message_buffer.byte[0]));printf(" | ");
+			//printf("%d", (int8_t)(can_rx_message_buffer.byte[1]));printf(" | ");
+			//printf("%d", (int8_t)(can_rx_message_buffer.byte[2]));printf(" | ");
+			//printf("%d", (int8_t)(can_rx_message_buffer.byte[3]));printf(" | ");
+			//printf("%d", (int8_t)(can_rx_message_buffer.byte[4]));printf(" | ");
+			//printf("%d", (int8_t)(can_rx_message_buffer.byte[5]));printf(" | ");
+			//printf("%d", (int8_t)(can_rx_message_buffer.byte[6]));printf(" | ");
+			//printf("%d", (int8_t)(can_rx_message_buffer.byte[7]));printf("\n\r");
 		}
 	}
 
-	// Check if RX_MAILBOX_1 received a message (Overwrite Mode)
+	// Check if RX_MAILBOX_1 received a message
 	if (can_sr & (1 << RX_MAILBOX_1)) {
 		if (can_rx(&received_msg, RX_MAILBOX_1)) {
 			// Debugging
@@ -258,4 +286,10 @@ void CAN0_Handler(void) {
 	}
 
 	NVIC_ClearPendingIRQ(ID_CAN0);
+}
+
+
+
+CanMsg can_get_latest_message() {
+	return can_rx_message_buffer;
 }

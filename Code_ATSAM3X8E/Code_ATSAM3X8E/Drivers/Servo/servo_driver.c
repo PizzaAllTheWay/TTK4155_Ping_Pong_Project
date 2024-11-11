@@ -54,6 +54,9 @@ void servo_driver_set_position(int8_t position) {
 	// max duty-cycle = 20 000 us
 	duty_cycle = 20000 - duty_cycle;
 	
+	// Sometimes when calculating duty_cycle with position = 0, it still doesen't give duty cycle 1500 
+	if (position == 0) duty_cycle = 20000 - 1500;
+	
 	// Generate Servo Signal
 	pwm_driver_set_duty_cycle(PWM_DRIVER_SERVO, duty_cycle);
 }

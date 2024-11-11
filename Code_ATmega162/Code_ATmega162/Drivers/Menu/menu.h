@@ -14,6 +14,7 @@
 #include "../OLED/oled.h"
 
 #include "sprite_pingpong.h"
+#include "sprite_game_over.h"
 #include "sprite_bongo_cat.h"
 #include "sprite_nyan_cat.h"
 #include "sprite_ghost.h"
@@ -22,6 +23,7 @@
 
 
 void menu_pingpong();
+void menu_game_over();
 void menu_bongocat();
 void menu_nyancat();
 void menu_ghost();

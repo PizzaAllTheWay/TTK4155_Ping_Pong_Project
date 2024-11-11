@@ -101,8 +101,8 @@ void controls_refresh() {
 		}
 
 		// Update pad values
-		_pad_left = (_adc_data_buffer[2]/255.0) * 100.0;
-		_pad_right = (_adc_data_buffer[3]/255.0) * 100.0; 
+		_pad_left = ((_adc_data_buffer[2] / 255.0) * 200.0) - 100.0; // Map from (-100) to 100
+		_pad_right = (_adc_data_buffer[3]/255.0) * 100.0; // Map from 0 to 100
 	}
 	// ===================================================================================
 

@@ -33,16 +33,17 @@
 
 
 // Global Constant Variables
-#define CAN_ID_NODE1 1
-#define CAN_ID_NODE2 2
-#define CAN_SEND_INTERVAL_MS 1000 // 10000 [ms]
-#define BALL_INTERVAL_MS 5000 // 5000 [ms]
-#define PID_UPDATE_INTERVAL msecs(50) // TIPS: Should be the same as _MOTOR_UPDATE_INTERVAL
+#define SOLENOID_BOUNCE_DURATION msecs(100)  // 100  [ms]
+#define PID_UPDATE_INTERVAL      msecs(50)   // 50   [ms] TIPS: Should be the same as _MOTOR_UPDATE_INTERVAL
+#define BALL_INTERVAL            msecs(5000) // 5000 [ms]
+#define CAN_SEND_INTERVAL        msecs(1000) // 1000 [ms]
+#define HEARTS_START_AMOUNT      1           // (Value MUST BE: 1 - 9) How many chances we have at the game before its GAME OVER X-X
+#define HEARTS_RESET_KEY	     'R'		 // KEY value to reset heart
 
 
 
 // Global Variables
-uint8_t score = 0;
+uint8_t hearts = HEARTS_START_AMOUNT;
 
 int8_t controls_joystick_y = 0;
 int8_t controls_joystick_x = 0;
@@ -51,10 +52,11 @@ int8_t controls_pad_right = 0;
 int8_t controls_joystick_button = 0;
 int8_t controls_pad_left_button = 0;
 int8_t controls_pad_right_button = 0;
-char test_data = 0x00;
+char hearts_key = 0x00; // Responsible for reseting hearts (KEY: 'R' ie 0x52) other key values get ignored
+
+uint8_t bounce_state = 0;
 
 int8_t racket_speed = 0;
-uint64_t last_update_time_pid = 0;  // Store the last update timestamp
 
 
 
@@ -71,18 +73,28 @@ int main(void) {
 	
 	// Setup Timers ----------
 	// Variables to keep track of timers
+	// SOLENOID:
+	// For solenoid we add a timer just because we want a de-bounce effect
+	// Basically timer is here to count until solenoid can retract
+	//
+	// PID:
+	// There is no point in updating PID every clock cycle because of 3 reasons
+	// PID doesn't get new reference and measured values each cycle (The processor is faster than peripheral interfaces)
+	// PID controls Motors, witch itself has a strict limit and timer that doesn't allow it to update physically that fast
+	// PID takes precious time to compute, no point in wasting time if it will give same result multiple times
+	//
 	// BALL:
-	// The ping pong ball bounces, This can give false scores
-	// To mitigate this we have a small timer that starts counting after first score
-	// Once the timer runs out only then can ping pong again have another score if the ping pong is still there
+	// The ping pong ball bounces, This can give false hearts subtractions
+	// To mitigate this we have a small timer that starts counting after first heart got subtracted
+	// Once the timer runs out only then can ping pong again have another heart subtraction if the ping pong is still there
 	// 
 	// CAN:
 	// The CAN sending timings, as to not overwhelm the CAN buss and let us do other tasks at the same time
 	// The Controls timings, as there is no point in sending data every microsecond
-	uint64_t ball_start_time = 0;
-	uint64_t ball_interval_ticks = msecs(BALL_INTERVAL_MS);
-	uint64_t can_start_time = 0;
-	uint64_t can_send_interval_ticks = msecs(CAN_SEND_INTERVAL_MS);
+	uint64_t start_time_solenoid = 0;
+	uint64_t start_time_pid = 0;
+	uint64_t start_time_ball = 0;
+	uint64_t start_time_can = 0;
 	
 	// Initialize CAN ----------
 	// 500 kbps CAN Buss
@@ -188,228 +200,109 @@ int main(void) {
 	
 	// Infinite Loop
     while (1) {
-		// UART Testing ----------
-		/*
-		printf("Hello World!\n\r");
-		time_spinFor(msecs(1000));  // Delay for 1 000 ms
-		*/
+		// Game (START) --------------------------------------------------
+		// CAN Receive Logic ----------
+		// Read CAN Buss
+		CanMsg can_message_rx = can_get_latest_message();
 		
+		// Typecast all the messages into the correct format
+		controls_joystick_y       = (int8_t)can_message_rx.byte[0];
+		controls_joystick_x       = (int8_t)can_message_rx.byte[1];
+		controls_pad_left         = (int8_t)can_message_rx.byte[2];
+		controls_pad_right        = (int8_t)can_message_rx.byte[3];
+		controls_joystick_button  = (int8_t)can_message_rx.byte[4];
+		controls_pad_left_button  = (int8_t)can_message_rx.byte[5];
+		controls_pad_right_button = (int8_t)can_message_rx.byte[6];
+		hearts_key                =   (char)can_message_rx.byte[7];
 		
+		// Print all values
+		//printf("Joystick Y: %d\n\r", controls_joystick_y);
+		//printf("Joystick X: %d\n\r", controls_joystick_x);
+		//printf("Pad Left: %d\n\r", controls_pad_left);
+		//printf("Pad Right: %d\n\r", controls_pad_right);
+		//printf("Joystick Button: %d\n\r", controls_joystick_button);
+		//printf("Pad Left Button: %d\n\r", controls_pad_left_button);
+		//printf("Pad Right Button: %d\n\r", controls_pad_right_button);
+		//printf("Test Data: %c\n\r", test_data);
 		
-		// CAN Testing Node 2 (Node 1 <== Node 2) ----------
-		/*
-		// Define the CAN message
-		CanMsg can_message;
-		can_message.id = CAN_ID_NODE2; // CAN ID
-		can_message.length = 8; // Message length 
-		can_message.byte[0] = 'A'; // Data bytes to send
-		can_message.byte[1] = 'A';
-		can_message.byte[2] = 'A';
-		can_message.byte[3] = 'A';
-		can_message.byte[4] = 'A';
-		can_message.byte[5] = 'F';
-		can_message.byte[6] = 'G';
-		can_message.byte[7] = 'H';
-		
-		// Send the message on the CAN bus
-		can_tx(can_message);
-		
-		// Delay to avoid flooding the CAN bus
-		time_spinFor(msecs(1000));
-		*/
-		
-		
-		// CAN Testing Node 2 (Node 1 ==> Node 2) ----------
-		/*
-		// Define the CAN message structure for receiving
-		CanMsg can_message;
-
-		// Check RX_MAILBOX_0 for received messages
-		if (can_rx(&can_message, RX_MAILBOX_0)) {
-			// Check if the received message is from the correct sender ID
-			if (can_message.id == CAN_ID_NODE1) {
-				// Print ID
-				printf("0x%02X ", can_message.id);
-				// Print all 8 bytes of data as an array in HEX format
-				for (uint8_t i = 0; i < 8; i++) {
-					// Since values can be NULL 0x00, it can cause issues when sending data through
-					// Thats why we check if null and send -1 instead
-					for (int8_t i = 0; i < 8; i++) {
-						if (can_message.byte[i] == 0) {
-							can_message.byte[i] = (-1);
-						}
-					}
-					printf("0x%02X ", can_message.byte[i]);
-				}
-				printf("0x%02X ", 0x00); // NULL-TERMINATOR
-				printf("\n");
-				printf("\r");
-				
-
-				// 1 second delay so that the print on screen doesen't overflow to fast
-				time_spinFor(msecs(1000));
-			}
+		// Solenoid Control ----------
+		// 1. If button is not pressed, turn solenoid off and reset bounce_state.
+		// 2. If button is pressed and bounce_state is 0, turn solenoid on, lock bounce_state, and start timer.
+		// 3. If bounce duration has passed while holding the button on, turn solenoid off.
+		if (controls_pad_right_button == 0) {
+			solenoid_driver_off(); // OFF
+			bounce_state = 0; // Reset
 		}
-		*/
-		
-		
-		
-		// Servo and IR LED Test ----------
-		/*
-		// Define the CAN message structure for receiving
-		CanMsg can_message_rx;
-		
-		// Check RX_MAILBOX_0 for received messages until you get a message
-		while (!can_rx(&can_message_rx, RX_MAILBOX_0)) {};
-				
-		// Check if the received message is from the correct sender ID
-		if (can_message_rx.id == CAN_ID_NODE1) {
-			// Typecast all the messages into the correct format
-			controls_joystick_y = (int8_t)can_message_rx.byte[0];
-			controls_joystick_x = (int8_t)can_message_rx.byte[1];
-			controls_pad_left = (int8_t)can_message_rx.byte[2];
-			controls_pad_right = (int8_t)can_message_rx.byte[3];
-			controls_joystick_button = (int8_t)can_message_rx.byte[4];
-			controls_pad_left_button = (int8_t)can_message_rx.byte[5];
-			controls_pad_right_button = (int8_t)can_message_rx.byte[6];
-			test_data = (char)can_message_rx.byte[7];
-				
-			// Print all values
-			//printf("Joystick Y: %d\n\r", controls_joystick_y);
-			//printf("Joystick X: %d\n\r", controls_joystick_x);
-			//printf("Pad Left: %d\n\r", controls_pad_left);
-			//printf("Pad Right: %d\n\r", controls_pad_right);
-			//printf("Joystick Button: %d\n\r", controls_joystick_button);
-			//printf("Pad Left Button: %d\n\r", controls_pad_left_button);
-			//printf("Pad Right Button: %d\n\r", controls_pad_right_button);
-			//printf("Test Data: %c\n\r", test_data);
-				
-			// Control Servo with Joystick X position
-			servo_driver_set_position(controls_joystick_x);
+		else if ((controls_pad_right_button == 1) && (bounce_state == 0)) {
+			solenoid_driver_on(); // ON
+			bounce_state = 1; // Lock
+			start_time_solenoid = time_now(); // Start timer
+		}
+		else if ((bounce_state == 1) && ((time_now() - start_time_solenoid) > SOLENOID_BOUNCE_DURATION)) {
+			solenoid_driver_off(); // OFF
 		}
 		
-		// Increment score by 1 if the ball was detected AND if cool down period has passed
-		if (ir_led_driver_get_status() != 0) {		
-			if ((time_now() - ball_start_time) >= ball_interval_ticks) {
-				score += 1;
-				printf("Score: %d\n\r", score);
-
-				// Reset the timer to start cool down
-				ball_start_time = time_now();
-			}
-		}
-		
-		// Check if enough time has passed since the last CAN message was sent
-		if ((time_now() - can_start_time) >= can_send_interval_ticks) {
-			// Reset the CAN start time for the next delay
-			can_start_time = time_now();
-			
-			// Define the CAN message
-			CanMsg can_message_tx;
-			can_message_tx.id = CAN_ID_NODE2; // CAN ID
-			can_message_tx.length = 8; // Message length
-			can_message_tx.byte[0] = score; // Data bytes to send
-			can_message_tx.byte[1] = score;
-			can_message_tx.byte[2] = score;
-			can_message_tx.byte[3] = score;
-			can_message_tx.byte[4] = score;
-			can_message_tx.byte[5] = score;
-			can_message_tx.byte[6] = score;
-			can_message_tx.byte[7] = score;
-			
-			// Send the message on the CAN bus
-			can_tx(can_message_tx);
-		}
-		*/
-		
-		
-		
-		// Encoder, Solenoid, Motor and PID Controller Test ----------
-		// Define the CAN message structure for receiving
-		CanMsg can_message_rx;
-		
-		// Check RX_MAILBOX_0 for received messages until you get a message
-		while (!can_rx(&can_message_rx, RX_MAILBOX_0)) {};
-		
-		// Check if the received message is from the correct sender ID
-		if (can_message_rx.id == CAN_ID_NODE1) {
-			// Typecast all the messages into the correct format
-			controls_joystick_y = (int8_t)can_message_rx.byte[0];
-			controls_joystick_x = (int8_t)can_message_rx.byte[1];
-			controls_pad_left = (int8_t)can_message_rx.byte[2];
-			controls_pad_right = (int8_t)can_message_rx.byte[3];
-			controls_joystick_button = (int8_t)can_message_rx.byte[4];
-			controls_pad_left_button = (int8_t)can_message_rx.byte[5];
-			controls_pad_right_button = (int8_t)can_message_rx.byte[6];
-			test_data = (char)can_message_rx.byte[7];
-			
-			// Print all values
-			//printf("Joystick Y: %d\n\r", controls_joystick_y);
-			//printf("Joystick X: %d\n\r", controls_joystick_x);
-			//printf("Pad Left: %d\n\r", controls_pad_left);
-			//printf("Pad Right: %d\n\r", controls_pad_right);
-			//printf("Joystick Button: %d\n\r", controls_joystick_button);
-			//printf("Pad Left Button: %d\n\r", controls_pad_left_button);
-			//printf("Pad Right Button: %d\n\r", controls_pad_right_button);
-			//printf("Test Data: %c\n\r", test_data);
-			
-			// Control Servo with Joystick X position
-			servo_driver_set_position(controls_joystick_x);
-			
-			// Control Solenoid
-			if (controls_pad_right_button == 0) solenoid_driver_off();
-			if (controls_pad_right_button == 1) solenoid_driver_on();
-		}
+		// Angle Control ----------
+		servo_driver_set_position(controls_joystick_x);
 		
 		// Position Control ----------
 		// Calculate the optimal speed to get to our wanted position
 		// Because PID takes time to calculate, updating it to many times has no physical benefits, therefore use time for something more productive until PID has a reason to be recalculated
 		// Only update speed once PID timer has run out
-		if ((time_now() - last_update_time_pid) > PID_UPDATE_INTERVAL) {
+		if ((time_now() - start_time_pid) > PID_UPDATE_INTERVAL) {
+			// Reset timer
+			start_time_pid = time_now();
+			
 			// Get wanted position
 			int8_t racket_position_desired = controls_pad_right;
 			
 			// Get Ping-Pong Racket position
 			int8_t racket_position = encoder_driver_get_position();
 			
-			last_update_time_pid = time_now(); // Update timer
+			// Calculate speed control
 			racket_speed = pid_controller_get_u(racket_position_desired, racket_position);
 			
 			// Control Motor
 			motor_driver_set_speed(racket_speed);
 		}
 		
-		// Increment score by 1 if the ball was detected AND if cool down period has passed
+		// Ball Detection ----------
+		// Subtract hearts by 1 if the ball was detected AND if cool down period has passed
 		if (ir_led_driver_get_status() != 0) {
-			if ((time_now() - ball_start_time) >= ball_interval_ticks) {
-				score += 1;
-				printf("Score: %d\n\r", score);
+			if ((time_now() - start_time_ball) >= BALL_INTERVAL) {
+				hearts -= 1;
 
 				// Reset the timer to start cool down
-				ball_start_time = time_now();
+				start_time_ball = time_now();
 			}
 		}
 		
+		// Hearts Logic ----------
 		// Check if enough time has passed since the last CAN message was sent
-		if ((time_now() - can_start_time) >= can_send_interval_ticks) {
+		if ((time_now() - start_time_can) >= CAN_SEND_INTERVAL) {
 			// Reset the CAN start time for the next delay
-			can_start_time = time_now();
+			start_time_can = time_now();
 			
 			// Define the CAN message
 			CanMsg can_message_tx;
 			can_message_tx.id = CAN_ID_NODE2; // CAN ID
 			can_message_tx.length = 8; // Message length
-			can_message_tx.byte[0] = score; // Data bytes to send
-			can_message_tx.byte[1] = score;
-			can_message_tx.byte[2] = score;
-			can_message_tx.byte[3] = score;
-			can_message_tx.byte[4] = score;
-			can_message_tx.byte[5] = score;
-			can_message_tx.byte[6] = score;
-			can_message_tx.byte[7] = score;
+			can_message_tx.byte[0] = hearts; // Data bytes to send
+			can_message_tx.byte[1] = hearts;
+			can_message_tx.byte[2] = hearts;
+			can_message_tx.byte[3] = hearts;
+			can_message_tx.byte[4] = hearts;
+			can_message_tx.byte[5] = hearts;
+			can_message_tx.byte[6] = hearts;
+			can_message_tx.byte[7] = hearts;
 			
 			// Send the message on the CAN bus
 			can_tx(can_message_tx);
 		}
+		
+		// Check if the reset hearts key was activated
+		// If so reset the hearts
+		if (hearts_key == HEARTS_RESET_KEY) hearts = HEARTS_START_AMOUNT;
+		// Game (STOP) --------------------------------------------------
     }
 }

@@ -20,7 +20,7 @@
 
 // Local Variables used in this code
 #define _IR_LED_SAMPLE_NUM 64 // Number of samples each time we read status of IR LED
-#define _IR_LED_THRESHOLD 2500 // Threshold value to compare against
+#define _IR_LED_THRESHOLD 990 // WARNING: MUST BE TUNED, BECAUSE EACH IR SENSOR IS DIFFERENT (Threshold value to compare against)
 
 
 

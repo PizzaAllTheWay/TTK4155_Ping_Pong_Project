@@ -1,0 +1,156 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    Dangling Line, Via and Antenna Report                            )
+(                                                                     )
+(    Drawing          : byggernnode1.brd                              )
+(    Software Version : 24.1P001                                      )
+(    Date/Time        : Wed Nov  6 06:00:00 2024                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+Report methodology:
+  - Dangling lines have at least one end not connected.
+  - Dangling vias have one or no connection
+      - Plus are not a test, thieving or netshort property via.
+  - Antenna vias do not have connections on their start and end layers.
+      - Plus they are not a thieving vias.
+      - Optionally, VOLTAGE nets, testvias and through vias can be suppressed with
+        the environment variable report_antennavia.
+      - Section may be suppressed by variable report_noantennavia.
+  - Not part of the current partition.
+  - To suppress items in dangle report add the OK_DANGLE property to the via
+    or connect line.
+
+<< Dangling Lines >>  - Location marked with a star (*) is dangling.
+  Net                 Layer                  Length       Location
+  ------------------------------------------------------------------------------------------
+  GND                  BOTTOM                0.1850      (170.6300 227.3300) to *(170.8150 227.3300)
+  GND                  BOTTOM                2.1666     *(170.8150 229.8700) to  (170.6300 231.9600)
+  GND                  BOTTOM                1.4550     *(170.6300 230.5050) to  (170.6300 231.9600)
+  5V                   BOTTOM                0.6350     *(213.3600 226.0600) to  (212.7250 226.0600)
+
+
+<< Dangling Vias >>
+  Net                  Padstack               Location            Layers
+  ---------------------------------------------------------------------------
+  GND                  VIA                  (166.2379 159.3850) TOP/BOTTOM 
+  GND                  VIA                  (166.2379 160.0200) TOP/BOTTOM 
+  GND                  VIA                  (166.2379 160.6550) TOP/BOTTOM 
+  GND                  VIA                  (166.2379 161.2900) TOP/BOTTOM 
+  GND                  VIA                  (166.2379 161.9250) TOP/BOTTOM 
+  GND                  VIA                  (166.2628 162.5600) TOP/BOTTOM 
+  GND                  VIA                  (166.3151 158.7500) TOP/BOTTOM 
+  GND                  VIA                  (166.3700 158.1150) TOP/BOTTOM 
+  GND                  VIA                  (167.0050 162.7820) TOP/BOTTOM 
+  GND                  VIA                  (167.6400 162.7820) TOP/BOTTOM 
+  GND                  VIA                  (168.2750 162.7820) TOP/BOTTOM 
+  GND                  VIA                  (168.9100 158.1150) TOP/BOTTOM 
+  GND                  VIA                  (168.9649 158.7500) TOP/BOTTOM 
+  GND                  VIA                  (169.0172 162.5600) TOP/BOTTOM 
+  GND                  VIA                  (169.0421 159.3850) TOP/BOTTOM 
+  GND                  VIA                  (169.0421 160.0200) TOP/BOTTOM 
+  GND                  VIA                  (169.0421 160.6550) TOP/BOTTOM 
+  GND                  VIA                  (169.0421 161.2900) TOP/BOTTOM 
+  GND                  VIA                  (169.0421 161.9250) TOP/BOTTOM 
+
+
+<< Antenna Vias >>
+  Net                  Padstack               Location            Layers
+  ---------------------------------------------------------------------------
+  5V                   VIA                  (130.7500 209.2300) TOP/BOTTOM 
+  5V                   VIA                  (135.7900 215.0800) TOP/BOTTOM 
+  5V                   VIA                  (147.3200 228.1093) TOP/BOTTOM 
+  5V                   VIA                  (153.6700 181.6100) TOP/BOTTOM 
+  5V                   VIA                  (165.9832 165.5768) TOP/BOTTOM 
+  5V                   VIA                  (166.0000 165.0000) TOP/BOTTOM 
+  5V                   VIA                  (166.0000 169.0000) TOP/BOTTOM 
+  5V                   VIA                  (166.0000 169.5770) TOP/BOTTOM 
+  5V                   VIA                  (167.0050 164.5000) TOP/BOTTOM 
+  5V                   VIA                  (167.0050 169.7420) TOP/BOTTOM 
+  5V                   VIA                  (167.5820 164.5000) TOP/BOTTOM 
+  5V                   VIA                  (167.6400 169.7420) TOP/BOTTOM 
+  5V                   VIA                  (168.2750 164.5000) TOP/BOTTOM 
+  5V                   VIA                  (168.5000 169.7420) TOP/BOTTOM 
+  5V                   VIA                  (169.0000 165.0000) TOP/BOTTOM 
+  5V                   VIA                  (169.0000 169.5000) TOP/BOTTOM 
+  5V                   VIA                  (169.0621 165.5000) TOP/BOTTOM 
+  5V                   VIA                  (169.0621 166.4996) TOP/BOTTOM 
+  5V                   VIA                  (169.0621 167.0766) TOP/BOTTOM 
+  5V                   VIA                  (169.0621 167.6536) TOP/BOTTOM 
+  5V                   VIA                  (169.0621 168.2306) TOP/BOTTOM 
+  5V                   VIA                  (169.0621 169.0000) TOP/BOTTOM 
+  5V                   VIA                  (173.5000 227.3300) TOP/BOTTOM 
+  5V                   VIA                  (174.8100 216.7200) TOP/BOTTOM 
+  5V                   VIA                  (195.5800 170.1800) TOP/BOTTOM 
+  5V                   VIA                  (196.4000 183.5150) TOP/BOTTOM 
+  5V                   VIA                  (197.6700 228.1500) TOP/BOTTOM 
+  5V                   VIA                  (210.3700 229.8700) TOP/BOTTOM 
+  GND                  VIA                  (132.0800 217.8050) TOP/BOTTOM 
+  GND                  VIA                  (134.6200 217.8050) TOP/BOTTOM 
+  GND                  VIA                  (143.5000 159.0000) TOP/BOTTOM 
+  GND                  VIA                  (143.5000 160.0000) TOP/BOTTOM 
+  GND                  VIA                  (143.5000 161.0000) TOP/BOTTOM 
+  GND                  VIA                  (144.7800 178.4350) TOP/BOTTOM 
+  GND                  VIA                  (144.7800 197.4850) TOP/BOTTOM 
+  GND                  VIA                  (146.5000 159.0000) TOP/BOTTOM 
+  GND                  VIA                  (146.5000 160.0000) TOP/BOTTOM 
+  GND                  VIA                  (146.5000 161.0000) TOP/BOTTOM 
+  GND                  VIA                  (148.5900 212.7250) TOP/BOTTOM 
+  GND                  VIA                  (148.5900 222.8850) TOP/BOTTOM 
+  GND                  VIA                  (151.1300 222.8850) TOP/BOTTOM 
+  GND                  VIA                  (159.3850 226.0600) TOP/BOTTOM 
+  GND                  VIA                  (163.8300 174.6250) TOP/BOTTOM 
+  GND                  VIA                  (163.8300 183.5150) TOP/BOTTOM 
+  GND                  VIA                  (165.7350 215.9000) TOP/BOTTOM 
+  GND                  VIA                  (165.7350 218.4400) TOP/BOTTOM 
+  GND                  VIA                  (165.7350 220.9800) TOP/BOTTOM 
+  GND                  VIA                  (166.2379 159.3850) TOP/BOTTOM 
+  GND                  VIA                  (166.2379 160.0200) TOP/BOTTOM 
+  GND                  VIA                  (166.2379 160.6550) TOP/BOTTOM 
+  GND                  VIA                  (166.2379 161.2900) TOP/BOTTOM 
+  GND                  VIA                  (166.2379 161.9250) TOP/BOTTOM 
+  GND                  VIA                  (166.2628 162.5600) TOP/BOTTOM 
+  GND                  VIA                  (166.3151 158.7500) TOP/BOTTOM 
+  GND                  VIA                  (166.3700 158.1150) TOP/BOTTOM 
+  GND                  VIA                  (167.0050 158.1150) TOP/BOTTOM 
+  GND                  VIA                  (167.0050 162.7820) TOP/BOTTOM 
+  GND                  VIA                  (167.6400 158.1150) TOP/BOTTOM 
+  GND                  VIA                  (167.6400 162.7820) TOP/BOTTOM 
+  GND                  VIA                  (168.2750 158.1150) TOP/BOTTOM 
+  GND                  VIA                  (168.2750 162.7820) TOP/BOTTOM 
+  GND                  VIA                  (168.9100 158.1150) TOP/BOTTOM 
+  GND                  VIA                  (168.9649 158.7500) TOP/BOTTOM 
+  GND                  VIA                  (169.0172 162.5600) TOP/BOTTOM 
+  GND                  VIA                  (169.0421 159.3850) TOP/BOTTOM 
+  GND                  VIA                  (169.0421 160.0200) TOP/BOTTOM 
+  GND                  VIA                  (169.0421 160.6550) TOP/BOTTOM 
+  GND                  VIA                  (169.0421 161.2900) TOP/BOTTOM 
+  GND                  VIA                  (169.0421 161.9250) TOP/BOTTOM 
+  GND                  VIA                  (169.5450 227.3300) TOP/BOTTOM 
+  GND                  VIA                  (169.5450 229.8700) TOP/BOTTOM 
+  GND                  VIA                  (172.0850 218.4400) TOP/BOTTOM 
+  GND                  VIA                  (172.0850 220.9800) TOP/BOTTOM 
+  GND                  VIA                  (172.0850 223.5200) TOP/BOTTOM 
+  GND                  VIA                  (175.2600 227.3300) TOP/BOTTOM 
+  GND                  VIA                  (175.2600 235.5850) TOP/BOTTOM 
+  GND                  VIA                  (177.8000 227.3300) TOP/BOTTOM 
+  GND                  VIA                  (177.8000 235.5850) TOP/BOTTOM 
+  GND                  VIA                  (193.6750 186.6900) TOP/BOTTOM 
+  GND                  VIA                  (193.6750 189.2300) TOP/BOTTOM 
+  GND                  VIA                  (194.9450 226.0600) TOP/BOTTOM 
+  GND                  VIA                  (207.2500 208.2800) TOP/BOTTOM 
+  GND                  VIA                  (207.2500 213.3600) TOP/BOTTOM 
+  GND                  VIA                  (207.2500 215.9000) TOP/BOTTOM 
+  GND                  VIA                  (207.2500 218.4400) TOP/BOTTOM 
+  GND                  VIA                  (207.6450 226.0600) TOP/BOTTOM 
+  GND                  VIA                  (207.6450 228.6000) TOP/BOTTOM 
+  GND                  VIA                  (211.4550 223.5200) TOP/BOTTOM 
+  JOYSTICK_BTN         VIA                  (139.0650 224.7900) TOP/BOTTOM 
+  PAD_BTN_L            VIA                  (139.7000 225.4250) TOP/BOTTOM 
+  PAD_BTN_R            VIA                  (140.3350 226.0600) TOP/BOTTOM 
+
+<< Summary >>
+  Total dangling lines:       4
+  Total dangling vias:       19
+  Total antenna vias:        91

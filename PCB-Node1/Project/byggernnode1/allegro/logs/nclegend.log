@@ -1,0 +1,19 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    DRILL LEGEND                                                     )
+(                                                                     )
+(    Drawing          : byggernnode1.brd                              )
+(    Software Version : 24.1P001                                      )
+(    Date/Time        : Wed Nov  6 06:11:45 2024                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+Begin processing of drill legend template file 'C:/Cadence/OrCADX_24.1/share/pcb/text/nclegend/default-mm.dlt' ...
+WARNING(SPMHSK-47): Column type 'HoleSize' does not exist.
+WARNING(SPMHSK-47): Column type 'PlateStatus' does not exist.
+End of drill legend template file processing.
+
+Begin processing drill holes.
+Warning : Hole 1.0000-0.0000-C-M0-P-0.0000-0.0000-0.0000-0.0000- uses multiple drill figures.
+End processing drill holes.

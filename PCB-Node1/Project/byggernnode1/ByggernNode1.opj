@@ -1,0 +1,322 @@
+(ExpressProject "ByggernNode1"
+  (ProjectVersion "19981106")
+  (SoftwareVersion "24.1 P001 (4234998)  [9/4/2024]-[11/06/24]")
+  (ProjectType "Analog or A/D Mixed Mode")
+  (Folder "Design Resources"
+    (Folder "Library")
+    ("Allegro Netlist Directory" "allegro")
+    (DOCKED "TRUE")
+    (DOCKING_POSITION "59420")
+    (NoModify)
+    (File ".\byggernnode1.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (Board_sim_option "VHDL_flow")
+    (BOM_Scope "0")
+    (BOM_Mode "0")
+    (BOM_Report_File
+       "C:\USERS\BENJA\APPDATA\ROAMING\SPB_DATA\CDSSETUP\WORKSPACE\PROJECTS\BYGGERNNODE1\BYGGERNNODE1.BOM")
+    (BOM_Merge_Include "FALSE")
+    (BOM_Property_Combine_7.0 "{Item}\t{Quantity}\t{Reference}\t{Value}")
+    (BOM_Header "Item\tQuantity\tReference\tPart")
+    (BOM_Include_File
+       "C:\USERS\BENJA\APPDATA\ROAMING\SPB_DATA\CDSSETUP\WORKSPACE\PROJECTS\BYGGERNNODE1\BYGGERNNODE1.INC")
+    (BOM_Include_File_Combine_7.0 "{Item}\t{Quantity}\t{Reference}\t{Value}")
+    (BOM_One_Part_Per_Line "FALSE")
+    (Open_BOM_in_Excel "FALSE")
+    (BOM_View_Output "TRUE")
+    ("Allegro Netlist Output Board File" ".\allegro\byggernnode1.brd")
+    (ANNOTATE_Scope "0")
+    (ANNOTATE_Mode "1")
+    (ANNOTATE_Action "0")
+    (Annotate_Page_Order "0")
+    (ANNOTATE_Reset_References_to_1 "FALSE")
+    (ANNOTATE_No_Page_Number_Change "FALSE")
+    (ANNOTATE_Property_Combine "{Value}{Source Package}{POWER_GROUP}")
+    (ANNOTATE_IncludeNonPrimitive "TRUE")
+    (ANNOTATE_PreserveDesignator "FALSE")
+    (ANNOTATE_PreserveUserEdits "FALSE")
+    (ANNOTATE_Refdes_Control_Required "FALSE")
+    (Update_Instace_for_External_Design "FALSE")
+    (Annotate_type "Default")
+    (width_pages "100")
+    (width_start "80")
+    (width_End "80")
+    (Netlist_TAB "0")
+    ("Create Allegro Netlist" "TRUE")
+    ("View Allegro Netlist Files" "FALSE")
+    ("Allegro Netlist Create DCF File" "FALSE")
+    ("Update Allegro Board" "FALSE")
+    ("Allegro Netlist Remove Etch" "FALSE")
+    ("Allegro Netlist Place Changed Component" "ALWAYS_REPLACE")
+    ("Allegro Netlist Open Board in Allegro" "ALLEGRO")
+    ("Allegro Setup Backup Versions" "3")
+    ("Allegro Setup Ignore Constraints" "FALSE")
+    ("Allegro Setup Part Type Length" "255")
+    ("Allegro Netlist Combine Property String" "PCB Footprint")
+    ("Allegro Netlist Ignore Fixed Property" "FALSE")
+    ("Allegro Netlist User Defined Property" "FALSE")
+    (DRC_Scope "0")
+    (DRC_Action "0")
+    (DRC_Create_Warnings "TRUE")
+    (DRC_View_Output "TRUE")
+    (DRC_View_Output_Type "2")
+    (DRC_Preserved_Waived "FALSE")
+    (RUN_Online_Rules "TRUE")
+    (DRC_Run_Electrical_Rules "TRUE")
+    (DRC_Check_Single_Node_Nets "TRUE")
+    (DRC_Check_No_Driving_Source "TRUE")
+    (DRC_Check_Duplicate_NetNames "TRUE")
+    (DRC_Check_Off-Page_Connectors "FALSE")
+    (DRC_Check_Ports "FALSE")
+    (DRC_Check_Unconnected_Nets "TRUE")
+    (DRC_Check_Floating_Pins "TRUE")
+    (DRC_SDT_Compatibility "FALSE")
+    (DRC_Check_Single_Node_Nets_Online "FALSE")
+    (DRC_Check_No_Driving_Source_Online "FALSE")
+    (DRC_Check_Duplicate_NetNames_Online "FALSE")
+    (DRC_Check_Off-Page_Connectors_Online "FALSE")
+    (DRC_Check_Ports_Online "FALSE")
+    (DRC_Check_Unconnected_Nets_Online "FALSE")
+    (DRC_Check_Floating_Pins_Online "FALSE")
+    (DRC_Run_Electrical_Reports "TRUE")
+    (DRC_Report_Netnames "FALSE")
+    (DRC_Report_Off-grid_Objects "FALSE")
+    (DRC_Report_Ports_and_Off-page_Connectors "FALSE")
+    (DRC_Check_for_Misleading_TAP "FALSE")
+    (DRC_Run_Physical_Rules "TRUE")
+    (DRC_Check_Physical_Power_Pins_Visibility "TRUE")
+    (DRC_Check_PCB_Footprint_Property "TRUE")
+    (DRC_Check_Normal_Convert_View_Sync "TRUE")
+    (DRC_Check_Incorrect_PinGroup_Assignment "TRUE")
+    (DRC_Check_High_Speed_Props_Syntax "TRUE")
+    (DRC_Check_Missing_Pin_Numbers "TRUE")
+    (DRC_Check_Device_With_No_Pins "TRUE")
+    (DRC_Check_Power_Ground_Short "TRUE")
+    (DRC_Check_Name_Prop_For_HierBlocks "TRUE")
+    (DRC_Check_Physical_Power_Pins_Visibility_Online "FALSE")
+    (DRC_Check_PCB_Footprint_Property_Online "FALSE")
+    (DRC_Check_Normal_Convert_View_Sync_Online "FALSE")
+    (DRC_Check_Incorrect_PinGroup_Assignment_Online "FALSE")
+    (DRC_Check_Missing_Pin_Numbers_Online "FALSE")
+    (DRC_Check_Device_With_No_Pins_Online "FALSE")
+    (DRC_Check_Power_Ground_Short_Online "FALSE")
+    (DRC_Check_Name_Prop_For_HierBlocks_Online "FALSE")
+    (DRC_Run_Physical_Reports "TRUE")
+    (DRC_Visible_Power_pins "FALSE")
+    (DRC_Report_Unused_Part_Packages "TRUE")
+    (DRC_Type_Mismatch "TRUE")
+    (DRC_Identical_References "TRUE")
+    (DRC_Run_Simulation_Rules "TRUE")
+    (DRC_Check_Pspice_Model_Lib_Path_Online "TRUE")
+    (DRC_Run_Custom_Rules "FALSE")
+    (DRC_Report_File
+       "C:\USERS\BENJA\APPDATA\ROAMING\SPB_DATA\CDSSETUP\WORKSPACE\PROJECTS\BYGGERNNODE1\BYGGERNNODE1.DRC"))
+  (Folder "Layout"
+    (File ".\allegro\byggernnode1.brd"
+      (Type "Board File")
+      (OutputBoard ".\allegro\byggernnode1.brd")
+      (NetListPath ".\allegro")
+      (ActiveBoard "1")))
+  (Folder "Outputs"
+    (Sort User)
+    (File ".\BYGGERNNODE1_OUTPUT\BOM.SCH.CSV"
+      (Type "Report")
+      (DisplayName ".\BYGGERNNODE1_OUTPUT\BOM.SCH.CSV"))
+    (File ".\byggernnode1.bom"
+      (Type "Report"))
+    (File ".\allegro\pstxnet.dat"
+      (Type "Report")
+      (DisplayName "pstxnet.dat"))
+    (File ".\allegro\pstxprt.dat"
+      (Type "Report")
+      (DisplayName "pstxprt.dat"))
+    (File ".\allegro\pstchip.dat"
+      (Type "Report")
+      (DisplayName "pstchip.dat"))
+    (File ".\byggernnode1.drc"
+      (Type "Report")))
+  (Folder "PSpice Resources"
+    (Folder "Simulation Profiles")
+    (Folder "Model Libraries"
+      (Sort User))
+    (Folder "Stimulus Files"
+      (Sort User))
+    (Folder "Include Files"
+      (Sort User)))
+  (DefaultLibraryBrowseDirectory "library\PSpice")
+  (Folder "Logs"
+    (File ".\allegro\netlist.log"
+      (Type "Log File")
+      (LogFile
+         "c:\users\benja\appdata\roaming\spb_data\cdssetup\workspace\projects\byggernnode1\allegro\netlist.log"))
+    (File ".\allegro\netrev.lst"
+      (Type "Log File")
+      (LogFile
+         "c:\users\benja\appdata\roaming\spb_data\cdssetup\workspace\projects\byggernnode1\allegro\netrev.lst"))
+    (File ".\allegro\eco.txt"
+      (Type "Log File")
+      (LogFile
+         "c:\users\benja\appdata\roaming\spb_data\cdssetup\workspace\projects\byggernnode1\allegro\eco.txt")))
+  (PartMRUSelector
+    (SP3031-01ETG
+      (FullPartName "SP3031-01ETG.Normal")
+      (LibraryName
+         "C:\USERS\BENJA\APPDATA\ROAMING\SPB_DATA\CDSSETUP\ORCAD_CAPTURE\24.1.0\TEMP\DOWNLOADED_PARTS\SAMACSYS_PART_1730698091\SP3031-01ETG\CAPTURE\SP3031-01ETG.OLB")
+      (DeviceIndex "0"))
+    (618009231121
+      (FullPartName "618009231121.Normal")
+      (LibraryName
+         "C:\USERS\BENJA\APPDATA\ROAMING\SPB_DATA\CDSSETUP\ORCAD_CAPTURE\24.1.0\TEMP\DOWNLOADED_PARTS\SAMACSYS_PART_1730696623\618009231121\CAPTURE\618009231121.OLB")
+      (DeviceIndex "0"))
+    (691418320002
+      (FullPartName "691418320002.Normal")
+      (LibraryName
+         "C:\USERS\BENJA\DOWNLOADS\CADENCE_WR-TBL (REV23H)\WR-TBL_REV23H\SPRING CLAMP\PITCH 3.81MM\6914183200XX\WR-TBL_6914183200XX.OLB")
+      (DeviceIndex "0"))
+    (DILB18P223TLF
+      (FullPartName "DILB18P223TLF.Normal")
+      (LibraryName
+         "C:\USERS\BENJA\APPDATA\ROAMING\SPB_DATA\CDSSETUP\ORCAD_CAPTURE\24.1.0\TEMP\DOWNLOADED_PARTS\SAMACSYS_PART_1730674037\DILB18P223TLF\CAPTURE\DILB18P223TLF.OLB")
+      (DeviceIndex "0"))
+    (DILB8P-223TLF
+      (FullPartName "DILB8P-223TLF.Normal")
+      (LibraryName
+         "C:\USERS\BENJA\APPDATA\ROAMING\SPB_DATA\CDSSETUP\ORCAD_CAPTURE\24.1.0\TEMP\DOWNLOADED_PARTS\SAMACSYS_PART_1730673972\DILB8P-223TLF\CAPTURE\DILB8P-223TLF.OLB")
+      (DeviceIndex "0"))
+    (1-2199299-5
+      (FullPartName "1-2199299-5.Normal")
+      (LibraryName
+         "C:\USERS\BENJA\APPDATA\ROAMING\SPB_DATA\CDSSETUP\ORCAD_CAPTURE\24.1.0\TEMP\DOWNLOADED_PARTS\SAMACSYS_PART_1730673850\1-2199299-5\CAPTURE\1-2199299-5.OLB")
+      (DeviceIndex "0"))
+    (DILB20P-223TLF
+      (FullPartName "DILB20P-223TLF.Normal")
+      (LibraryName
+         "C:\USERS\BENJA\APPDATA\ROAMING\SPB_DATA\CDSSETUP\ORCAD_CAPTURE\24.1.0\TEMP\DOWNLOADED_PARTS\SAMACSYS_PART_1730673782\DILB20P-223TLF\CAPTURE\DILB20P-223TLF.OLB")
+      (DeviceIndex "0"))
+    (DILB24P-224TLF
+      (FullPartName "DILB24P-224TLF.Normal")
+      (LibraryName
+         "C:\USERS\BENJA\APPDATA\ROAMING\SPB_DATA\CDSSETUP\ORCAD_CAPTURE\24.1.0\TEMP\DOWNLOADED_PARTS\SAMACSYS_PART_1730673702\DILB24P-224TLF\CAPTURE\DILB24P-224TLF.OLB")
+      (DeviceIndex "0"))
+    (DILB14P-223TLF
+      (FullPartName "DILB14P-223TLF.Normal")
+      (LibraryName
+         "C:\USERS\BENJA\APPDATA\ROAMING\SPB_DATA\CDSSETUP\ORCAD_CAPTURE\24.1.0\TEMP\DOWNLOADED_PARTS\SAMACSYS_PART_1730673639\DILB14P-223TLF\CAPTURE\DILB14P-223TLF.OLB")
+      (DeviceIndex "0"))
+    (DILB16P-223TLF
+      (FullPartName "DILB16P-223TLF.Normal")
+      (LibraryName
+         "C:\USERS\BENJA\APPDATA\ROAMING\SPB_DATA\CDSSETUP\ORCAD_CAPTURE\24.1.0\TEMP\DOWNLOADED_PARTS\SAMACSYS_PART_1730673293\DILB16P-223TLF\CAPTURE\DILB16P-223TLF.OLB")
+      (DeviceIndex "0"))
+    (9774015960R
+      (FullPartName "9774015960R.Normal")
+      (LibraryName
+         "C:\USERS\BENJA\APPDATA\ROAMING\SPB_DATA\CDSSETUP\ORCAD_CAPTURE\24.1.0\TEMP\DOWNLOADED_PARTS\SAMACSYS_PART_1730672569\9774015960R\CAPTURE\9774015960R.OLB")
+      (DeviceIndex "0"))
+    (ED281DT
+      (FullPartName "ED281DT.Normal")
+      (LibraryName
+         "C:\USERS\BENJA\APPDATA\ROAMING\SPB_DATA\CDSSETUP\ORCAD_CAPTURE\24.1.0\TEMP\DOWNLOADED_PARTS\SAMACSYS_PART_1729537237\ED281DT\CAPTURE\ED281DT.OLB")
+      (DeviceIndex "0"))
+    (705430038
+      (FullPartName "705430038.Normal")
+      (LibraryName
+         "C:\USERS\BENJA\APPDATA\ROAMING\SPB_DATA\CDSSETUP\ORCAD_CAPTURE\24.1.0\TEMP\DOWNLOADED_PARTS\UL_PART_1729533286\ORCADCAPTUREXML\WM4826-ND.OLB")
+      (DeviceIndex "0"))
+    (67997-210HLF
+      (FullPartName "67997-210HLF.Normal")
+      (LibraryName
+         "C:\USERS\BENJA\APPDATA\ROAMING\SPB_DATA\CDSSETUP\ORCAD_CAPTURE\24.1.0\TEMP\DOWNLOADED_PARTS\UL_PART_1729530901\ORCADCAPTUREXML\609-3236-ND.OLB")
+      (DeviceIndex "0"))
+    (705430011
+      (FullPartName "705430011.Normal")
+      (LibraryName
+         "C:\USERS\BENJA\APPDATA\ROAMING\SPB_DATA\CDSSETUP\ORCAD_CAPTURE\24.1.0\TEMP\DOWNLOADED_PARTS\UL_PART_1729526979\ORCADCAPTUREXML\WM4810-ND.OLB")
+      (DeviceIndex "0"))
+    (LD09S33E4GV00LF
+      (FullPartName "LD09S33E4GV00LF.Normal")
+      (LibraryName
+         "C:\USERS\BENJA\APPDATA\ROAMING\SPB_DATA\CDSSETUP\ORCAD_CAPTURE\24.1.0\TEMP\DOWNLOADED_PARTS\SAMACSYS_PART_1729523326\LD09S33E4GV00LF\CAPTURE\LD09S33E4GV00LF.OLB")
+      (DeviceIndex "0"))
+    (CUHZ5V6,H3F
+      (FullPartName "CUHZ5V6,H3F.Normal")
+      (LibraryName
+         "C:\USERS\BENJA\APPDATA\ROAMING\SPB_DATA\CDSSETUP\ORCAD_CAPTURE\24.1.0\TEMP\DOWNLOADED_PARTS\SAMACSYS_PART_1729521458\CUHZ5V6,H3F\CAPTURE\CUHZ5V6,H3F.OLB")
+      (DeviceIndex "0"))
+    (150080VS75000
+      (FullPartName "150080VS75000.Normal")
+      (LibraryName
+         "C:\USERS\BENJA\APPDATA\ROAMING\SPB_DATA\CDSSETUP\ORCAD_CAPTURE\24.1.0\TEMP\DOWNLOADED_PARTS\SAMACSYS_PART_1729519658\150080VS75000\CAPTURE\150080VS75000.OLB")
+      (DeviceIndex "0"))
+    (ERJ-6GEYJ103V
+      (FullPartName "ERJ-6GEYJ103V.Normal")
+      (LibraryName
+         "C:\USERS\BENJA\APPDATA\ROAMING\SPB_DATA\CDSSETUP\ORCAD_CAPTURE\24.1.0\TEMP\DOWNLOADED_PARTS\SAMACSYS_PART_1729518535\ERJ-6GEYJ103V\CAPTURE\ERJ-6GEYJ103V.OLB")
+      (DeviceIndex "0"))
+    (EVQ-Q2B02W
+      (FullPartName "EVQ-Q2B02W.Normal")
+      (LibraryName
+         "C:\USERS\BENJA\APPDATA\ROAMING\SPB_DATA\CDSSETUP\ORCAD_CAPTURE\24.1.0\TEMP\DOWNLOADED_PARTS\SAMACSYS_PART_1729518199\EVQ-Q2B02W\CAPTURE\EVQ-Q2B02W.OLB")
+      (DeviceIndex "0"))
+    (ECS-160-20-5PX-TR
+      (FullPartName "ECS-160-20-5PX-TR.Normal")
+      (LibraryName
+         "C:\USERS\BENJA\APPDATA\ROAMING\SPB_DATA\CDSSETUP\ORCAD_CAPTURE\24.1.0\TEMP\DOWNLOADED_PARTS\SAMACSYS_PART_1729517120\ECS-160-20-5PX-TR\CAPTURE\ECS-160-20-5PX-TR.OLB")
+      (DeviceIndex "0"))
+    (ABLS-4.9152MHZ-B4-T
+      (FullPartName "ABLS-4.9152MHZ-B4-T.Normal")
+      (LibraryName
+         "C:\USERS\BENJA\APPDATA\ROAMING\SPB_DATA\CDSSETUP\ORCAD_CAPTURE\24.1.0\TEMP\DOWNLOADED_PARTS\SAMACSYS_PART_1729515951\ABLS-4.9152MHZ-B4-T\CAPTURE\ABLS-4.9152MHZ-B4-T.OLB")
+      (DeviceIndex "0"))
+    (ECS-49-20-5PX-TR
+      (FullPartName "ECS-49-20-5PX-TR.Normal")
+      (LibraryName
+         "C:\USERS\BENJA\APPDATA\ROAMING\SPB_DATA\CDSSETUP\ORCAD_CAPTURE\24.1.0\TEMP\DOWNLOADED_PARTS\SAMACSYS_PART_1729515659\ECS-49-20-5PX-TR\CAPTURE\ECS-49-20-5PX-TR.OLB")
+      (DeviceIndex "0"))
+    (885012107010
+      (FullPartName "885012107010.Normal")
+      (LibraryName
+         "C:\USERS\BENJA\APPDATA\ROAMING\SPB_DATA\CDSSETUP\ORCAD_CAPTURE\24.1.0\TEMP\DOWNLOADED_PARTS\SAMACSYS_PART_1729514605\885012107010\CAPTURE\885012107010.OLB")
+      (DeviceIndex "0"))
+    (865080253012
+      (FullPartName "865080253012.Normal")
+      (LibraryName
+         "C:\USERS\BENJA\APPDATA\ROAMING\SPB_DATA\CDSSETUP\ORCAD_CAPTURE\24.1.0\TEMP\DOWNLOADED_PARTS\SAMACSYS_PART_1729513783\865080253012\CAPTURE\865080253012.OLB")
+      (DeviceIndex "0")))
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources"
+         "c:\users\benja\appdata\roaming\spb_data\cdssetup\workspace\projects\byggernnode1\byggernnode1.dsn")
+      (Path "Design Resources"
+         "c:\users\benja\appdata\roaming\spb_data\cdssetup\workspace\projects\byggernnode1\byggernnode1.dsn"
+         "SCHEMATIC1")
+      (Path "Layout")
+      (Path "Outputs")
+      (Path "Logs")
+      (Select "Design Resources"
+         "c:\users\benja\appdata\roaming\spb_data\cdssetup\workspace\projects\byggernnode1\byggernnode1.dsn"
+         "SCHEMATIC1" "PAGE1"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 0 200 0 769"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 5 24 5 1426 24 787")
+        (Scroll "0 136")
+        (Zoom "124")
+        (Occurrence "/"))
+      (Path
+         "C:\USERS\BENJA\APPDATA\ROAMING\SPB_DATA\CDSSETUP\WORKSPACE\PROJECTS\BYGGERNNODE1\BYGGERNNODE1.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "PAGE1")))
+  (MPSSessionName "benja")
+  (LastUsedLibraryBrowseDirectory
+     "C:\Users\benja\Downloads\Cadence_WR-TBL (rev23h)\WR-TBL_rev23h\Spring clamp\Pitch 3.81mm\6914183200xx")
+  (ISPCBBASICLICENSE "false"))

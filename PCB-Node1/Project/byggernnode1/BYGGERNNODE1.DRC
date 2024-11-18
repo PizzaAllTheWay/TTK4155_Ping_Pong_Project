@@ -1,0 +1,77 @@
+Date and Time : 11/03/24 23:57:11
+
+--------------------------------------------------
+Checking Schematic: SCHEMATIC1
+--------------------------------------------------
+Checking Electrical Rules 
+ERROR(ORCAP-1628): Possible pin type conflict GND  Power Connected to Output
+                    SCHEMATIC1, PAGE1  (88.90, 285.75) 
+ERROR(ORCAP-1628): Possible pin type conflict 5V  Power Connected to Output
+                    SCHEMATIC1, PAGE1  (353.06, 71.12) 
+ERROR(ORCAP-1628): Possible pin type conflict IC3,DGND  Power Connected to Output
+                    SCHEMATIC1, PAGE1  (318.77, 40.64) 
+ERROR(ORCAP-1628): Possible pin type conflict IC3,AGND  Power Connected to Output
+                    SCHEMATIC1, PAGE1  (354.33, 20.32) 
+ERROR(ORCAP-1628): Possible pin type conflict IC3,VDD  Power Connected to Output
+                    SCHEMATIC1, PAGE1  (354.33, 17.78) 
+ERROR(ORCAP-1628): Possible pin type conflict IC1,OUTPUT  Output Connected to Power
+                    SCHEMATIC1, PAGE1  (76.20, 26.67) 
+ERROR(ORCAP-1628): Possible pin type conflict IC3,VSS  Power Connected to Output
+                    SCHEMATIC1, PAGE1  (318.77, 20.32) 
+ERROR(ORCAP-1628): Possible pin type conflict IC1,GROUND  Power Connected to Output
+                    SCHEMATIC1, PAGE1  (76.20, 24.13) 
+
+Checking For Single Node Nets
+WARNING(ORCAP-1600): Net has fewer than two connections MSB0 
+                    SCHEMATIC1, PAGE1  (201.93, 135.89) 
+
+Checking For Unconnected Bus Nets
+
+Checking Physical Rules 
+
+
+Checking Pins and Pin Connections
+
+--------------------------------------------------
+Checking Schematic: SCHEMATIC1
+--------------------------------------------------
+
+INFO(ORCAP-2242): Checking Incorrect Pin Group Assignment
+
+Report for Invalid References
+
+Report for Duplicate References
+
+--------------------------------------------------
+Checking Entire Design: BYGGERNNODE1 
+--------------------------------------------------
+
+Checking Power Pin Visibility  
+
+Checking Normal Convert View Sync  
+INFO(ORCAP-36105): Checking Missing Pin Numbers  
+
+Checking Device with Zero pins  
+INFO(ORCAP-36101): Checking Missing PCB Footprint Property  
+
+Checking Name Property for Hierarchical Instances  
+
+INFO(ORCAP-2211): Check High Speed Properties Syntax
+
+INFO(ORCAP-2212): Check Power Ground Mismatch
+WARNING(ORCAP-1589): Net has two or more aliases that might lead to a short. Ensure nets are not shorted together or nets do not have two or more aliases. This message is displayed because 'Report all net names' is set in Design Rules Check dialog. 5V  GND  5V  SLIDERL  
+                    SCHEMATIC1, PAGE1  (179.07, 261.62) 
+WARNING(ORCAP-1589): Net has two or more aliases that might lead to a short. Ensure nets are not shorted together or nets do not have two or more aliases. This message is displayed because 'Report all net names' is set in Design Rules Check dialog. IC3,DGND  DGND  5V
+                    SCHEMATIC1, PAGE1  (318.77, 40.64) 
+WARNING(ORCAP-1589): Net has two or more aliases that might lead to a short. Ensure nets are not shorted together or nets do not have two or more aliases. This message is displayed because 'Report all net names' is set in Design Rules Check dialog. IC3,AGND  AGND  5V
+                    SCHEMATIC1, PAGE1  (354.33, 20.32) 
+WARNING(ORCAP-1589): Net has two or more aliases that might lead to a short. Ensure nets are not shorted together or nets do not have two or more aliases. This message is displayed because 'Report all net names' is set in Design Rules Check dialog. IC3,VDD  VDD  5V
+                    SCHEMATIC1, PAGE1  (354.33, 17.78) 
+WARNING(ORCAP-1589): Net has two or more aliases that might lead to a short. Ensure nets are not shorted together or nets do not have two or more aliases. This message is displayed because 'Report all net names' is set in Design Rules Check dialog. IC3,VSS  VSS  5V
+                    SCHEMATIC1, PAGE1  (318.77, 20.32) 
+WARNING(ORCAP-1589): Net has two or more aliases that might lead to a short. Ensure nets are not shorted together or nets do not have two or more aliases. This message is displayed because 'Report all net names' is set in Design Rules Check dialog. IC1,GROUND  GROUND  5V
+                    SCHEMATIC1, PAGE1  (76.20, 24.13) 
+
+Reporting Unused Refdes in multiple part packages
+Part	                       Quantity	                       Reference
+-----------------------------------------------------------------------------------------

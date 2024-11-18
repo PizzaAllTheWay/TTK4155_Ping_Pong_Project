@@ -1,0 +1,468 @@
+{
+	"Gate Swap" : [],
+	"Ref Des" : [],
+	"Pin Swap" : [],
+	"Component Property" : [],
+	"Net Property" : [],
+	"Pin Property" : [],
+	"Component" : [
+		{
+			"Name" : "C1",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins14696@\\865080253012\\.\\865080253012.normal\\(chips)",
+			"Logical" : "865080253012_CAPAE830X1050N_865",
+			"Physical" : "865080253012_CAPAE830X1050N_10.5 MM_865080253012"
+		},
+		{
+			"Name" : "C10",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins66487@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_10U",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_10U"
+		},
+		{
+			"Name" : "C11",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins62644@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_20P",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_20P"
+		},
+		{
+			"Name" : "C12",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins62668@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_10U",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_10U"
+		},
+		{
+			"Name" : "C13",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins29909@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_20P",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_20P"
+		},
+		{
+			"Name" : "C14",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins29933@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_10U",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_10U"
+		},
+		{
+			"Name" : "C15",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins29987@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_10U",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_10U"
+		},
+		{
+			"Name" : "C16",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins15310@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_10U",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_10U"
+		},
+		{
+			"Name" : "C17",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins14968@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_10U",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_10U"
+		},
+		{
+			"Name" : "C18",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins15269@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_10U",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_10U"
+		},
+		{
+			"Name" : "C19",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins18299@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_20P",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_20P"
+		},
+		{
+			"Name" : "C2",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins14093@\\865080457015\\.\\865080457015.normal\\(chips)",
+			"Logical" : "865080457015_CAPAE1030X1050N_86",
+			"Physical" : "865080457015_CAPAE1030X1050N_10.5 MM_865080457015"
+		},
+		{
+			"Name" : "C20",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins18323@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_20P",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_20P"
+		},
+		{
+			"Name" : "C21",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins22432@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_20P",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_20P"
+		},
+		{
+			"Name" : "C22",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins22092@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_10U",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_10U"
+		},
+		{
+			"Name" : "C23",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins46205@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_100N",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_100N"
+		},
+		{
+			"Name" : "C24",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins46245@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_100N",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_100N"
+		},
+		{
+			"Name" : "C25",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins36319@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_10U",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_10U"
+		},
+		{
+			"Name" : "C26",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins36250@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_10U",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_10U"
+		},
+		{
+			"Name" : "C27",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins17521@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_20P",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_20P"
+		},
+		{
+			"Name" : "C28",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins17567@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_20P",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_20P"
+		},
+		{
+			"Name" : "C29",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins29187@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_20P",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_20P"
+		},
+		{
+			"Name" : "C3",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins32034@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_20P",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_20P"
+		},
+		{
+			"Name" : "C30",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins28941@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_10U",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_10U"
+		},
+		{
+			"Name" : "C31",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins86467@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_20P",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_20P"
+		},
+		{
+			"Name" : "C32",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins86491@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_10U",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_10U"
+		},
+		{
+			"Name" : "C33",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins87839@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_10U",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_10U"
+		},
+		{
+			"Name" : "C4",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins32058@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_10U",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_10U"
+		},
+		{
+			"Name" : "C5",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins15846@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_10U",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_10U"
+		},
+		{
+			"Name" : "C6",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins15958@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_10U",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_10U"
+		},
+		{
+			"Name" : "C7",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins32888@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_20P",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_20P"
+		},
+		{
+			"Name" : "C8",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins19509@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_10U",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_10U"
+		},
+		{
+			"Name" : "C9",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins66463@\\885012107010\\.\\885012107010.normal\\(chips)",
+			"Logical" : "885012107010_CAPC2012X145N_20P",
+			"Physical" : "885012107010_CAPC2012X145N_1.45 MM_20P"
+		},
+		{
+			"Name" : "CAN_CONN1",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins47865@\\952-2263-nd\\.\\m20-9990345.normal\\(sch_1)",
+			"Logical" : "M20-9990345_CONN_M20-99903XX_HR",
+			"Physical" : "M20-9990345_CONN_M20-99903XX_HRW_CONN_003P_000C_1"
+		},
+		{
+			"Name" : "D1",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins107793@\\sp3031-01etg\\.\\sp3031-01etg.normal\\(chips)",
+			"Logical" : "SP3031-01ETG_SP303101ETG_SP3031",
+			"Physical" : "SP3031-01ETG_SP303101ETG_0.6 MM_SP3031-01ETG"
+		},
+		{
+			"Name" : "D2",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins107386@\\sp3031-01etg\\.\\sp3031-01etg.normal\\(chips)",
+			"Logical" : "SP3031-01ETG_SP303101ETG_SP3031",
+			"Physical" : "SP3031-01ETG_SP303101ETG_0.6 MM_SP3031-01ETG"
+		},
+		{
+			"Name" : "H1",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins89848@\\9774015960r\\.\\9774015960r.normal\\(chips)",
+			"Logical" : "9774015960R_9774015960R_MOUNT",
+			"Physical" : "9774015960R_9774015960R_1.6 MM_MOUNT"
+		},
+		{
+			"Name" : "H2",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins89870@\\9774015960r\\.\\9774015960r.normal\\(chips)",
+			"Logical" : "9774015960R_9774015960R_MOUNT",
+			"Physical" : "9774015960R_9774015960R_1.6 MM_MOUNT"
+		},
+		{
+			"Name" : "H3",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins89900@\\9774015960r\\.\\9774015960r.normal\\(chips)",
+			"Logical" : "9774015960R_9774015960R_MOUNT",
+			"Physical" : "9774015960R_9774015960R_1.6 MM_MOUNT"
+		},
+		{
+			"Name" : "IC1",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins13066@mc7805actg.\\mc7805actg.normal\\(chips)",
+			"Logical" : "MC7805ACTG_TO254P482X997X2018-3",
+			"Physical" : "MC7805ACTG_TO254P482X997X2018-3P_4.82 MM_MC7805ACTG"
+		},
+		{
+			"Name" : "IC2",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins550@sn74hc00n.\\sn74hc00n.normal\\(chips)",
+			"Logical" : "SN74HC00N_DIPS762W60P254L1778H5",
+			"Physical" : "SN74HC00N_DIPS762W60P254L1778H530Q14N_5.08 MM_SN74HC00N"
+		},
+		{
+			"Name" : "IC3",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins441@\\max156bcng+\\.\\max156bcng+.normal\\(chips)",
+			"Logical" : "MAX156BCNG+_DIPS762W60P254L3048",
+			"Physical" : "MAX156BCNG+_DIPS762W60P254L3048H525Q24N_4.572 MM_MAX156BCNG+"
+		},
+		{
+			"Name" : "IC4",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins102@\\atmega162-16pu\\.\\atmega162-16pu.normal\\(chips)",
+			"Logical" : "ATMEGA162-16PU_DIPS1544W70P254L",
+			"Physical" : "ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU"
+		},
+		{
+			"Name" : "IC5",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins336@sn74als573cn.\\sn74als573cn.normal\\(chips)",
+			"Logical" : "SN74ALS573CN_DILB20P223TLF_SN74",
+			"Physical" : "SN74ALS573CN_DILB20P223TLF_5.08 MM_SN74ALS573CN"
+		},
+		{
+			"Name" : "IC6",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins95527@\\max233cpp+\\.\\max233cpp+.normal\\(chips)",
+			"Logical" : "MAX233CPP+_DILB20P223TLF_MAX233",
+			"Physical" : "MAX233CPP+_DILB20P223TLF_4.572 MM_MAX233CPP+"
+		},
+		{
+			"Name" : "IC7",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins631@\\mcp2515-i_p\\.\\mcp2515-i_p.normal\\(chips)",
+			"Logical" : "MCP2515-I_P_DIPS762W60P254L2286",
+			"Physical" : "MCP2515-I_P_DIPS762W60P254L2286H525Q18N_5.334 MM_MCP2515-I_P"
+		},
+		{
+			"Name" : "IC8",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins704@\\mcp2551-i_p\\.\\mcp2551-i_p.normal\\(chips)",
+			"Logical" : "MCP2551-I_P_DIPS762W60P254L1016",
+			"Physical" : "MCP2551-I_P_DIPS762W60P254L1016H525Q8N_4.32 MM_MCP2551-I_P"
+		},
+		{
+			"Name" : "J1",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins82256@\\wr-tbl_6914183200xx\\.\\691418320002.normal\\(chips)",
+			"Logical" : "691418320002_WR-TBL_69141832000",
+			"Physical" : "691418320002_WR-TBL_691418320002_691418320002"
+		},
+		{
+			"Name" : "J2",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\\ed281dt_1.normal\\(chips)",
+			"Logical" : "ED281DT_1_DIPS762W80P254L3556H5",
+			"Physical" : "ED281DT_1_DIPS762W80P254L3556H525Q28N_5.25 MM_ED281DT"
+		},
+		{
+			"Name" : "J5",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins105287@\\618009231121\\.\\618009231121.normal\\(chips)",
+			"Logical" : "618009231121_618009231121_61800",
+			"Physical" : "618009231121_618009231121_12.8 MM_618009231121"
+		},
+		{
+			"Name" : "JTAG_CONN1",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins40919@\\609-3236-nd\\.\\67997-210hlf.normal\\(sch_1)",
+			"Logical" : "67997-210HLF_CONN_67997-210HLF_",
+			"Physical" : "67997-210HLF_CONN_67997-210HLF_AMP_CONN_67997-210HLF"
+		},
+		{
+			"Name" : "JOYSTICK_CONN1",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins34365@\\952-2263-nd\\.\\m20-9990345.normal\\(sch_1)",
+			"Logical" : "M20-9990345_CONN_M20-99903XX_HR",
+			"Physical" : "M20-9990345_CONN_M20-99903XX_HRW_CONN_003P_000C_1"
+		},
+		{
+			"Name" : "LED1",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins19388@\\150080vs75000\\.\\150080vs75000.normal\\(chips)",
+			"Logical" : "150080VS75000_LEDC2012X80N_1500",
+			"Physical" : "150080VS75000_LEDC2012X80N_0.8 MM_150080VS75000"
+		},
+		{
+			"Name" : "LED2",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins25785@\\150080vs75000\\.\\150080vs75000.normal\\(chips)",
+			"Logical" : "150080VS75000_LEDC2012X80N_1500",
+			"Physical" : "150080VS75000_LEDC2012X80N_0.8 MM_150080VS75000"
+		},
+		{
+			"Name" : "LED3",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins25831@\\150080vs75000\\.\\150080vs75000.normal\\(chips)",
+			"Logical" : "150080VS75000_LEDC2012X80N_1500",
+			"Physical" : "150080VS75000_LEDC2012X80N_0.8 MM_150080VS75000"
+		},
+		{
+			"Name" : "OLED_CONN1",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins39340@\\wm4810-nd\\.\\705430011.normal\\(sch_1)",
+			"Logical" : "705430011_CONN_SDA-70543-XXXX_1",
+			"Physical" : "705430011_CONN_SDA-70543-XXXX_12_MOL_CONN_012P_000C_1"
+		},
+		{
+			"Name" : "R1",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins19596@\\erj-6geyj103v\\.\\erj-6geyj103v.normal\\(chips)",
+			"Logical" : "ERJ-6GEYJ103V_RESC2012X70N_10K",
+			"Physical" : "ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_10K"
+		},
+		{
+			"Name" : "R10",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins34405@\\erj-6geyj103v\\.\\erj-6geyj103v.normal\\(chips)",
+			"Logical" : "ERJ-6GEYJ103V_RESC2012X70N_330R",
+			"Physical" : "ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_330R"
+		},
+		{
+			"Name" : "R11",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins34429@\\erj-6geyj103v\\.\\erj-6geyj103v.normal\\(chips)",
+			"Logical" : "ERJ-6GEYJ103V_RESC2012X70N_330R",
+			"Physical" : "ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_330R"
+		},
+		{
+			"Name" : "R12",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins28068@\\erj-6geyj103v\\.\\erj-6geyj103v.normal\\(chips)",
+			"Logical" : "ERJ-6GEYJ103V_RESC2012X70N_10K",
+			"Physical" : "ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_10K"
+		},
+		{
+			"Name" : "R13",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins26010@\\erj-6geyj103v\\.\\erj-6geyj103v.normal\\(chips)",
+			"Logical" : "ERJ-6GEYJ103V_RESC2012X70N_330R",
+			"Physical" : "ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_330R"
+		},
+		{
+			"Name" : "R14",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins26068@\\erj-6geyj103v\\.\\erj-6geyj103v.normal\\(chips)",
+			"Logical" : "ERJ-6GEYJ103V_RESC2012X70N_330R",
+			"Physical" : "ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_330R"
+		},
+		{
+			"Name" : "R15",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins27720@\\erj-6geyj103v\\.\\erj-6geyj103v.normal\\(chips)",
+			"Logical" : "ERJ-6GEYJ103V_RESC2012X70N_INF",
+			"Physical" : "ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_INF"
+		},
+		{
+			"Name" : "R16",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins27682@\\erj-6geyj103v\\.\\erj-6geyj103v.normal\\(chips)",
+			"Logical" : "ERJ-6GEYJ103V_RESC2012X70N_120R",
+			"Physical" : "ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_120R"
+		},
+		{
+			"Name" : "R2",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins18759@\\erj-6geyj103v\\.\\erj-6geyj103v.normal\\(chips)",
+			"Logical" : "ERJ-6GEYJ103V_RESC2012X70N_330R",
+			"Physical" : "ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_330R"
+		},
+		{
+			"Name" : "R3",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins61006@\\erj-6geyj103v\\.\\erj-6geyj103v.normal\\(chips)",
+			"Logical" : "ERJ-6GEYJ103V_RESC2012X70N_10K",
+			"Physical" : "ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_10K"
+		},
+		{
+			"Name" : "R4",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins61458@\\erj-6geyj103v\\.\\erj-6geyj103v.normal\\(chips)",
+			"Logical" : "ERJ-6GEYJ103V_RESC2012X70N_10K",
+			"Physical" : "ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_10K"
+		},
+		{
+			"Name" : "R5",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins61850@\\erj-6geyj103v\\.\\erj-6geyj103v.normal\\(chips)",
+			"Logical" : "ERJ-6GEYJ103V_RESC2012X70N_10K",
+			"Physical" : "ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_10K"
+		},
+		{
+			"Name" : "R6",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins61912@\\erj-6geyj103v\\.\\erj-6geyj103v.normal\\(chips)",
+			"Logical" : "ERJ-6GEYJ103V_RESC2012X70N_10K",
+			"Physical" : "ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_10K"
+		},
+		{
+			"Name" : "R7",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins71894@\\erj-6geyj103v\\.\\erj-6geyj103v.normal\\(chips)",
+			"Logical" : "ERJ-6GEYJ103V_RESC2012X70N_10K",
+			"Physical" : "ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_10K"
+		},
+		{
+			"Name" : "R8",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins44623@\\erj-6geyj103v\\.\\erj-6geyj103v.normal\\(chips)",
+			"Logical" : "ERJ-6GEYJ103V_RESC2012X70N_2K",
+			"Physical" : "ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_2K"
+		},
+		{
+			"Name" : "R9",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins44665@\\erj-6geyj103v\\.\\erj-6geyj103v.normal\\(chips)",
+			"Logical" : "ERJ-6GEYJ103V_RESC2012X70N_2K",
+			"Physical" : "ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_2K"
+		},
+		{
+			"Name" : "S1",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins18643@\\evq-q2b02w\\.\\evq-q2b02w.normal\\(chips)",
+			"Logical" : "EVQ-Q2B02W_EVQQ2B02W_EVQ-Q2B02W",
+			"Physical" : "EVQ-Q2B02W_EVQQ2B02W_2.5 MM_EVQ-Q2B02W"
+		},
+		{
+			"Name" : "TOUCH_CONN1",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins43877@\\wm4826-nd\\.\\705430038.normal\\(sch_1)",
+			"Logical" : "705430038_CONN_SDA-70543-XXXX_0",
+			"Physical" : "705430038_CONN_SDA-70543-XXXX_04_MOL_CONN_004P_000C_1"
+		},
+		{
+			"Name" : "Y1",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins16619@\\abls-4.9152mhz-b4-t\\.\\abls-4.9152mhz-b4-t.normal\\(chips)",
+			"Logical" : "ABLS-4.9152MHZ-B4-T_ABLS_ABLS-4",
+			"Physical" : "ABLS-4.9152MHZ-B4-T_ABLS_ABLS-4.9152MHZ-B4-T"
+		},
+		{
+			"Name" : "Y2",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins17463@\\ecs-160-20-5px-tr\\.\\ecs-160-20-5px-tr.normal\\(chips)",
+			"Logical" : "ECS-160-20-5PX-TR_ECS160205PXTR",
+			"Physical" : "ECS-160-20-5PX-TR_ECS160205PXTR_4.3 MM_ECS-160-20-5PX-TR"
+		}
+	],
+	"Net" : [],
+	"Connection" : []
+}

@@ -1,0 +1,81 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    NC DRILL Log                                                     )
+(                                                                     )
+(    Drawing          : byggernnode1.brd                              )
+(    Software Version : 24.1P001                                      )
+(    Date/Time        : Wed Nov  6 06:11:42 2024                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+
+ Processing NC Parameters file 'nc_param.txt' ...
+
+ NC PARAMETERS
+ -------------
+
+ FORMAT   		3.5
+ MACHINE-OFFSET		x:0.00000	y:0.00000   (mm)
+ FEEDRATE		1
+ COORDINATES		ABSOLUTE
+ OUTPUT-UNITS		METRIC
+ TOOL-ORDER		INCREASING
+ REPEAT-CODES		YES
+ SUPPRESS-LEAD-ZEROES	NO
+ SUPPRESS-TRAIL-ZEROES	NO
+ SUPPRESS-EQUAL		NO
+ TOOL-SELECT		YES
+ HEADER			none
+ LEADER			12
+ CODE			ASCII
+ SEPARATE		YES
+ SEPARATE-ROUTING	YES
+ OPTIMIZE_DRILLING	YES
+ ENHANCED_EXCELLON	YES
+ SCALE			1.000000
+
+ WARNING(SPMHMF-368): Cannot find NC Drill tool file 'nc_tools.txt'
+ WARNING(SPMHMF-369): ... will auto-generate tool file 'nc_tools_auto.txt'.
+
+
+     Auto-generating tool file 'nc_tools_auto.txt' ...
+
+           Size  Plating  Tool        + Tolerance  - Tolerance
+
+         0.3000  P        T01            0.000000     0.000000
+         0.9144  P        T02            0.000000     0.000000
+         1.0000  P        T03            0.000000     0.000000
+         1.0160  P        T04            0.000000     0.000000
+         1.1000  P        T05            0.000000     0.000000
+         1.1684  P        T06            0.000000     0.000000
+         1.2000  P        T07            0.000000     0.000000
+         1.2901  P        T08            0.000000     0.000000
+         3.2000  P        T09            0.000000     0.000000
+         4.4000  P        T10            0.000000     0.000000
+
+
+Drill files being output to directory 'c:/users/benja/appdata/roaming/spb_data/cdssetup/workspace/projects/byggernnode1/allegro/output' ...
+
+
+
+     'byggernnode1-1-4.drl' created for holes connecting TOP and BOTTOM ; Plating = PLATED
+     -------------------------------------------------------------------------------------
+
+     Tool  Num     Size      +/- Tolerance     Plating   Quantity
+
+     T01    1.   0.3000    0.0000/  0.0000      PLATED        103
+     T02    2.   0.9144    0.0000/  0.0000      PLATED          6
+     T03    3.   1.0000    0.0000/  0.0000      PLATED         69
+     T04    4.   1.0160    0.0000/  0.0000      PLATED         10
+     T05    5.   1.1000    0.0000/  0.0000      PLATED         74
+     T06    6.   1.1684    0.0000/  0.0000      PLATED         16
+     T07    7.   1.2000    0.0000/  0.0000      PLATED         40
+     T08    8.   1.2901    0.0000/  0.0000      PLATED          3
+     T09    9.   3.2000    0.0000/  0.0000      PLATED          2
+     T10   10.   4.4000    0.0000/  0.0000      PLATED          3
+
+     ---- Total holes:                                        326
+
+     ---- Total head travel:              7.83 feet (2.39 meters)
+

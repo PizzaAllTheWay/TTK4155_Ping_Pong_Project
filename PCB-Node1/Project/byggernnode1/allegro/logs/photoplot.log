@@ -1,0 +1,590 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    ARTWORK LOG                                                      )
+(                                                                     )
+(    Drawing          : byggernnode1.brd                              )
+(    Software Version : 24.1P001                                      )
+(    Date/Time        : Wed Nov  6 06:11:47 2024                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+ ---- Photoplot outline rectangle not found; using drawing extents.
+
+
+
+Results from parameter file ...
+    DEVICE-TYPE           GERBER_RS274X
+    OUTPUT-UNITS          MM
+    FILM-SIZE             2400000 1600000
+    FORMAT                3.5
+    ABORT-ON-ERROR        NO
+    SCALE                 1
+    SUPPRESS-LEAD-ZEROES  NO
+    SUPPRESS-TRAIL-ZEROES NO
+    SUPPRESS-EQUAL        NO
+    UNDEF-APT-CONT        NO
+
+
+
+================================================================
+     PROCESSING FILM < 1_TOP >
+     TO FILE < c:/users/benja/appdata/roaming/spb_data/cdssetup/workspace/projects/byggernnode1/allegro/output/1_TOP.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.1500
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.0000
+  Offset y:                           0.0000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.25000                                  DARK 
+  CIRCLE     0.45000                                  DARK 
+  CIRCLE     1.40000                                  DARK 
+  CIRCLE     1.42240                                  DARK 
+  CIRCLE     1.50000                                  DARK 
+  CIRCLE     1.50010                                  DARK 
+  CIRCLE     1.52400                                  DARK 
+  CIRCLE     1.67640                                  DARK 
+  CIRCLE     1.93500                                  DARK 
+  CIRCLE     2.00000                                  DARK 
+  CIRCLE     4.80000                                  DARK 
+  CIRCLE     7.40000                                  DARK 
+  SQUARE     1.40000                     0.000 NO     DARK 
+  SQUARE     1.42240                     0.000 NO     DARK 
+  SQUARE     1.50010                     0.000 NO     DARK 
+  SQUARE     1.80000                     0.000 NO     DARK 
+  SQUARE     1.93500                     0.000 NO     DARK 
+  RECTANGLE  0.89990     x 1.40000       0.000 NO     DARK 
+  RECTANGLE  0.89990     x 1.40000      90.000 NO     DARK 
+  RECTANGLE  1.00000     x 3.19990      90.000 NO     DARK 
+  RECTANGLE  2.05000     x 4.65000       0.000 NO     DARK 
+  RECTANGLE  2.10010     x 4.40000       0.000 NO     DARK 
+  OBLONG     2.00000     x 1.60000       0.000 NO     DARK 
+
+     1_TOP created.
+
+
+================================================================
+     PROCESSING FILM < 2_LAYER_1 >
+     TO FILE < c:/users/benja/appdata/roaming/spb_data/cdssetup/workspace/projects/byggernnode1/allegro/output/2_LAYER_1.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.1500
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.0000
+  Offset y:                           0.0000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.25000                                  DARK 
+  CIRCLE     0.45000                                  DARK 
+  CIRCLE     1.40000                                  DARK 
+  CIRCLE     1.42240                                  DARK 
+  CIRCLE     1.50000                                  DARK 
+  CIRCLE     1.50010                                  DARK 
+  CIRCLE     1.52400                                  DARK 
+  CIRCLE     1.67640                                  DARK 
+  CIRCLE     1.80000                                  DARK 
+  CIRCLE     1.93500                                  DARK 
+  CIRCLE     4.80000                                  DARK 
+  CIRCLE     7.40000                                  DARK 
+  SQUARE     1.42240                     0.000 NO     DARK 
+
+     2_LAYER_1 created.
+
+
+================================================================
+     PROCESSING FILM < 3_GND >
+     TO FILE < c:/users/benja/appdata/roaming/spb_data/cdssetup/workspace/projects/byggernnode1/allegro/output/3_GND.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.1500
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.0000
+  Offset y:                           0.0000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.25000                                  DARK 
+  CIRCLE     0.45000                                  DARK 
+  CIRCLE     1.40000                                  DARK 
+  CIRCLE     1.42240                                  DARK 
+  CIRCLE     1.50000                                  DARK 
+  CIRCLE     1.50010                                  DARK 
+  CIRCLE     1.52400                                  DARK 
+  CIRCLE     1.67640                                  DARK 
+  CIRCLE     1.80000                                  DARK 
+  CIRCLE     1.93500                                  DARK 
+  CIRCLE     4.80000                                  DARK 
+  CIRCLE     7.40000                                  DARK 
+  SQUARE     1.42240                     0.000 NO     DARK 
+
+     3_GND created.
+
+
+================================================================
+     PROCESSING FILM < 4_BOTTOM >
+     TO FILE < c:/users/benja/appdata/roaming/spb_data/cdssetup/workspace/projects/byggernnode1/allegro/output/4_BOTTOM.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.1500
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.0000
+  Offset y:                           0.0000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.25000                                  DARK 
+  CIRCLE     0.45000                                  DARK 
+  CIRCLE     0.50000                                  DARK 
+  CIRCLE     0.75000                                  DARK 
+  CIRCLE     1.40000                                  DARK 
+  CIRCLE     1.42240                                  DARK 
+  CIRCLE     1.50000                                  DARK 
+  CIRCLE     1.50010                                  DARK 
+  CIRCLE     1.52400                                  DARK 
+  CIRCLE     1.67640                                  DARK 
+  CIRCLE     1.93500                                  DARK 
+  CIRCLE     4.80000                                  DARK 
+  CIRCLE     7.40000                                  DARK 
+  SQUARE     1.40000                     0.000 NO     DARK 
+  SQUARE     1.42240                     0.000 NO     DARK 
+  SQUARE     1.50010                     0.000 NO     DARK 
+  SQUARE     1.80000                     0.000 NO     DARK 
+  SQUARE     1.93500                     0.000 NO     DARK 
+  RECTANGLE  0.55000     x 0.60000      90.000 NO     DARK 
+  RECTANGLE  0.99010     x 1.46990       0.000 NO     DARK 
+  RECTANGLE  0.99010     x 1.46990      90.000 NO     DARK 
+  RECTANGLE  1.05000     x 1.40000       0.000 NO     DARK 
+  RECTANGLE  1.05000     x 1.40000      90.000 NO     DARK 
+  RECTANGLE  2.00000     x 5.50010       0.000 NO     DARK 
+  RECTANGLE  2.10010     x 5.59990       0.000 NO     DARK 
+  OBLONG     2.00000     x 1.60000       0.000 NO     DARK 
+
+     4_BOTTOM created.
+
+
+================================================================
+     PROCESSING FILM < NCLEGEND-1-4 >
+     TO FILE < c:/users/benja/appdata/roaming/spb_data/cdssetup/workspace/projects/byggernnode1/allegro/output/NCLEGEND-1-4.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.1500
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.0000
+  Offset y:                           0.0000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+    WARNING: 0 width line found at (1.2700 318.9300)
+           ... using undefined line width of 0.1500
+
+    WARNING: Multiple 0 width lines; all will be treated the same as the first.
+           ... using undefined line width of 0.1500
+
+    WARNING: text composed 0 width line found at (12.6873 412.9175)
+           ... using undefined line width of 0.1500
+
+    WARNING: text having Multiple 0 width lines; all will be treated the same as the first.
+           ... using undefined line width of 0.1500
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.15000                                  DARK 
+
+     NCLEGEND-1-4 created with warnings
+
+
+================================================================
+     PROCESSING FILM < Board_outline >
+     TO FILE < c:/users/benja/appdata/roaming/spb_data/cdssetup/workspace/projects/byggernnode1/allegro/output/Board_outline.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.1500
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.0000
+  Offset y:                           0.0000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.15000                                  DARK 
+
+     Board_outline created.
+
+
+================================================================
+     PROCESSING FILM < Soldermask_top >
+     TO FILE < c:/users/benja/appdata/roaming/spb_data/cdssetup/workspace/projects/byggernnode1/allegro/output/Soldermask_top.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.1500
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.0000
+  Offset y:                           0.0000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     1.42240                                  DARK 
+  CIRCLE     1.60000                                  DARK 
+  CIRCLE     1.70000                                  DARK 
+  CIRCLE     1.70010                                  DARK 
+  CIRCLE     1.72400                                  DARK 
+  CIRCLE     1.87640                                  DARK 
+  CIRCLE     2.13500                                  DARK 
+  CIRCLE     5.00000                                  DARK 
+  CIRCLE     7.40000                                  DARK 
+  SQUARE     1.60000                     0.000 NO     DARK 
+  SQUARE     1.62240                     0.000 NO     DARK 
+  SQUARE     1.70010                     0.000 NO     DARK 
+  SQUARE     2.00000                     0.000 NO     DARK 
+  SQUARE     2.13500                     0.000 NO     DARK 
+  RECTANGLE  1.09990     x 1.60000       0.000 NO     DARK 
+  RECTANGLE  1.09990     x 1.60000      90.000 NO     DARK 
+  RECTANGLE  1.20000     x 3.39990      90.000 NO     DARK 
+  RECTANGLE  2.25000     x 4.85000       0.000 NO     DARK 
+  RECTANGLE  2.30010     x 4.60000       0.000 NO     DARK 
+  OBLONG     2.20000     x 1.80000       0.000 NO     DARK 
+
+     Soldermask_top created.
+
+
+================================================================
+     PROCESSING FILM < Soldermask_bot >
+     TO FILE < c:/users/benja/appdata/roaming/spb_data/cdssetup/workspace/projects/byggernnode1/allegro/output/Soldermask_bot.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.1500
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.0000
+  Offset y:                           0.0000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     1.42240                                  DARK 
+  CIRCLE     1.60000                                  DARK 
+  CIRCLE     1.70000                                  DARK 
+  CIRCLE     1.70010                                  DARK 
+  CIRCLE     1.72400                                  DARK 
+  CIRCLE     1.87640                                  DARK 
+  CIRCLE     2.13500                                  DARK 
+  CIRCLE     5.00000                                  DARK 
+  CIRCLE     7.40000                                  DARK 
+  SQUARE     1.60000                     0.000 NO     DARK 
+  SQUARE     1.62240                     0.000 NO     DARK 
+  SQUARE     1.70010                     0.000 NO     DARK 
+  SQUARE     2.00000                     0.000 NO     DARK 
+  SQUARE     2.13500                     0.000 NO     DARK 
+  RECTANGLE  0.75000     x 0.80000      90.000 NO     DARK 
+  RECTANGLE  1.19010     x 1.66990       0.000 NO     DARK 
+  RECTANGLE  1.19010     x 1.66990      90.000 NO     DARK 
+  RECTANGLE  1.25000     x 1.60000       0.000 NO     DARK 
+  RECTANGLE  1.25000     x 1.60000      90.000 NO     DARK 
+  RECTANGLE  2.20000     x 5.70010       0.000 NO     DARK 
+  RECTANGLE  2.30010     x 5.79990       0.000 NO     DARK 
+  OBLONG     2.20000     x 1.80000       0.000 NO     DARK 
+
+     Soldermask_bot created.
+
+
+================================================================
+     PROCESSING FILM < Solderpaste_top >
+     TO FILE < c:/users/benja/appdata/roaming/spb_data/cdssetup/workspace/projects/byggernnode1/allegro/output/Solderpaste_top.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.1500
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.0000
+  Offset y:                           0.0000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  RECTANGLE  2.05000     x 4.65000       0.000 NO     DARK 
+  RECTANGLE  2.10010     x 3.89990       0.000 NO     DARK 
+
+     Solderpaste_top created.
+
+
+================================================================
+     PROCESSING FILM < Solderpaste_bot >
+     TO FILE < c:/users/benja/appdata/roaming/spb_data/cdssetup/workspace/projects/byggernnode1/allegro/output/Solderpaste_bot.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.1500
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.0000
+  Offset y:                           0.0000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  RECTANGLE  0.55000     x 0.60000      90.000 NO     DARK 
+  RECTANGLE  0.99010     x 1.46990       0.000 NO     DARK 
+  RECTANGLE  0.99010     x 1.46990      90.000 NO     DARK 
+  RECTANGLE  1.05000     x 1.40000       0.000 NO     DARK 
+  RECTANGLE  1.05000     x 1.40000      90.000 NO     DARK 
+  RECTANGLE  2.00000     x 5.50010       0.000 NO     DARK 
+  RECTANGLE  2.10010     x 5.59990       0.000 NO     DARK 
+
+     Solderpaste_bot created.
+
+
+================================================================
+     PROCESSING FILM < Assembly_top >
+     TO FILE < c:/users/benja/appdata/roaming/spb_data/cdssetup/workspace/projects/byggernnode1/allegro/output/Assembly_top.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.1500
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.0000
+  Offset y:                           0.0000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.10000                                  DARK 
+  CIRCLE     0.15000                                  DARK 
+  CIRCLE     0.20000                                  DARK 
+  CIRCLE     0.50800                                  DARK 
+
+     Assembly_top created.
+
+
+================================================================
+     PROCESSING FILM < Assembly_bot >
+     TO FILE < c:/users/benja/appdata/roaming/spb_data/cdssetup/workspace/projects/byggernnode1/allegro/output/Assembly_bot.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.1500
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.0000
+  Offset y:                           0.0000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.10000                                  DARK 
+  CIRCLE     0.15000                                  DARK 
+  CIRCLE     0.20000                                  DARK 
+
+     Assembly_bot created.
+
+
+================================================================
+     PROCESSING FILM < Silkscreen_top >
+     TO FILE < c:/users/benja/appdata/roaming/spb_data/cdssetup/workspace/projects/byggernnode1/allegro/output/Silkscreen_top.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.1500
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.0000
+  Offset y:                           0.0000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.10000                                  DARK 
+  CIRCLE     0.15000                                  DARK 
+  CIRCLE     0.15240                                  DARK 
+  CIRCLE     0.20000                                  DARK 
+  CIRCLE     0.50800                                  DARK 
+
+     Silkscreen_top created.
+
+
+================================================================
+     PROCESSING FILM < Silkscreen_bot >
+     TO FILE < c:/users/benja/appdata/roaming/spb_data/cdssetup/workspace/projects/byggernnode1/allegro/output/Silkscreen_bot.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.1500
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.0000
+  Offset y:                           0.0000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.10000                                  DARK 
+  CIRCLE     0.15000                                  DARK 
+  CIRCLE     0.20000                                  DARK 
+  CIRCLE     0.50800                                  DARK 
+
+     Silkscreen_bot created.
+
+
+================================================================
+     PROCESSING FILM < Cutout >
+     TO FILE < c:/users/benja/appdata/roaming/spb_data/cdssetup/workspace/projects/byggernnode1/allegro/output/Cutout.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.1500
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.0000
+  Offset y:                           0.0000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:  NONE
+     Cutout created.
+
+
+------------------------------------------------------
+ SUMMARY:
+        1_TOP created.
+        2_LAYER_1 created.
+        3_GND created.
+        4_BOTTOM created.
+        NCLEGEND-1-4 created with warnings
+        Board_outline created.
+        Soldermask_top created.
+        Soldermask_bot created.
+        Solderpaste_top created.
+        Solderpaste_bot created.
+        Assembly_top created.
+        Assembly_bot created.
+        Silkscreen_top created.
+        Silkscreen_bot created.
+        Cutout created.
+
+ ARTWORK had warnings

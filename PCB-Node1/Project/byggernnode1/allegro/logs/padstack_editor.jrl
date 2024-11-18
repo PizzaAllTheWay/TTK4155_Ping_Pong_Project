@@ -1,0 +1,9 @@
+\t (00:00:00) padstack_editor 24.1 P001 (4234998) [9/4/2024] Windows SPB 64-bit Edition
+\t (00:00:00)     Journal start - Wed Nov  6 06:04:05 2024
+\t (00:00:00)         Host=BENJAMIN-LENOVO User=benja Pid=47612 CPUs=20
+\t (00:00:00) CmdLine= padstack_editor -mpssession benja -file c:/windows/temp/#Taaaadv44684.tmp -pname C120_H80 -data c:/windows/temp/#Taaaady44684.tmp
+\t (00:00:00) 
+\d (00:00:01) QtSignal GuidedTabsParent GuidedTabs currentChanged Start
+\d (00:00:02) QtSignal GuidedTabsParent GuidedTabs currentChanged Drill
+\d (00:00:04) QtSignal MainWindow Exit triggered
+\t (00:00:04)     Journal end - Wed Nov  6 06:04:09 2024

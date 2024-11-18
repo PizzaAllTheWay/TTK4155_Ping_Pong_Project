@@ -1,0 +1,48 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    IPC-D-356                                                        )
+(                                                                     )
+(    Software Version : 24.1P001                                      )
+(    Date/Time        : Wed Nov  6 06:11:39 2024                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+Warning: String OLED_CONN1 exceeds record length on line 92 at column 21
+Warning: String OLED_CONN1 exceeds record length on line 99 at column 21
+Warning: String OLED_CONN1 exceeds record length on line 104 at column 21
+Warning: String OLED_CONN1 exceeds record length on line 109 at column 21
+Warning: String OLED_CONN1 exceeds record length on line 114 at column 21
+Warning: String OLED_CONN1 exceeds record length on line 119 at column 21
+Warning: String OLED_CONN1 exceeds record length on line 124 at column 21
+Warning: String OLED_CONN1 exceeds record length on line 129 at column 21
+Warning: String OLED_CONN1 exceeds record length on line 134 at column 21
+Warning: String JOYSTICK_CONN1 exceeds record length on line 150 at column 21
+Warning: String JOYSTICK_CONN1 exceeds record length on line 164 at column 21
+Warning: String CAN_CONN1 exceeds record length on line 182 at column 21
+Warning: String JTAG_CONN1 exceeds record length on line 184 at column 21
+Warning: String JTAG_CONN1 exceeds record length on line 185 at column 21
+Warning: String OLED_CONN1 exceeds record length on line 306 at column 21
+Warning: String TOUCH_CONN1 exceeds record length on line 335 at column 21
+Warning: String JOYSTICK_CONN1 exceeds record length on line 337 at column 21
+Warning: String CAN_CONN1 exceeds record length on line 354 at column 21
+Warning: String CAN_CONN1 exceeds record length on line 358 at column 21
+Warning: String TOUCH_CONN1 exceeds record length on line 361 at column 21
+Warning: String TOUCH_CONN1 exceeds record length on line 385 at column 21
+Warning: String TOUCH_CONN1 exceeds record length on line 389 at column 21
+Warning: String JTAG_CONN1 exceeds record length on line 414 at column 21
+Warning: String OLED_CONN1 exceeds record length on line 469 at column 21
+Warning: String JTAG_CONN1 exceeds record length on line 491 at column 21
+Warning: String JTAG_CONN1 exceeds record length on line 493 at column 21
+Warning: String JTAG_CONN1 exceeds record length on line 495 at column 21
+Warning: String JTAG_CONN1 exceeds record length on line 497 at column 21
+Warning: String OLED_CONN1 exceeds record length on line 504 at column 21
+Warning: String JTAG_CONN1 exceeds record length on line 505 at column 21
+Warning: String JTAG_CONN1 exceeds record length on line 506 at column 21
+Warning: String JTAG_CONN1 exceeds record length on line 507 at column 21
+
+
+------------------------------------------
+SUMMARY:
+  Errors:       0
+  Warnings:    32

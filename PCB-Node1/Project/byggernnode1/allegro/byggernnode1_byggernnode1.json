@@ -1,0 +1,61 @@
+{
+	"Gate Swap" : [],
+	"Ref Des" : [],
+	"Pin Swap" : [],
+	"Component Property" : [],
+	"Net Property" : [],
+	"Pin Property" : [],
+	"Component" : [
+		{
+			"Name" : "Z2",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins20596@\\cuhz5v6,h3f\\.\\cuhz5v6,h3f.normal\\(chips)",
+			"Logical" : null,
+			"Physical" : "Z2"
+		},
+		{
+			"Name" : "Z1",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins20986@\\cuhz5v6,h3f\\.\\cuhz5v6,h3f.normal\\(chips)",
+			"Logical" : null,
+			"Physical" : "Z1"
+		},
+		{
+			"Name" : "D1",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins107793@\\sp3031-01etg\\.\\sp3031-01etg.normal\\(chips)",
+			"Logical" : "D1",
+			"Physical" : null
+		},
+		{
+			"Name" : "D2",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins107386@\\sp3031-01etg\\.\\sp3031-01etg.normal\\(chips)",
+			"Logical" : "D2",
+			"Physical" : null
+		}
+	],
+	"Net" : [],
+	"Connection" : [
+		{
+			"Name" : "D1.1",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins107793@\\sp3031-01etg\\.\\sp3031-01etg.normal\\(chips):K",
+			"Logical" : "5V",
+			"Physical" : null
+		},
+		{
+			"Name" : "D1.2",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins107793@\\sp3031-01etg\\.\\sp3031-01etg.normal\\(chips):A",
+			"Logical" : "GND",
+			"Physical" : null
+		},
+		{
+			"Name" : "D2.1",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins107386@\\sp3031-01etg\\.\\sp3031-01etg.normal\\(chips):K",
+			"Logical" : "RESET",
+			"Physical" : null
+		},
+		{
+			"Name" : "D2.2",
+			"C_PATH" : "@byggernnode1.schematic1(sch_1):ins107386@\\sp3031-01etg\\.\\sp3031-01etg.normal\\(chips):A",
+			"Logical" : "GND",
+			"Physical" : null
+		}
+	]
+}

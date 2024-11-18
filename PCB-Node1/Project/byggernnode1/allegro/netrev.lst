@@ -1,0 +1,113 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    Allegro Netrev Import Logic                                      )
+(                                                                     )
+(    Drawing          : byggernnode1.brd                              )
+(    Software Version : 24.1P001                                      )
+(    Date/Time        : Mon Nov  4 06:29:37 2024                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+------ Directives ------------
+
+Ripup etch:                  No
+Ripup delete first segment:  No
+Ripup retain bondwire:       No
+Ripup symbols:               Always
+Missing symbol has error:    No
+DRC update:                  Yes
+Schematic directory:         'c:\users\benja\appdata\roaming\spb_data\cdssetup\workspace\projects\byggernnode1\allegro'
+Design Directory:            'c:/users/benja/appdata/roaming/spb_data/cdssetup/workspace/projects/byggernnode1/allegro'
+Old design name:             'c:/users/benja/appdata/roaming/spb_data/cdssetup/workspace/projects/byggernnode1/allegro/byggernnode1.brd'
+New design name:             'c:/users/benja/appdata/roaming/spb_data/cdssetup/workspace/projects/byggernnode1/allegro/byggernnode1.brd'
+
+CmdLine: netrev -y 1 -i c:\users\benja\appdata\roaming\spb_data\cdssetup\workspace\projects\byggernnode1\allegro -q netrev_constraint_report.xml c:/users/benja/appdata/roaming/spb_data/cdssetup/workspace/projects/byggernnode1/allegro/#Taaaact06228.tmp
+
+------ Preparing to read pst files ------
+
+Starting to read c:/users/benja/appdata/roaming/spb_data/cdssetup/workspace/projects/byggernnode1/allegro/pstchip.dat 
+   Finished reading c:/users/benja/appdata/roaming/spb_data/cdssetup/workspace/projects/byggernnode1/allegro/pstchip.dat (00:00:00.01)
+Starting to read c:/users/benja/appdata/roaming/spb_data/cdssetup/workspace/projects/byggernnode1/allegro/pstxprt.dat 
+   Finished reading c:/users/benja/appdata/roaming/spb_data/cdssetup/workspace/projects/byggernnode1/allegro/pstxprt.dat (00:00:00.00)
+Starting to read c:/users/benja/appdata/roaming/spb_data/cdssetup/workspace/projects/byggernnode1/allegro/pstxnet.dat 
+   Finished reading c:/users/benja/appdata/roaming/spb_data/cdssetup/workspace/projects/byggernnode1/allegro/pstxnet.dat (00:00:00.00)
+
+------ Oversights/Warnings/Errors ------
+
+
+------ Library Paths ------
+MODULEPATH =  . 
+           C:/Cadence/company/pcb/modules 
+
+PSMPATH =  . 
+           symbols 
+           C:/Cadence/company/pcb/symbols/connector 
+           C:/Cadence/company/pcb/symbols/ic 
+           C:/Cadence/company/pcb/symbols/other_symbols 
+           C:/Cadence/company/pcb/symbols/padsyms 
+           C:/Cadence/company/pcb/symbols/smd_misc 
+           C:/Cadence/company/pcb/symbols/tht_misc 
+           C:/Cadence/company/pcb/symbols/Student 
+           C:/Cadence/company/pcb/symbols/SmartStart 
+           C:/Cadence/_vortex/sch/ARDUINO_NANO 
+           C:/Cadence/Component_library/symbols/symbols 
+           C:/Cadence/Component_library/symbols/symbols/Cadence_WCAP-ASLL 
+           (rev22b)/WCAP-ASLL_rev22b/16x17 
+           C:/Cadence/Component_library/symbols 
+           C:/Users/benja/AppData/Roaming/SPB_Data/cdssetup/OrCAD_Capture/17.4.0/downloaded_parts/allegropcb 
+           C:/Cadence/Component_library/padstacks 
+           C:/Users/benja/AppData/Roaming/SPB_Data/cdssetup/OrCAD_Capture/23.1.0/downloaded_parts/allegropcb 
+           C:/Users/benja/AppData/Roaming/SPB_Data/cdssetup/OrCAD_Capture/24.1.0/downloaded_parts/allegropcb 
+           C:/Users/benja/AppData/Roaming/SPB_Data/cdssetup/OrCAD_Capture/24.1.0/downloaded_parts/Wurth 
+           C:/Users/benja/Downloads/Cadence_WR-TBL (rev23h)/WR-TBL_rev23h/Spring clamp/Pitch 3.81mm/6914183200xx 
+           C:/Users/benja/Downloads/Cadence_WR-TBL (rev23h)/WR-TBL_rev23h/Spring clamp/Pitch 3.81mm/6914183200xx 
+
+PADPATH =  . 
+           symbols 
+           padstacks 
+           C:/Users/benja/AppData/Roaming/SPB_Data/cdssetup/OrCAD_Capture/17.4.0/downloaded_parts/allegropcb 
+           C:/Cadence/Component_library/padstacks 
+           C:/Cadence/company/pcb/padstacks 
+           C:/Cadence/company/pcb/padstacks/student 
+           C:/Cadence/company/pcb/padstacks/smartstart 
+           C:/Cadence/Component_library/symbols/symbols 
+           C:/Cadence/Component_library/padstacks/padstacks 
+           C:/Cadence/Component_library/symbols/symbols/Cadence_WCAP-ASLL 
+           (rev22b)/WCAP-ASLL_rev22b/16x17 
+           C:/Users/benja/AppData/Roaming/SPB_Data/cdssetup/OrCAD_Capture/23.1.0/downloaded_parts/allegropcb 
+           C:/Users/benja/AppData/Roaming/SPB_Data/cdssetup/OrCAD_Capture/24.1.0/downloaded_parts/allegropcb 
+           C:/Users/benja/AppData/Roaming/SPB_Data/cdssetup/OrCAD_Capture/24.1.0/downloaded_parts/Wurth 
+
+
+------ Summary Statistics ------
+
+
+netrev run on Nov 4 6:29:37 2024
+   DESIGN NAME : 'BYGGERNNODE1'
+   PACKAGING ON Sep  4 2024 20:54:11
+
+   COMPILE 'logic'
+   CHECK_PIN_NAMES OFF
+   CROSS_REFERENCE OFF
+   FEEDBACK OFF
+   INCREMENTAL OFF
+   INTERFACE_TYPE PHYSICAL
+   MAX_ERRORS 500
+   MERGE_MINIMUM 5
+   NET_NAME_CHARS '#%&()*+-./:=>?@[]^_`|'
+   NET_NAME_LENGTH 24
+   OVERSIGHTS ON
+   REPLACE_CHECK OFF
+   SINGLE_NODE_NETS ON
+   SPLIT_MINIMUM 0
+   SUPPRESS   20
+   WARNINGS ON
+
+ No error detected
+ No oversight detected
+ No warning detected
+
+cpu time      0:00:19
+elapsed time  0:00:00
+

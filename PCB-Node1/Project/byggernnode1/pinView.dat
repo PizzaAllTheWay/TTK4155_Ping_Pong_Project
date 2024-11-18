@@ -1,0 +1,341 @@
+A!NET_NAME!REFDES!PIN_NUMBER!FUNC_LOGICAL_PATH!COMP_DEVICE_TYPE!FUNC_SCH_SIZE!FUNC_HAS_FIXED_SIZE!FUNC_DES!PIN_NET_SHORT!PIN_NO_SWAP_PIN!PIN_NO_PIN_ESCAPE!PIN_CDS_PINID!PIN_XNET_PINS!PIN_PIN_ESCAPE!PIN_PIN_SIGNAL_MODEL!PIN_NO_DRC!PIN_NO_SHAPE_CONNECT!
+J!C:/Users/benja/AppData/Roaming/SPB_Data/cdssetup/workspace/projects/byggernnode1/autosave_benja.brd!Mon Nov  4 19:16:34 2024!0.0000!0.0000!533.4000!431.8000!0.0001!millimeters!BYGGERNNODE1!28.800000 mil!4!UP TO DATE!
+S!GND!D1!2!@byggernnode1.schematic1(sch_1):ins107793@\sp3031-01etg\.\sp3031-01etg.normal\(chips)!SP3031-01ETG_SP303101ETG_0.6 MM_SP3031-01ETG!!!F40!!!!!!!!!!
+S!5V!D1!1!@byggernnode1.schematic1(sch_1):ins107793@\sp3031-01etg\.\sp3031-01etg.normal\(chips)!SP3031-01ETG_SP303101ETG_0.6 MM_SP3031-01ETG!!!F40!!!!!!!!!!
+S!GND!D2!2!@byggernnode1.schematic1(sch_1):ins107386@\sp3031-01etg\.\sp3031-01etg.normal\(chips)!SP3031-01ETG_SP303101ETG_0.6 MM_SP3031-01ETG!!!F39!!!!!!!!!!
+S!RESET!D2!1!@byggernnode1.schematic1(sch_1):ins107386@\sp3031-01etg\.\sp3031-01etg.normal\(chips)!SP3031-01ETG_SP303101ETG_0.6 MM_SP3031-01ETG!!!F39!!!!!!!!!!
+S!!J5!1!@byggernnode1.schematic1(sch_1):ins105287@\618009231121\.\618009231121.normal\(chips)!618009231121_618009231121_12.8 MM_618009231121!!!F25!!!!!!!!!!
+S!RS232_RX!J5!2!@byggernnode1.schematic1(sch_1):ins105287@\618009231121\.\618009231121.normal\(chips)!618009231121_618009231121_12.8 MM_618009231121!!!F25!!!!!!!!!!
+S!RS232_TX!J5!3!@byggernnode1.schematic1(sch_1):ins105287@\618009231121\.\618009231121.normal\(chips)!618009231121_618009231121_12.8 MM_618009231121!!!F25!!!!!!!!!!
+S!!J5!4!@byggernnode1.schematic1(sch_1):ins105287@\618009231121\.\618009231121.normal\(chips)!618009231121_618009231121_12.8 MM_618009231121!!!F25!!!!!!!!!!
+S!GND!J5!5!@byggernnode1.schematic1(sch_1):ins105287@\618009231121\.\618009231121.normal\(chips)!618009231121_618009231121_12.8 MM_618009231121!!!F25!!!!!!!!!!
+S!!J5!6!@byggernnode1.schematic1(sch_1):ins105287@\618009231121\.\618009231121.normal\(chips)!618009231121_618009231121_12.8 MM_618009231121!!!F25!!!!!!!!!!
+S!!J5!7!@byggernnode1.schematic1(sch_1):ins105287@\618009231121\.\618009231121.normal\(chips)!618009231121_618009231121_12.8 MM_618009231121!!!F25!!!!!!!!!!
+S!!J5!8!@byggernnode1.schematic1(sch_1):ins105287@\618009231121\.\618009231121.normal\(chips)!618009231121_618009231121_12.8 MM_618009231121!!!F25!!!!!!!!!!
+S!!J5!9!@byggernnode1.schematic1(sch_1):ins105287@\618009231121\.\618009231121.normal\(chips)!618009231121_618009231121_12.8 MM_618009231121!!!F25!!!!!!!!!!
+S!GND!J5!MH1!@byggernnode1.schematic1(sch_1):ins105287@\618009231121\.\618009231121.normal\(chips)!618009231121_618009231121_12.8 MM_618009231121!!!F25!!!!!!!!!!
+S!GND!J5!MH2!@byggernnode1.schematic1(sch_1):ins105287@\618009231121\.\618009231121.normal\(chips)!618009231121_618009231121_12.8 MM_618009231121!!!F25!!!!!!!!!!
+S!!IC7!3!@byggernnode1.schematic1(sch_1):ins631@\mcp2515-i_p\.\mcp2515-i_p.normal\(chips)!MCP2515-I_P_DIPS762W60P254L2286H525Q18N_5.334 MM_MCP2515-I_P!!!F29!!!!!!!!!!
+S!SS_CAN!IC7!16!@byggernnode1.schematic1(sch_1):ins631@\mcp2515-i_p\.\mcp2515-i_p.normal\(chips)!MCP2515-I_P_DIPS762W60P254L2286H525Q18N_5.334 MM_MCP2515-I_P!!!F29!!!!!!!!!!
+S!CAN_CTRL_INTERUPT!IC7!12!@byggernnode1.schematic1(sch_1):ins631@\mcp2515-i_p\.\mcp2515-i_p.normal\(chips)!MCP2515-I_P_DIPS762W60P254L2286H525Q18N_5.334 MM_MCP2515-I_P!!!F29!!!!!!!!!!
+S!N17634!IC7!8!@byggernnode1.schematic1(sch_1):ins631@\mcp2515-i_p\.\mcp2515-i_p.normal\(chips)!MCP2515-I_P_DIPS762W60P254L2286H525Q18N_5.334 MM_MCP2515-I_P!!!F29!!!!!!!!!!
+S!N01323!IC7!7!@byggernnode1.schematic1(sch_1):ins631@\mcp2515-i_p\.\mcp2515-i_p.normal\(chips)!MCP2515-I_P_DIPS762W60P254L2286H525Q18N_5.334 MM_MCP2515-I_P!!!F29!!!!!!!!!!
+S!RXCAN!IC7!2!@byggernnode1.schematic1(sch_1):ins631@\mcp2515-i_p\.\mcp2515-i_p.normal\(chips)!MCP2515-I_P_DIPS762W60P254L2286H525Q18N_5.334 MM_MCP2515-I_P!!!F29!!!!!!!!!!
+S!RESET!IC7!17!@byggernnode1.schematic1(sch_1):ins631@\mcp2515-i_p\.\mcp2515-i_p.normal\(chips)!MCP2515-I_P_DIPS762W60P254L2286H525Q18N_5.334 MM_MCP2515-I_P!!!F29!!!!!!!!!!
+S!!IC7!11!@byggernnode1.schematic1(sch_1):ins631@\mcp2515-i_p\.\mcp2515-i_p.normal\(chips)!MCP2515-I_P_DIPS762W60P254L2286H525Q18N_5.334 MM_MCP2515-I_P!!!F29!!!!!!!!!!
+S!!IC7!10!@byggernnode1.schematic1(sch_1):ins631@\mcp2515-i_p\.\mcp2515-i_p.normal\(chips)!MCP2515-I_P_DIPS762W60P254L2286H525Q18N_5.334 MM_MCP2515-I_P!!!F29!!!!!!!!!!
+S!SCK!IC7!13!@byggernnode1.schematic1(sch_1):ins631@\mcp2515-i_p\.\mcp2515-i_p.normal\(chips)!MCP2515-I_P_DIPS762W60P254L2286H525Q18N_5.334 MM_MCP2515-I_P!!!F29!!!!!!!!!!
+S!MOSI!IC7!14!@byggernnode1.schematic1(sch_1):ins631@\mcp2515-i_p\.\mcp2515-i_p.normal\(chips)!MCP2515-I_P_DIPS762W60P254L2286H525Q18N_5.334 MM_MCP2515-I_P!!!F29!!!!!!!!!!
+S!MISO!IC7!15!@byggernnode1.schematic1(sch_1):ins631@\mcp2515-i_p\.\mcp2515-i_p.normal\(chips)!MCP2515-I_P_DIPS762W60P254L2286H525Q18N_5.334 MM_MCP2515-I_P!!!F29!!!!!!!!!!
+S!TXCAN!IC7!1!@byggernnode1.schematic1(sch_1):ins631@\mcp2515-i_p\.\mcp2515-i_p.normal\(chips)!MCP2515-I_P_DIPS762W60P254L2286H525Q18N_5.334 MM_MCP2515-I_P!!!F29!!!!!!!!!!
+S!!IC7!4!@byggernnode1.schematic1(sch_1):ins631@\mcp2515-i_p\.\mcp2515-i_p.normal\(chips)!MCP2515-I_P_DIPS762W60P254L2286H525Q18N_5.334 MM_MCP2515-I_P!!!F29!!!!!!!!!!
+S!!IC7!5!@byggernnode1.schematic1(sch_1):ins631@\mcp2515-i_p\.\mcp2515-i_p.normal\(chips)!MCP2515-I_P_DIPS762W60P254L2286H525Q18N_5.334 MM_MCP2515-I_P!!!F29!!!!!!!!!!
+S!!IC7!6!@byggernnode1.schematic1(sch_1):ins631@\mcp2515-i_p\.\mcp2515-i_p.normal\(chips)!MCP2515-I_P_DIPS762W60P254L2286H525Q18N_5.334 MM_MCP2515-I_P!!!F29!!!!!!!!!!
+S!5V!IC7!18!@byggernnode1.schematic1(sch_1):ins631@\mcp2515-i_p\.\mcp2515-i_p.normal\(chips)!MCP2515-I_P_DIPS762W60P254L2286H525Q18N_5.334 MM_MCP2515-I_P!!!F29!!!!!!!!!!
+S!GND!IC7!9!@byggernnode1.schematic1(sch_1):ins631@\mcp2515-i_p\.\mcp2515-i_p.normal\(chips)!MCP2515-I_P_DIPS762W60P254L2286H525Q18N_5.334 MM_MCP2515-I_P!!!F29!!!!!!!!!!
+S!5V!IC2!1!@byggernnode1.schematic1(sch_1):ins550@sn74hc00n.\sn74hc00n.normal\(chips)!SN74HC00N_DIPS762W60P254L1778H530Q14N_5.08 MM_SN74HC00N!!!F34!!!!!!!!!!
+S!MSB2!IC2!2!@byggernnode1.schematic1(sch_1):ins550@sn74hc00n.\sn74hc00n.normal\(chips)!SN74HC00N_DIPS762W60P254L1778H530Q14N_5.08 MM_SN74HC00N!!!F34!!!!!!!!!!
+S!N04164!IC2!3!@byggernnode1.schematic1(sch_1):ins550@sn74hc00n.\sn74hc00n.normal\(chips)!SN74HC00N_DIPS762W60P254L1778H530Q14N_5.08 MM_SN74HC00N!!!F34!!!!!!!!!!
+S!N04164!IC2!4!@byggernnode1.schematic1(sch_1):ins550@sn74hc00n.\sn74hc00n.normal\(chips)!SN74HC00N_DIPS762W60P254L1778H530Q14N_5.08 MM_SN74HC00N!!!F34!!!!!!!!!!
+S!NOT_OLED_EN!IC2!5!@byggernnode1.schematic1(sch_1):ins550@sn74hc00n.\sn74hc00n.normal\(chips)!SN74HC00N_DIPS762W60P254L1778H530Q14N_5.08 MM_SN74HC00N!!!F34!!!!!!!!!!
+S!OLED_CMD!IC2!6!@byggernnode1.schematic1(sch_1):ins550@sn74hc00n.\sn74hc00n.normal\(chips)!SN74HC00N_DIPS762W60P254L1778H530Q14N_5.08 MM_SN74HC00N!!!F34!!!!!!!!!!
+S!MSB3!IC2!9!@byggernnode1.schematic1(sch_1):ins550@sn74hc00n.\sn74hc00n.normal\(chips)!SN74HC00N_DIPS762W60P254L1778H530Q14N_5.08 MM_SN74HC00N!!!F34!!!!!!!!!!
+S!5V!IC2!10!@byggernnode1.schematic1(sch_1):ins550@sn74hc00n.\sn74hc00n.normal\(chips)!SN74HC00N_DIPS762W60P254L1778H530Q14N_5.08 MM_SN74HC00N!!!F34!!!!!!!!!!
+S!NOT_OLED_EN!IC2!8!@byggernnode1.schematic1(sch_1):ins550@sn74hc00n.\sn74hc00n.normal\(chips)!SN74HC00N_DIPS762W60P254L1778H530Q14N_5.08 MM_SN74HC00N!!!F34!!!!!!!!!!
+S!NOT_OLED_EN!IC2!12!@byggernnode1.schematic1(sch_1):ins550@sn74hc00n.\sn74hc00n.normal\(chips)!SN74HC00N_DIPS762W60P254L1778H530Q14N_5.08 MM_SN74HC00N!!!F34!!!!!!!!!!
+S!MSB2!IC2!13!@byggernnode1.schematic1(sch_1):ins550@sn74hc00n.\sn74hc00n.normal\(chips)!SN74HC00N_DIPS762W60P254L1778H530Q14N_5.08 MM_SN74HC00N!!!F34!!!!!!!!!!
+S!NOT_ADC_EN!IC2!11!@byggernnode1.schematic1(sch_1):ins550@sn74hc00n.\sn74hc00n.normal\(chips)!SN74HC00N_DIPS762W60P254L1778H530Q14N_5.08 MM_SN74HC00N!!!F34!!!!!!!!!!
+S!GND!IC2!7!@byggernnode1.schematic1(sch_1):ins550@sn74hc00n.\sn74hc00n.normal\(chips)!SN74HC00N_DIPS762W60P254L1778H530Q14N_5.08 MM_SN74HC00N!!!F34!!!!!!!!!!
+S!5V!IC2!14!@byggernnode1.schematic1(sch_1):ins550@sn74hc00n.\sn74hc00n.normal\(chips)!SN74HC00N_DIPS762W60P254L1778H530Q14N_5.08 MM_SN74HC00N!!!F34!!!!!!!!!!
+S!GND!IC3!21!@byggernnode1.schematic1(sch_1):ins441@\max156bcng+\.\max156bcng+.normal\(chips)!MAX156BCNG+_DIPS762W60P254L3048H525Q24N_4.572 MM_MAX156BCNG+!!!F33!!!!!!!!!!
+S!JOYSTICKY!IC3!2!@byggernnode1.schematic1(sch_1):ins441@\max156bcng+\.\max156bcng+.normal\(chips)!MAX156BCNG+_DIPS762W60P254L3048H525Q24N_4.572 MM_MAX156BCNG+!!!F33!!!!!!!!!!
+S!JOYSTICKX!IC3!1!@byggernnode1.schematic1(sch_1):ins441@\max156bcng+\.\max156bcng+.normal\(chips)!MAX156BCNG+_DIPS762W60P254L3048H525Q24N_4.572 MM_MAX156BCNG+!!!F33!!!!!!!!!!
+S!SLIDERL2!IC3!24!@byggernnode1.schematic1(sch_1):ins441@\max156bcng+\.\max156bcng+.normal\(chips)!MAX156BCNG+_DIPS762W60P254L3048H525Q24N_4.572 MM_MAX156BCNG+!!!F33!!!!!!!!!!
+S!SLIDERR!IC3!23!@byggernnode1.schematic1(sch_1):ins441@\max156bcng+\.\max156bcng+.normal\(chips)!MAX156BCNG+_DIPS762W60P254L3048H525Q24N_4.572 MM_MAX156BCNG+!!!F33!!!!!!!!!!
+S!ADC_BUSY!IC3!8!@byggernnode1.schematic1(sch_1):ins441@\max156bcng+\.\max156bcng+.normal\(chips)!MAX156BCNG+_DIPS762W60P254L3048H525Q24N_4.572 MM_MAX156BCNG+!!!F33!!!!!!!!!!
+S!ADC_CLK!IC3!9!@byggernnode1.schematic1(sch_1):ins441@\max156bcng+\.\max156bcng+.normal\(chips)!MAX156BCNG+_DIPS762W60P254L3048H525Q24N_4.572 MM_MAX156BCNG+!!!F33!!!!!!!!!!
+S!NOT_ADC_EN!IC3!5!@byggernnode1.schematic1(sch_1):ins441@\max156bcng+\.\max156bcng+.normal\(chips)!MAX156BCNG+_DIPS762W60P254L3048H525Q24N_4.572 MM_MAX156BCNG+!!!F33!!!!!!!!!!
+S!LSB0!IC3!18!@byggernnode1.schematic1(sch_1):ins441@\max156bcng+\.\max156bcng+.normal\(chips)!MAX156BCNG+_DIPS762W60P254L3048H525Q24N_4.572 MM_MAX156BCNG+!!!F33!!!!!!!!!!
+S!LSB1!IC3!17!@byggernnode1.schematic1(sch_1):ins441@\max156bcng+\.\max156bcng+.normal\(chips)!MAX156BCNG+_DIPS762W60P254L3048H525Q24N_4.572 MM_MAX156BCNG+!!!F33!!!!!!!!!!
+S!LSB2!IC3!16!@byggernnode1.schematic1(sch_1):ins441@\max156bcng+\.\max156bcng+.normal\(chips)!MAX156BCNG+_DIPS762W60P254L3048H525Q24N_4.572 MM_MAX156BCNG+!!!F33!!!!!!!!!!
+S!LSB3!IC3!15!@byggernnode1.schematic1(sch_1):ins441@\max156bcng+\.\max156bcng+.normal\(chips)!MAX156BCNG+_DIPS762W60P254L3048H525Q24N_4.572 MM_MAX156BCNG+!!!F33!!!!!!!!!!
+S!LSB4!IC3!14!@byggernnode1.schematic1(sch_1):ins441@\max156bcng+\.\max156bcng+.normal\(chips)!MAX156BCNG+_DIPS762W60P254L3048H525Q24N_4.572 MM_MAX156BCNG+!!!F33!!!!!!!!!!
+S!LSB5!IC3!13!@byggernnode1.schematic1(sch_1):ins441@\max156bcng+\.\max156bcng+.normal\(chips)!MAX156BCNG+_DIPS762W60P254L3048H525Q24N_4.572 MM_MAX156BCNG+!!!F33!!!!!!!!!!
+S!LSB6!IC3!11!@byggernnode1.schematic1(sch_1):ins441@\max156bcng+\.\max156bcng+.normal\(chips)!MAX156BCNG+_DIPS762W60P254L3048H525Q24N_4.572 MM_MAX156BCNG+!!!F33!!!!!!!!!!
+S!LSB7!IC3!10!@byggernnode1.schematic1(sch_1):ins441@\max156bcng+\.\max156bcng+.normal\(chips)!MAX156BCNG+_DIPS762W60P254L3048H525Q24N_4.572 MM_MAX156BCNG+!!!F33!!!!!!!!!!
+S!GND!IC3!12!@byggernnode1.schematic1(sch_1):ins441@\max156bcng+\.\max156bcng+.normal\(chips)!MAX156BCNG+_DIPS762W60P254L3048H525Q24N_4.572 MM_MAX156BCNG+!!!F33!!!!!!!!!!
+S!GND!IC3!3!@byggernnode1.schematic1(sch_1):ins441@\max156bcng+\.\max156bcng+.normal\(chips)!MAX156BCNG+_DIPS762W60P254L3048H525Q24N_4.572 MM_MAX156BCNG+!!!F33!!!!!!!!!!
+S!5V!IC3!20!@byggernnode1.schematic1(sch_1):ins441@\max156bcng+\.\max156bcng+.normal\(chips)!MAX156BCNG+_DIPS762W60P254L3048H525Q24N_4.572 MM_MAX156BCNG+!!!F33!!!!!!!!!!
+S!!IC3!19!@byggernnode1.schematic1(sch_1):ins441@\max156bcng+\.\max156bcng+.normal\(chips)!MAX156BCNG+_DIPS762W60P254L3048H525Q24N_4.572 MM_MAX156BCNG+!!!F33!!!!!!!!!!
+S!NOT_RD!IC3!6!@byggernnode1.schematic1(sch_1):ins441@\max156bcng+\.\max156bcng+.normal\(chips)!MAX156BCNG+_DIPS762W60P254L3048H525Q24N_4.572 MM_MAX156BCNG+!!!F33!!!!!!!!!!
+S!5V!IC3!22!@byggernnode1.schematic1(sch_1):ins441@\max156bcng+\.\max156bcng+.normal\(chips)!MAX156BCNG+_DIPS762W60P254L3048H525Q24N_4.572 MM_MAX156BCNG+!!!F33!!!!!!!!!!
+S!GND!IC3!4!@byggernnode1.schematic1(sch_1):ins441@\max156bcng+\.\max156bcng+.normal\(chips)!MAX156BCNG+_DIPS762W60P254L3048H525Q24N_4.572 MM_MAX156BCNG+!!!F33!!!!!!!!!!
+S!NOT_WR!IC3!7!@byggernnode1.schematic1(sch_1):ins441@\max156bcng+\.\max156bcng+.normal\(chips)!MAX156BCNG+_DIPS762W60P254L3048H525Q24N_4.572 MM_MAX156BCNG+!!!F33!!!!!!!!!!
+S!CANH!IC8!7!@byggernnode1.schematic1(sch_1):ins704@\mcp2551-i_p\.\mcp2551-i_p.normal\(chips)!MCP2551-I_P_DIPS762W60P254L1016H525Q8N_4.32 MM_MCP2551-I_P!!!F28!!!!!!!!!!
+S!CANL!IC8!6!@byggernnode1.schematic1(sch_1):ins704@\mcp2551-i_p\.\mcp2551-i_p.normal\(chips)!MCP2551-I_P_DIPS762W60P254L1016H525Q8N_4.32 MM_MCP2551-I_P!!!F28!!!!!!!!!!
+S!N28651!IC8!8!@byggernnode1.schematic1(sch_1):ins704@\mcp2551-i_p\.\mcp2551-i_p.normal\(chips)!MCP2551-I_P_DIPS762W60P254L1016H525Q8N_4.32 MM_MCP2551-I_P!!!F28!!!!!!!!!!
+S!RXCAN!IC8!4!@byggernnode1.schematic1(sch_1):ins704@\mcp2551-i_p\.\mcp2551-i_p.normal\(chips)!MCP2551-I_P_DIPS762W60P254L1016H525Q8N_4.32 MM_MCP2551-I_P!!!F28!!!!!!!!!!
+S!TXCAN!IC8!1!@byggernnode1.schematic1(sch_1):ins704@\mcp2551-i_p\.\mcp2551-i_p.normal\(chips)!MCP2551-I_P_DIPS762W60P254L1016H525Q8N_4.32 MM_MCP2551-I_P!!!F28!!!!!!!!!!
+S!5V!IC8!3!@byggernnode1.schematic1(sch_1):ins704@\mcp2551-i_p\.\mcp2551-i_p.normal\(chips)!MCP2551-I_P_DIPS762W60P254L1016H525Q8N_4.32 MM_MCP2551-I_P!!!F28!!!!!!!!!!
+S!5V!IC8!5!@byggernnode1.schematic1(sch_1):ins704@\mcp2551-i_p\.\mcp2551-i_p.normal\(chips)!MCP2551-I_P_DIPS762W60P254L1016H525Q8N_4.32 MM_MCP2551-I_P!!!F28!!!!!!!!!!
+S!GND!IC8!2!@byggernnode1.schematic1(sch_1):ins704@\mcp2551-i_p\.\mcp2551-i_p.normal\(chips)!MCP2551-I_P_DIPS762W60P254L1016H525Q8N_4.32 MM_MCP2551-I_P!!!F28!!!!!!!!!!
+S!ADC_BUSY!IC4!12!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!CAN_CTRL_INTERUPT!IC4!13!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!MISO!IC4!7!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!MOSI!IC4!6!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!LED!IC4!1!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!ADC_CLK!IC4!15!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!JOYSTICK_BTN!IC4!2!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!UART_RX!IC4!10!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!PAD_BTN_L!IC4!3!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!NOT_RD!IC4!17!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!SCK!IC4!8!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!SS_CAN!IC4!5!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!!IC4!14!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!UART_TX!IC4!11!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!PAD_BTN_R!IC4!4!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!NOT_WR!IC4!16!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!GND!IC4!20!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!LSB0!IC4!39!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!LSB1!IC4!38!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!LSB2!IC4!37!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!LSB3!IC4!36!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!LSB4!IC4!35!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!LSB5!IC4!34!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!LSB6!IC4!33!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!LSB7!IC4!32!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!MSB0!IC4!21!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!MSB1!IC4!22!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!MSB2!IC4!23!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!MSB3!IC4!24!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!MSB4!IC4!25!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!MSB5!IC4!26!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!MSB6!IC4!27!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!MSB7!IC4!28!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!!IC4!31!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!ALE!IC4!30!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!!IC4!29!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!RESET!IC4!9!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!5V!IC4!40!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!N16537!IC4!19!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!N01551!IC4!18!@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)!ATMEGA162-16PU_DIPS1544W70P254L5080H530Q40N_4.826 MM_ATMEGA162-16PU!!!F32!!!!!!!!!!
+S!LSB0!IC5!2!@byggernnode1.schematic1(sch_1):ins336@sn74als573cn.\sn74als573cn.normal\(chips)!SN74ALS573CN_DILB20P223TLF_5.08 MM_SN74ALS573CN!!!F31!!!!!!!!!!
+S!ADDRESSLATCH0!IC5!19!@byggernnode1.schematic1(sch_1):ins336@sn74als573cn.\sn74als573cn.normal\(chips)!SN74ALS573CN_DILB20P223TLF_5.08 MM_SN74ALS573CN!!!F31!!!!!!!!!!
+S!LSB1!IC5!3!@byggernnode1.schematic1(sch_1):ins336@sn74als573cn.\sn74als573cn.normal\(chips)!SN74ALS573CN_DILB20P223TLF_5.08 MM_SN74ALS573CN!!!F31!!!!!!!!!!
+S!ADDRESSLATCH1!IC5!18!@byggernnode1.schematic1(sch_1):ins336@sn74als573cn.\sn74als573cn.normal\(chips)!SN74ALS573CN_DILB20P223TLF_5.08 MM_SN74ALS573CN!!!F31!!!!!!!!!!
+S!LSB2!IC5!4!@byggernnode1.schematic1(sch_1):ins336@sn74als573cn.\sn74als573cn.normal\(chips)!SN74ALS573CN_DILB20P223TLF_5.08 MM_SN74ALS573CN!!!F31!!!!!!!!!!
+S!ADDRESSLATCH2!IC5!17!@byggernnode1.schematic1(sch_1):ins336@sn74als573cn.\sn74als573cn.normal\(chips)!SN74ALS573CN_DILB20P223TLF_5.08 MM_SN74ALS573CN!!!F31!!!!!!!!!!
+S!LSB3!IC5!5!@byggernnode1.schematic1(sch_1):ins336@sn74als573cn.\sn74als573cn.normal\(chips)!SN74ALS573CN_DILB20P223TLF_5.08 MM_SN74ALS573CN!!!F31!!!!!!!!!!
+S!ADDRESSLATCH3!IC5!16!@byggernnode1.schematic1(sch_1):ins336@sn74als573cn.\sn74als573cn.normal\(chips)!SN74ALS573CN_DILB20P223TLF_5.08 MM_SN74ALS573CN!!!F31!!!!!!!!!!
+S!LSB4!IC5!6!@byggernnode1.schematic1(sch_1):ins336@sn74als573cn.\sn74als573cn.normal\(chips)!SN74ALS573CN_DILB20P223TLF_5.08 MM_SN74ALS573CN!!!F31!!!!!!!!!!
+S!ADDRESSLATCH4!IC5!15!@byggernnode1.schematic1(sch_1):ins336@sn74als573cn.\sn74als573cn.normal\(chips)!SN74ALS573CN_DILB20P223TLF_5.08 MM_SN74ALS573CN!!!F31!!!!!!!!!!
+S!LSB5!IC5!7!@byggernnode1.schematic1(sch_1):ins336@sn74als573cn.\sn74als573cn.normal\(chips)!SN74ALS573CN_DILB20P223TLF_5.08 MM_SN74ALS573CN!!!F31!!!!!!!!!!
+S!ADDRESSLATCH5!IC5!14!@byggernnode1.schematic1(sch_1):ins336@sn74als573cn.\sn74als573cn.normal\(chips)!SN74ALS573CN_DILB20P223TLF_5.08 MM_SN74ALS573CN!!!F31!!!!!!!!!!
+S!LSB6!IC5!8!@byggernnode1.schematic1(sch_1):ins336@sn74als573cn.\sn74als573cn.normal\(chips)!SN74ALS573CN_DILB20P223TLF_5.08 MM_SN74ALS573CN!!!F31!!!!!!!!!!
+S!ADDRESSLATCH6!IC5!13!@byggernnode1.schematic1(sch_1):ins336@sn74als573cn.\sn74als573cn.normal\(chips)!SN74ALS573CN_DILB20P223TLF_5.08 MM_SN74ALS573CN!!!F31!!!!!!!!!!
+S!LSB7!IC5!9!@byggernnode1.schematic1(sch_1):ins336@sn74als573cn.\sn74als573cn.normal\(chips)!SN74ALS573CN_DILB20P223TLF_5.08 MM_SN74ALS573CN!!!F31!!!!!!!!!!
+S!ADDRESSLATCH7!IC5!12!@byggernnode1.schematic1(sch_1):ins336@sn74als573cn.\sn74als573cn.normal\(chips)!SN74ALS573CN_DILB20P223TLF_5.08 MM_SN74ALS573CN!!!F31!!!!!!!!!!
+S!GND!IC5!10!@byggernnode1.schematic1(sch_1):ins336@sn74als573cn.\sn74als573cn.normal\(chips)!SN74ALS573CN_DILB20P223TLF_5.08 MM_SN74ALS573CN!!!F31!!!!!!!!!!
+S!ALE!IC5!11!@byggernnode1.schematic1(sch_1):ins336@sn74als573cn.\sn74als573cn.normal\(chips)!SN74ALS573CN_DILB20P223TLF_5.08 MM_SN74ALS573CN!!!F31!!!!!!!!!!
+S!GND!IC5!1!@byggernnode1.schematic1(sch_1):ins336@sn74als573cn.\sn74als573cn.normal\(chips)!SN74ALS573CN_DILB20P223TLF_5.08 MM_SN74ALS573CN!!!F31!!!!!!!!!!
+S!5V!IC5!20!@byggernnode1.schematic1(sch_1):ins336@sn74als573cn.\sn74als573cn.normal\(chips)!SN74ALS573CN_DILB20P223TLF_5.08 MM_SN74ALS573CN!!!F31!!!!!!!!!!
+S!!IC6!8!@byggernnode1.schematic1(sch_1):ins95527@\max233cpp+\.\max233cpp+.normal\(chips)!MAX233CPP+_DILB20P223TLF_4.572 MM_MAX233CPP+!!!F30!!!!!!!!!!
+S!N21392!IC6!10!@byggernnode1.schematic1(sch_1):ins95527@\max233cpp+\.\max233cpp+.normal\(chips)!MAX233CPP+_DILB20P223TLF_4.572 MM_MAX233CPP+!!!F30!!!!!!!!!!
+S!!IC6!13!@byggernnode1.schematic1(sch_1):ins95527@\max233cpp+\.\max233cpp+.normal\(chips)!MAX233CPP+_DILB20P223TLF_4.572 MM_MAX233CPP+!!!F30!!!!!!!!!!
+S!N21404!IC6!15!@byggernnode1.schematic1(sch_1):ins95527@\max233cpp+\.\max233cpp+.normal\(chips)!MAX233CPP+_DILB20P223TLF_4.572 MM_MAX233CPP+!!!F30!!!!!!!!!!
+S!N21404!IC6!11!@byggernnode1.schematic1(sch_1):ins95527@\max233cpp+\.\max233cpp+.normal\(chips)!MAX233CPP+_DILB20P223TLF_4.572 MM_MAX233CPP+!!!F30!!!!!!!!!!
+S!N21392!IC6!16!@byggernnode1.schematic1(sch_1):ins95527@\max233cpp+\.\max233cpp+.normal\(chips)!MAX233CPP+_DILB20P223TLF_4.572 MM_MAX233CPP+!!!F30!!!!!!!!!!
+S!GND!IC6!6!@byggernnode1.schematic1(sch_1):ins95527@\max233cpp+\.\max233cpp+.normal\(chips)!MAX233CPP+_DILB20P223TLF_4.572 MM_MAX233CPP+!!!F30!!!!!!!!!!
+S!GND!IC6!9!@byggernnode1.schematic1(sch_1):ins95527@\max233cpp+\.\max233cpp+.normal\(chips)!MAX233CPP+_DILB20P223TLF_4.572 MM_MAX233CPP+!!!F30!!!!!!!!!!
+S!UART_RX!IC6!4!@byggernnode1.schematic1(sch_1):ins95527@\max233cpp+\.\max233cpp+.normal\(chips)!MAX233CPP+_DILB20P223TLF_4.572 MM_MAX233CPP+!!!F30!!!!!!!!!!
+S!RS232_RX!IC6!3!@byggernnode1.schematic1(sch_1):ins95527@\max233cpp+\.\max233cpp+.normal\(chips)!MAX233CPP+_DILB20P223TLF_4.572 MM_MAX233CPP+!!!F30!!!!!!!!!!
+S!!IC6!19!@byggernnode1.schematic1(sch_1):ins95527@\max233cpp+\.\max233cpp+.normal\(chips)!MAX233CPP+_DILB20P223TLF_4.572 MM_MAX233CPP+!!!F30!!!!!!!!!!
+S!!IC6!20!@byggernnode1.schematic1(sch_1):ins95527@\max233cpp+\.\max233cpp+.normal\(chips)!MAX233CPP+_DILB20P223TLF_4.572 MM_MAX233CPP+!!!F30!!!!!!!!!!
+S!UART_TX!IC6!2!@byggernnode1.schematic1(sch_1):ins95527@\max233cpp+\.\max233cpp+.normal\(chips)!MAX233CPP+_DILB20P223TLF_4.572 MM_MAX233CPP+!!!F30!!!!!!!!!!
+S!RS232_TX!IC6!5!@byggernnode1.schematic1(sch_1):ins95527@\max233cpp+\.\max233cpp+.normal\(chips)!MAX233CPP+_DILB20P223TLF_4.572 MM_MAX233CPP+!!!F30!!!!!!!!!!
+S!!IC6!1!@byggernnode1.schematic1(sch_1):ins95527@\max233cpp+\.\max233cpp+.normal\(chips)!MAX233CPP+_DILB20P223TLF_4.572 MM_MAX233CPP+!!!F30!!!!!!!!!!
+S!!IC6!18!@byggernnode1.schematic1(sch_1):ins95527@\max233cpp+\.\max233cpp+.normal\(chips)!MAX233CPP+_DILB20P223TLF_4.572 MM_MAX233CPP+!!!F30!!!!!!!!!!
+S!!IC6!14!@byggernnode1.schematic1(sch_1):ins95527@\max233cpp+\.\max233cpp+.normal\(chips)!MAX233CPP+_DILB20P223TLF_4.572 MM_MAX233CPP+!!!F30!!!!!!!!!!
+S!N21380!IC6!17!@byggernnode1.schematic1(sch_1):ins95527@\max233cpp+\.\max233cpp+.normal\(chips)!MAX233CPP+_DILB20P223TLF_4.572 MM_MAX233CPP+!!!F30!!!!!!!!!!
+S!N21380!IC6!12!@byggernnode1.schematic1(sch_1):ins95527@\max233cpp+\.\max233cpp+.normal\(chips)!MAX233CPP+_DILB20P223TLF_4.572 MM_MAX233CPP+!!!F30!!!!!!!!!!
+S!5V!IC6!7!@byggernnode1.schematic1(sch_1):ins95527@\max233cpp+\.\max233cpp+.normal\(chips)!MAX233CPP+_DILB20P223TLF_4.572 MM_MAX233CPP+!!!F30!!!!!!!!!!
+S!GND!H1!1!@byggernnode1.schematic1(sch_1):ins89848@\9774015960r\.\9774015960r.normal\(chips)!9774015960R_9774015960R_1.6 MM_MOUNT!!!F38!!!!!!!!!!
+S!GND!H2!1!@byggernnode1.schematic1(sch_1):ins89870@\9774015960r\.\9774015960r.normal\(chips)!9774015960R_9774015960R_1.6 MM_MOUNT!!!F37!!!!!!!!!!
+S!GND!H3!1!@byggernnode1.schematic1(sch_1):ins89900@\9774015960r\.\9774015960r.normal\(chips)!9774015960R_9774015960R_1.6 MM_MOUNT!!!F36!!!!!!!!!!
+S!VIN!C2!1!@byggernnode1.schematic1(sch_1):ins14093@\865080457015\.\865080457015.normal\(chips)!865080457015_CAPAE1030X1050N_10.5 MM_865080457015!!!F45!!!!!!!!!!
+S!GND!C2!2!@byggernnode1.schematic1(sch_1):ins14093@\865080457015\.\865080457015.normal\(chips)!865080457015_CAPAE1030X1050N_10.5 MM_865080457015!!!F45!!!!!!!!!!
+S!5V!C1!1!@byggernnode1.schematic1(sch_1):ins14696@\865080253012\.\865080253012.normal\(chips)!865080253012_CAPAE830X1050N_10.5 MM_865080253012!!!F75!!!!!!!!!!
+S!GND!C1!2!@byggernnode1.schematic1(sch_1):ins14696@\865080253012\.\865080253012.normal\(chips)!865080253012_CAPAE830X1050N_10.5 MM_865080253012!!!F75!!!!!!!!!!
+S!5V!C33!1!@byggernnode1.schematic1(sch_1):ins87839@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F62!!!!!!!!!!
+S!GND!C33!2!@byggernnode1.schematic1(sch_1):ins87839@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F62!!!!!!!!!!
+S!5V!C32!1!@byggernnode1.schematic1(sch_1):ins86491@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F63!!!!!!!!!!
+S!GND!C32!2!@byggernnode1.schematic1(sch_1):ins86491@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F63!!!!!!!!!!
+S!JOYSTICK_BTN!C17!1!@byggernnode1.schematic1(sch_1):ins14968@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F69!!!!!!!!!!
+S!GND!C17!2!@byggernnode1.schematic1(sch_1):ins14968@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F69!!!!!!!!!!
+S!PAD_BTN_L!C18!1!@byggernnode1.schematic1(sch_1):ins15269@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F68!!!!!!!!!!
+S!GND!C18!2!@byggernnode1.schematic1(sch_1):ins15269@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F68!!!!!!!!!!
+S!PAD_BTN_R!C16!1!@byggernnode1.schematic1(sch_1):ins15310@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F70!!!!!!!!!!
+S!GND!C16!2!@byggernnode1.schematic1(sch_1):ins15310@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F70!!!!!!!!!!
+S!5V!C5!1!@byggernnode1.schematic1(sch_1):ins15846@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F60!!!!!!!!!!
+S!GND!C5!2!@byggernnode1.schematic1(sch_1):ins15846@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F60!!!!!!!!!!
+S!5V!C6!1!@byggernnode1.schematic1(sch_1):ins15958@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F59!!!!!!!!!!
+S!GND!C6!2!@byggernnode1.schematic1(sch_1):ins15958@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F59!!!!!!!!!!
+S!RESET!C8!1!@byggernnode1.schematic1(sch_1):ins19509@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F58!!!!!!!!!!
+S!GND!C8!2!@byggernnode1.schematic1(sch_1):ins19509@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F58!!!!!!!!!!
+S!5V!C22!1!@byggernnode1.schematic1(sch_1):ins22092@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F67!!!!!!!!!!
+S!GND!C22!2!@byggernnode1.schematic1(sch_1):ins22092@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F67!!!!!!!!!!
+S!5V!C30!1!@byggernnode1.schematic1(sch_1):ins28941@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F64!!!!!!!!!!
+S!GND!C30!2!@byggernnode1.schematic1(sch_1):ins28941@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F64!!!!!!!!!!
+S!5V!C14!1!@byggernnode1.schematic1(sch_1):ins29933@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F72!!!!!!!!!!
+S!GND!C14!2!@byggernnode1.schematic1(sch_1):ins29933@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F72!!!!!!!!!!
+S!5V!C15!1!@byggernnode1.schematic1(sch_1):ins29987@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F71!!!!!!!!!!
+S!GND!C15!2!@byggernnode1.schematic1(sch_1):ins29987@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F71!!!!!!!!!!
+S!5V!C4!1!@byggernnode1.schematic1(sch_1):ins32058@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F61!!!!!!!!!!
+S!GND!C4!2!@byggernnode1.schematic1(sch_1):ins32058@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F61!!!!!!!!!!
+S!JOYSTICKX!C26!1!@byggernnode1.schematic1(sch_1):ins36250@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F65!!!!!!!!!!
+S!GND!C26!2!@byggernnode1.schematic1(sch_1):ins36250@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F65!!!!!!!!!!
+S!JOYSTICKY!C25!1!@byggernnode1.schematic1(sch_1):ins36319@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F66!!!!!!!!!!
+S!GND!C25!2!@byggernnode1.schematic1(sch_1):ins36319@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F66!!!!!!!!!!
+S!5V!C12!1!@byggernnode1.schematic1(sch_1):ins62668@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F73!!!!!!!!!!
+S!GND!C12!2!@byggernnode1.schematic1(sch_1):ins62668@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F73!!!!!!!!!!
+S!5V!C10!1!@byggernnode1.schematic1(sch_1):ins66487@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F74!!!!!!!!!!
+S!GND!C10!2!@byggernnode1.schematic1(sch_1):ins66487@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_10U!!!F74!!!!!!!!!!
+S!5V!C31!1!@byggernnode1.schematic1(sch_1):ins86467@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_20P!!!F48!!!!!!!!!!
+S!GND!C31!2!@byggernnode1.schematic1(sch_1):ins86467@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_20P!!!F48!!!!!!!!!!
+S!N01323!C27!1!@byggernnode1.schematic1(sch_1):ins17521@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_20P!!!F52!!!!!!!!!!
+S!GND!C27!2!@byggernnode1.schematic1(sch_1):ins17521@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_20P!!!F52!!!!!!!!!!
+S!N17634!C28!1!@byggernnode1.schematic1(sch_1):ins17567@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_20P!!!F51!!!!!!!!!!
+S!GND!C28!2!@byggernnode1.schematic1(sch_1):ins17567@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_20P!!!F51!!!!!!!!!!
+S!N01551!C19!1!@byggernnode1.schematic1(sch_1):ins18299@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_20P!!!F55!!!!!!!!!!
+S!GND!C19!2!@byggernnode1.schematic1(sch_1):ins18299@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_20P!!!F55!!!!!!!!!!
+S!N16537!C20!1!@byggernnode1.schematic1(sch_1):ins18323@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_20P!!!F54!!!!!!!!!!
+S!GND!C20!2!@byggernnode1.schematic1(sch_1):ins18323@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_20P!!!F54!!!!!!!!!!
+S!5V!C21!1!@byggernnode1.schematic1(sch_1):ins22432@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_20P!!!F53!!!!!!!!!!
+S!GND!C21!2!@byggernnode1.schematic1(sch_1):ins22432@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_20P!!!F53!!!!!!!!!!
+S!5V!C29!1!@byggernnode1.schematic1(sch_1):ins29187@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_20P!!!F50!!!!!!!!!!
+S!GND!C29!2!@byggernnode1.schematic1(sch_1):ins29187@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_20P!!!F50!!!!!!!!!!
+S!5V!C13!1!@byggernnode1.schematic1(sch_1):ins29909@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_20P!!!F56!!!!!!!!!!
+S!GND!C13!2!@byggernnode1.schematic1(sch_1):ins29909@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_20P!!!F56!!!!!!!!!!
+S!5V!C3!1!@byggernnode1.schematic1(sch_1):ins32034@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_20P!!!F49!!!!!!!!!!
+S!GND!C3!2!@byggernnode1.schematic1(sch_1):ins32034@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_20P!!!F49!!!!!!!!!!
+S!5V!C7!1!@byggernnode1.schematic1(sch_1):ins32888@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_20P!!!F47!!!!!!!!!!
+S!GND!C7!2!@byggernnode1.schematic1(sch_1):ins32888@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_20P!!!F47!!!!!!!!!!
+S!5V!C11!1!@byggernnode1.schematic1(sch_1):ins62644@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_20P!!!F57!!!!!!!!!!
+S!GND!C11!2!@byggernnode1.schematic1(sch_1):ins62644@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_20P!!!F57!!!!!!!!!!
+S!5V!C9!1!@byggernnode1.schematic1(sch_1):ins66463@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_20P!!!F46!!!!!!!!!!
+S!GND!C9!2!@byggernnode1.schematic1(sch_1):ins66463@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_20P!!!F46!!!!!!!!!!
+S!SLIDERL2!C23!1!@byggernnode1.schematic1(sch_1):ins46205@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_100N!!!F44!!!!!!!!!!
+S!GND!C23!2!@byggernnode1.schematic1(sch_1):ins46205@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_100N!!!F44!!!!!!!!!!
+S!SLIDERR!C24!1!@byggernnode1.schematic1(sch_1):ins46245@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_100N!!!F43!!!!!!!!!!
+S!GND!C24!2!@byggernnode1.schematic1(sch_1):ins46245@\885012107010\.\885012107010.normal\(chips)!885012107010_CAPC2012X145N_1.45 MM_100N!!!F43!!!!!!!!!!
+S!CANH!CAN_CONN1!1!@byggernnode1.schematic1(sch_1):ins47865@\952-2263-nd\.\m20-9990345.normal\(sch_1)!M20-9990345_CONN_M20-99903XX_HRW_CONN_003P_000C_1!!!F42!!!!!!!!!!
+S!CANL!CAN_CONN1!2!@byggernnode1.schematic1(sch_1):ins47865@\952-2263-nd\.\m20-9990345.normal\(sch_1)!M20-9990345_CONN_M20-99903XX_HRW_CONN_003P_000C_1!!!F42!!!!!!!!!!
+S!GND!CAN_CONN1!3!@byggernnode1.schematic1(sch_1):ins47865@\952-2263-nd\.\m20-9990345.normal\(sch_1)!M20-9990345_CONN_M20-99903XX_HRW_CONN_003P_000C_1!!!F42!!!!!!!!!!
+S!N34889!JOYSTICK_CONN1!1!@byggernnode1.schematic1(sch_1):ins34365@\952-2263-nd\.\m20-9990345.normal\(sch_1)!M20-9990345_CONN_M20-99903XX_HRW_CONN_003P_000C_1!!!F41!!!!!!!!!!
+S!N34393!JOYSTICK_CONN1!2!@byggernnode1.schematic1(sch_1):ins34365@\952-2263-nd\.\m20-9990345.normal\(sch_1)!M20-9990345_CONN_M20-99903XX_HRW_CONN_003P_000C_1!!!F41!!!!!!!!!!
+S!JOYSTICK_BTN!JOYSTICK_CONN1!3!@byggernnode1.schematic1(sch_1):ins34365@\952-2263-nd\.\m20-9990345.normal\(sch_1)!M20-9990345_CONN_M20-99903XX_HRW_CONN_003P_000C_1!!!F41!!!!!!!!!!
+S!GND!IC1!2!@byggernnode1.schematic1(sch_1):ins13066@mc7805actg.\mc7805actg.normal\(chips)!MC7805ACTG_TO254P482X997X2018-3P_4.82 MM_MC7805ACTG!!!F35!!!!!!!!!!
+S!VIN!IC1!1!@byggernnode1.schematic1(sch_1):ins13066@mc7805actg.\mc7805actg.normal\(chips)!MC7805ACTG_TO254P482X997X2018-3P_4.82 MM_MC7805ACTG!!!F35!!!!!!!!!!
+S!5V!IC1!3!@byggernnode1.schematic1(sch_1):ins13066@mc7805actg.\mc7805actg.normal\(chips)!MC7805ACTG_TO254P482X997X2018-3P_4.82 MM_MC7805ACTG!!!F35!!!!!!!!!!
+S!ADDRESSLATCH7!J2!10!@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\ed281dt_1.normal\(chips)!ED281DT_1_DIPS762W80P254L3556H525Q28N_5.25 MM_ED281DT!!!F26!!!!!!!!!!
+S!ADDRESSLATCH6!J2!9!@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\ed281dt_1.normal\(chips)!ED281DT_1_DIPS762W80P254L3556H525Q28N_5.25 MM_ED281DT!!!F26!!!!!!!!!!
+S!N58531!J2!21!@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\ed281dt_1.normal\(chips)!ED281DT_1_DIPS762W80P254L3556H525Q28N_5.25 MM_ED281DT!!!F26!!!!!!!!!!
+S!N58523!J2!23!@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\ed281dt_1.normal\(chips)!ED281DT_1_DIPS762W80P254L3556H525Q28N_5.25 MM_ED281DT!!!F26!!!!!!!!!!
+S!N71765!J2!2!@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\ed281dt_1.normal\(chips)!ED281DT_1_DIPS762W80P254L3556H525Q28N_5.25 MM_ED281DT!!!F26!!!!!!!!!!
+S!ADDRESSLATCH5!J2!8!@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\ed281dt_1.normal\(chips)!ED281DT_1_DIPS762W80P254L3556H525Q28N_5.25 MM_ED281DT!!!F26!!!!!!!!!!
+S!ADDRESSLATCH4!J2!7!@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\ed281dt_1.normal\(chips)!ED281DT_1_DIPS762W80P254L3556H525Q28N_5.25 MM_ED281DT!!!F26!!!!!!!!!!
+S!ADDRESSLATCH3!J2!6!@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\ed281dt_1.normal\(chips)!ED281DT_1_DIPS762W80P254L3556H525Q28N_5.25 MM_ED281DT!!!F26!!!!!!!!!!
+S!ADDRESSLATCH2!J2!5!@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\ed281dt_1.normal\(chips)!ED281DT_1_DIPS762W80P254L3556H525Q28N_5.25 MM_ED281DT!!!F26!!!!!!!!!!
+S!ADDRESSLATCH1!J2!4!@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\ed281dt_1.normal\(chips)!ED281DT_1_DIPS762W80P254L3556H525Q28N_5.25 MM_ED281DT!!!F26!!!!!!!!!!
+S!ADDRESSLATCH0!J2!3!@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\ed281dt_1.normal\(chips)!ED281DT_1_DIPS762W80P254L3556H525Q28N_5.25 MM_ED281DT!!!F26!!!!!!!!!!
+S!N58487!J2!25!@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\ed281dt_1.normal\(chips)!ED281DT_1_DIPS762W80P254L3556H525Q28N_5.25 MM_ED281DT!!!F26!!!!!!!!!!
+S!N58491!J2!24!@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\ed281dt_1.normal\(chips)!ED281DT_1_DIPS762W80P254L3556H525Q28N_5.25 MM_ED281DT!!!F26!!!!!!!!!!
+S!!J2!20!@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\ed281dt_1.normal\(chips)!ED281DT_1_DIPS762W80P254L3556H525Q28N_5.25 MM_ED281DT!!!F26!!!!!!!!!!
+S!MSB3!J2!26!@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\ed281dt_1.normal\(chips)!ED281DT_1_DIPS762W80P254L3556H525Q28N_5.25 MM_ED281DT!!!F26!!!!!!!!!!
+S!GND!J2!14!@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\ed281dt_1.normal\(chips)!ED281DT_1_DIPS762W80P254L3556H525Q28N_5.25 MM_ED281DT!!!F26!!!!!!!!!!
+S!LSB0!J2!11!@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\ed281dt_1.normal\(chips)!ED281DT_1_DIPS762W80P254L3556H525Q28N_5.25 MM_ED281DT!!!F26!!!!!!!!!!
+S!LSB1!J2!12!@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\ed281dt_1.normal\(chips)!ED281DT_1_DIPS762W80P254L3556H525Q28N_5.25 MM_ED281DT!!!F26!!!!!!!!!!
+S!LSB2!J2!13!@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\ed281dt_1.normal\(chips)!ED281DT_1_DIPS762W80P254L3556H525Q28N_5.25 MM_ED281DT!!!F26!!!!!!!!!!
+S!LSB3!J2!15!@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\ed281dt_1.normal\(chips)!ED281DT_1_DIPS762W80P254L3556H525Q28N_5.25 MM_ED281DT!!!F26!!!!!!!!!!
+S!LSB4!J2!16!@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\ed281dt_1.normal\(chips)!ED281DT_1_DIPS762W80P254L3556H525Q28N_5.25 MM_ED281DT!!!F26!!!!!!!!!!
+S!LSB5!J2!17!@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\ed281dt_1.normal\(chips)!ED281DT_1_DIPS762W80P254L3556H525Q28N_5.25 MM_ED281DT!!!F26!!!!!!!!!!
+S!LSB6!J2!18!@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\ed281dt_1.normal\(chips)!ED281DT_1_DIPS762W80P254L3556H525Q28N_5.25 MM_ED281DT!!!F26!!!!!!!!!!
+S!LSB7!J2!19!@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\ed281dt_1.normal\(chips)!ED281DT_1_DIPS762W80P254L3556H525Q28N_5.25 MM_ED281DT!!!F26!!!!!!!!!!
+S!!J2!1!@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\ed281dt_1.normal\(chips)!ED281DT_1_DIPS762W80P254L3556H525Q28N_5.25 MM_ED281DT!!!F26!!!!!!!!!!
+S!!J2!22!@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\ed281dt_1.normal\(chips)!ED281DT_1_DIPS762W80P254L3556H525Q28N_5.25 MM_ED281DT!!!F26!!!!!!!!!!
+S!5V!J2!28!@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\ed281dt_1.normal\(chips)!ED281DT_1_DIPS762W80P254L3556H525Q28N_5.25 MM_ED281DT!!!F26!!!!!!!!!!
+S!NOT_WR!J2!27!@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\ed281dt_1.normal\(chips)!ED281DT_1_DIPS762W80P254L3556H525Q28N_5.25 MM_ED281DT!!!F26!!!!!!!!!!
+S!VIN!J1!1!@byggernnode1.schematic1(sch_1):ins82256@\wr-tbl_6914183200xx\.\691418320002.normal\(chips)!691418320002_WR-TBL_691418320002_691418320002!!!F27!!!!!!!!!!
+S!GND!J1!2!@byggernnode1.schematic1(sch_1):ins82256@\wr-tbl_6914183200xx\.\691418320002.normal\(chips)!691418320002_WR-TBL_691418320002_691418320002!!!F27!!!!!!!!!!
+S!MSB4!JTAG_CONN1!1!@byggernnode1.schematic1(sch_1):ins40919@\609-3236-nd\.\67997-210hlf.normal\(sch_1)!67997-210HLF_CONN_67997-210HLF_AMP_CONN_67997-210HLF!!!F24!!!!!!!!!!
+S!GND!JTAG_CONN1!10!@byggernnode1.schematic1(sch_1):ins40919@\609-3236-nd\.\67997-210hlf.normal\(sch_1)!67997-210HLF_CONN_67997-210HLF_AMP_CONN_67997-210HLF!!!F24!!!!!!!!!!
+S!GND!JTAG_CONN1!2!@byggernnode1.schematic1(sch_1):ins40919@\609-3236-nd\.\67997-210hlf.normal\(sch_1)!67997-210HLF_CONN_67997-210HLF_AMP_CONN_67997-210HLF!!!F24!!!!!!!!!!
+S!MSB6!JTAG_CONN1!3!@byggernnode1.schematic1(sch_1):ins40919@\609-3236-nd\.\67997-210hlf.normal\(sch_1)!67997-210HLF_CONN_67997-210HLF_AMP_CONN_67997-210HLF!!!F24!!!!!!!!!!
+S!5V!JTAG_CONN1!4!@byggernnode1.schematic1(sch_1):ins40919@\609-3236-nd\.\67997-210hlf.normal\(sch_1)!67997-210HLF_CONN_67997-210HLF_AMP_CONN_67997-210HLF!!!F24!!!!!!!!!!
+S!MSB5!JTAG_CONN1!5!@byggernnode1.schematic1(sch_1):ins40919@\609-3236-nd\.\67997-210hlf.normal\(sch_1)!67997-210HLF_CONN_67997-210HLF_AMP_CONN_67997-210HLF!!!F24!!!!!!!!!!
+S!!JTAG_CONN1!6!@byggernnode1.schematic1(sch_1):ins40919@\609-3236-nd\.\67997-210hlf.normal\(sch_1)!67997-210HLF_CONN_67997-210HLF_AMP_CONN_67997-210HLF!!!F24!!!!!!!!!!
+S!!JTAG_CONN1!7!@byggernnode1.schematic1(sch_1):ins40919@\609-3236-nd\.\67997-210hlf.normal\(sch_1)!67997-210HLF_CONN_67997-210HLF_AMP_CONN_67997-210HLF!!!F24!!!!!!!!!!
+S!!JTAG_CONN1!8!@byggernnode1.schematic1(sch_1):ins40919@\609-3236-nd\.\67997-210hlf.normal\(sch_1)!67997-210HLF_CONN_67997-210HLF_AMP_CONN_67997-210HLF!!!F24!!!!!!!!!!
+S!MSB7!JTAG_CONN1!9!@byggernnode1.schematic1(sch_1):ins40919@\609-3236-nd\.\67997-210hlf.normal\(sch_1)!67997-210HLF_CONN_67997-210HLF_AMP_CONN_67997-210HLF!!!F24!!!!!!!!!!
+S!LED!LED1!2!@byggernnode1.schematic1(sch_1):ins19388@\150080vs75000\.\150080vs75000.normal\(chips)!150080VS75000_LEDC2012X80N_0.8 MM_150080VS75000!!!F23!!!!!!!!!!
+S!N19457!LED1!1!@byggernnode1.schematic1(sch_1):ins19388@\150080vs75000\.\150080vs75000.normal\(chips)!150080VS75000_LEDC2012X80N_0.8 MM_150080VS75000!!!F23!!!!!!!!!!
+S!RS232_RX!LED2!2!@byggernnode1.schematic1(sch_1):ins25785@\150080vs75000\.\150080vs75000.normal\(chips)!150080VS75000_LEDC2012X80N_0.8 MM_150080VS75000!!!F22!!!!!!!!!!
+S!N26040!LED2!1!@byggernnode1.schematic1(sch_1):ins25785@\150080vs75000\.\150080vs75000.normal\(chips)!150080VS75000_LEDC2012X80N_0.8 MM_150080VS75000!!!F22!!!!!!!!!!
+S!RS232_TX!LED3!2!@byggernnode1.schematic1(sch_1):ins25831@\150080vs75000\.\150080vs75000.normal\(chips)!150080VS75000_LEDC2012X80N_0.8 MM_150080VS75000!!!F21!!!!!!!!!!
+S!N26066!LED3!1!@byggernnode1.schematic1(sch_1):ins25831@\150080vs75000\.\150080vs75000.normal\(chips)!150080VS75000_LEDC2012X80N_0.8 MM_150080VS75000!!!F21!!!!!!!!!!
+S!!OLED_CONN1!1!@byggernnode1.schematic1(sch_1):ins39340@\wm4810-nd\.\705430011.normal\(sch_1)!705430011_CONN_SDA-70543-XXXX_12_MOL_CONN_012P_000C_1!!!F20!!!!!!!!!!
+S!NOT_WR!OLED_CONN1!10!@byggernnode1.schematic1(sch_1):ins39340@\wm4810-nd\.\705430011.normal\(sch_1)!705430011_CONN_SDA-70543-XXXX_12_MOL_CONN_012P_000C_1!!!F20!!!!!!!!!!
+S!MSB1!OLED_CONN1!11!@byggernnode1.schematic1(sch_1):ins39340@\wm4810-nd\.\705430011.normal\(sch_1)!705430011_CONN_SDA-70543-XXXX_12_MOL_CONN_012P_000C_1!!!F20!!!!!!!!!!
+S!OLED_CMD!OLED_CONN1!12!@byggernnode1.schematic1(sch_1):ins39340@\wm4810-nd\.\705430011.normal\(sch_1)!705430011_CONN_SDA-70543-XXXX_12_MOL_CONN_012P_000C_1!!!F20!!!!!!!!!!
+S!LSB7!OLED_CONN1!2!@byggernnode1.schematic1(sch_1):ins39340@\wm4810-nd\.\705430011.normal\(sch_1)!705430011_CONN_SDA-70543-XXXX_12_MOL_CONN_012P_000C_1!!!F20!!!!!!!!!!
+S!LSB6!OLED_CONN1!3!@byggernnode1.schematic1(sch_1):ins39340@\wm4810-nd\.\705430011.normal\(sch_1)!705430011_CONN_SDA-70543-XXXX_12_MOL_CONN_012P_000C_1!!!F20!!!!!!!!!!
+S!LSB5!OLED_CONN1!4!@byggernnode1.schematic1(sch_1):ins39340@\wm4810-nd\.\705430011.normal\(sch_1)!705430011_CONN_SDA-70543-XXXX_12_MOL_CONN_012P_000C_1!!!F20!!!!!!!!!!
+S!LSB4!OLED_CONN1!5!@byggernnode1.schematic1(sch_1):ins39340@\wm4810-nd\.\705430011.normal\(sch_1)!705430011_CONN_SDA-70543-XXXX_12_MOL_CONN_012P_000C_1!!!F20!!!!!!!!!!
+S!LSB3!OLED_CONN1!6!@byggernnode1.schematic1(sch_1):ins39340@\wm4810-nd\.\705430011.normal\(sch_1)!705430011_CONN_SDA-70543-XXXX_12_MOL_CONN_012P_000C_1!!!F20!!!!!!!!!!
+S!LSB2!OLED_CONN1!7!@byggernnode1.schematic1(sch_1):ins39340@\wm4810-nd\.\705430011.normal\(sch_1)!705430011_CONN_SDA-70543-XXXX_12_MOL_CONN_012P_000C_1!!!F20!!!!!!!!!!
+S!LSB1!OLED_CONN1!8!@byggernnode1.schematic1(sch_1):ins39340@\wm4810-nd\.\705430011.normal\(sch_1)!705430011_CONN_SDA-70543-XXXX_12_MOL_CONN_012P_000C_1!!!F20!!!!!!!!!!
+S!LSB0!OLED_CONN1!9!@byggernnode1.schematic1(sch_1):ins39340@\wm4810-nd\.\705430011.normal\(sch_1)!705430011_CONN_SDA-70543-XXXX_12_MOL_CONN_012P_000C_1!!!F20!!!!!!!!!!
+S!GND!R14!1!@byggernnode1.schematic1(sch_1):ins26068@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_330R!!!F9!!!!!!!!!!
+S!N26066!R14!2!@byggernnode1.schematic1(sch_1):ins26068@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_330R!!!F9!!!!!!!!!!
+S!GND!R2!1!@byggernnode1.schematic1(sch_1):ins18759@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_330R!!!F8!!!!!!!!!!
+S!N19457!R2!2!@byggernnode1.schematic1(sch_1):ins18759@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_330R!!!F8!!!!!!!!!!
+S!JOYSTICKY!R10!1!@byggernnode1.schematic1(sch_1):ins34405@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_330R!!!F12!!!!!!!!!!
+S!N34889!R10!2!@byggernnode1.schematic1(sch_1):ins34405@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_330R!!!F12!!!!!!!!!!
+S!JOYSTICKX!R11!1!@byggernnode1.schematic1(sch_1):ins34429@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_330R!!!F11!!!!!!!!!!
+S!N34393!R11!2!@byggernnode1.schematic1(sch_1):ins34429@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_330R!!!F11!!!!!!!!!!
+S!GND!R13!1!@byggernnode1.schematic1(sch_1):ins26010@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_330R!!!F10!!!!!!!!!!
+S!N26040!R13!2!@byggernnode1.schematic1(sch_1):ins26010@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_330R!!!F10!!!!!!!!!!
+S!CANL!R16!1!@byggernnode1.schematic1(sch_1):ins27682@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_120R!!!F6!!!!!!!!!!
+S!CANH!R16!2!@byggernnode1.schematic1(sch_1):ins27682@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_120R!!!F6!!!!!!!!!!
+S!CANL!R15!1!@byggernnode1.schematic1(sch_1):ins27720@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_INF!!!F7!!!!!!!!!!
+S!CANH!R15!2!@byggernnode1.schematic1(sch_1):ins27720@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_INF!!!F7!!!!!!!!!!
+S!N28651!R12!1!@byggernnode1.schematic1(sch_1):ins28068@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_10K!!!F18!!!!!!!!!!
+S!5V!R12!2!@byggernnode1.schematic1(sch_1):ins28068@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_10K!!!F18!!!!!!!!!!
+S!N58531!R3!1!@byggernnode1.schematic1(sch_1):ins61006@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_10K!!!F17!!!!!!!!!!
+S!GND!R3!2!@byggernnode1.schematic1(sch_1):ins61006@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_10K!!!F17!!!!!!!!!!
+S!N58523!R4!1!@byggernnode1.schematic1(sch_1):ins61458@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_10K!!!F16!!!!!!!!!!
+S!GND!R4!2!@byggernnode1.schematic1(sch_1):ins61458@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_10K!!!F16!!!!!!!!!!
+S!N58491!R5!1!@byggernnode1.schematic1(sch_1):ins61850@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_10K!!!F15!!!!!!!!!!
+S!GND!R5!2!@byggernnode1.schematic1(sch_1):ins61850@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_10K!!!F15!!!!!!!!!!
+S!N58487!R6!1!@byggernnode1.schematic1(sch_1):ins61912@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_10K!!!F14!!!!!!!!!!
+S!GND!R6!2!@byggernnode1.schematic1(sch_1):ins61912@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_10K!!!F14!!!!!!!!!!
+S!N71765!R7!1!@byggernnode1.schematic1(sch_1):ins71894@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_10K!!!F13!!!!!!!!!!
+S!GND!R7!2!@byggernnode1.schematic1(sch_1):ins71894@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_10K!!!F13!!!!!!!!!!
+S!RESET!R1!1!@byggernnode1.schematic1(sch_1):ins19596@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_10K!!!F19!!!!!!!!!!
+S!5V!R1!2!@byggernnode1.schematic1(sch_1):ins19596@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_10K!!!F19!!!!!!!!!!
+S!N45719!R8!1!@byggernnode1.schematic1(sch_1):ins44623@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_2K!!!F5!!!!!!!!!!
+S!SLIDERL2!R8!2!@byggernnode1.schematic1(sch_1):ins44623@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_2K!!!F5!!!!!!!!!!
+S!N43927!R9!1!@byggernnode1.schematic1(sch_1):ins44665@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_2K!!!F4!!!!!!!!!!
+S!SLIDERR!R9!2!@byggernnode1.schematic1(sch_1):ins44665@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)!ERJ-6GEYJ103V_RESC2012X70N_0.7 MM_2K!!!F4!!!!!!!!!!
+S!GND!S1!A1!@byggernnode1.schematic1(sch_1):ins18643@\evq-q2b02w\.\evq-q2b02w.normal\(chips)!EVQ-Q2B02W_EVQQ2B02W_2.5 MM_EVQ-Q2B02W!!!F3!!!!!!!!!!
+S!GND!S1!A2!@byggernnode1.schematic1(sch_1):ins18643@\evq-q2b02w\.\evq-q2b02w.normal\(chips)!EVQ-Q2B02W_EVQQ2B02W_2.5 MM_EVQ-Q2B02W!!!F3!!!!!!!!!!
+S!RESET!S1!B1!@byggernnode1.schematic1(sch_1):ins18643@\evq-q2b02w\.\evq-q2b02w.normal\(chips)!EVQ-Q2B02W_EVQQ2B02W_2.5 MM_EVQ-Q2B02W!!!F3!!!!!!!!!!
+S!RESET!S1!B2!@byggernnode1.schematic1(sch_1):ins18643@\evq-q2b02w\.\evq-q2b02w.normal\(chips)!EVQ-Q2B02W_EVQQ2B02W_2.5 MM_EVQ-Q2B02W!!!F3!!!!!!!!!!
+S!N45719!TOUCH_CONN1!1!@byggernnode1.schematic1(sch_1):ins43877@\wm4826-nd\.\705430038.normal\(sch_1)!705430038_CONN_SDA-70543-XXXX_04_MOL_CONN_004P_000C_1!!!F2!!!!!!!!!!
+S!PAD_BTN_L!TOUCH_CONN1!2!@byggernnode1.schematic1(sch_1):ins43877@\wm4826-nd\.\705430038.normal\(sch_1)!705430038_CONN_SDA-70543-XXXX_04_MOL_CONN_004P_000C_1!!!F2!!!!!!!!!!
+S!N43927!TOUCH_CONN1!3!@byggernnode1.schematic1(sch_1):ins43877@\wm4826-nd\.\705430038.normal\(sch_1)!705430038_CONN_SDA-70543-XXXX_04_MOL_CONN_004P_000C_1!!!F2!!!!!!!!!!
+S!PAD_BTN_R!TOUCH_CONN1!4!@byggernnode1.schematic1(sch_1):ins43877@\wm4826-nd\.\705430038.normal\(sch_1)!705430038_CONN_SDA-70543-XXXX_04_MOL_CONN_004P_000C_1!!!F2!!!!!!!!!!
+S!N01551!Y1!1!@byggernnode1.schematic1(sch_1):ins16619@\abls-4.9152mhz-b4-t\.\abls-4.9152mhz-b4-t.normal\(chips)!ABLS-4.9152MHZ-B4-T_ABLS_ABLS-4.9152MHZ-B4-T!!!F1!!!!!!!!!!
+S!N16537!Y1!2!@byggernnode1.schematic1(sch_1):ins16619@\abls-4.9152mhz-b4-t\.\abls-4.9152mhz-b4-t.normal\(chips)!ABLS-4.9152MHZ-B4-T_ABLS_ABLS-4.9152MHZ-B4-T!!!F1!!!!!!!!!!
+S!N01323!Y2!1!@byggernnode1.schematic1(sch_1):ins17463@\ecs-160-20-5px-tr\.\ecs-160-20-5px-tr.normal\(chips)!ECS-160-20-5PX-TR_ECS160205PXTR_4.3 MM_ECS-160-20-5PX-TR!!!F0!!!!!!!!!!
+S!N17634!Y2!2!@byggernnode1.schematic1(sch_1):ins17463@\ecs-160-20-5px-tr\.\ecs-160-20-5px-tr.normal\(chips)!ECS-160-20-5PX-TR_ECS160205PXTR_4.3 MM_ECS-160-20-5PX-TR!!!F0!!!!!!!!!!

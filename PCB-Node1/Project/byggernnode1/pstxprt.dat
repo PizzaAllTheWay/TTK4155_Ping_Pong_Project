@@ -1,0 +1,846 @@
+FILE_TYPE = EXPANDEDPARTLIST;
+{ Using PSTWRITER 24.1.0 d001Nov-04-2024 at 19:16:30 }
+DIRECTIVES
+ PST_VERSION='PST_HDL_CENTRIC_VERSION_0';
+ ROOT_DRAWING='BYGGERNNODE1';
+ POST_TIME='Sep  4 2024 20:54:11';
+ SOURCE_TOOL='CAPTURE_WRITER';
+END_DIRECTIVES;
+
+PART_NAME
+ C1 '865080253012_CAPAE830X1050N_865':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS14696@865080253012.865080253012.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins14696@\865080253012\.\865080253012.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins14696@\865080253012\.\865080253012.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(35,125)',
+ SECTION='';
+
+PART_NAME
+ C10 '885012107010_CAPC2012X145N_10U':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS66487@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins66487@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins66487@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1240,320)',
+ SECTION='';
+
+PART_NAME
+ C11 '885012107010_CAPC2012X145N_20P':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS62644@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins62644@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins62644@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1400,320)',
+ SECTION='';
+
+PART_NAME
+ C12 '885012107010_CAPC2012X145N_10U':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS62668@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins62668@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins62668@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1445,320)',
+ SECTION='';
+
+PART_NAME
+ C13 '885012107010_CAPC2012X145N_20P':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS29909@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins29909@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins29909@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(830,370)',
+ SECTION='';
+
+PART_NAME
+ C14 '885012107010_CAPC2012X145N_10U':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS29933@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins29933@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins29933@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(875,370)',
+ SECTION='';
+
+PART_NAME
+ C15 '885012107010_CAPC2012X145N_10U':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS29987@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins29987@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins29987@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(920,370)',
+ SECTION='';
+
+PART_NAME
+ C16 '885012107010_CAPC2012X145N_10U':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS15310@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins15310@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins15310@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(365,405)',
+ SECTION='';
+
+PART_NAME
+ C17 '885012107010_CAPC2012X145N_10U':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS14968@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins14968@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins14968@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(185,405)',
+ SECTION='';
+
+PART_NAME
+ C18 '885012107010_CAPC2012X145N_10U':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS15269@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins15269@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins15269@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(275,405)',
+ SECTION='';
+
+PART_NAME
+ C19 '885012107010_CAPC2012X145N_20P':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS18299@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins18299@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins18299@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(315,605)',
+ SECTION='';
+
+PART_NAME
+ C2 '865080457015_CAPAE1030X1050N_86':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS14093@865080457015.865080457015.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins14093@\865080457015\.\865080457015.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins14093@\865080457015\.\865080457015.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(135,125)',
+ SECTION='';
+
+PART_NAME
+ C20 '885012107010_CAPC2012X145N_20P':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS18323@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins18323@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins18323@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(355,605)',
+ SECTION='';
+
+PART_NAME
+ C21 '885012107010_CAPC2012X145N_20P':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS22432@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins22432@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins22432@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(25,780)',
+ SECTION='';
+
+PART_NAME
+ C22 '885012107010_CAPC2012X145N_10U':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS22092@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins22092@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins22092@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(65,780)',
+ SECTION='';
+
+PART_NAME
+ C23 '885012107010_CAPC2012X145N_100N':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS46205@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins46205@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins46205@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1280,800)',
+ SECTION='';
+
+PART_NAME
+ C24 '885012107010_CAPC2012X145N_100N':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS46245@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins46245@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins46245@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1380,805)',
+ SECTION='';
+
+PART_NAME
+ C25 '885012107010_CAPC2012X145N_10U':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS36319@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins36319@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins36319@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1505,805)',
+ SECTION='';
+
+PART_NAME
+ C26 '885012107010_CAPC2012X145N_10U':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS36250@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins36250@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins36250@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1565,805)',
+ SECTION='';
+
+PART_NAME
+ C27 '885012107010_CAPC2012X145N_20P':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS17521@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins17521@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins17521@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(535,890)',
+ SECTION='';
+
+PART_NAME
+ C28 '885012107010_CAPC2012X145N_20P':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS17567@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins17567@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins17567@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(575,890)',
+ SECTION='';
+
+PART_NAME
+ C29 '885012107010_CAPC2012X145N_20P':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS29187@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins29187@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins29187@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(495,1030)',
+ SECTION='';
+
+PART_NAME
+ C3 '885012107010_CAPC2012X145N_20P':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS32034@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins32034@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins32034@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1015,125)',
+ SECTION='';
+
+PART_NAME
+ C30 '885012107010_CAPC2012X145N_10U':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS28941@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins28941@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins28941@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(550,1030)',
+ SECTION='';
+
+PART_NAME
+ C31 '885012107010_CAPC2012X145N_20P':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS86467@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins86467@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins86467@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(900,760)',
+ SECTION='';
+
+PART_NAME
+ C32 '885012107010_CAPC2012X145N_10U':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS86491@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins86491@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins86491@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(940,760)',
+ SECTION='';
+
+PART_NAME
+ C33 '885012107010_CAPC2012X145N_10U':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS87839@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins87839@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins87839@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(820,1070)',
+ SECTION='';
+
+PART_NAME
+ C4 '885012107010_CAPC2012X145N_10U':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS32058@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins32058@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins32058@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1050,125)',
+ SECTION='';
+
+PART_NAME
+ C5 '885012107010_CAPC2012X145N_10U':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS15846@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins15846@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins15846@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1495,130)',
+ SECTION='';
+
+PART_NAME
+ C6 '885012107010_CAPC2012X145N_10U':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS15958@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins15958@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins15958@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1545,130)',
+ SECTION='';
+
+PART_NAME
+ C7 '885012107010_CAPC2012X145N_20P':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS32888@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins32888@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins32888@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1445,130)',
+ SECTION='';
+
+PART_NAME
+ C8 '885012107010_CAPC2012X145N_10U':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS19509@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins19509@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins19509@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(565,160)',
+ SECTION='';
+
+PART_NAME
+ C9 '885012107010_CAPC2012X145N_20P':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS66463@885012107010.885012107010.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins66463@\885012107010\.\885012107010.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins66463@\885012107010\.\885012107010.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1195,320)',
+ SECTION='';
+
+PART_NAME
+ CAN_CONN1 'M20-9990345_CONN_M20-99903XX_HR':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS47865@952-2263-ND.M20-9990345.NORMAL(SCH_1)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins47865@\952-2263-nd\.\m20-9990345.normal\(sch_1)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins47865@\952-2263-nd\.\m20-9990345.normal\(sch_1)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1100,1015)',
+ SECTION='';
+
+PART_NAME
+ D1 'SP3031-01ETG_SP303101ETG_SP3031':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS107793@SP3031-01ETG.SP3031-01ETG.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins107793@\sp3031-01etg\.\sp3031-01etg.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins107793@\sp3031-01etg\.\sp3031-01etg.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(230,130)',
+ SECTION='';
+
+PART_NAME
+ D2 'SP3031-01ETG_SP303101ETG_SP3031':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS107386@SP3031-01ETG.SP3031-01ETG.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins107386@\sp3031-01etg\.\sp3031-01etg.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins107386@\sp3031-01etg\.\sp3031-01etg.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(645,150)',
+ SECTION='';
+
+PART_NAME
+ H1 '9774015960R_9774015960R_MOUNT':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS89848@9774015960R.9774015960R.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins89848@\9774015960r\.\9774015960r.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins89848@\9774015960r\.\9774015960r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1065,600)',
+ SECTION='';
+
+PART_NAME
+ H2 '9774015960R_9774015960R_MOUNT':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS89870@9774015960R.9774015960R.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins89870@\9774015960r\.\9774015960r.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins89870@\9774015960r\.\9774015960r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1095,600)',
+ SECTION='';
+
+PART_NAME
+ H3 '9774015960R_9774015960R_MOUNT':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS89900@9774015960R.9774015960R.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins89900@\9774015960r\.\9774015960r.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins89900@\9774015960r\.\9774015960r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1125,600)',
+ SECTION='';
+
+PART_NAME
+ IC1 'MC7805ACTG_TO254P482X997X2018-3':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS13066@MC7805ACTG.MC7805ACTG.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins13066@mc7805actg.\mc7805actg.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins13066@mc7805actg.\mc7805actg.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(320,75)',
+ SECTION='';
+
+PART_NAME
+ IC2 'SN74HC00N_DIPS762W60P254L1778H5':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS550@SN74HC00N.SN74HC00N.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins550@sn74hc00n.\sn74hc00n.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins550@sn74hc00n.\sn74hc00n.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(855,95)',
+ SECTION='';
+
+PART_NAME
+ IC3 'MAX156BCNG+_DIPS762W60P254L3048':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS441@MAX156BCNG+.MAX156BCNG+.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins441@\max156bcng+\.\max156bcng+.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins441@\max156bcng+\.\max156bcng+.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1275,40)',
+ SECTION='';
+
+PART_NAME
+ IC4 'ATMEGA162-16PU_DIPS1544W70P254L':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS102@ATMEGA162-16PU.ATMEGA162-16PU.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins102@\atmega162-16pu\.\atmega162-16pu.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(515,335)',
+ SECTION='';
+
+PART_NAME
+ IC5 'SN74ALS573CN_DILB20P223TLF_SN74':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS336@SN74ALS573CN.SN74ALS573CN.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins336@sn74als573cn.\sn74als573cn.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins336@sn74als573cn.\sn74als573cn.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1095,375)',
+ SECTION='';
+
+PART_NAME
+ IC6 'MAX233CPP+_DILB20P223TLF_MAX233':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS95527@MAX233CPP+.MAX233CPP+.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins95527@\max233cpp+\.\max233cpp+.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins95527@\max233cpp+\.\max233cpp+.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(260,755)',
+ SECTION='';
+
+PART_NAME
+ IC7 'MCP2515-I_P_DIPS762W60P254L2286':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS631@MCP2515-I_P.MCP2515-I_P.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins631@\mcp2515-i_p\.\mcp2515-i_p.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins631@\mcp2515-i_p\.\mcp2515-i_p.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(665,730)',
+ SECTION='';
+
+PART_NAME
+ IC8 'MCP2551-I_P_DIPS762W60P254L1016':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS704@MCP2551-I_P.MCP2551-I_P.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins704@\mcp2551-i_p\.\mcp2551-i_p.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins704@\mcp2551-i_p\.\mcp2551-i_p.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(725,1010)',
+ SECTION='';
+
+PART_NAME
+ J1 '691418320002_WR-TBL_69141832000':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS82256@WR-TBL_6914183200XX.691418320002.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins82256@\wr-tbl_6914183200xx\.\691418320002.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins82256@\wr-tbl_6914183200xx\.\691418320002.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(180,45)',
+ SECTION='';
+
+PART_NAME
+ J2 'ED281DT_1_DIPS762W80P254L3556H5':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS56929@BYGGERNNODE1.ED281DT_1.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins56929@byggernnode1.\ed281dt_1.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins56929@byggernnode1.\ed281dt_1.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1305,365)',
+ SECTION='';
+
+PART_NAME
+ J5 '618009231121_618009231121_61800':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS105287@618009231121.618009231121.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins105287@\618009231121\.\618009231121.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins105287@\618009231121\.\618009231121.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(320,945)',
+ SECTION='A';
+
+PART_NAME
+ JTAG_CONN1 '67997-210HLF_CONN_67997-210HLF_':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS40919@609-3236-ND.67997-210HLF.NORMAL(SCH_1)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins40919@\609-3236-nd\.\67997-210hlf.normal\(sch_1)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins40919@\609-3236-nd\.\67997-210hlf.normal\(sch_1)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1355,915)',
+ SECTION='';
+
+PART_NAME
+ JOYSTICK_CONN1 'M20-9990345_CONN_M20-99903XX_HR':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS34365@952-2263-ND.M20-9990345.NORMAL(SCH_1)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins34365@\952-2263-nd\.\m20-9990345.normal\(sch_1)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins34365@\952-2263-nd\.\m20-9990345.normal\(sch_1)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1520,605)',
+ SECTION='';
+
+PART_NAME
+ LED1 '150080VS75000_LEDC2012X80N_1500':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS19388@150080VS75000.150080VS75000.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins19388@\150080vs75000\.\150080vs75000.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins19388@\150080vs75000\.\150080vs75000.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(145,325)',
+ SECTION='';
+
+PART_NAME
+ LED2 '150080VS75000_LEDC2012X80N_1500':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS25785@150080VS75000.150080VS75000.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins25785@\150080vs75000\.\150080vs75000.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins25785@\150080vs75000\.\150080vs75000.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(40,995)',
+ SECTION='';
+
+PART_NAME
+ LED3 '150080VS75000_LEDC2012X80N_1500':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS25831@150080VS75000.150080VS75000.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins25831@\150080vs75000\.\150080vs75000.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins25831@\150080vs75000\.\150080vs75000.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(140,995)',
+ SECTION='';
+
+PART_NAME
+ OLED_CONN1 '705430011_CONN_SDA-70543-XXXX_1':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS39340@WM4810-ND.705430011.NORMAL(SCH_1)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins39340@\wm4810-nd\.\705430011.normal\(sch_1)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins39340@\wm4810-nd\.\705430011.normal\(sch_1)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1545,910)',
+ SECTION='';
+
+PART_NAME
+ R1 'ERJ-6GEYJ103V_RESC2012X70N_10K':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS19596@ERJ-6GEYJ103V.ERJ-6GEYJ103V.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins19596@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins19596@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(585,70)',
+ SECTION='';
+
+PART_NAME
+ R10 'ERJ-6GEYJ103V_RESC2012X70N_330R':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS34405@ERJ-6GEYJ103V.ERJ-6GEYJ103V.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins34405@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins34405@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1510,710)',
+ SECTION='';
+
+PART_NAME
+ R11 'ERJ-6GEYJ103V_RESC2012X70N_330R':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS34429@ERJ-6GEYJ103V.ERJ-6GEYJ103V.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins34429@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins34429@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1570,710)',
+ SECTION='';
+
+PART_NAME
+ R12 'ERJ-6GEYJ103V_RESC2012X70N_10K':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS28068@ERJ-6GEYJ103V.ERJ-6GEYJ103V.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins28068@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins28068@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(815,965)',
+ SECTION='';
+
+PART_NAME
+ R13 'ERJ-6GEYJ103V_RESC2012X70N_330R':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS26010@ERJ-6GEYJ103V.ERJ-6GEYJ103V.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins26010@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins26010@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(55,1070)',
+ SECTION='';
+
+PART_NAME
+ R14 'ERJ-6GEYJ103V_RESC2012X70N_330R':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS26068@ERJ-6GEYJ103V.ERJ-6GEYJ103V.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins26068@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins26068@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(155,1070)',
+ SECTION='';
+
+PART_NAME
+ R15 'ERJ-6GEYJ103V_RESC2012X70N_INF':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS27720@ERJ-6GEYJ103V.ERJ-6GEYJ103V.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins27720@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins27720@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(930,1020)',
+ SECTION='';
+
+PART_NAME
+ R16 'ERJ-6GEYJ103V_RESC2012X70N_120R':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS27682@ERJ-6GEYJ103V.ERJ-6GEYJ103V.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins27682@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins27682@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(965,1020)',
+ SECTION='';
+
+PART_NAME
+ R2 'ERJ-6GEYJ103V_RESC2012X70N_330R':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS18759@ERJ-6GEYJ103V.ERJ-6GEYJ103V.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins18759@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins18759@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(120,395)',
+ SECTION='';
+
+PART_NAME
+ R3 'ERJ-6GEYJ103V_RESC2012X70N_10K':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS61006@ERJ-6GEYJ103V.ERJ-6GEYJ103V.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins61006@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins61006@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1455,475)',
+ SECTION='';
+
+PART_NAME
+ R4 'ERJ-6GEYJ103V_RESC2012X70N_10K':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS61458@ERJ-6GEYJ103V.ERJ-6GEYJ103V.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins61458@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins61458@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1495,475)',
+ SECTION='';
+
+PART_NAME
+ R5 'ERJ-6GEYJ103V_RESC2012X70N_10K':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS61850@ERJ-6GEYJ103V.ERJ-6GEYJ103V.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins61850@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins61850@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1530,475)',
+ SECTION='';
+
+PART_NAME
+ R6 'ERJ-6GEYJ103V_RESC2012X70N_10K':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS61912@ERJ-6GEYJ103V.ERJ-6GEYJ103V.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins61912@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins61912@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1570,475)',
+ SECTION='';
+
+PART_NAME
+ R7 'ERJ-6GEYJ103V_RESC2012X70N_10K':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS71894@ERJ-6GEYJ103V.ERJ-6GEYJ103V.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins71894@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins71894@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1235,495)',
+ SECTION='';
+
+PART_NAME
+ R8 'ERJ-6GEYJ103V_RESC2012X70N_2K':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS44623@ERJ-6GEYJ103V.ERJ-6GEYJ103V.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins44623@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins44623@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1285,705)',
+ SECTION='';
+
+PART_NAME
+ R9 'ERJ-6GEYJ103V_RESC2012X70N_2K':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS44665@ERJ-6GEYJ103V.ERJ-6GEYJ103V.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins44665@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins44665@\erj-6geyj103v\.\erj-6geyj103v.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1385,705)',
+ SECTION='';
+
+PART_NAME
+ S1 'EVQ-Q2B02W_EVQQ2B02W_EVQ-Q2B02W':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS18643@EVQ-Q2B02W.EVQ-Q2B02W.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins18643@\evq-q2b02w\.\evq-q2b02w.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins18643@\evq-q2b02w\.\evq-q2b02w.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(440,150)',
+ SECTION='A';
+
+PART_NAME
+ TOUCH_CONN1 '705430038_CONN_SDA-70543-XXXX_0':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS43877@WM4826-ND.705430038.NORMAL(SCH_1)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins43877@\wm4826-nd\.\705430038.normal\(sch_1)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins43877@\wm4826-nd\.\705430038.normal\(sch_1)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1280,600)',
+ SECTION='';
+
+PART_NAME
+ Y1 'ABLS-4.9152MHZ-B4-T_ABLS_ABLS-4':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS16619@ABLS-4.9152MHZ-B4-T.ABLS-4.9152MHZ-B4-T.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins16619@\abls-4.9152mhz-b4-t\.\abls-4.9152mhz-b4-t.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins16619@\abls-4.9152mhz-b4-t\.\abls-4.9152mhz-b4-t.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(335,545)',
+ SECTION='';
+
+PART_NAME
+ Y2 'ECS-160-20-5PX-TR_ECS160205PXTR':;
+
+SECTION_NUMBER 1
+ '@BYGGERNNODE1.SCHEMATIC1(SCH_1):INS17463@ECS-160-20-5PX-TR.ECS-160-20-5PX-TR.NORMAL(CHIPS)':
+ C_PATH='@byggernnode1.schematic1(sch_1):ins17463@\ecs-160-20-5px-tr\.\ecs-160-20-5px-tr.normal\(chips)',
+ P_PATH='@byggernnode1.schematic1(sch_1):page1_ins17463@\ecs-160-20-5px-tr\.\ecs-160-20-5px-tr.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(555,830)',
+ SECTION='';
+
+END.

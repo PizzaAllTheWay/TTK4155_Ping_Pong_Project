@@ -1,0 +1,120 @@
+Mon Nov  4 23:16:59 2024				Page     1
+
+
+ 
+Update Symbols/Modules Logfile
+	Mon Nov  4 23:16:59 2024
+
+------ Module Refresh Messages ------
+
+SUMMARY:    Updated 0 out of 0 modules
+
+------ End Module Messages     ------
+
+
+
+(---------------------------------------------------------------------)
+(                                                                     )
+(    Refresh Symbol                                                   )
+(                                                                     )
+(    Drawing          : byggernnode1.brd                              )
+(    Software Version : 24.1P001                                      )
+(    Date/Time        : Mon Nov  4 23:17:00 2024                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+Mon Nov  4 23:17:00 2024				Page     1
+
+
+------ Symbol Refresh Directives ------
+
+Input design  = 'C:/Users/benja/AppData/Roaming/SPB_Data/cdssetup/workspace/projects/byggernnode1/allegro/byggernnode1.brd'
+Output design = ''
+
+Update mechanical symbols              = 'NO'
+Update format symbols                  = 'NO'
+Update package symbols                 = 'YES'
+Update shape/flash symbols             = 'NO'
+Update symbol padstacks                = 'NO'
+Preserve padstacks replaced on pins    = 'NO'
+Reset symbol text and size locations   = 'YES'
+Reset Pin Escapes (fanouts)            = 'NO'
+Ripup Etch                             = 'NO'
+Reset custom drill data                = 'NO'
+
+
+------ Library Paths ------
+PSMPATH =  . 
+           symbols 
+           C:/Cadence/company/pcb/symbols/connector 
+           C:/Cadence/company/pcb/symbols/ic 
+           C:/Cadence/company/pcb/symbols/other_symbols 
+           C:/Cadence/company/pcb/symbols/padsyms 
+           C:/Cadence/company/pcb/symbols/smd_misc 
+           C:/Cadence/company/pcb/symbols/tht_misc 
+           C:/Cadence/company/pcb/symbols/Student 
+           C:/Cadence/company/pcb/symbols/SmartStart 
+           C:/Cadence/_vortex/sch/ARDUINO_NANO 
+           C:/Cadence/Component_library/symbols/symbols 
+           C:/Cadence/Component_library/symbols/symbols/Cadence_WCAP-ASLL 
+           (rev22b)/WCAP-ASLL_rev22b/16x17 
+           C:/Cadence/Component_library/symbols 
+           C:/Users/benja/AppData/Roaming/SPB_Data/cdssetup/OrCAD_Capture/17.4.0/downloaded_parts/allegropcb 
+           C:/Cadence/Component_library/padstacks 
+           C:/Users/benja/AppData/Roaming/SPB_Data/cdssetup/OrCAD_Capture/23.1.0/downloaded_parts/allegropcb 
+           C:/Users/benja/AppData/Roaming/SPB_Data/cdssetup/OrCAD_Capture/24.1.0/downloaded_parts/allegropcb 
+           C:/Users/benja/AppData/Roaming/SPB_Data/cdssetup/OrCAD_Capture/24.1.0/downloaded_parts/Wurth 
+           C:/Users/benja/Downloads/Cadence_WR-TBL (rev23h)/WR-TBL_rev23h/Spring clamp/Pitch 3.81mm/6914183200xx 
+           C:/Users/benja/Downloads/Cadence_WR-TBL (rev23h)/WR-TBL_rev23h/Spring clamp/Pitch 3.81mm/6914183200xx 
+
+PADPATH =  . 
+           symbols 
+           padstacks 
+           C:/Users/benja/AppData/Roaming/SPB_Data/cdssetup/OrCAD_Capture/17.4.0/downloaded_parts/allegropcb 
+           C:/Cadence/Component_library/padstacks 
+           C:/Cadence/company/pcb/padstacks 
+           C:/Cadence/company/pcb/padstacks/student 
+           C:/Cadence/company/pcb/padstacks/smartstart 
+           C:/Cadence/Component_library/symbols/symbols 
+           C:/Cadence/Component_library/padstacks/padstacks 
+           C:/Cadence/Component_library/symbols/symbols/Cadence_WCAP-ASLL 
+           (rev22b)/WCAP-ASLL_rev22b/16x17 
+           C:/Users/benja/AppData/Roaming/SPB_Data/cdssetup/OrCAD_Capture/23.1.0/downloaded_parts/allegropcb 
+           C:/Users/benja/AppData/Roaming/SPB_Data/cdssetup/OrCAD_Capture/24.1.0/downloaded_parts/allegropcb 
+           C:/Users/benja/AppData/Roaming/SPB_Data/cdssetup/OrCAD_Capture/24.1.0/downloaded_parts/Wurth 
+
+
+------ Symbol Refresh Messages ------
+
+'SP303101ETG'  symbol refreshed successfully.
+'618009231121'  symbol refreshed successfully.
+'WR-TBL_691418320002'  symbol refreshed successfully.
+'DIPS762W60P254L2286H525Q18N'  symbol refreshed successfully.
+'DIPS762W60P254L1778H530Q14N'  symbol refreshed successfully.
+'DIPS762W60P254L3048H525Q24N'  symbol refreshed successfully.
+'DIPS762W60P254L1016H525Q8N'  symbol refreshed successfully.
+'DIPS1544W70P254L5080H530Q40N'  symbol refreshed successfully.
+'DILB20P223TLF'  symbol refreshed successfully.
+'9774015960R'  symbol refreshed successfully.
+'RESC2012X70N'  symbol refreshed successfully.
+'LEDC2012X80N'  symbol refreshed successfully.
+'CAPC2012X145N'  symbol refreshed successfully.
+'DIPS762W80P254L3556H525Q28N'  symbol refreshed successfully.
+'EVQQ2B02W'  symbol refreshed successfully.
+'ABLS'  symbol refreshed successfully.
+'ECS160205PXTR'  symbol refreshed successfully.
+'CONN_SDA-70543-XXXX_04_MOL'  symbol refreshed successfully.
+'CONN_SDA-70543-XXXX_12_MOL'  symbol refreshed successfully.
+'CONN_67997-210HLF_AMP'  symbol refreshed successfully.
+'TO254P482X997X2018-3P'  symbol refreshed successfully.
+'CONN_M20-99903XX_HRW'  symbol refreshed successfully.
+'CAPAE1030X1050N'  symbol refreshed successfully.
+'CAPAE830X1050N'  symbol refreshed successfully.
+
+
+----- Symbol Update Summary ----
+
+Updated symbols: 24 out 24
+    Design updated.
+

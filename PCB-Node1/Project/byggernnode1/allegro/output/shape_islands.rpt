@@ -1,0 +1,18 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    Shape Island Report                                              )
+(                                                                     )
+(    Drawing          : byggernnode1.brd                              )
+(    Software Version : 24.1P001                                      )
+(    Date/Time        : Wed Nov  6 06:03:26 2024                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+  Total islands on design: 1
+
+
+  <<<  ETCH  >>>
+
+    Layer = LAYER_1
+	Point on shape: (146.5666 227.0778)  Net: 5V

@@ -81,7 +81,7 @@ void pwm_driver_init() {
 	// Like for example setting PIO pins up for PWM mode
 	// After disabling write locking we wait and check that the permissions are set as we want
 	//
-	// WPEN = 0 (Disables the Write Protect if WPKEY corresponds to 0x535343 (ìSSCî in ASCII))
+	// WPEN = 0 (Disables the Write Protect if WPKEY corresponds to 0x535343 (‚ÄúSSC‚Äù in ASCII))
 	// SSC_WRITE_PROTECT_KEY = 0x535343 (Idiot security to ensure the person who is writing to PWM signals has read the data sheet and understands the consequences of fucking up PWM registers, withouth this key no further PWM action can be made)
 	//
 	// For more information about write protection registers, read ATSAM3X8E Data Sheet:
@@ -183,7 +183,7 @@ void pwm_driver_init() {
 	// For this we configure the PMC write protect register
 	// After that we check and wait that we have actually disabled write protections for PMC registers
 	// 
-	// WPEN = 0 (Disables the Write Protect if WPKEY corresponds to 0x504D43 (ìSSCî in ASCII))
+	// WPEN = 0 (Disables the Write Protect if WPKEY corresponds to 0x504D43 (‚ÄúSSC‚Äù in ASCII))
 	// PMC_WRITE_PROTECT_KEY = 0x504D43 (Idiot security to ensure the person who is writing to PWM signals has read the data sheet and understands the consequences of fucking up PWM registers, withouth this key no further PWM action can be made)
 	//
 	// For more information about PMC Write Protection, read ATSAM3X8E Data Sheet:
@@ -258,7 +258,7 @@ void pwm_driver_init() {
 	//		3. Waveform alignment CALG field in PWM_CMRx register for PWM
 	// We have 8 PWM channels and so PWM_CMRx where x=[0-7]
 	// We will be using PWM_CH_NUM[0], because Pin PB12 is connects to PWMH0 (PWM Controller channel 0) (Motor Control)
-	// We will be using PWM_CH_NUM[1], because Pin PB12 is connects to PWMH1 (PWM Controller Channel 1) (Servo Control)
+	// We will be using PWM_CH_NUM[1], because Pin PB13 is connects to PWMH1 (PWM Controller Channel 1) (Servo Control)
 	//
 	// We want a standard PWM, which means:
 	//		bit 0 - 3: CPRE = 0x0B (0b1011: Use PWM Clock A for frequency)
@@ -291,7 +291,7 @@ void pwm_driver_init() {
 	// Servo Requires 20 ms waveform period (50 kHz)
 	// Servo also works only in ranges of 0.9 - 2.1 ms duty cycle
 	// We will be using PWM_CH_NUM[0], because Pin PB12 is connects to PWMH0 (PWM Controller channel 0) (Motor Control)
-	// We will be using PWM_CH_NUM[1], because Pin PB12 is connects to PWMH1 (PWM Controller Channel 1) (Servo Control)
+	// We will be using PWM_CH_NUM[1], because Pin PB13 is connects to PWMH1 (PWM Controller Channel 1) (Servo Control)
 	//
 	// Waveform Period:
 	// Since we have configured PWM_CMRx PWM to have left aligned wave form

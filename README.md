@@ -7,12 +7,7 @@ Let the grind BEGIN!
 
 
 # Demo Video
-![Demo Video](https://www.youtube.com/watch?v=QTJpXrNRjtw&ab_channel=Martynasmartynas/0.jpg)
-
-<iframe width="560" height="315" 
-        src="https://www.youtube.com/watch?v=QTJpXrNRjtw&ab_channel=Martynasmartynas" 
-        frameborder="0" allowfullscreen>
-</iframe>
+[![Demo Video](https://img.youtube.com/vi/QTJpXrNRjtw/0.jpg)](https://www.youtube.com/watch?v=QTJpXrNRjtw)
 
 
 

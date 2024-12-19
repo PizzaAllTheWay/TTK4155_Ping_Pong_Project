@@ -9,6 +9,7 @@ Let the grind BEGIN!
 # Demo Video
 [![Demo Video](https://img.youtube.com/vi/QTJpXrNRjtw/0.jpg)](https://www.youtube.com/watch?v=QTJpXrNRjtw)
 
+Raw link: https://www.youtube.com/watch?v=QTJpXrNRjtw
 
 
 # PCB
